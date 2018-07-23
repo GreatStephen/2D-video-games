@@ -12,9 +12,9 @@
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
 function MyGame() {
-
+/*
     this.kMinionSprite = "assets/minion_sprite.png";
-    /*
+
     this.kPlatformTexture = "assets/platform.png";
     this.kWallTexture = "assets/wall.png";
     this.kTargetTexture = "assets/target.png";
@@ -41,6 +41,14 @@ function MyGame() {
     this.bgPalace = "";
     this.bgForest = null;
     this.mHero = null;
+    this.mHealth = null;
+    this.mHealthValue = 100;
+    this.mHunger = null;
+    this.mHungerValue = 100;
+    this.mAttack = null;
+    this.mAttackValue = 10;
+    this.mDefense = null;
+    this.mDefenseValue = 10;
 
     this.mCamera = null;
     this.attributeCamera = null;
@@ -79,14 +87,15 @@ MyGame.prototype.initialize = function () {
         100,                     // width of camera
         [0, 0, 800, 600]         // viewport (orgX, orgY, width, height)
     );
-    this.mCamera.setBackgroundColor([0.8, 0.8, 0.8, 1]);
+    this.mCamera.setBackgroundColor([0.8, 0.8, 0.8, 1.0]);
 
     // setup attribute camera on the top-left corner
     this.attributeCamera = new Camera(
-        vec2.fromValues(150,40),
+        vec2.fromValues(50,140),
         100,
-        [50,0,100,75]
+        [50,430,160,120]
     );
+    this.attributeCamera.setBackgroundColor([0.9,0.9,0.9,1]);
 
             // sets the background to gray
     gEngine.DefaultResources.setGlobalAmbientIntensity(3);
@@ -121,8 +130,32 @@ MyGame.prototype.initialize = function () {
     */
     this.bgForest = new TextureRenderable(this.bgForestTexture);
     this.bgForest.setColor([0,0,0,0]);
-    this.bgForest.getXform().setSize(200,80);
+    this.bgForest.getXform().setSize(200,75);
     this.bgForest.getXform().setPosition(100,40);
+
+    // health
+    this.mHealth = new FontRenderable("Health: "+this.mHealthValue+"/100");
+    this.mHealth.setColor([0,0,0,1]);
+    this.mHealth.getXform().setPosition(10,163.5);
+    this.mHealth.setTextHeight(9);
+
+    // hunger
+    this.mHunger = new FontRenderable("Hunger: " + this.mHungerValue + "/100");
+    this.mHunger.setColor([0, 0, 0, 1]);
+    this.mHunger.getXform().setPosition(10, 150.5);
+    this.mHunger.setTextHeight(9);
+
+    // attack
+    this.mAttack = new FontRenderable("Attack: " + this.mAttackValue);
+    this.mAttack.setColor([0, 0, 0, 1]);
+    this.mAttack.getXform().setPosition(10, 137.5);
+    this.mAttack.setTextHeight(9);
+
+    // defense
+    this.mDefense = new FontRenderable("Defense: " + this.mDefenseValue);
+    this.mDefense.setColor([0, 0, 0, 1]);
+    this.mDefense.getXform().setPosition(10, 124.5);
+    this.mDefense.setTextHeight(9);
 
 };
 
@@ -148,6 +181,12 @@ MyGame.prototype.draw = function () {
     this.mAllParticles.draw(this.mCamera);
     */
     this.bgForest.draw(this.mCamera);
+
+    this.attributeCamera.setupViewProjection();
+    this.mHealth.draw(this.attributeCamera);
+    this.mHunger.draw(this.attributeCamera);
+    this.mAttack.draw(this.attributeCamera);
+    this.mDefense.draw(this.attributeCamera);
 };
 
 /*
