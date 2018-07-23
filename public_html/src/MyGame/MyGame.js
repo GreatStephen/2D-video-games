@@ -55,6 +55,8 @@ function MyGame() {
     this.mEventSet = null;
     this.kKnight = "assets/Knight.png";
 
+    this.isBagOpened = false;
+
 }
 gEngine.Core.inheritPrototype(MyGame, Scene);
 
@@ -298,7 +300,7 @@ MyGame.prototype.update = function () {
         this.mKnight.draw(this.mCamera);
     }
     
-    if (gEngine.Input.isKeyPressed(gEngine.Input.keys.U)) {
+    if (gEngine.Input.isKeyClicked(gEngine.Input.keys.U)) {
         if(this.flag==1){
             this.flag=0;
         }
