@@ -52,6 +52,7 @@ function MyGame() {
 
     this.mCamera = null;
     this.attributeCamera = null;
+    this.mEventSet = null;
 
 }
 gEngine.Core.inheritPrototype(MyGame, Scene);
@@ -156,6 +157,7 @@ MyGame.prototype.initialize = function () {
     this.mDefense.setColor([0, 0, 0, 1]);
     this.mDefense.getXform().setPosition(10, 124.5);
     this.mDefense.setTextHeight(9);
+    this.mEventSet = new EventSet(3);
 
 };
 
@@ -187,6 +189,9 @@ MyGame.prototype.draw = function () {
     this.mHunger.draw(this.attributeCamera);
     this.mAttack.draw(this.attributeCamera);
     this.mDefense.draw(this.attributeCamera);
+    for(var i=0;i<3;i++){
+        this.mEventSet[i].icon.draw(this.mCamera);
+    }
 };
 
 /*
