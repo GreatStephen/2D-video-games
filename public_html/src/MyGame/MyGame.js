@@ -183,15 +183,16 @@ MyGame.prototype.draw = function () {
     this.mAllParticles.draw(this.mCamera);
     */
     this.bgForest.draw(this.mCamera);
+    for(var i=0;i<3;i++){
+        this.mEventSet[i].icon.draw(this.mCamera);
+    }
 
     this.attributeCamera.setupViewProjection();
     this.mHealth.draw(this.attributeCamera);
     this.mHunger.draw(this.attributeCamera);
     this.mAttack.draw(this.attributeCamera);
     this.mDefense.draw(this.attributeCamera);
-    for(var i=0;i<3;i++){
-        this.mEventSet[i].icon.draw(this.mCamera);
-    }
+    
 };
 
 /*
