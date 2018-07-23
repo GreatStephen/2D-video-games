@@ -53,6 +53,7 @@ function MyGame() {
     this.mCamera = null;
     this.attributeCamera = null;
     this.mEventSet = null;
+    this.kKnight = "assets/Knight.png";
 
 }
 gEngine.Core.inheritPrototype(MyGame, Scene);
@@ -67,6 +68,7 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.kParticleTexture);
     */
     gEngine.Textures.loadTexture(this.bgForestTexture);
+    gEngine.Textures.loadTexture(this.kKnight);
 };
 
 MyGame.prototype.unloadScene = function () {
@@ -78,6 +80,7 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.kParticleTexture);
     */
     gEngine.Textures.unloadTexture(this.bgForestTexture);
+    gEngine.Textures.unloadTexture(this.kKnight);
 
 };
 
@@ -158,6 +161,17 @@ MyGame.prototype.initialize = function () {
     this.mDefense.getXform().setPosition(10, 124.5);
     this.mDefense.setTextHeight(9);
     this.mEventSet = new EventSet(3);
+    
+    this.mKnight = new SpriteAnimateRenderable(this.kKnight);
+    this.mKnight.setColor([1, 1, 1, 0]);
+    this.mKnight.getXform().setPosition(50, 25);
+    this.mKnight.getXform().setSize(30, 30);
+    this.mKnight.setSpriteSequence(512, 0,      // first element pixel position: top-left 164 from 512 is top of image, 0 is left of image
+                                    150, 120,       // widthxheight in pixels
+                                    3,              // number of elements in this sequence
+                                    0);             // horizontal padding in between
+    this.mKnight.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
+    this.mKnight.setAnimationSpeed(30);
 
 };
 
@@ -192,6 +206,7 @@ MyGame.prototype.draw = function () {
     this.mHunger.draw(this.attributeCamera);
     this.mAttack.draw(this.attributeCamera);
     this.mDefense.draw(this.attributeCamera);
+    this.mKnight.draw(this.mCamera);
     
 };
 
@@ -277,6 +292,26 @@ MyGame.prototype.update = function () {
         this.mCamera.setWCCenter(center[0],center[1]);
     }
 
+    var deltaX=0.5;
+    if (gEngine.Input.isKeyPressed(gEngine.Input.keys.D)) {
+        var center = this.mCamera.getWCCenter();
+        center[0]+=deltaX;
+        this.mCamera.setWCCenter(center[0],center[1]);
+        var x=this.mKnight.getXform().mPosition;
+        console.log(x);
+        this.mKnight.getXform().setPosition(x[0]+deltaX,x[1]);
+        this.mKnight.draw(this.mCamera);
+    }
+    
+    if (gEngine.Input.isKeyPressed(gEngine.Input.keys.U)) {
+        if(this.flag==1){
+            this.flag=0;
+        }
+        else this.flag =1;
+    }
+    if(this.flag==1){
+        this.mKnight.updateAnimation();
+    }
 };
 
 /*
