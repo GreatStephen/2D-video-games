@@ -10,7 +10,7 @@ function EventSet(num) {
     for(var i=0;i<num;i++){
         mEventSet.push(new Event(i+1));
     }
-    console.log(mEventSet);
+    //console.log(mEventSet);
     return mEventSet;
 };
 gEngine.Core.inheritPrototype(EventSet, GameObjectSet);

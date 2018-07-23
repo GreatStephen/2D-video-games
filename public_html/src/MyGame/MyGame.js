@@ -59,7 +59,8 @@ function MyGame() {
     this.kKnight = "assets/Knight.png";
 
     this.isBagOpened = false;
-
+    this.flag2 = false;
+    this.mEventIndex = 0;
 }
 gEngine.Core.inheritPrototype(MyGame, Scene);
 
@@ -316,7 +317,7 @@ MyGame.prototype.update = function () {
             center[0]+=deltaX;
             this.mCamera.setWCCenter(center[0],center[1]);
             var x=this.mKnight.getXform().mPosition;
-            console.log(x);
+            //console.log(x);
             this.mKnight.getXform().setPosition(x[0]+deltaX,x[1]);
             this.mKnight.draw(this.mCamera);
         }
@@ -341,6 +342,10 @@ MyGame.prototype.update = function () {
             this.bagCamera.setViewport([1000,1000,300,300],0);
             this.isBagOpened=false;
         }
+    }
+    if(this.mEventIndex<3&&this.mKnight.getXform().mPosition[0]>this.mEventSet[this.mEventIndex].icon.getXform().mPosition[0]){
+        console.log(this.mEventSet[this.mEventIndex].information);
+        this.mEventIndex++;
     }
 };
 
