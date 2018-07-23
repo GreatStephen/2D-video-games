@@ -43,6 +43,7 @@ function MyGame() {
     this.mHero = null;
 
     this.mCamera = null;
+    this.attributeCamera = null;
 
 }
 gEngine.Core.inheritPrototype(MyGame, Scene);
@@ -72,13 +73,21 @@ MyGame.prototype.unloadScene = function () {
 };
 
 MyGame.prototype.initialize = function () {
-    // Step A: set up the cameras
+    // setup the main camera
     this.mCamera = new Camera(
         vec2.fromValues(50, 40), // position of the camera
         100,                     // width of camera
         [0, 0, 800, 600]         // viewport (orgX, orgY, width, height)
     );
     this.mCamera.setBackgroundColor([0.8, 0.8, 0.8, 1]);
+
+    // setup attribute camera on the top-left corner
+    this.attributeCamera = new Camera(
+        vec2.fromValues(150,40),
+        100,
+        [50,0,100,75]
+    );
+
             // sets the background to gray
     gEngine.DefaultResources.setGlobalAmbientIntensity(3);
 
