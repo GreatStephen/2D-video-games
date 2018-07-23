@@ -14,6 +14,7 @@
 function MyGame() {
 
     this.kMinionSprite = "assets/minion_sprite.png";
+    this.kKnight = "assets/Knight.png";
     /*
     this.kPlatformTexture = "assets/platform.png";
     this.kWallTexture = "assets/wall.png";
@@ -44,6 +45,10 @@ function MyGame() {
 
     this.mCamera = null;
     this.attributeCamera = null;
+    
+    this.mKnight = null;
+    
+    this.flag = 0;
 
 }
 gEngine.Core.inheritPrototype(MyGame, Scene);
@@ -58,6 +63,7 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.kParticleTexture);
     */
     gEngine.Textures.loadTexture(this.bgForestTexture);
+    gEngine.Textures.loadTexture(this.kKnight);
 };
 
 MyGame.prototype.unloadScene = function () {
@@ -69,6 +75,7 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.kParticleTexture);
     */
     gEngine.Textures.unloadTexture(this.bgForestTexture);
+    gEngine.Textures.unloadTexture(this.kKnight);
 
 };
 
@@ -90,6 +97,28 @@ MyGame.prototype.initialize = function () {
 
             // sets the background to gray
     gEngine.DefaultResources.setGlobalAmbientIntensity(3);
+    
+    
+    
+    
+   /* this.mKnight = new TextureRenderable(this.kKnight);
+    this.mKnight.setColor([1, 0, 0, 0.2]);  // tints red
+    this.mKnight.getXform().setPosition(50, 40);
+    this.mKnight.getXform().setSize(10, 10);*/
+   // this.mKnight.setElementPixelPositions(0, 512, 0, 512);
+    
+    
+    //this.mK = new Renderable();
+    this.mKnight = new SpriteAnimateRenderable(this.kKnight);
+    this.mKnight.setColor([1, 1, 1, 0]);
+    this.mKnight.getXform().setPosition(50, 25);
+    this.mKnight.getXform().setSize(30, 30);
+    this.mKnight.setSpriteSequence(512, 0,      // first element pixel position: top-left 164 from 512 is top of image, 0 is left of image
+                                    150, 120,       // widthxheight in pixels
+                                    3,              // number of elements in this sequence
+                                    0);             // horizontal padding in between
+    this.mKnight.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
+    this.mKnight.setAnimationSpeed(30);
 
     /*
     this.mHero = new Hero(this.kMinionSprite);
@@ -148,6 +177,7 @@ MyGame.prototype.draw = function () {
     this.mAllParticles.draw(this.mCamera);
     */
     this.bgForest.draw(this.mCamera);
+    this.mKnight.draw(this.mCamera);
 };
 
 /*
@@ -225,13 +255,32 @@ MyGame.prototype.update = function () {
     
     this.mShapeMsg.setText(obj.getRigidBody().getCurrentState());
     */
+   
+   
+
+   
     var deltaX=0.5;
     if (gEngine.Input.isKeyPressed(gEngine.Input.keys.D)) {
         var center = this.mCamera.getWCCenter();
         center[0]+=deltaX;
         this.mCamera.setWCCenter(center[0],center[1]);
+        var x=this.mKnight.getXform().mPosition;
+        console.log(x);
+        this.mKnight.getXform().setPosition(x[0]+deltaX,x[1]);
+        this.mKnight.draw(this.mCamera);
     }
-
+    
+    if (gEngine.Input.isKeyPressed(gEngine.Input.keys.U)) {
+        if(this.flag==1){
+            this.flag=0;
+        }
+        else this.flag =1;
+    }
+    if(this.flag==1){
+        this.mKnight.updateAnimation();
+    }
+    //this.mKnight.updateAnimation();
+    
 };
 
 /*
@@ -259,5 +308,6 @@ MyGame.prototype.createParticle = function(atX, atY) {
     p.setSizeDelta(0.98);
     
     return p;
+
 };
 */
