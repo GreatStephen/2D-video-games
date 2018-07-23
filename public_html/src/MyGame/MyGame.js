@@ -200,13 +200,14 @@ MyGame.prototype.draw = function () {
     for(var i=0;i<3;i++){
         this.mEventSet[i].icon.draw(this.mCamera);
     }
+    this.mKnight.draw(this.mCamera);
 
     this.attributeCamera.setupViewProjection();
     this.mHealth.draw(this.attributeCamera);
     this.mHunger.draw(this.attributeCamera);
     this.mAttack.draw(this.attributeCamera);
     this.mDefense.draw(this.attributeCamera);
-    this.mKnight.draw(this.mCamera);
+
     
 };
 
@@ -285,12 +286,6 @@ MyGame.prototype.update = function () {
     
     this.mShapeMsg.setText(obj.getRigidBody().getCurrentState());
     */
-    var deltaX=0.5;
-    if (gEngine.Input.isKeyPressed(gEngine.Input.keys.D)) {
-        var center = this.mCamera.getWCCenter();
-        center[0]+=deltaX;
-        this.mCamera.setWCCenter(center[0],center[1]);
-    }
 
     var deltaX=0.5;
     if (gEngine.Input.isKeyPressed(gEngine.Input.keys.D)) {
