@@ -24,11 +24,11 @@ function Item(id) {
     this.def = 0;
     this.renderable = new Renderable();
     this.renderable.setColor(ColorList[id]);
-    //console.log(InfoList[id]);
+    
     this.Info = new FontRenderable(InfoList[id]);
-    this.Info.setColor([0, 0, 0, 1]);
-    this.Info.getXform().setPosition(73, 44);
-    this.Info.setTextHeight(3);
+    this.Info.setColor([1, 1, 1, 1]);
+   // this.Info.getXform().setPosition(73, 44);
+    this.Info.setTextHeight(2);
    // this.Info.draw(aCamera);
     
     this.eventType = -1;    //the item may have effect on the following event    

@@ -13,7 +13,7 @@ var deltaMove = 0;
 
 var CursorPosition = [x,y];
 
-var InfoPosition =[72.2,48.1];
+var InfoPosition =[75,29];
 
 function Bag(myTexture,cursorTexture,myGame){
 
@@ -43,7 +43,7 @@ function Bag(myTexture,cursorTexture,myGame){
     
 }
 
-Bag.prototype.AddItem = function(id){
+Bag.prototype.AddItem = function(id,myCamera){
     this.itemSet[this.itemSet.length]=new Item(id);
     this.itemSet[this.itemSet.length-1].renderable.getXform().setSize(3.5,3.5);
     //this.itemSet[this.itemSet.length-1].renderable.getXform().setPosition(x+((this.itemSet.length-1)%5)*delta,y-Math.floor((this.itemSet.length-1)/5)*delta);
@@ -73,7 +73,7 @@ Bag.prototype.Move = function(deltaX){
 
 Bag.prototype.Draw = function(aCamera){
     // draw the bag
-   // this.bag.draw(aCamera);
+    this.bag.draw(aCamera);
     
     // draw the items
     for(var i=0;i<this.itemSet.length;i++){
@@ -89,7 +89,7 @@ Bag.prototype.Draw = function(aCamera){
         this.cursor.draw(aCamera);
         console.log(InfoPosition);
         //console.log(this.current);
-        this.itemSet[this.current].Info.getXform().setPosition(InfoPosition);
+        this.itemSet[this.current].Info.getXform().setPosition(InfoPosition[0],InfoPosition[1]);
         this.itemSet[this.current].Info.draw(aCamera);
     }
     
