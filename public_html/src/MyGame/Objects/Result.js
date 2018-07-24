@@ -5,7 +5,7 @@
  */
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
-function Result(msg, Health, mHealth, Hunger, mHunger, atk, def, pr) {
+function Result(msg, Health, mHealth, Hunger, mHunger, atk, def, num, pr) {
     this.Id = -1;
     this.msg = msg;   //the message of result
     this.Health = Health;    //effect to health value
@@ -14,7 +14,7 @@ function Result(msg, Health, mHealth, Hunger, mHunger, atk, def, pr) {
     this.mHunger = mHunger;   //effect to max hunger
     this.atk = atk;
     this.def = def;
-    this.numItem = 0;
+    this.numItem = num;
     this.getItem = [0];  //the item id and number you can got
     this.escape = false;    //the flag of escape successfully or not
     this.pr = pr; //the probabilities of different result
@@ -38,12 +38,12 @@ Result.prototype.apply = function(mygame, bag){
     //update items
     if(this.numItem>0){
         for(var i=0;i<this.numItem;i++){
-            bag.AddItem(this.getItem(i));
+            bag.AddItem(this.getItem[0]);
         }
     }
     // update attribute renderable
-    mygame.mHealth.setText("Health: "+this.mHealthValue+"/"+this.mHealthValueMax);
-    mygame.mHunger.setText("Hunger: " + this.mHungerValue + "/"+this.mHungerValueMax);
-    mygame.mAttack.setText("Attack: " + this.mAttackValue);
-    mygame.mDefense.setText("Defense: " + this.mDefenseValue);
+    mygame.mHealth.setText("Health: "+ mygame.mHealthValue+"/"+ mygame.mHealthValueMax);
+    mygame.mHunger.setText("Hunger: " + mygame.mHungerValue + "/"+ mygame.mHungerValueMax);
+    mygame.mAttack.setText("Attack: " + mygame.mAttackValue);
+    mygame.mDefense.setText("Defense: " + mygame.mDefenseValue);
 }
