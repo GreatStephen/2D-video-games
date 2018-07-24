@@ -38,6 +38,7 @@ function MyGame() {
     this.bgForestTexture = "assets/forest3.png";
     this.BagTexture = "assets/bag.png";
     this.kKnight = "assets/Knight.png";
+    this.CursorTexture = "assets/cursor.png";
 
     this.bgTown = "";
     this.bgPalace = "";
@@ -85,6 +86,7 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.bgForestTexture);
     gEngine.Textures.loadTexture(this.kKnight);
     gEngine.Textures.loadTexture(this.BagTexture);
+    gEngine.Textures.loadTexture(this.CursorTexture);
 };
 
 MyGame.prototype.unloadScene = function () {
@@ -98,7 +100,7 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.bgForestTexture);
     gEngine.Textures.unloadTexture(this.kKnight);
     gEngine.Textures.unloadTexture(this.BagTexture);
-
+    gEngine.Textures.unloadTexture(this.CursorTexture);
 };
 
 MyGame.prototype.initialize = function () {
@@ -166,7 +168,7 @@ MyGame.prototype.initialize = function () {
     this.bgBag.setColor([0,0,0,0]);
     this.bgBag.getXform().setSize(100,100);
     this.bgBag.getXform().setPosition(50,240);*/
-    this.mBag = new Bag(this.BagTexture);
+    this.mBag = new Bag(this.BagTexture,this.CursorTexture);
 
     // health
     this.mHealth = new FontRenderable("Health: "+this.mHealthValue+"/"+this.mHealthValueMax);
@@ -447,6 +449,10 @@ MyGame.prototype.update = function () {
         //this.SendMessage("I want to:","1. Fight", "2. Run away", "");
         this.SendMessage(info, act[0].content, act[1].content,"");
         this.mEventIndex++;
+    }
+    
+    if(this.isBagOpened==true){
+        this.mBag.update();
     }
     
 };
