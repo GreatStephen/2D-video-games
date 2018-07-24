@@ -66,7 +66,7 @@ function MyGame() {
     // flags
     this.isBagOpened = false;
     this.isMesOn = false;
-    this.flag2 = false;
+    this.hasChosen = false;
     this.mEventIndex = 0;
 }
 gEngine.Core.inheritPrototype(MyGame, Scene);
@@ -392,11 +392,13 @@ MyGame.prototype.update = function () {
         this.mMes4.getXform().setPosition(1000,1000);
     }
     
-    if(this.isMesOn && gEngine.Input.isKeyClicked(gEngine.Input.keys.One)){
-        console.log(this.mEventSet[this.mEventIndex-1].action[0].getResult());
+    if(this.isMesOn && !this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.One)){
+        console.log(this.mEventSet[this.mEventIndex-1].action[0]);
+        this.hasChosen = true;
         this.SendMessage(this.mEventSet[this.mEventIndex-1].action[0].getResult().msg,"","","");
     }
-    if(this.isMesOn && gEngine.Input.isKeyClicked(gEngine.Input.keys.Two)){
+    if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Two)){
+        this.hasChosen = true;
         this.SendMessage(this.mEventSet[this.mEventIndex-1].action[1].getResult().msg,"","","");
     }
     
@@ -421,6 +423,7 @@ MyGame.prototype.update = function () {
     }
     if(this.mEventIndex<3&&this.mKnight.getXform().mPosition[0]>this.mEventSet[this.mEventIndex].icon.getXform().mPosition[0]){
         console.log(this.mEventSet[this.mEventIndex]);
+        this.hasChosen = false;
         var info = this.mEventSet[this.mEventIndex].information;
         var act = this.mEventSet[this.mEventIndex].action;
         //this.SendMessage("I want to:","1. Fight", "2. Run away", "");
