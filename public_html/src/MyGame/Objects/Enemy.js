@@ -22,15 +22,15 @@ function Enemy() {
 }
 
 Enemy.prototype.fight = function (game){
-    console.log(game);
-    console.log(this);
-    var dmg1 = this.atk - game.mDefense;
+
+    var dmg1 = this.atk - game.mDefenseValue;
     if(dmg1 < 0)
         dmg1 = 0;
-    var dmg2 = game.mAttack - this.def;
+    var dmg2 = game.mAttackValue - this.def;
     if(dmg2 < 0)
         dmg2 = 0;
-    console.log(dmg1, dmg2);
+    console.log(dmg1);
+    console.log(dmg2);
     while(game.mHealthValue > 0 && this.mHealth > 0){
         this.mHealth -= dmg2;
         game.mHealthValue -= dmg1;
