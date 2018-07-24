@@ -53,7 +53,10 @@ function MyGame() {
     this.mAttackValue = 10;
     this.mDefense = null;
     this.mDefenseValue = 10;
-    this.mMes = null;
+    this.mMes1 = null;
+    this.mMes2 = null;
+    this.mMes3 = null;
+    this.mMes4 = null;
 
     this.mCamera = null;
     this.attributeCamera = null;
@@ -186,6 +189,27 @@ MyGame.prototype.initialize = function () {
     this.mDefense.getXform().setPosition(10, 124.5);
     this.mDefense.setTextHeight(9);
     this.mEventSet = new EventSet(3);
+
+    // message
+    this.mMes1 = new FontRenderable("test");
+    this.mMes1.setColor([1, 1, 1, 1]);
+    this.mMes1.getXform().setPosition(1000, 1000);
+    this.mMes1.setTextHeight(3);
+
+    this.mMes2 = new FontRenderable("test");
+    this.mMes2.setColor([1, 1, 1, 1]);
+    this.mMes2.getXform().setPosition(1000, 1000);
+    this.mMes2.setTextHeight(3);
+
+    this.mMes3 = new FontRenderable("test");
+    this.mMes3.setColor([1, 1, 1, 1]);
+    this.mMes3.getXform().setPosition(1000, 1000);
+    this.mMes3.setTextHeight(3);
+
+    this.mMes4 = new FontRenderable("test");
+    this.mMes4.setColor([1, 1, 1, 1]);
+    this.mMes4.getXform().setPosition(1000, 1000);
+    this.mMes4.setTextHeight(3);
     
     // knight
     this.mKnight = new SpriteAnimateRenderable(this.kKnight);
@@ -233,8 +257,14 @@ MyGame.prototype.draw = function () {
     }
     this.mKnight.draw(this.mCamera);
     this.bgMsg.draw(this.mCamera);
-    if(this.isMesOn==true)
-        this.bgBag.draw(this.mCamera);
+    if(this.isMesOn==true){
+        //this.bgBag.draw(this.mCamera);
+        this.mMes1.draw(this.mCamera);
+        this.mMes2.draw(this.mCamera);
+        this.mMes3.draw(this.mCamera);
+        this.mMes4.draw(this.mCamera);
+    }
+
     
 
     this.attributeCamera.setupViewProjection();
@@ -341,6 +371,10 @@ MyGame.prototype.update = function () {
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
         this.isMesOn=false;
         this.bgMsg.getXform().setPosition(1000,1000);
+        this.mMes1.getXform().setPosition(1000,1000);
+        this.mMes2.getXform().setPosition(1000,1000);
+        this.mMes3.getXform().setPosition(1000,1000);
+        this.mMes4.getXform().setPosition(1000,1000);
     }
     
     if (gEngine.Input.isKeyClicked(gEngine.Input.keys.U)) {
@@ -364,15 +398,26 @@ MyGame.prototype.update = function () {
     }
     if(this.mEventIndex<3&&this.mKnight.getXform().mPosition[0]>this.mEventSet[this.mEventIndex].icon.getXform().mPosition[0]){
         // console.log(this.mEventSet[this.mEventIndex].information);
-        this.SendMessage("here");
+        this.SendMessage("I want to:","1. Fight", "2. Run away", "");
         this.mEventIndex++;
     }
 };
 
 //遇到事件后弹窗消息，只能按空格继续
-MyGame.prototype.SendMessage = function(content){
+MyGame.prototype.SendMessage = function(line1, line2, line3, line4){
     var cameraCenter = this.mCamera.getWCCenter();
     this.bgMsg.getXform().setPosition(cameraCenter[0],cameraCenter[1]-25);
+
+
+    this.mMes1.setText(line1);
+    this.mMes1.getXform().setPosition(cameraCenter[0]-35,cameraCenter[1]-18);
+    this.mMes2.setText(line2);
+    this.mMes2.getXform().setPosition(cameraCenter[0]-35,cameraCenter[1]-23);
+    this.mMes3.setText(line3);
+    this.mMes3.getXform().setPosition(cameraCenter[0]-35,cameraCenter[1]-28);
+    this.mMes4.setText(line4);
+    this.mMes4.getXform().setPosition(cameraCenter[0]-35,cameraCenter[1]-32);
+
     this.isMesOn=true;
 }
 
