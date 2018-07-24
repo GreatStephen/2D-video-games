@@ -11,9 +11,9 @@ function Enemy() {
     this.msg = null;   //the description of enemy
     
     // attribute
-    this.mHealth = Health;    
-    this.atk = atk;
-    this.def = def;
+    this.mHealth = 0;    
+    this.atk = 0;
+    this.def = 0;
     
     //
     this.numItem = 1;
@@ -22,12 +22,15 @@ function Enemy() {
 }
 
 Enemy.prototype.fight = function (game){
+    console.log(game);
+    console.log(this);
     var dmg1 = this.atk - game.mDefense;
     if(dmg1 < 0)
         dmg1 = 0;
     var dmg2 = game.mAttack - this.def;
     if(dmg2 < 0)
         dmg2 = 0;
+    console.log(dmg1, dmg2);
     while(game.mHealthValue > 0 && this.mHealth > 0){
         this.mHealth -= dmg2;
         game.mHealthValue -= dmg1;

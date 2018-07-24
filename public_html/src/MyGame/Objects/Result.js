@@ -16,11 +16,11 @@ function Result(msg, Health, mHealth, Hunger, mHunger, atk, def, num, pr) {
     this.def = def;
     this.numItem = num;
     this.getItem = [0];  //the item id and number you can got
-    this.escape = false;    //the flag of escape successfully or not
+    this.escape = true;    //the flag of escape successfully or not
     this.pr = pr; //the probabilities of different result
 }
 
-Result.prototype.apply = function(mygame){
+Result.prototype.apply = function(mygame, enemy){
     //console.log(mygame);
     // update attribute value
     mygame.mHealthValue += this.Health;
@@ -40,6 +40,12 @@ Result.prototype.apply = function(mygame){
         for(var i=0;i<this.numItem;i++){
             mygame.mBag.AddItem(this.getItem[0]);
         }
+    }
+    if(!this.escape){
+        if(enemy.fight(mygame))
+            this.msg = "you win";
+        else
+            this.msg = "you lose";
     }
     // update attribute renderable
     mygame.mHealth.setText("Health: "+ mygame.mHealthValue+"/"+ mygame.mHealthValueMax);
