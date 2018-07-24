@@ -189,7 +189,6 @@ MyGame.prototype.initialize = function () {
     this.mDefense.setColor([0, 0, 0, 1]);
     this.mDefense.getXform().setPosition(10, 124.5);
     this.mDefense.setTextHeight(9);
-    this.mEventSet = new EventSet(3);
 
     // message
     this.mMes1 = new FontRenderable("test");
@@ -229,6 +228,16 @@ MyGame.prototype.initialize = function () {
     this.bgMsg.getXform().setPosition(2000,2000);
     this.bgMsg.getXform().setSize(80,20);
     this.bgMsg.setColor([0,0,0,0.2]);
+    
+    //event, action and result
+    this.mEventSet = new EventSet(3);
+    var r1 = new Result("this is result 1", 10,0,0,0,0.4);
+    var r2 = new Result("this is result 2", -10,0,0,0,0.4);
+    var r3 = new Result("this is result 3", 0,0,10,0,0.2);
+    var r4 = new Result("this is result 4", 0,0,-10,0,0.8);
+    var a1 = new Action("1. Fight",[r1, r2]);
+    var a2 = new Action("2. Escape", [r3, r4]);
+    this.mEventSet[0].action = [a1, a2];
 };
 
 // This is the draw function, make sure to setup proper drawing environment, and more
@@ -384,6 +393,14 @@ MyGame.prototype.update = function () {
         this.mMes4.getXform().setPosition(1000,1000);
     }
     
+    if(this.isMesOn && gEngine.Input.isKeyClicked(gEngine.Input.keys.One)){
+        console.log(this.mEventSet[this.mEventIndex-1].action[0].getResult());
+        this.SendMessage(this.mEventSet[this.mEventIndex-1].action[0].getResult().msg,"","","");
+    }
+    if(this.isMesOn && gEngine.Input.isKeyClicked(gEngine.Input.keys.Two)){
+        this.SendMessage(this.mEventSet[this.mEventIndex-1].action[1].getResult().msg,"","","");
+    }
+    
     if (gEngine.Input.isKeyClicked(gEngine.Input.keys.U)) {
         if(this.flag==1){
             this.flag=0;
@@ -404,8 +421,11 @@ MyGame.prototype.update = function () {
         }
     }
     if(this.mEventIndex<3&&this.mKnight.getXform().mPosition[0]>this.mEventSet[this.mEventIndex].icon.getXform().mPosition[0]){
-        // console.log(this.mEventSet[this.mEventIndex].information);
-        this.SendMessage("I want to:","1. Fight", "2. Run away", "");
+        console.log(this.mEventSet[this.mEventIndex]);
+        var info = this.mEventSet[this.mEventIndex].information;
+        var act = this.mEventSet[this.mEventIndex].action;
+        //this.SendMessage("I want to:","1. Fight", "2. Run away", "");
+        this.SendMessage(info, act[0].content, act[1].content,"");
         this.mEventIndex++;
     }
 };
