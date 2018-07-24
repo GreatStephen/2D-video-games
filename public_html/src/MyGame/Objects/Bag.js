@@ -8,6 +8,8 @@
 var x = 72.2;
 var y = 48.1;
 var delta = 4.6;
+var deltaMove = 0;
+var lastMove=0;
 
 function Bag(myTexture){
     console.log("hi");
@@ -38,6 +40,12 @@ Bag.prototype.AddItem = function(id){
     this.itemNum++;
 };
 
+
+Bag.prototype.Move = function(deltaX){
+    var temp = this.bag.getXform().mPosition;
+    this.bag.getXform().setPosition(temp[0]+deltaX,temp[1]);
+    deltaMove += deltaX;
+}
 /*Bag.prototype.AddItem1 = function(id){
     this.itemSet[this.itemNum]=new Item(id);
     this.itemSet[this.itemNum].renderable.getXform().setSize(3.5,3.5);
@@ -53,8 +61,23 @@ Bag.prototype.AddItem2 = function(id){
 };*/
 
 Bag.prototype.Draw = function(aCamera){
+    //console.log(move);
+   // console.log(lastMove);
     this.bag.draw(aCamera);
-    for(var i=0;i<this.itemNum;i++){
-        this.itemSet[i].renderable.draw(aCamera);
+    if(deltaMove!=0){
+        for(var i=0;i<this.itemNum;i++){
+            var temp = this.itemSet[i].renderable.getXform().mPosition;
+            this.itemSet[i].renderable.getXform().setPosition(temp[0]+deltaMove,temp[1]);
+            this.itemSet[i].renderable.draw(aCamera);
+        }
+        deltaMove=0;
     }
+    else{
+        for(var i=0;i<this.itemNum;i++){
+            //var temp = this.itemSet[i].renderable.getXform().mPosition;
+           // this.itemSet[i].renderable.getXform().setPosition(temp[0]+move,temp[1]);
+            this.itemSet[i].renderable.draw(aCamera);
+        }
+    }
+    
 };

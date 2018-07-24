@@ -378,9 +378,10 @@ MyGame.prototype.update = function () {
             var x=this.mKnight.getXform().mPosition;
             //console.log(x);
             this.mKnight.getXform().setPosition(x[0]+deltaX,x[1]);
-            this.mKnight.draw(this.mCamera);
+           // this.mKnight.draw(this.mCamera);
+            this.mBag.Move(deltaX);
         }
-
+        
     }
 
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
@@ -412,7 +413,7 @@ MyGame.prototype.update = function () {
         this.mKnight.updateAnimation();
     }
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.B)){
-        if(this.isBagOpened==false){
+        if(this.isMesOn==false&&this.isBagOpened==false){
             //this.bagCamera.setViewport([450,200,300,300],0);
             this.isBagOpened=true;
         }
