@@ -53,6 +53,7 @@ function MyGame() {
     this.mAttackValue = 10;
     this.mDefense = null;
     this.mDefenseValue = 10;
+    this.mMes = null;
 
     this.mCamera = null;
     this.attributeCamera = null;
@@ -162,7 +163,7 @@ MyGame.prototype.initialize = function () {
     this.bgBag.getXform().setPosition(50,240);
 
     // health
-    this.mHealth = new FontRenderable("Health: \n\n"+this.mHealthValue+"/100");
+    this.mHealth = new FontRenderable("Health: "+this.mHealthValue+"/100");
     this.mHealth.setColor([0,0,0,1]);
     this.mHealth.getXform().setPosition(10,163.5);
     this.mHealth.setTextHeight(9);
@@ -200,7 +201,7 @@ MyGame.prototype.initialize = function () {
 
     // message background
     this.bgMsg = new Renderable();
-    this.bgMsg.getXform().setPosition(1000,1000);
+    this.bgMsg.getXform().setPosition(2000,2000);
     this.bgMsg.getXform().setSize(80,20);
     this.bgMsg.setColor([0,0,0,0.2]);
 };
@@ -243,7 +244,7 @@ MyGame.prototype.draw = function () {
     this.mDefense.draw(this.attributeCamera);
 
     this.bagCamera.setupViewProjection();
-
+    this.bgBag.draw(this.bagCamera);
     
 };
 
