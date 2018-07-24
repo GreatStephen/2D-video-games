@@ -36,7 +36,7 @@ function MyGame() {
     this.mTarget = null;
     */
     this.bgForestTexture = "assets/forest3.png";
-    this.bgBagTexture = "assets/bagdemo.png";
+    this.BagTexture = "assets/bag.png";
     this.kKnight = "assets/Knight.png";
 
     this.bgTown = "";
