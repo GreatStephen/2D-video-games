@@ -6,17 +6,16 @@
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
 var NameList = ["1", "2", "3"];
-var IntroList = ["this is 1","this is 2","this is 3"];
+var InfoList = ["this is 1","this is 2","this is 3"];
 var HealthList = [1,2,3];
 var mHealthList = [0,0,0];
-var HungerList = [1,2,3];
+var HungerList = [10,2,3];
 var mHungerList = [0,0,0];
 var ColorList = [[1,0,0,1],[0,1,0,1],[0,0,1,1]];
 
 function Item(id) {
     this.Id = id;
     this.Name = NameList[id];
-    this.Info = IntroList[id];
     this.Health = HealthList[id];
     this.mHealth = mHealthList[id];  // mhealth add the maximum of the health
     this.Hunger = HungerList[id];
@@ -25,6 +24,13 @@ function Item(id) {
     this.def = 0;
     this.renderable = new Renderable();
     this.renderable.setColor(ColorList[id]);
+    //console.log(InfoList[id]);
+    this.Info = new FontRenderable(InfoList[id]);
+    this.Info.setColor([0, 0, 0, 1]);
+    this.Info.getXform().setPosition(73, 44);
+    this.Info.setTextHeight(3);
+   // this.Info.draw(aCamera);
+    
     this.eventType = -1;    //the item may have effect on the following event    
 }
 
