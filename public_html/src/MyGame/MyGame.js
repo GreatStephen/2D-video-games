@@ -415,13 +415,13 @@ MyGame.prototype.update = function () {
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[0].getResult();
         console.log(res);
-        res.apply(this, this.mBag);
+        res.apply(this);
         this.SendMessage(res.msg,"","","");
     }
     if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Two)){
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[1].getResult();
-        res.apply(this, this.mBag);
+        res.apply(this);
         this.SendMessage(res.msg,"","","");
     }
     
