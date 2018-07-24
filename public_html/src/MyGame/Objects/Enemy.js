@@ -22,7 +22,7 @@ function Enemy() {
 }
 
 Enemy.prototype.fight = function (game){
-
+    var total = 0;
     var dmg1 = this.atk - game.mDefenseValue;
     if(dmg1 < 0)
         dmg1 = 0;
@@ -34,6 +34,7 @@ Enemy.prototype.fight = function (game){
     while(game.mHealthValue > 0 && this.mHealth > 0){
         this.mHealth -= dmg2;
         game.mHealthValue -= dmg1;
+        total += dmg1;
     }
     if(game.mHealthValue <= 0){
         gEngine.GameLoop.stop();
@@ -44,5 +45,5 @@ Enemy.prototype.fight = function (game){
             game.mBag.AddItem(this.dropItem[0]);
         }
     }
-    return true;    
+    return total;    
 }

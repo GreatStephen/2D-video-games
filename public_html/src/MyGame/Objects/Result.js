@@ -42,10 +42,13 @@ Result.prototype.apply = function(mygame, enemy){
         }
     }
     if(!this.escape){
-        if(enemy.fight(mygame))
-            this.msg = "you win";
-        else
+        var res = enemy.fight(mygame);
+        if(!res)
             this.msg = "you lose";
+        else{
+            this.msg = "you lose " + res + " HP, you win";
+        }
+            
     }
     // update attribute renderable
     mygame.mHealth.setText("Health: "+ mygame.mHealthValue+"/"+ mygame.mHealthValueMax);
