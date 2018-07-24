@@ -23,6 +23,7 @@ function Enemy() {
 
 Enemy.prototype.fight = function (game){
     var total = 0;
+    var msg;
     var dmg1 = this.atk - game.mDefenseValue;
     if(dmg1 < 0)
         dmg1 = 0;
@@ -38,12 +39,14 @@ Enemy.prototype.fight = function (game){
     }
     if(game.mHealthValue <= 0){
         gEngine.GameLoop.stop();
-        return false;
+        msg = "you lose";
+        return msg;
     }   
     else if(this.numItem>0){
         for(var i=0;i<this.numItem;i++){
             game.mBag.AddItem(this.dropItem[0]);
         }
     }
-    return total;    
+    msg = "You win, you lose " + total + " HP, get item " + this.dropItem[0];
+    return msg;    
 }
