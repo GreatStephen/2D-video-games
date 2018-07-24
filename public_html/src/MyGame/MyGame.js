@@ -36,13 +36,13 @@ function MyGame() {
     this.mTarget = null;
     */
     this.bgForestTexture = "assets/forest3.png";
-    this.bgBagTexture = "assets/bagdemo.png";
+    this.BagTexture = "assets/bag.png";
     this.kKnight = "assets/Knight.png";
 
     this.bgTown = "";
     this.bgPalace = "";
     this.bgForest = null;
-    this.bgBag = null;
+    this.mBag = null;
     this.bgMsg = null;
     this.mHero = null;
     this.mHealth = null;
@@ -79,7 +79,7 @@ MyGame.prototype.loadScene = function () {
     */
     gEngine.Textures.loadTexture(this.bgForestTexture);
     gEngine.Textures.loadTexture(this.kKnight);
-    gEngine.Textures.loadTexture(this.bgBagTexture);
+    gEngine.Textures.loadTexture(this.BagTexture);
 };
 
 MyGame.prototype.unloadScene = function () {
@@ -92,7 +92,7 @@ MyGame.prototype.unloadScene = function () {
     */
     gEngine.Textures.unloadTexture(this.bgForestTexture);
     gEngine.Textures.unloadTexture(this.kKnight);
-    gEngine.Textures.unloadTexture(this.bgBagTexture);
+    gEngine.Textures.unloadTexture(this.BagTexture);
 
 };
 
@@ -114,12 +114,12 @@ MyGame.prototype.initialize = function () {
     this.attributeCamera.setBackgroundColor([0.9,0.9,0.9,1]);
 
     //setup bag camera
-    this.bagCamera = new Camera(
+  /*  this.bagCamera = new Camera(
         vec2.fromValues(50,240),
         100,
-        [1000,1000,300,225]
+        [1000,1000,300,300]
     );
-    this.attributeCamera.setBackgroundColor([0.9,0.9,0.9,1]);
+    this.attributeCamera.setBackgroundColor([0.9,0.9,0.9,1]);*/
 
             // sets the background to gray
     gEngine.DefaultResources.setGlobalAmbientIntensity(3);
@@ -157,10 +157,11 @@ MyGame.prototype.initialize = function () {
     this.bgForest.getXform().setSize(400,75);
     this.bgForest.getXform().setPosition(200,40);
 
-    this.bgBag = new TextureRenderable(this.bgBagTexture);
+  /*  this.bgBag = new TextureRenderable(this.bgBagTexture);
     this.bgBag.setColor([0,0,0,0]);
-    this.bgBag.getXform().setSize(100,75);
-    this.bgBag.getXform().setPosition(50,240);
+    this.bgBag.getXform().setSize(100,100);
+    this.bgBag.getXform().setPosition(50,240);*/
+    this.mBag = new Bag(this.BagTexture);
 
     // health
     this.mHealth = new FontRenderable("Health: "+this.mHealthValue+"/100");
@@ -235,7 +236,9 @@ MyGame.prototype.draw = function () {
     this.bgMsg.draw(this.mCamera);
     if(this.isMesOn==true)
         this.bgBag.draw(this.mCamera);
-    
+    if(this.isBagOpened==true){
+        this.mBag.bag.draw(this.mCamera);
+    }
 
     this.attributeCamera.setupViewProjection();
     this.mHealth.draw(this.attributeCamera);
@@ -243,8 +246,9 @@ MyGame.prototype.draw = function () {
     this.mAttack.draw(this.attributeCamera);
     this.mDefense.draw(this.attributeCamera);
 
-    this.bagCamera.setupViewProjection();
-    this.bgBag.draw(this.bagCamera);
+   // this.bagCamera.setupViewProjection();
+    //this.bgBag.draw(this.bagCamera);
+    
     
 };
 
@@ -354,11 +358,11 @@ MyGame.prototype.update = function () {
     }
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.B)){
         if(this.isBagOpened==false){
-            this.bagCamera.setViewport([450,200,300,300],0);
+            //this.bagCamera.setViewport([450,200,300,300],0);
             this.isBagOpened=true;
         }
         else{
-            this.bagCamera.setViewport([1000,1000,300,300],0);
+            //this.bagCamera.setViewport([1000,1000,300,300],0);
             this.isBagOpened=false;
         }
     }
