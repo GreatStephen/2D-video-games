@@ -47,8 +47,10 @@ function MyGame() {
     this.mHero = null;
     this.mHealth = null;
     this.mHealthValue = 100;
+    this.mHealthValueMax = 100;
     this.mHunger = null;
     this.mHungerValue = 100;
+    this.mHungerValueMax = 100;
     this.mAttack = null;
     this.mAttackValue = 10;
     this.mDefense = null;
@@ -167,13 +169,13 @@ MyGame.prototype.initialize = function () {
     this.mBag = new Bag(this.BagTexture);
 
     // health
-    this.mHealth = new FontRenderable("Health: "+this.mHealthValue+"/100");
+    this.mHealth = new FontRenderable("Health: "+this.mHealthValue+"/"+this.mHealthValueMax);
     this.mHealth.setColor([0,0,0,1]);
     this.mHealth.getXform().setPosition(10,163.5);
     this.mHealth.setTextHeight(9);
 
     // hunger
-    this.mHunger = new FontRenderable("Hunger: " + this.mHungerValue + "/100");
+    this.mHunger = new FontRenderable("Hunger: " + this.mHungerValue + "/"+this.mHealthValueMax);
     this.mHunger.setColor([0, 0, 0, 1]);
     this.mHunger.getXform().setPosition(10, 150.5);
     this.mHunger.setTextHeight(9);
