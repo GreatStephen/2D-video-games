@@ -234,10 +234,9 @@ MyGame.prototype.draw = function () {
     }
     this.mKnight.draw(this.mCamera);
     this.bgMsg.draw(this.mCamera);
-    if(this.isMesOn==true)
-        this.bgBag.draw(this.mCamera);
+
     if(this.isBagOpened==true){
-        this.mBag.bag.draw(this.mCamera);
+        this.mBag.Draw(this.mCamera);
     }
 
     this.attributeCamera.setupViewProjection();

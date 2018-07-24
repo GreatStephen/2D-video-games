@@ -5,20 +5,23 @@
  */
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
-this.AllItem = ["1.png", "2.png", "3.png"];
+var NameList = ["1", "2", "3"];
+var IntroList = ["this is 1","this is 2","this is 3"];
+var HealthList = [1,2,3];
+var mHealthList = [1,2,3];
+var HungerList = [1,2,3];
+var mHungerList = [1,2,3];
+var ColorList = [[1,0,0,1],[0,1,0,1],[0,0,1,1]];
 
-function Item() {
-    this.Id = -1;
-    this.Info = "";
-    this.Health = 0;
-    this.mHealth = 0;
-    this.Hunger = 0;
-    this.mHunger = 0;
-    this.render = null;
-    this.eventType = -1; 
-    
-}
-
-Item.setRender = function (r){
-    this.render = r;
+function Item(id) {
+    this.Id = id;
+    this.Name = NameList[id];
+    this.Info = IntroList[id];
+    this.Health = HealthList[id];
+    this.mHealth = mHealthList[id];  // mhealth add the maximum of the health
+    this.Hunger = HungerList[id];
+    this.mHunger = mHungerList[id];
+    this.renderable = new Renderable();
+    this.renderable.setColor(ColorList[id]);
+    this.eventType = -1;    //the item may have effect on the following event    
 }
