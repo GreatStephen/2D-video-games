@@ -231,14 +231,14 @@ MyGame.prototype.initialize = function () {
     
     //event, action and result
     this.mEventSet = new EventSet(3);
-    var r1 = new Result("health +10", 10,0,0,0,0.4);
-    var r2 = new Result("health -10", -10,0,0,0,0.4);
-    var r3 = new Result("hunger +10", 0,0,10,0,0.2);
-    var r4 = new Result("hunger -10", 0,0,-10,0,0.8);
-    var r5 = new Result("max health +10", 0,10,0,0,0.5);
-    var r6 = new Result("max health -10", 0,-10,0,0,0.5);
-    var r7 = new Result("max hunger +10", 0,0,0,10,1);
-    var r8 = new Result("max hunger -10", 0,0,0,-10,0.5);
+    var r1 = new Result("health +10", 10,0,0,0,0,0,0.4);
+    var r2 = new Result("health -10", -10,0,0,0,0,0,0.6);
+    var r3 = new Result("hunger +10", 0,0,10,0,0,0,0.2);
+    var r4 = new Result("hunger -10", 0,0,-10,0,0,0,0.8);
+    var r5 = new Result("attack +1", 0,0,0,0,1,0,0.5);
+    var r6 = new Result("attack -1", 0,0,0,0,-1,0,0.5);
+    var r7 = new Result("defense +1", 0,0,0,0,1,0,1);
+    var r8 = new Result("defense -1", 0,0,0,0,0,-1,0.5);
     var a1 = new Action("1. action1",[r1, r2]);
     var a2 = new Action("2. action2", [r3, r4]);
     var a3 = new Action("1. action3",[r5, r6]);
@@ -407,6 +407,7 @@ MyGame.prototype.update = function () {
         //console.log(this.mEventSet[this.mEventIndex-1].action[0]);
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[0].getResult();
+        console.log(res);
         res.apply(this, this.mBag);
         this.SendMessage(res.msg,"","","");
     }
@@ -445,6 +446,30 @@ MyGame.prototype.update = function () {
         this.SendMessage(info, act[0].content, act[1].content,"");
         this.mEventIndex++;
     }
+    
+    // health
+    this.mHealth = new FontRenderable("Health: "+this.mHealthValue+"/100");
+    this.mHealth.setColor([0,0,0,1]);
+    this.mHealth.getXform().setPosition(10,163.5);
+    this.mHealth.setTextHeight(9);
+
+    // hunger
+    this.mHunger = new FontRenderable("Hunger: " + this.mHungerValue + "/100");
+    this.mHunger.setColor([0, 0, 0, 1]);
+    this.mHunger.getXform().setPosition(10, 150.5);
+    this.mHunger.setTextHeight(9);
+
+    // attack
+    this.mAttack = new FontRenderable("Attack: " + this.mAttackValue);
+    this.mAttack.setColor([0, 0, 0, 1]);
+    this.mAttack.getXform().setPosition(10, 137.5);
+    this.mAttack.setTextHeight(9);
+
+    // defense
+    this.mDefense = new FontRenderable("Defense: " + this.mDefenseValue);
+    this.mDefense.setColor([0, 0, 0, 1]);
+    this.mDefense.getXform().setPosition(10, 124.5);
+    this.mDefense.setTextHeight(9);
 };
 
 //遇到事件后弹窗消息，只能按空格继续

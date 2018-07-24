@@ -21,11 +21,13 @@ function Result(msg, Health, mHealth, Hunger, mHunger, atk, def, pr) {
 }
 
 Result.prototype.apply = function(mygame, bag){
-    console.log(mygame);
-    mygame.mHealth += this.Health;
-    mygame.mHealthValue += this.mHealth;
-    mygame.mHunger += this.Hunger;
-    mygame.mHungerValue += this.mHunger;
+    //console.log(mygame);
+    //mygame.mHealth += this.Health;
+    mygame.mHealthValue += this.Health;
+    //mygame.mHunger += this.Hunger;
+    mygame.mHungerValue += this.Hunger;
+    mygame.mAttackValue += this.atk;
+    mygame.mDefenseValue += this.def;
     if(this.numItem>0){
         for(var i=0;i<this.numItem;i++){
             bag.AddItem(this.getItem(i));

@@ -17,7 +17,10 @@ function Action(content, result) {
 Action.prototype.getResult = function (){     //get the result according to probability
     var r = Math.random();
     for(var i=0;i<this.result.length;i++){
+        console.log(r);
+        console.log(i);
         if(r<this.result[i].pr){
+            console.log(this.result[i]);
             return this.result[i];
         }
         r-=this.result[i].pr;
