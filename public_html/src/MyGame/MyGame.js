@@ -71,6 +71,9 @@ function MyGame() {
     this.isMesOn = false;
     this.hasChosen = false;
     this.mEventIndex = 0;
+    
+    //counter 
+    this.mCounter = 0;
 }
 gEngine.Core.inheritPrototype(MyGame, Scene);
 
@@ -240,7 +243,7 @@ MyGame.prototype.initialize = function () {
     var r3 = new Result("hunger +10", 0,0,10,0,0,0,0,0.2);
     var r4 = new Result("get item * 1", 0,0,0,0,0,0,1,0.8);
     var r5 = new Result("attack +1", 0,0,0,0,1,0,0,0.5);
-    var r6 = new Result("attack -1", 0,0,0,0,-1,0,0,0.5);
+    var r6 = new Result("hunger -10", 0,0,0,-10,0,0,0,0.5);
     var r7 = new Result("defense +1", 0,0,0,0,1,0,0,1);
     var r8 = new Result("defense -1", 0,0,0,0,0,-1,0,0.5);
     var a1 = new Action("1. action1",[r1, r2]);
@@ -453,6 +456,21 @@ MyGame.prototype.update = function () {
     
     if(this.isBagOpened==true){
         this.mBag.update();
+    }
+    
+    this.mCounter++;
+    if(this.mCounter%60==0){
+        this.mHungerValue-=5;
+        if(this.mHungerValue<=0){
+            //gEngine.GameLoop.stop();
+            this.mHungerValue = 0;
+            this.mHealthValue--;
+        }
+        this.mHunger.setText("Hunger: " + this.mHungerValue + "/"+this.mHungerValueMax);
+        this.mHealth.setText("Health: " + this.mHealthValue + "/"+this.mHealthValueMax);
+    }
+    if(this.mHealthValue<=0){
+        gEngine.GameLoop.stop();
     }
     
 };
