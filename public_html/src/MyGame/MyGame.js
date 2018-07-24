@@ -171,7 +171,7 @@ MyGame.prototype.initialize = function () {
     this.bgBag.setColor([0,0,0,0]);
     this.bgBag.getXform().setSize(100,100);
     this.bgBag.getXform().setPosition(50,240);*/
-    this.mBag = new Bag(this.BagTexture,this.CursorTexture);
+    this.mBag = new Bag(this.BagTexture,this.CursorTexture,this);
 
     // health
     this.mHealth = new FontRenderable("Health: "+this.mHealthValue+"/"+this.mHealthValueMax);

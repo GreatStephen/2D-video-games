@@ -11,13 +11,15 @@ var delta = 4.6;
 var deltaMove = 0;
 var lastMove=0;
 
-function Bag(myTexture,cursorTexture){
+function Bag(myTexture,cursorTexture,myGame){
     console.log("hi");
     this.current = 0;
     this.itemNum = 0;
     this.itemSet = [];   //items that in the bag,they are in order
     
     this.capacity = 20;
+    
+    this.myGame = myGame;
     
     this.bag = new TextureRenderable(myTexture);
     this.bag.setColor([0,0,0,0]);
@@ -31,7 +33,7 @@ function Bag(myTexture,cursorTexture){
     
    // for(var i=0;i<20;i++){
 
-    for(var i=0;i<2;i++){
+    for(var i=0;i<3;i++){
 
         this.AddItem(0);
         //this.AddItem(1);
@@ -41,13 +43,21 @@ function Bag(myTexture,cursorTexture){
 }
 
 Bag.prototype.AddItem = function(id){
-    this.itemSet[this.itemNum]=new Item(id);
-    this.itemSet[this.itemNum].renderable.getXform().setSize(3.5,3.5);
-    this.itemSet[this.itemNum].renderable.getXform().setPosition(x+(this.itemNum%5)*delta,y-Math.floor(this.itemNum/5)*delta);
+    //console.log(this.itemSet.length);
+    this.itemSet[this.itemSet.length]=new Item(id);
+    this.itemSet[this.itemSet.length-1].renderable.getXform().setSize(3.5,3.5);
+    this.itemSet[this.itemSet.length-1].renderable.getXform().setPosition(x+((this.itemSet.length-1)%5)*delta,y-Math.floor((this.itemSet.length-1)/5)*delta);
 
    // console.log(Math.floor(this.itemNum/5));
-    this.itemNum++;
+   //thi this.itemNum++;
 };
+
+Bag.prototype.RemoveItem = function(){
+    console.log("!");
+    console.log(this.current);
+    this.itemSet.splice(this.current,1);
+    this.current--;
+}
 
 
 Bag.prototype.Move = function(deltaX){
@@ -64,7 +74,7 @@ Bag.prototype.Draw = function(aCamera){
    // console.log(lastMove);
     this.bag.draw(aCamera);
     if(deltaMove!=0){
-        for(var i=0;i<this.itemNum;i++){
+        for(var i=0;i<this.itemSet.length;i++){
             var temp = this.itemSet[i].renderable.getXform().mPosition;
             this.itemSet[i].renderable.getXform().setPosition(temp[0]+deltaMove,temp[1]);
             this.itemSet[i].renderable.draw(aCamera);
@@ -72,7 +82,7 @@ Bag.prototype.Draw = function(aCamera){
         deltaMove=0;
     }
     else{
-        for(var i=0;i<this.itemNum;i++){
+        for(var i=0;i<this.itemSet.length;i++){
             //var temp = this.itemSet[i].renderable.getXform().mPosition;
            // this.itemSet[i].renderable.getXform().setPosition(temp[0]+move,temp[1]);
             this.itemSet[i].renderable.draw(aCamera);
@@ -91,7 +101,9 @@ Bag.prototype.update = function(){
         }
     }
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Right)){
-        if(this.current%5!=4){
+        console.log(this.current);
+        console.log(this.itemSet.length);
+        if((this.current%5!=4) && ((this.current+1)<this.itemSet.length)){
             this.current++;
             temp[0] += delta;
         }
@@ -103,9 +115,14 @@ Bag.prototype.update = function(){
         }
     }
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Down)){
-        if(this.current<15){
+        if((this.current<15) && ((this.current+5)<this.itemSet.length)){
             this.current += 5;
             temp[1] -= delta;
         }
-    }    
+    }  
+    
+    if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Enter)){
+        //this.itemSet[this.current].Use(this.myGame);
+        this.RemoveItem();
+    }  
 }

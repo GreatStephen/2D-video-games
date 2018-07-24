@@ -28,7 +28,7 @@ function Item(id) {
     this.eventType = -1;    //the item may have effect on the following event    
 }
 
-item.prototype.Use = function(mygame){
+Item.prototype.Use = function(mygame){
     mygame.mHealthValue += this.Health;
     mygame.mHealthValueMax += this.mHealth;
     if(mygame.mHealthValueMax < mygame.mHealthValue){
