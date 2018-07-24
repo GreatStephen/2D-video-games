@@ -162,7 +162,7 @@ MyGame.prototype.initialize = function () {
     this.bgBag.getXform().setPosition(50,240);
 
     // health
-    this.mHealth = new FontRenderable("Health: \n\n"+this.mHealthValue+"/100");
+    this.mHealth = new FontRenderable("Health: "+this.mHealthValue+"/100");
     this.mHealth.setColor([0,0,0,1]);
     this.mHealth.getXform().setPosition(10,163.5);
     this.mHealth.setTextHeight(9);
