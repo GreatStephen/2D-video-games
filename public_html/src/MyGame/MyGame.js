@@ -231,13 +231,23 @@ MyGame.prototype.initialize = function () {
     
     //event, action and result
     this.mEventSet = new EventSet(3);
-    var r1 = new Result("this is result 1", 10,0,0,0,0.4);
-    var r2 = new Result("this is result 2", -10,0,0,0,0.4);
-    var r3 = new Result("this is result 3", 0,0,10,0,0.2);
-    var r4 = new Result("this is result 4", 0,0,-10,0,0.8);
-    var a1 = new Action("1. Fight",[r1, r2]);
-    var a2 = new Action("2. Escape", [r3, r4]);
+    var r1 = new Result("health +10", 10,0,0,0,0.4);
+    var r2 = new Result("health -10", -10,0,0,0,0.4);
+    var r3 = new Result("hunger +10", 0,0,10,0,0.2);
+    var r4 = new Result("hunger -10", 0,0,-10,0,0.8);
+    var r5 = new Result("max health +10", 0,10,0,0,0.5);
+    var r6 = new Result("max health -10", 0,-10,0,0,0.5);
+    var r7 = new Result("max hunger +10", 0,0,0,10,1);
+    var r8 = new Result("max hunger -10", 0,0,0,-10,0.5);
+    var a1 = new Action("1. action1",[r1, r2]);
+    var a2 = new Action("2. action2", [r3, r4]);
+    var a3 = new Action("1. action3",[r5, r6]);
+    var a4 = new Action("2. action4", [r7]);
+    var a5 = new Action("1. action5",[r5, r8]);
+    var a6 = new Action("2. action6", [r6, r8]);
     this.mEventSet[0].action = [a1, a2];
+    this.mEventSet[1].action = [a3, a4];
+    this.mEventSet[2].action = [a5, a6];
 };
 
 // This is the draw function, make sure to setup proper drawing environment, and more
@@ -394,13 +404,17 @@ MyGame.prototype.update = function () {
     }
     
     if(this.isMesOn && !this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.One)){
-        console.log(this.mEventSet[this.mEventIndex-1].action[0]);
+        //console.log(this.mEventSet[this.mEventIndex-1].action[0]);
         this.hasChosen = true;
-        this.SendMessage(this.mEventSet[this.mEventIndex-1].action[0].getResult().msg,"","","");
+        var res = this.mEventSet[this.mEventIndex-1].action[0].getResult();
+        res.apply(this, this.mBag);
+        this.SendMessage(res.msg,"","","");
     }
     if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Two)){
         this.hasChosen = true;
-        this.SendMessage(this.mEventSet[this.mEventIndex-1].action[1].getResult().msg,"","","");
+        var res = this.mEventSet[this.mEventIndex-1].action[1].getResult();
+        res.apply(this, this.mBag);
+        this.SendMessage(res.msg,"","","");
     }
     
     if (gEngine.Input.isKeyClicked(gEngine.Input.keys.U)) {

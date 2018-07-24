@@ -17,8 +17,9 @@ function Action(content, result) {
 Action.prototype.getResult = function (){     //get the result according to probability
     var r = Math.random();
     for(var i=0;i<this.result.length;i++){
-        if(r<this.result[i].pr)
+        if(r<this.result[i].pr){
             return this.result[i];
-        r+=this.result[i].pr;
+        }
+        r-=this.result[i].pr;
     }
 }
