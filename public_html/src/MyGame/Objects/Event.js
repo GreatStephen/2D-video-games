@@ -24,6 +24,8 @@ function Event(num) {
     this.icon = AllColor[t];
     this.information = AllEventInf[t];
     this.action = AllEventAct[t];
+    this.isBattle = false;
+    this.enemy = null;
     
 }
 gEngine.Core.inheritPrototype(Event, GameObject);

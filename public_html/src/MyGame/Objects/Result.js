@@ -20,7 +20,7 @@ function Result(msg, Health, mHealth, Hunger, mHunger, atk, def, num, pr) {
     this.pr = pr; //the probabilities of different result
 }
 
-Result.prototype.apply = function(mygame, bag){
+Result.prototype.apply = function(mygame){
     //console.log(mygame);
     // update attribute value
     mygame.mHealthValue += this.Health;
@@ -38,7 +38,7 @@ Result.prototype.apply = function(mygame, bag){
     //update items
     if(this.numItem>0){
         for(var i=0;i<this.numItem;i++){
-            bag.AddItem(this.getItem[0]);
+            mygame.mBag.AddItem(this.getItem[0]);
         }
     }
     // update attribute renderable

@@ -1,19 +1,20 @@
 /*
-* MyMenu.js
-* This file describe the menu
+* GameOver.js
+* Game over, start again
 * 2018.7.24
 *
 */
 
 "use strict";
 
-function MyMenu(){
+function MyMenu() {
 
     this.bgBackground = "";
 
     this.mBackground = null;
     this.mCamera = null;
     this.mText = null;
+    this.mHint = null;
 
 }
 
@@ -41,31 +42,37 @@ MyMenu.prototype.initialize = function () {
         100,                     // width of camera
         [0, 0, 800, 600]         // viewport (orgX, orgY, width, height)
     );
-    this.mCamera.setBackgroundColor([0.8,0.8,0.8,1.0]);
+    this.mCamera.setBackgroundColor([0.8, 0.8, 0.8, 1.0]);
 
     this.mBackground = new Renderable();
-    this.mBackground.getXform().setSize(100,75);
-    this.mBackground.setColor([0,0,0,1]);
-    this.mBackground.getXform().setPosition(50,40);
+    this.mBackground.getXform().setSize(100, 75);
+    this.mBackground.setColor([0, 0, 0, 1]);
+    this.mBackground.getXform().setPosition(50, 40);
 
-    this.mText = new FontRenderable("Press SPACE to start");
-    this.mText.setColor([1,1,1,1]);
-    this.mText.getXform().setPosition(30,40);
+    this.mText = new FontRenderable("Press SPACE to restart");
+    this.mText.setColor([1, 1, 1, 1]);
+    this.mText.getXform().setPosition(50, 27);
     this.mText.setTextHeight(10);
+
+    this.mHint = new FontRenderable("YOU DIE");
+    this.mHint.setColor([1, 1, 1, 1]);
+    this.mHint.getXform().setPosition(50, 60);
+    this.mHint.setTextHeight(12);
 
 }
 
 MyMenu.prototype.draw = function () {
-    gEngine.Core.clearCanvas([0.9,0.9,0.9,1.0]);
+    gEngine.Core.clearCanvas([0.9, 0.9, 0.9, 1.0]);
 
     this.mCamera.setupViewProjection();
 
     this.bgBackground.draw(this.mCamera);
     this.mText.draw(this.mCamera);
+    this.mHint.draw(this.mCamera);
 }
 
 MyMenu.prototype.update = function () {
-    if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
+    if (gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)) {
         gEngine.GameLoop.stop();
     }
 }
