@@ -104,6 +104,9 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.kKnight);
     gEngine.Textures.unloadTexture(this.BagTexture);
     gEngine.Textures.unloadTexture(this.CursorTexture);
+
+    var nextscene = new MyTown();
+    gEngine.Core.startScene(nextscene);// load next scene
 };
 
 MyGame.prototype.initialize = function () {
@@ -391,12 +394,19 @@ MyGame.prototype.update = function () {
         if(this.isBagOpened==false && this.isMesOn==false){
             var center = this.mCamera.getWCCenter();
             center[0]+=deltaX;
-            this.mCamera.setWCCenter(center[0],center[1]);
+            if(center[0]<350){
+                this.mCamera.setWCCenter(center[0],center[1]);
+                this.mBag.Move(deltaX);
+            }
+            else{
+                center[0]-=deltaX;
+            }
+            
             var x=this.mKnight.getXform().mPosition;
             //console.log(x);
             this.mKnight.getXform().setPosition(x[0]+deltaX,x[1]);
            // this.mKnight.draw(this.mCamera);
-            this.mBag.Move(deltaX);
+            
         }
         
     }
