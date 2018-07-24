@@ -241,23 +241,29 @@ MyGame.prototype.initialize = function () {
     
     //event, action and result
     this.mEventSet = new EventSet(3);
+     var e = new Enemy();
+    e.atk=15;
+    e.def=0;
+    e.mHealth = 50;
     var r1 = new Result("health +10", 10,0,0,0,0,0,0,0.4);
     var r2 = new Result("max health +10", 0,+10,0,0,0,0,0,0.6);
     var r3 = new Result("hunger +10", 0,0,10,0,0,0,0,0.2);
     var r4 = new Result("get item * 1", 0,0,0,0,0,0,1,0.8);
     var r5 = new Result("attack +1", 0,0,0,0,1,0,0,0.5);
     var r6 = new Result("hunger -10", 0,0,0,-10,0,0,0,0.5);
-    var r7 = new Result("defense +1", 0,0,0,0,0,1,0,1);
+    var r7 = new Result("fight", 0,0,0,0,0,0,0,1);
+    r7.escape = false;
     var r8 = new Result("defense -1", 0,0,0,0,0,-1,0,0.5);
     var a1 = new Action("1. action1",[r1, r2]);
     var a2 = new Action("2. action2", [r3, r4]);
     var a3 = new Action("1. action3",[r5, r6]);
     var a4 = new Action("2. action4", [r7]);
     var a5 = new Action("1. action5",[r5, r8]);
-    var a6 = new Action("2. action6", [r6, r8]);
+    var a6 = new Action("2. action6", [r6, r8]);    
     this.mEventSet[0].action = [a1, a2];
     this.mEventSet[1].action = [a3, a4];
     this.mEventSet[2].action = [a5, a6];
+    this.mEventSet[1].enemy = e;
 };
 
 // This is the draw function, make sure to setup proper drawing environment, and more
@@ -411,7 +417,7 @@ MyGame.prototype.update = function () {
         
     }
 
-    if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
+    if(this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
         this.isMesOn=false;
         this.bgMsg.getXform().setPosition(1000,1000);
         this.mMes1.getXform().setPosition(1000,1000);
@@ -424,14 +430,14 @@ MyGame.prototype.update = function () {
         //console.log(this.mEventSet[this.mEventIndex-1].action[0]);
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[0].getResult();
-        console.log(res);
+        console.log(res, this.mEventSet[this.mEventIndex-1].enemy);
         res.apply(this);
         this.SendMessage(res.msg,"","","");
     }
     if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Two)){
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[1].getResult();
-        res.apply(this);
+        res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
         this.SendMessage(res.msg,"","","");
     }
     
