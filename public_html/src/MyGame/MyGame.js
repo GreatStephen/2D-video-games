@@ -37,11 +37,13 @@ function MyGame() {
     */
     this.bgForestTexture = "assets/forest3.png";
     this.bgBagTexture = "assets/bagdemo.png";
+    this.kKnight = "assets/Knight.png";
 
     this.bgTown = "";
     this.bgPalace = "";
     this.bgForest = null;
     this.bgBag = null;
+    this.bgMsg = null;
     this.mHero = null;
     this.mHealth = null;
     this.mHealthValue = 100;
@@ -56,9 +58,10 @@ function MyGame() {
     this.attributeCamera = null;
     this.bagCamera = null;
     this.mEventSet = null;
-    this.kKnight = "assets/Knight.png";
-
+    
+    // flags
     this.isBagOpened = false;
+    this.isMesOn = false;
     this.flag2 = false;
     this.mEventIndex = 0;
 }
@@ -113,7 +116,7 @@ MyGame.prototype.initialize = function () {
     this.bagCamera = new Camera(
         vec2.fromValues(50,240),
         100,
-        [1000,1000,300,300]
+        [1000,1000,300,225]
     );
     this.attributeCamera.setBackgroundColor([0.9,0.9,0.9,1]);
 
@@ -159,7 +162,7 @@ MyGame.prototype.initialize = function () {
     this.bgBag.getXform().setPosition(50,240);
 
     // health
-    this.mHealth = new FontRenderable("Health: "+this.mHealthValue+"/100");
+    this.mHealth = new FontRenderable("Health: \n\n"+this.mHealthValue+"/100");
     this.mHealth.setColor([0,0,0,1]);
     this.mHealth.getXform().setPosition(10,163.5);
     this.mHealth.setTextHeight(9);
@@ -183,6 +186,7 @@ MyGame.prototype.initialize = function () {
     this.mDefense.setTextHeight(9);
     this.mEventSet = new EventSet(3);
     
+    // knight
     this.mKnight = new SpriteAnimateRenderable(this.kKnight);
     this.mKnight.setColor([1, 1, 1, 0]);
     this.mKnight.getXform().setPosition(50, 25);
@@ -194,6 +198,11 @@ MyGame.prototype.initialize = function () {
     this.mKnight.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
     this.mKnight.setAnimationSpeed(30);
 
+    // message background
+    this.bgMsg = new Renderable();
+    this.bgMsg.getXform().setPosition(1000,1000);
+    this.bgMsg.getXform().setSize(80,20);
+    this.bgMsg.setColor([0,0,0,0.2]);
 };
 
 // This is the draw function, make sure to setup proper drawing environment, and more
@@ -222,6 +231,10 @@ MyGame.prototype.draw = function () {
         this.mEventSet[i].icon.draw(this.mCamera);
     }
     this.mKnight.draw(this.mCamera);
+    this.bgMsg.draw(this.mCamera);
+    if(this.isMesOn==true)
+        this.bgBag.draw(this.mCamera);
+    
 
     this.attributeCamera.setupViewProjection();
     this.mHealth.draw(this.attributeCamera);
@@ -230,7 +243,7 @@ MyGame.prototype.draw = function () {
     this.mDefense.draw(this.attributeCamera);
 
     this.bagCamera.setupViewProjection();
-    this.bgBag.draw(this.bagCamera);
+
     
 };
 
@@ -312,7 +325,7 @@ MyGame.prototype.update = function () {
 
     var deltaX=0.5;
     if (gEngine.Input.isKeyPressed(gEngine.Input.keys.D)) {
-        if(this.isBagOpened==false){
+        if(this.isBagOpened==false && this.isMesOn==false){
             var center = this.mCamera.getWCCenter();
             center[0]+=deltaX;
             this.mCamera.setWCCenter(center[0],center[1]);
@@ -322,6 +335,11 @@ MyGame.prototype.update = function () {
             this.mKnight.draw(this.mCamera);
         }
 
+    }
+
+    if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
+        this.isMesOn=false;
+        this.bgMsg.getXform().setPosition(1000,1000);
     }
     
     if (gEngine.Input.isKeyClicked(gEngine.Input.keys.U)) {
@@ -344,10 +362,18 @@ MyGame.prototype.update = function () {
         }
     }
     if(this.mEventIndex<3&&this.mKnight.getXform().mPosition[0]>this.mEventSet[this.mEventIndex].icon.getXform().mPosition[0]){
-        console.log(this.mEventSet[this.mEventIndex].information);
+        // console.log(this.mEventSet[this.mEventIndex].information);
+        this.SendMessage("here");
         this.mEventIndex++;
     }
 };
+
+//遇到事件后弹窗消息，只能按空格继续
+MyGame.prototype.SendMessage = function(content){
+    var cameraCenter = this.mCamera.getWCCenter();
+    this.bgMsg.getXform().setPosition(cameraCenter[0],cameraCenter[1]-25);
+    this.isMesOn=true;
+}
 
 /*
 MyGame.prototype.createParticle = function(atX, atY) {
