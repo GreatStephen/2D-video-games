@@ -23,7 +23,7 @@ function Bag(myTexture){
     this.bag.getXform().setSize(30,60);
     this.bag.getXform().setPosition(82,50);
     
-    for(var i=0;i<20;i++){
+    for(var i=0;i<2;i++){
         this.AddItem(0);
         //this.AddItem(1);
     }

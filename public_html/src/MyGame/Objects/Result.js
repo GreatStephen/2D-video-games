@@ -14,23 +14,36 @@ function Result(msg, Health, mHealth, Hunger, mHunger, atk, def, pr) {
     this.mHunger = mHunger;   //effect to max hunger
     this.atk = atk;
     this.def = def;
-    this.numItem = false;
-    this.getItem = [];  //the item id and number you can got
+    this.numItem = 0;
+    this.getItem = [0];  //the item id and number you can got
     this.escape = false;    //the flag of escape successfully or not
     this.pr = pr; //the probabilities of different result
 }
 
 Result.prototype.apply = function(mygame, bag){
     //console.log(mygame);
-    //mygame.mHealth += this.Health;
+    // update attribute value
     mygame.mHealthValue += this.Health;
-    //mygame.mHunger += this.Hunger;
+    mygame.mHealthValueMax += this.mHealth;
+    if(mygame.mHealthValueMax < mygame.mHealthValue){
+        mygame.mHealthValue = mygame.mHealthValueMax;
+    }
     mygame.mHungerValue += this.Hunger;
+    mygame.mHungerValueMax += this.mHunger;
+    if(mygame.mHungerValueMax < mygame.mHungerValue){
+        mygame.mHungerValue = mygame.mHungerValueMax;
+    }
     mygame.mAttackValue += this.atk;
     mygame.mDefenseValue += this.def;
+    //update items
     if(this.numItem>0){
         for(var i=0;i<this.numItem;i++){
             bag.AddItem(this.getItem(i));
         }
     }
+    // update attribute renderable
+    mygame.mHealth.setText("Health: "+this.mHealthValue+"/"+this.mHealthValueMax);
+    mygame.mHunger.setText("Hunger: " + this.mHungerValue + "/"+this.mHungerValueMax);
+    mygame.mAttack.setText("Attack: " + this.mAttackValue);
+    mygame.mDefense.setText("Defense: " + this.mDefenseValue);
 }
