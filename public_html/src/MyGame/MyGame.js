@@ -606,6 +606,16 @@ MyGame.prototype.update = function () {
         gEngine.GameLoop.stop();
     }
     
+    if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Z)){
+        gEngine.GameLoop.stop();
+    }
+    
+    if(gEngine.Input.isKeyClicked(gEngine.Input.keys.R)){
+        gEngine.GameLoop.stop();
+        var nextscene = new MyGame();
+        gEngine.Core.startScene(nextscene);
+    }
+    
 };
 
 //遇到事件后弹窗消息，只能按空格继续
