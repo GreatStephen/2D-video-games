@@ -15,7 +15,8 @@ function Result(msg, Health, mHealth, Hunger, mHunger, atk, def, id, num,  pr) {
     this.atk = atk;
     this.def = def;
     this.numItem = num;
-    this.getItem = [{"id":id,"num":num}];  //the item id and number you can got
+    this.getItemId = id;
+    //this.getItem = [{"id":id,"num":num}];  //the item id and number you can got
     this.escape = true;    //the flag of escape successfully or not
     this.pr = pr; //the probabilities of different result
 }
@@ -36,9 +37,10 @@ Result.prototype.apply = function(mygame, enemy){
     mygame.mAttackValue += this.atk;
     mygame.mDefenseValue += this.def;
     //update items
+
     if(this.numItem>0){
         for(var i=0;i<this.numItem;i++){
-            mygame.mBag.AddItem(this.getItem[0]);
+            mygame.mBag.AddItem(this.getItem);
         }
     }
     if(!this.escape){

@@ -31,7 +31,10 @@ var Result[
     new Result();
 
     // appletree
-    new Result("Get apple *1",0,0,0,0,0,0,,1,0.8);
+    new Result("Get apple *1",0,0,0,0,0,0,0,1,0.8);
+    new Result("Get nothing",0,0,0,0,0,0,-1,-1,0.2);
+    
+    //
 ];
 
 // 4 actions
