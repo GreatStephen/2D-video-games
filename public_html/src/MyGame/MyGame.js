@@ -252,12 +252,12 @@ MyGame.prototype.initialize = function () {
 
     this.mMes5 = new FontRenderable("test");
     this.mMes5.setColor([1, 1, 1, 1]);
-    this.mMes5.getXform().setPosition(1000, 1000);
+    this.mMes5.getXform().setPosition(1100, 1100);
     this.mMes5.setTextHeight(3);
 
     this.mMes6 = new FontRenderable("test");
     this.mMes6.setColor([1, 1, 1, 1]);
-    this.mMes6.getXform().setPosition(1000, 1000);
+    this.mMes6.getXform().setPosition(1100, 1100);
     this.mMes6.setTextHeight(3);
     
     // knight
@@ -491,13 +491,13 @@ MyGame.prototype.update = function () {
         var res = this.mEventSet[this.mEventIndex-1].action[0].getResult();
         console.log(res, this.mEventSet[this.mEventIndex-1].enemy);
         res.apply(this);
-        this.SendMessage(res.msg,"","","");
+        this.SendMessage(res.msg,"","","","","");
     }
     if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Two)){
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[1].getResult();
         res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
-        this.SendMessage(res.msg,"","","");
+        this.SendMessage(res.msg,"","","","","");
     }
     
     if (gEngine.Input.isKeyClicked(gEngine.Input.keys.U)) {
