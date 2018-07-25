@@ -141,7 +141,7 @@ MyGame.prototype.initialize = function () {
         vec2.fromValues(50,140),
         100,
         [50,430,160,120],
-        1
+        0
     );
     this.attributeCamera.setBackgroundColor([0.9,0.9,0.9,1]);
 
@@ -149,8 +149,8 @@ MyGame.prototype.initialize = function () {
     this.bagCamera = new Camera(
         vec2.fromValues(50,40),
         100,
-        [0,0,800,600],
-        1
+        [-270,-100,1100,825],
+        0
     );
     this.bagCamera.setBackgroundColor([0.9,0.9,0.9,1]);
 
