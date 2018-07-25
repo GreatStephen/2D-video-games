@@ -47,6 +47,7 @@ function MyGame() {
     this.bgTown = "";
     this.bgPalace = "";
     this.bgForest = null;
+    this.bgForest2 = null;
     this.mBag = null;
     this.bgMsg = null;
     this.bgAttribute = null;
@@ -181,6 +182,10 @@ MyGame.prototype.initialize = function () {
     this.bgForest.setColor([0,0,0,0]);
     this.bgForest.getXform().setSize(400,75);
     this.bgForest.getXform().setPosition(200,40);
+    this.bgForest2 = new TextureRenderable(this.bgForestTexture);
+    this.bgForest2.setColor([0, 0, 0, 0]);
+    this.bgForest2.getXform().setSize(400, 75);
+    this.bgForest2.getXform().setPosition(600, 40);
 
   /*  this.bgBag = new TextureRenderable(this.bgBagTexture);
     this.bgBag.setColor([0,0,0,0]);
@@ -317,6 +322,7 @@ MyGame.prototype.draw = function () {
     this.mAllParticles.draw(this.mCamera);
     */
     this.bgForest.draw(this.mCamera);
+    this.bgForest2.draw(this.mCamera);
     for(var i=0;i<3;i++){
         this.mEventSet[i].icon.draw(this.mCamera);
     }
@@ -433,7 +439,7 @@ MyGame.prototype.update = function () {
         if(this.isBagOpened==false && this.isMesOn==false){
             var center = this.mCamera.getWCCenter();
             center[0]+=deltaX;
-            if(center[0]<350){
+            if(center[0]<750){
                 this.mCamera.setWCCenter(center[0],center[1]);
                 this.mBag.Move(deltaX);
             }
@@ -540,11 +546,11 @@ MyGame.prototype.SendMessage = function(line1, line2, line3, line4){
     this.mMes1.setText(line1);
     this.mMes1.getXform().setPosition(cameraCenter[0]-35,cameraCenter[1]-18);
     this.mMes2.setText(line2);
-    this.mMes2.getXform().setPosition(cameraCenter[0]-35,cameraCenter[1]-23);
+    this.mMes2.getXform().setPosition(cameraCenter[0]-35,cameraCenter[1]-22);
     this.mMes3.setText(line3);
-    this.mMes3.getXform().setPosition(cameraCenter[0]-35,cameraCenter[1]-28);
+    this.mMes3.getXform().setPosition(cameraCenter[0]-35,cameraCenter[1]-26);
     this.mMes4.setText(line4);
-    this.mMes4.getXform().setPosition(cameraCenter[0]-35,cameraCenter[1]-32);
+    this.mMes4.getXform().setPosition(cameraCenter[0]-35,cameraCenter[1]-30);
 
     this.isMesOn=true;
 }
