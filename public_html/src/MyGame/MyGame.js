@@ -45,7 +45,7 @@ function MyGame() {
     this.Mushroom = "assets/mushroom.png";
     this.Knight = "assets/knight.png";
    
-                  
+    //item              
     this.apple = "assets/item/0_apple.png";
     this.meat = "assets/item/1_meat.png";
     this.fish = "assets/item/2_fish.png";
@@ -56,6 +56,10 @@ function MyGame() {
     this.sword = "assets/item/7_sword.png";
     this.shield1 = "assets/item/8_shield1.png";
     this.shield2 = "assets/item/9_shield2.png";
+    
+    
+    //event
+    this.appleTree
 
     this.bgTown = "";
     this.bgPalace = "";
@@ -141,7 +145,7 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.kTargetTexture);
     gEngine.Textures.unloadTexture(this.kParticleTexture);
     */
-    gEngine.Textures.unloadTexture(this.bgForestTexture);
+   /* gEngine.Textures.unloadTexture(this.bgForestTexture);
     gEngine.Textures.unloadTexture(this.kKnight);
     gEngine.Textures.unloadTexture(this.BagTexture);
     gEngine.Textures.unloadTexture(this.CursorTexture);
@@ -160,8 +164,8 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.shield1);
     gEngine.Textures.unloadTexture(this.shield2);
 
-    gEngine.Textures.unloadTexture(this.Knight);
-    var nextscene = new MyTown();
+    gEngine.Textures.unloadTexture(this.Knight);*/
+    var nextscene = new GameOver();
     gEngine.Core.startScene(nextscene);// load next scene
 };
 
@@ -590,6 +594,9 @@ MyGame.prototype.update = function () {
         this.mHealth.setText("Health: " + this.mHealthValue + "/"+this.mHealthValueMax);
     }
     if(this.mHealthValue<=0){
+        gEngine.GameLoop.stop();
+    }
+    if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Z)){
         gEngine.GameLoop.stop();
     }
     
