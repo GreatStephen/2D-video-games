@@ -117,8 +117,8 @@ var AllEventAct = [
 ];
 
 var AllEventType = [0,1,1,0,0,0];
-var AllEventSize_x = [20, 27, 35, 35, 35, 35];//todo
-var AllEventSize_y = [20, 27, 70, 35, 35, 35];//todo
+var AllEventSize_x = [20, 27, 35, 35, 13, 40];//todo
+var AllEventSize_y = [20, 27, 70, 35, 13, 50];//todo
 var AllEventSpriteSequence = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
                               {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
                               {"topPixel":128, "leftPixel":0, "elmWidthInPixel":75, "elmHeightInPixel":128, "numElements":13, "wPaddingInPixel":0}
@@ -126,11 +126,11 @@ var AllEventSpriteSequence = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":
 var AllEventSpeed = [0,15,7];//todo
 
 var AllEventMove_x = [0,0,0,0,0,0];//todo
-var AllEventMove_y = [3,0,-8,0,0,0];//todo
+var AllEventMove_y = [3,0,-8,12,-5,22];//todo
 function Event(num) {
     var t = Math.floor(Math.random()*6);
     //var t=0;
-    t = 3;
+   // t = 5;
     // type = 1 -> animation
     this.type = AllEventType[t];
     this.position = [100*num+AllEventMove_x[t], 20+AllEventMove_y[t]];
