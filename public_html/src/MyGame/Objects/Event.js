@@ -4,24 +4,40 @@
  * and open the template in the editor.
  */
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
-var AllEventIcon = ["1.png", "2.png", "3.png"];
+var AllEventIcon = ["assets/eagle.png", "assets/eagle.png", "assets/eagle.png"];
 var AllEventInf = ["this is event 1", "this is event 2", "this is event 3"];
 var AllEventAct = [{"Action1":"a11", "Action2":"a12"}, {"Action1":"a21", "Action2":"a22"}, {"Action1":"a31", "Action2":"a32"}];
-
+var AllEventType = [1,1,1];
+var AllEventSize = [27,27,27];
+var AllEventSpriteSequence = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
+                              {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
+                              {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0}
+                             ];
 function Event(num) {
     var t = Math.floor(Math.random()*3);
-    this.type = t;
+    t=0;
+    
+    this.type = AllEventType[t];
     this.position = [100*num, 20];
-    var AllColor = [];
-    for(var i=0;i<3;i++){
-        AllColor[i] = new Renderable();
-        AllColor[i].getXform().setPosition(this.position[0], this.position[1]);
-        AllColor[i].getXform().setSize(10, 10);
+    this.picture = AllEventIcon[t];
+    console.log(this.picture);
+    this.size = AllEventSize[t];
+    this.sequence = AllEventSpriteSequence[t];
+    gEngine.Textures.loadTexture(this.picture);
+    this.icon = null;
+    if(this.type==1){
+        
+        this.icon = new SpriteAnimateRenderable(this.picture);
+        this.icon.setColor([1, 1, 1, 0]);
+        this.icon.getXform().setPosition(this.position[0], this.position[1]);
+        this.icon.getXform().setSize(this.size, this.size);
+        this.icon.setSpriteSequence(this.sequence.topPixel, this.sequence.leftPixel, this.sequence.elmWidthInPixel, this.sequence.elmHeightInPixel, this.sequence.numElements, this.sequence.wPaddingInPixel);
+        
     }
-    AllColor[0].setColor([1,0,0,1]);
-    AllColor[1].setColor([0,1,0,1]);
-    AllColor[2].setColor([0,0,1,1]);
-    this.icon = AllColor[t];
+    else{
+        this.icon = new TextureRenderable();
+    }
+    //gEngine.Textures.unloadTexture(this.picture);
     this.information = AllEventInf[t];
     this.action = AllEventAct[t];
     this.isBattle = false;

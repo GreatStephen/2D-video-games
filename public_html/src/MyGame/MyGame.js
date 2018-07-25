@@ -37,9 +37,11 @@ function MyGame() {
     */
     this.bgForestTexture = "assets/forest3.png";
     this.BagTexture = "assets/bag.png";
-    this.kKnight = "assets/Knight.png";
+    this.kKnight = "assets/prince.png";
     this.CursorTexture = "assets/cursor.png";
     this.bgAttributeTexture = "assets/attribute.png"
+    
+    //this.EagleTexture = "assets/eagle.png";
 
     this.bgTown = "";
     this.bgPalace = "";
@@ -93,6 +95,7 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.BagTexture);
     gEngine.Textures.loadTexture(this.CursorTexture);
     gEngine.Textures.loadTexture(this.bgAttributeTexture);
+   // gEngine.Textures.loadTexture(this.EagleTexture);
 };
 
 MyGame.prototype.unloadScene = function () {
@@ -108,7 +111,8 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.BagTexture);
     gEngine.Textures.unloadTexture(this.CursorTexture);
     gEngine.Textures.loadTexture(this.bgAttributeTexture);
-
+  //  gEngine.Textures.loadTexture(this.EagleTexture);
+    
     var nextscene = new MyTown();
     gEngine.Core.startScene(nextscene);// load next scene
 };
@@ -237,13 +241,24 @@ MyGame.prototype.initialize = function () {
     this.mKnight = new SpriteAnimateRenderable(this.kKnight);
     this.mKnight.setColor([1, 1, 1, 0]);
     this.mKnight.getXform().setPosition(50, 25);
-    this.mKnight.getXform().setSize(30, 30);
-    this.mKnight.setSpriteSequence(512, 0,      // first element pixel position: top-left 164 from 512 is top of image, 0 is left of image
-                                    150, 120,       // widthxheight in pixels
-                                    3,              // number of elements in this sequence
+    this.mKnight.getXform().setSize(27, 27);
+    this.mKnight.setSpriteSequence(128, 0,      // first element pixel position: top-left 164 from 512 is top of image, 0 is left of image
+                                    128, 128,       // widthxheight in pixels
+                                    8,              // number of elements in this sequence
                                     0);             // horizontal padding in between
     this.mKnight.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
-    this.mKnight.setAnimationSpeed(30);
+    this.mKnight.setAnimationSpeed(15);
+    
+  /*  this.Eagle = new SpriteAnimateRenderable(this.EagleTexture);
+    this.Eagle.setColor([1, 1, 1, 0]);
+    this.Eagle.getXform().setPosition(50, 25);
+    this.Eagle.getXform().setSize(30, 30);
+    this.Eagle.setSpriteSequence(128, 0,      // first element pixel position: top-left 164 from 512 is top of image, 0 is left of image
+                                    80, 120,       // widthxheight in pixels
+                                    9,              // number of elements in this sequence
+                                    0);             // horizontal padding in between
+    this.Eagle.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
+    this.Eagle.setAnimationSpeed(10);*/
 
     // message background
     this.bgMsg = new Renderable();
@@ -304,6 +319,7 @@ MyGame.prototype.draw = function () {
         this.mEventSet[i].icon.draw(this.mCamera);
     }
     this.mKnight.draw(this.mCamera);
+    //this.Eagle.draw(this.mCamera);
     this.bgMsg.draw(this.mCamera);
     if(this.isMesOn==true){
         //this.bgBag.draw(this.mCamera);
@@ -409,6 +425,7 @@ MyGame.prototype.update = function () {
     */
 
     var deltaX=0.5;
+    //this.Eagle.updateAnimation();
     if (gEngine.Input.isKeyPressed(gEngine.Input.keys.D)) {
         if(this.isBagOpened==false && this.isMesOn==false){
             var center = this.mCamera.getWCCenter();
