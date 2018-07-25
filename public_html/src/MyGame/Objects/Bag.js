@@ -172,7 +172,7 @@ Bag.prototype.update = function(){
                 this.myGame.mDefenseValue -= this.defenceChange;
                 this.AddItem(this.armor);
                 this.armor = this.itemSet[this.current].Id;
-                this.armorChange = this.itemSet[this.current].atk;
+                this.defenceChange = this.itemSet[this.current].def;
                 this.itemSet[this.current].Use(this.myGame);
                 this.RemoveItem();
             }
