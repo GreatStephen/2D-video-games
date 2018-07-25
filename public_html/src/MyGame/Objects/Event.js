@@ -97,7 +97,7 @@ var AllEventAct = [
     new Action(),
 
     // pond
-    new Action("1. Drink water", AllResult[11]),
+    new Action("1. Drink water", [AllResult[11]]),
     new Action("2. Catch fish", [AllResult[12], AllResult[13]]),
     new Action("3. Go away", [AllResult[14]]),
     new Action(),
@@ -117,16 +117,16 @@ var AllEventAct = [
 ];
 
 var AllEventType = [1,0,0,0,0,0];
-var AllEventSize_x = [20, 27, 35, 35, 35, 35];
-var AllEventSize_y = [20, 27, 70, 35, 35, 35];
+var AllEventSize_x = [20, 27, 35, 35, 35, 35];//todo
+var AllEventSize_y = [20, 27, 70, 35, 35, 35];//todo
 var AllEventSpriteSequence = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
                               {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
                               {"topPixel":128, "leftPixel":0, "elmWidthInPixel":75, "elmHeightInPixel":128, "numElements":13, "wPaddingInPixel":0}
-                             ];
-var AllEventSpeed = [0,15,7];
+                             ];//todo
+var AllEventSpeed = [0,15,7];//todo
 
-var AllEventMove_x = [0,0,0,0,0,0];
-var AllEventMove_y = [3,0,-8,0,0,0];
+var AllEventMove_x = [0,0,0,0,0,0];//todo
+var AllEventMove_y = [3,0,-8,0,0,0];//todo
 function Event(num) {
     var t = Math.floor(Math.random()*6);
     //var t=0;

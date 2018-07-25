@@ -31,7 +31,7 @@ MyMenu.prototype.unloadScene = function () {
     // gEngine.Textures.unloadTexture(this.bgBackground);
 
     //开始游戏
-    var mygame = new GameOver();
+    var mygame = new MyGame();
     gEngine.Core.startScene(mygame);
 }
 

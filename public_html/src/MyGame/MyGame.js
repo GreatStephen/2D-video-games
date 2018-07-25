@@ -579,7 +579,7 @@ MyGame.prototype.update = function () {
             this.isBagOpened=false;
         }
     }
-    if(this.mEventIndex<3&&this.mKnight.getXform().mPosition[0]>this.mEventSet[this.mEventIndex].icon.getXform().mPosition[0]-25){
+    if(this.mEventIndex<6&&this.mKnight.getXform().mPosition[0]>this.mEventSet[this.mEventIndex].icon.getXform().mPosition[0]-25){
         console.log(this.mEventSet[this.mEventIndex]);
         this.hasChosen = false;
         var info = this.mEventSet[this.mEventIndex].information;
@@ -592,7 +592,7 @@ MyGame.prototype.update = function () {
         this.mBag.update();
     }
     
-    for(var i=0;i<3;i++){
+    for(var i=0;i<6;i++){
        // console.log(this.mEventSet[i].type);
         if(this.mEventSet[i].type==1){
             this.mEventSet[i].icon.updateAnimation();
