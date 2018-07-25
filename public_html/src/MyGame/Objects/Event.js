@@ -19,26 +19,68 @@ var AllEventInf = ["This is a monster mushroom!",
     "This is an ancient ruins."
 ];
 
+var AllEnemy=[
+    
+];
+
 // possible results
-var Result[
+var AllResult=[
     // mushroom
-    new Result();
+    new Result("fight", 0, 0, 0, 0, 0, 0, 0, 1),
 
     // eagle
-    new Result();
+    new Result("fight", 0, 0, 0, 0, 0, 0, 0, 1),
 
     // knignt
-    new Result();
+    new Result("fight", 0, 0, 0, 0, 0, 0, 0, 1),
 
     // appletree
-    new Result("Get apple *1",0,0,0,0,0,0,0,1,0.8);
-    new Result("Get nothing",0,0,0,0,0,0,-1,-1,0.2);
-    
-    //
+    new Result("Get apple *1",0,0,0,0,0,0,0,1,0.8),
+    new Result("Get nothing",0,0,0,0,0,0,-1,-1,0.2),
+    new Result("Get herb *1",0,0,0,0,0,0,3,1,0.6),
+    new Result("Get timber *5",0,0,0,0,0,0,4,5,0.4)
+
+    // pond
+    new Result("Hunger +10",0,0,+10,0,0,0,-1,-1,1),
+    new Result("Get fish *1", 0,0,0,0,0,0,2,1,0.8),
+    new Result("Get nothing", 0,0,0,0,0,0,-1,-1,0.2),
+
+    // treasure  case
+    new Result("Money(Apple) *10",0,0,0,0,0,0,0,10,0.4),
+    new Result("Money(Apple) *8", 0,0,0,0,0,0,0,10,0.6),
+
+    // ruins
+    new Result("Money(Apple) *5", 0,0,0,0,0,0,0,5,0.3),
+    new Result("Get timber *5", 0,0,0,0,0,0,4,5,0.3),
+    new Result("Get herb *2", 0,0,0,0,0,0,3,2,0.4)
+
 ];
 
 // 4 actions
 var Action = [
+    // mushroom
+
+    // eagle
+
+    // knight
+
+    // appletree
+    new Action("1. Shake it",[]),
+    new Action("2. Cut it down", []),
+    new Action("3. Go away", []),
+
+    // pond
+    new Action("1. Drink water", []),
+    new Action("2. Catch fish", []),
+    new Action("3. Go away", []),
+
+    // treasure case
+    new Action("1. Open it", []),
+    new Action("2. Go away", []),
+
+    // ruins
+    new Action("1. Search it", []),
+    new Action("2. Go away", []),
 
 ];
 
