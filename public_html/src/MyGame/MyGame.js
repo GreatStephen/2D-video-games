@@ -39,9 +39,10 @@ function MyGame() {
     this.BagTexture = "assets/bag.png";
     this.kKnight = "assets/prince.png";
     this.CursorTexture = "assets/cursor.png";
-    this.bgAttributeTexture = "assets/attribute.png"
+    this.bgAttributeTexture = "assets/attribute.png";
     
     this.EagleTexture = "assets/eagle.png";
+    this.Mushroom = "assets/mushroom.png";
 
     this.bgTown = "";
     this.bgPalace = "";
@@ -96,6 +97,7 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.CursorTexture);
     gEngine.Textures.loadTexture(this.bgAttributeTexture);
     gEngine.Textures.loadTexture(this.EagleTexture);
+    gEngine.Textures.loadTexture(this.Mushroom);
 };
 
 MyGame.prototype.unloadScene = function () {
@@ -110,9 +112,9 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.kKnight);
     gEngine.Textures.unloadTexture(this.BagTexture);
     gEngine.Textures.unloadTexture(this.CursorTexture);
-    gEngine.Textures.loadTexture(this.bgAttributeTexture);
-    gEngine.Textures.loadTexture(this.EagleTexture);
-    
+    gEngine.Textures.unloadTexture(this.bgAttributeTexture);
+    gEngine.Textures.unloadTexture(this.EagleTexture);
+    gEngine.Textures.unloadTexture(this.Mushroom);
     var nextscene = new MyTown();
     gEngine.Core.startScene(nextscene);// load next scene
 };
@@ -247,7 +249,7 @@ MyGame.prototype.initialize = function () {
                                     8,              // number of elements in this sequence
                                     0);             // horizontal padding in between
     this.mKnight.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
-    this.mKnight.setAnimationSpeed(15);
+    this.mKnight.setAnimationSpeed(5);
     
   /*  this.Eagle = new SpriteAnimateRenderable(this.EagleTexture);
     this.Eagle.setColor([1, 1, 1, 0]);
@@ -359,6 +361,7 @@ MyGame.prototype.increasShapeSize = function(obj, delta) {
 // anything from this function!
 MyGame.kBoundDelta = 0.1;
 MyGame.prototype.update = function () {
+    this.flag=0;
     /*
     var msg = "";   
     
@@ -442,7 +445,7 @@ MyGame.prototype.update = function () {
             //console.log(x);
             this.mKnight.getXform().setPosition(x[0]+deltaX,x[1]);
            // this.mKnight.draw(this.mCamera);
-            
+            this.flag=1;
         }
         
     }
