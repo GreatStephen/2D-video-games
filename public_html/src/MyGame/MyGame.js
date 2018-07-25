@@ -43,6 +43,7 @@ function MyGame() {
     
     this.EagleTexture = "assets/eagle.png";
     this.Mushroom = "assets/mushroom.png";
+    this.Knight = "assets/knight.png";
 
     this.bgTown = "";
     this.bgPalace = "";
@@ -101,6 +102,7 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.bgAttributeTexture);
     gEngine.Textures.loadTexture(this.EagleTexture);
     gEngine.Textures.loadTexture(this.Mushroom);
+    gEngine.Textures.loadTexture(this.Knight);
 };
 
 MyGame.prototype.unloadScene = function () {
@@ -119,6 +121,7 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.EagleTexture);
     gEngine.Textures.unloadTexture(this.Mushroom);
 
+    gEngine.Textures.unloadTexture(this.Knight);
     var nextscene = new MyTown();
     gEngine.Core.startScene(nextscene);// load next scene
 };
@@ -262,8 +265,8 @@ MyGame.prototype.initialize = function () {
     this.mKnight.setColor([1, 1, 1, 0]);
     this.mKnight.getXform().setPosition(50, 25);
     this.mKnight.getXform().setSize(27, 27);
-    this.mKnight.setSpriteSequence(128, 0,      // first element pixel position: top-left 164 from 512 is top of image, 0 is left of image
-                                    128, 128,       // widthxheight in pixels
+    this.mKnight.setSpriteSequence(64, 0,      // first element pixel position: top-left 164 from 512 is top of image, 0 is left of image
+                                    64, 64,       // widthxheight in pixels
                                     8,              // number of elements in this sequence
                                     0);             // horizontal padding in between
     this.mKnight.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
@@ -516,7 +519,7 @@ MyGame.prototype.update = function () {
             this.isBagOpened=false;
         }
     }
-    if(this.mEventIndex<3&&this.mKnight.getXform().mPosition[0]>this.mEventSet[this.mEventIndex].icon.getXform().mPosition[0]){
+    if(this.mEventIndex<3&&this.mKnight.getXform().mPosition[0]>this.mEventSet[this.mEventIndex].icon.getXform().mPosition[0]-25){
         console.log(this.mEventSet[this.mEventIndex]);
         this.hasChosen = false;
         var info = this.mEventSet[this.mEventIndex].information;
