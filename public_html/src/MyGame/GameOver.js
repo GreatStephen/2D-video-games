@@ -32,7 +32,7 @@ GameOver.prototype.unloadScene = function () {
     // gEngine.Textures.unloadTexture(this.bgBackground);
 
     //开始游戏
-    var mygame = new MyGame();
+    var mygame = new MyMenu();
     gEngine.Core.startScene(mygame);
 }
 
@@ -56,8 +56,8 @@ GameOver.prototype.initialize = function () {
 
     this.mHint = new FontRenderable("YOU DIE");
     this.mHint.setColor([1, 1, 1, 1]);
-    this.mHint.getXform().setPosition(26, 50);
-    this.mHint.setTextHeight(12);
+    this.mHint.getXform().setPosition(30, 40);
+    this.mHint.setTextHeight(10);
 
 }
 

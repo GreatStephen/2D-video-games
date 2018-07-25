@@ -40,6 +40,7 @@ Result.prototype.apply = function(mygame, enemy){
 
     if(this.numItem>0){
         for(var i=0;i<this.numItem;i++){
+            console.log("res "+this.getItem);
             mygame.mBag.AddItem(this.getItem);
         }
     }
