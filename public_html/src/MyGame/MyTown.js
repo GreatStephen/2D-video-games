@@ -63,7 +63,6 @@ MyMenu.prototype.unloadScene = function () {
     //暂时没有图片
     // gEngine.Textures.unloadTexture(this.bgBackground);
 
-    //开始游戏
     
 }
 

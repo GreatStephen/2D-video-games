@@ -39,12 +39,14 @@ function MyGame() {
     this.BagTexture = "assets/bag.png";
     this.kKnight = "assets/Knight.png";
     this.CursorTexture = "assets/cursor.png";
+    this.bgAttributeTexture = "assets/attribute.png"
 
     this.bgTown = "";
     this.bgPalace = "";
     this.bgForest = null;
     this.mBag = null;
     this.bgMsg = null;
+    this.bgAttribute = null;
     this.mHero = null;
     this.mHealth = null;
     this.mHealthValue = 100;
@@ -90,6 +92,7 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.kKnight);
     gEngine.Textures.loadTexture(this.BagTexture);
     gEngine.Textures.loadTexture(this.CursorTexture);
+    gEngine.Textures.loadTexture(this.bgAttributeTexture);
 };
 
 MyGame.prototype.unloadScene = function () {
@@ -104,6 +107,7 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.kKnight);
     gEngine.Textures.unloadTexture(this.BagTexture);
     gEngine.Textures.unloadTexture(this.CursorTexture);
+    gEngine.Textures.loadTexture(this.bgAttributeTexture);
 
     var nextscene = new MyTown();
     gEngine.Core.startScene(nextscene);// load next scene
@@ -175,6 +179,12 @@ MyGame.prototype.initialize = function () {
     this.bgBag.getXform().setSize(100,100);
     this.bgBag.getXform().setPosition(50,240);*/
     this.mBag = new Bag(this.BagTexture,this.CursorTexture,this);
+
+    // attribute background
+    this.bgAttribute = new TextureRenderable(this.bgAttributeTexture);
+    this.bgAttribute.setColor([0,0,0,0]);
+    this.bgAttribute.getXform().setSize(116,80);
+    this.bgAttribute.getXform().setPosition(50,140);
 
     // health
     this.mHealth = new FontRenderable("Health: "+this.mHealthValue+"/"+this.mHealthValueMax);
@@ -308,6 +318,7 @@ MyGame.prototype.draw = function () {
     }
 
     this.attributeCamera.setupViewProjection();
+    this.bgAttribute.draw(this.attributeCamera);
     this.mHealth.draw(this.attributeCamera);
     this.mHunger.draw(this.attributeCamera);
     this.mAttack.draw(this.attributeCamera);
