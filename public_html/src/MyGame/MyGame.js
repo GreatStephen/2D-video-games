@@ -41,10 +41,15 @@ function MyGame() {
     this.CursorTexture = "assets/cursor.png";
     this.bgAttributeTexture = "assets/attribute.png";
     
+    // event background
     this.EagleTexture = "assets/eagle.png";
     this.Mushroom = "assets/mushroom.png";
     this.Knight = "assets/knight.png";
+    this.TreeTexture = "assets/appletree.png";
+    this.PondTexture = "assets/pond.png";
+    this.RuinsTexture = "assets/ruins.png";
 
+    // local variables
     this.bgTown = "";
     this.bgPalace = "";
     this.bgForest = null;
@@ -69,12 +74,13 @@ function MyGame() {
     this.mMes4 = null;
     this.mMes5 = null;
     this.mMes6 = null;
+    this.mEventSet = null;
 
+    // cameras
     this.mCamera = null;
     this.attributeCamera = null;
     this.bagCamera = null;
-    this.mEventSet = null;
-    
+
     // flags
     this.isBagOpened = false;
     this.isMesOn = false;
@@ -103,6 +109,9 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.EagleTexture);
     gEngine.Textures.loadTexture(this.Mushroom);
     gEngine.Textures.loadTexture(this.Knight);
+    gEngine.Textures.loadTexture(this.TreeTexture);
+    gEngine.Textures.loadTexture(this.PondTexture);
+    gEngine.Textures.loadTexture(this.RuinsTexture);
 };
 
 MyGame.prototype.unloadScene = function () {
@@ -120,8 +129,11 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.bgAttributeTexture);
     gEngine.Textures.unloadTexture(this.EagleTexture);
     gEngine.Textures.unloadTexture(this.Mushroom);
-
     gEngine.Textures.unloadTexture(this.Knight);
+    gEngine.Textures.unloadTexture(this.TreeTexture);
+    gEngine.Textures.unloadTexture(this.PondTexture);
+    gEngine.Textures.unloadTexture(this.RuinsTexture);
+
     var nextscene = new MyTown();
     gEngine.Core.startScene(nextscene);// load next scene
 };
@@ -291,7 +303,8 @@ MyGame.prototype.initialize = function () {
     this.bgMsg.setColor([0,0,0,0.2]);
     
     //event, action and result
-    this.mEventSet = new EventSet(3);
+    this.mEventSet = new EventSet(10);
+    /*
      var e = new Enemy();
     e.atk=15;
     e.def=0;
@@ -315,6 +328,7 @@ MyGame.prototype.initialize = function () {
     this.mEventSet[1].action = [a3, a4];
     this.mEventSet[2].action = [a5, a6];
     this.mEventSet[1].enemy = e;
+    */
 };
 
 // This is the draw function, make sure to setup proper drawing environment, and more
