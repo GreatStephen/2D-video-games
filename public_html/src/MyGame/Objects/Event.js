@@ -32,7 +32,7 @@ function Event(num) {
         this.icon.getXform().setPosition(this.position[0], this.position[1]);
         this.icon.getXform().setSize(this.size, this.size);
         this.icon.setSpriteSequence(this.sequence.topPixel, this.sequence.leftPixel, this.sequence.elmWidthInPixel, this.sequence.elmHeightInPixel, this.sequence.numElements, this.sequence.wPaddingInPixel);
-        
+        this.icon.setAnimationSpeed(15);
     }
     else{
         this.icon = new TextureRenderable();

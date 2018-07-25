@@ -12,6 +12,6 @@ function EventSet(num) {
     }
     //console.log(mEventSet);
     return mEventSet;
-};
+}
 gEngine.Core.inheritPrototype(EventSet, GameObjectSet);
 

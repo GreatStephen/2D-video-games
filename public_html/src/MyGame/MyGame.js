@@ -41,7 +41,7 @@ function MyGame() {
     this.CursorTexture = "assets/cursor.png";
     this.bgAttributeTexture = "assets/attribute.png"
     
-    //this.EagleTexture = "assets/eagle.png";
+    this.EagleTexture = "assets/eagle.png";
 
     this.bgTown = "";
     this.bgPalace = "";
@@ -95,7 +95,7 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.BagTexture);
     gEngine.Textures.loadTexture(this.CursorTexture);
     gEngine.Textures.loadTexture(this.bgAttributeTexture);
-   // gEngine.Textures.loadTexture(this.EagleTexture);
+    gEngine.Textures.loadTexture(this.EagleTexture);
 };
 
 MyGame.prototype.unloadScene = function () {
@@ -111,7 +111,7 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.BagTexture);
     gEngine.Textures.unloadTexture(this.CursorTexture);
     gEngine.Textures.loadTexture(this.bgAttributeTexture);
-  //  gEngine.Textures.loadTexture(this.EagleTexture);
+    gEngine.Textures.loadTexture(this.EagleTexture);
     
     var nextscene = new MyTown();
     gEngine.Core.startScene(nextscene);// load next scene
@@ -502,6 +502,13 @@ MyGame.prototype.update = function () {
     
     if(this.isBagOpened==true){
         this.mBag.update();
+    }
+    
+    for(var i=0;i<3;i++){
+       // console.log(this.mEventSet[i].type);
+        if(this.mEventSet[i].type==1){
+            this.mEventSet[i].icon.updateAnimation();
+        }
     }
     
     this.mCounter++;
