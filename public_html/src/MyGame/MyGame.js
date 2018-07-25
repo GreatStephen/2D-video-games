@@ -146,12 +146,13 @@ MyGame.prototype.initialize = function () {
     this.attributeCamera.setBackgroundColor([0.9,0.9,0.9,1]);
 
     //setup bag camera
-  /*  this.bagCamera = new Camera(
-        vec2.fromValues(50,240),
+    this.bagCamera = new Camera(
+        vec2.fromValues(50,40),
         100,
-        [1000,1000,300,300]
+        [0,0,800,600],
+        1
     );
-    this.attributeCamera.setBackgroundColor([0.9,0.9,0.9,1]);*/
+    this.bagCamera.setBackgroundColor([0.9,0.9,0.9,1]);
 
             // sets the background to gray
     gEngine.DefaultResources.setGlobalAmbientIntensity(3);
@@ -357,9 +358,7 @@ MyGame.prototype.draw = function () {
 
     
 
-    if(this.isBagOpened==true){
-        this.mBag.Draw(this.mCamera);
-    }
+    
 
     this.attributeCamera.setupViewProjection();
     this.bgAttribute.draw(this.attributeCamera);
@@ -368,10 +367,11 @@ MyGame.prototype.draw = function () {
     this.mAttack.draw(this.attributeCamera);
     this.mDefense.draw(this.attributeCamera);
 
-   // this.bagCamera.setupViewProjection();
-    //this.bgBag.draw(this.bagCamera);
     
-    
+    this.bagCamera.setupViewProjection();
+    if(this.isBagOpened==true){
+        this.mBag.Draw(this.bagCamera);
+    }
 };
 
 /*
@@ -459,7 +459,7 @@ MyGame.prototype.update = function () {
             center[0]+=deltaX;
             if(center[0]<750){
                 this.mCamera.setWCCenter(center[0],center[1]);
-                this.mBag.Move(deltaX);
+               // this.mBag.Move(deltaX);
             }
             else{
                 center[0]-=deltaX;
