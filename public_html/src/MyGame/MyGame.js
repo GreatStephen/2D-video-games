@@ -45,11 +45,9 @@ function MyGame() {
     this.EagleTexture = "assets/eagle.png";
     this.Mushroom = "assets/mushroom.png";
     this.Knight = "assets/knight.png";
-<<<<<<< HEAD
     this.TreeTexture = "assets/appletree.png";
     this.PondTexture = "assets/pond.png";
     this.RuinsTexture = "assets/ruins.png";
-=======
    
                   
     this.apple = "assets/item/0_apple.png";
@@ -62,7 +60,6 @@ function MyGame() {
     this.sword = "assets/item/7_sword.png";
     this.shield1 = "assets/item/8_shield1.png";
     this.shield2 = "assets/item/9_shield2.png";
->>>>>>> 83560c63d2a8bb01c734c05aefa0e942d1fbd403
 
     // local variables
     this.bgTown = "";
@@ -124,11 +121,9 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.EagleTexture);
     gEngine.Textures.loadTexture(this.Mushroom);
     gEngine.Textures.loadTexture(this.Knight);
-<<<<<<< HEAD
     gEngine.Textures.loadTexture(this.TreeTexture);
     gEngine.Textures.loadTexture(this.PondTexture);
     gEngine.Textures.loadTexture(this.RuinsTexture);
-=======
     
     gEngine.Textures.loadTexture(this.apple);
     gEngine.Textures.loadTexture(this.meat);
@@ -145,7 +140,6 @@ MyGame.prototype.loadScene = function () {
     
     
     
->>>>>>> 83560c63d2a8bb01c734c05aefa0e942d1fbd403
 };
 
 MyGame.prototype.unloadScene = function () {
@@ -163,8 +157,6 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.bgAttributeTexture);
     gEngine.Textures.unloadTexture(this.EagleTexture);
     gEngine.Textures.unloadTexture(this.Mushroom);
-<<<<<<< HEAD
-=======
     
     gEngine.Textures.unloadTexture(this.apple);
     gEngine.Textures.unloadTexture(this.meat);
@@ -177,7 +169,6 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.shield1);
     gEngine.Textures.unloadTexture(this.shield2);
 
->>>>>>> 83560c63d2a8bb01c734c05aefa0e942d1fbd403
     gEngine.Textures.unloadTexture(this.Knight);
     gEngine.Textures.unloadTexture(this.TreeTexture);
     gEngine.Textures.unloadTexture(this.PondTexture);
