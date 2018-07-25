@@ -44,6 +44,18 @@ function MyGame() {
     this.EagleTexture = "assets/eagle.png";
     this.Mushroom = "assets/mushroom.png";
     this.Knight = "assets/knight.png";
+   
+                  
+    this.apple = "assets/item/0_apple.png";
+    this.meat = "assets/item/1_meat.png";
+    this.fish = "assets/item/2_fish.png";
+    this.herb = "assets/item/3_herb.png";
+    this.timber = "assets/item/4_timber.png";
+    this.axe = "assets/item/5_axe.png";
+    this.spear = "assets/item/6_spear.png";
+    this.sword = "assets/item/7_sword.png";
+    this.shield1 = "assets/item/8_shield1.png";
+    this.shield2 = "assets/item/9_shield2.png";
 
     this.bgTown = "";
     this.bgPalace = "";
@@ -103,6 +115,22 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.EagleTexture);
     gEngine.Textures.loadTexture(this.Mushroom);
     gEngine.Textures.loadTexture(this.Knight);
+    
+    gEngine.Textures.loadTexture(this.apple);
+    gEngine.Textures.loadTexture(this.meat);
+    gEngine.Textures.loadTexture(this.fish);
+    gEngine.Textures.loadTexture(this.herb);
+    gEngine.Textures.loadTexture(this.timber);
+    gEngine.Textures.loadTexture(this.axe);
+    gEngine.Textures.loadTexture(this.spear);
+    gEngine.Textures.loadTexture(this.sword);
+    gEngine.Textures.loadTexture(this.shield1);
+    gEngine.Textures.loadTexture(this.shield2);
+    
+    
+    
+    
+    
 };
 
 MyGame.prototype.unloadScene = function () {
@@ -120,6 +148,17 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.bgAttributeTexture);
     gEngine.Textures.unloadTexture(this.EagleTexture);
     gEngine.Textures.unloadTexture(this.Mushroom);
+    
+    gEngine.Textures.unloadTexture(this.apple);
+    gEngine.Textures.unloadTexture(this.meat);
+    gEngine.Textures.unloadTexture(this.fish);
+    gEngine.Textures.unloadTexture(this.herb);
+    gEngine.Textures.unloadTexture(this.timber);
+    gEngine.Textures.unloadTexture(this.axe);
+    gEngine.Textures.unloadTexture(this.spear);
+    gEngine.Textures.unloadTexture(this.sword);
+    gEngine.Textures.unloadTexture(this.shield1);
+    gEngine.Textures.unloadTexture(this.shield2);
 
     gEngine.Textures.unloadTexture(this.Knight);
     var nextscene = new MyTown();

@@ -13,7 +13,7 @@ var deltaMove = 0;
 
 var CursorPosition = [x,y];
 
-var InfoPosition =[75,29];
+var InfoPosition =[72,29];
 
 function Bag(myTexture,cursorTexture,myGame){
 
@@ -34,12 +34,21 @@ function Bag(myTexture,cursorTexture,myGame){
     this.cursor.getXform().setSize(5.7,5.7);
     this.cursor.getXform().setPosition(CursorPosition);
     
-    //for(var i=0;i<3;i++){
-        this.AddItem(0);
-        this.AddItem(1);
-        this.AddItem(2);
-    //}
+    this.weapon = new Renderable();
+    this.cursor.setColor([1,0,0,0]);
+    this.cursor.getXform().setSize(5.7,5.7);
+    this.cursor.getXform().setPosition(CursorPosition);
     
+    this.weapon = -1;
+    this.armor = -1;
+    for(var i=0;i<10;i++){
+        this.AddItem(i);
+       // this.AddItem(1);
+       // this.AddItem(2);
+    }
+    
+    this.attackChange=0;
+    this.defenceChange=0;
     
 }
 
@@ -74,6 +83,20 @@ Bag.prototype.Move = function(deltaX){
 Bag.prototype.Draw = function(aCamera){
     // draw the bag
     this.bag.draw(aCamera);
+    
+    if(this.weapon!=-1){
+        var temp = new Item(this.weapon);
+        temp.renderable.getXform().setSize(3.5,3.5);
+        temp.renderable.getXform().setPosition(76.8,53.5);
+        temp.renderable.draw(aCamera);
+    }
+    
+    if(this.armor!=-1){
+        var temp = new Item(this.armor);
+        temp.renderable.getXform().setSize(3.5,3.5);
+        temp.renderable.getXform().setPosition(86,53.5);
+        temp.renderable.draw(aCamera);
+    }
     
     // draw the items
     for(var i=0;i<this.itemSet.length;i++){
@@ -119,8 +142,46 @@ Bag.prototype.update = function(){
         }
     }  
     
-    if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Enter)){
-        this.itemSet[this.current].Use(this.myGame);
+    if(gEngine.Input.isKeyClicked(gEngine.Input.keys.T)){
         this.RemoveItem();
+    }  
+    
+    if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Enter)){
+        if(this.itemSet[this.current].type==0){
+            this.itemSet[this.current].Use(this.myGame);
+            this.RemoveItem();
+        }
+        else if(this.itemSet[this.current].type==2){
+            if(this.weapon!=-1){
+                this.myGame.mAttackValue -= this.attackChange;
+                this.AddItem(this.weapon);
+                this.weapon = this.itemSet[this.current].Id;
+                this.attackChange = this.itemSet[this.current].atk;
+                this.itemSet[this.current].Use(this.myGame);
+                this.RemoveItem();
+            }
+            else{
+                this.weapon = this.itemSet[this.current].Id;
+                this.attackChange = this.itemSet[this.current].atk;
+                this.itemSet[this.current].Use(this.myGame);
+                this.RemoveItem();
+            }
+        }
+        else if(this.itemSet[this.current].type==3){
+            if(this.armor!=-1){
+                this.myGame.mDefenseValue -= this.defenceChange;
+                this.AddItem(this.armor);
+                this.armor = this.itemSet[this.current].Id;
+                this.armorChange = this.itemSet[this.current].atk;
+                this.itemSet[this.current].Use(this.myGame);
+                this.RemoveItem();
+            }
+            else{
+                this.armor = this.itemSet[this.current].Id;
+                this.defenceChange = this.itemSet[this.current].def;
+                this.itemSet[this.current].Use(this.myGame);
+                this.RemoveItem();
+            }
+        }
     }  
 }
