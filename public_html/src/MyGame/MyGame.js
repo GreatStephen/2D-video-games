@@ -169,12 +169,6 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.shield1);
     gEngine.Textures.unloadTexture(this.shield2);
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 3c562be541ee5e0a7e31c4bbd463b57d9a318705
-    gEngine.Textures.unloadTexture(this.Knight);*/
     var nextscene = new GameOver();
     gEngine.Textures.unloadTexture(this.Knight);
     gEngine.Textures.unloadTexture(this.TreeTexture);
@@ -182,14 +176,10 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.RuinsTexture);
 
     var nextscene = new MyTown();
-<<<<<<< HEAD
-=======
->>>>>>> ab0a426f16e745e28e6fb82a5591a6724cf2b24a
-=======
+
     gEngine.Textures.unloadTexture(this.Knight);
     var nextscene = new MyTown();
->>>>>>> parent of 0cbbc30... Start an Over
->>>>>>> 3c562be541ee5e0a7e31c4bbd463b57d9a318705
+
     gEngine.Core.startScene(nextscene);// load next scene
 };
 
