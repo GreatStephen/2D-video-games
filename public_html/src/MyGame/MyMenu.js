@@ -31,7 +31,7 @@ MyMenu.prototype.unloadScene = function () {
     // gEngine.Textures.unloadTexture(this.bgBackground);
 
     //开始游戏
-    var mygame = new MyGame();
+    var mygame = new GameOver();
     gEngine.Core.startScene(mygame);
 }
 
@@ -39,7 +39,7 @@ MyMenu.prototype.initialize = function () {
     this.mCamera = new Camera(
         vec2.fromValues(50, 40), // position of the camera
         100,                     // width of camera
-        [0, 0, 800, 600]         // viewport (orgX, orgY, width, height)
+        [0, 0, 1300, 600]         // viewport (orgX, orgY, width, height)
     );
     this.mCamera.setBackgroundColor([0.8,0.8,0.8,1.0]);
 
@@ -50,8 +50,8 @@ MyMenu.prototype.initialize = function () {
 
     this.mText = new FontRenderable("Press SPACE to start");
     this.mText.setColor([1,1,1,1]);
-    this.mText.getXform().setPosition(30,40);
-    this.mText.setTextHeight(10);
+    this.mText.getXform().setPosition(20,30);
+    this.mText.setTextHeight(5);
 
 }
 
@@ -60,7 +60,7 @@ MyMenu.prototype.draw = function () {
 
     this.mCamera.setupViewProjection();
 
-    this.bgBackground.draw(this.mCamera);
+    this.mBackground.draw(this.mCamera);
     this.mText.draw(this.mCamera);
 }
 
