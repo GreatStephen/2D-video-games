@@ -56,9 +56,14 @@ Item.prototype.Use = function(mygame){
     if(mygame.mHungerValueMax < mygame.mHungerValue){
         mygame.mHungerValue = mygame.mHungerValueMax;
     }
+
     mygame.mAttackValue += this.atk;
     mygame.mDefenseValue += this.def;
-    
+    /*
+    mygame.mAttackValue = 10+this.atk;
+    mygame.mDefenseValue = 10+this.def;
+    */
+
     // update attribute renderable
     mygame.mHealth.setText("Health: "+ mygame.mHealthValue+"/"+ mygame.mHealthValueMax);
     mygame.mHunger.setText("Hunger: " + mygame.mHungerValue + "/"+ mygame.mHungerValueMax);
