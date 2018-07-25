@@ -169,16 +169,8 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.shield1);
     gEngine.Textures.unloadTexture(this.shield2);
 
+
     var nextscene = new GameOver();
-    gEngine.Textures.unloadTexture(this.Knight);
-    gEngine.Textures.unloadTexture(this.TreeTexture);
-    gEngine.Textures.unloadTexture(this.PondTexture);
-    gEngine.Textures.unloadTexture(this.RuinsTexture);
-
-    var nextscene = new MyTown();
-
-    gEngine.Textures.unloadTexture(this.Knight);
-    var nextscene = new MyTown();
 
     gEngine.Core.startScene(nextscene);// load next scene
 };

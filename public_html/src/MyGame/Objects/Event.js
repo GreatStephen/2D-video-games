@@ -48,7 +48,7 @@ var AllResult=[
     new Result("Get apple *1",0,0,0,0,0,0,0,1,0.8),
     new Result("Get nothing",0,0,0,0,0,0,-1,-1,0.2),
     new Result("Get herb *1",0,0,0,0,0,0,3,1,0.6),
-    new Result("Get timber *5",0,0,0,0,0,0,4,5,0.4),
+    new Result("Get timber *1",0,0,0,0,0,0,4,1,0.4),
     new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 1),
 
     // pond
@@ -58,13 +58,13 @@ var AllResult=[
     new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 1),
 
     // treasure  case
-    new Result("Money(Apple) *10",0,0,0,0,0,0,0,10,0.4),
-    new Result("Money(Apple) *8", 0,0,0,0,0,0,0,8,0.6),
+    new Result("Money(Apple) *1",0,0,0,0,0,0,0,1,0.4),
+    new Result("Money(Apple) *1", 0,0,0,0,0,0,0,1,0.6),
     new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 1),
 
     // ruins
-    new Result("Money(Apple) *5", 0,0,0,0,0,0,0,5,0.3),
-    new Result("Get timber *5", 0,0,0,0,0,0,4,5,0.3),
+    new Result("Money(Apple) *1", 0,0,0,0,0,0,0,1,0.3),
+    new Result("Get timber *1", 0,0,0,0,0,0,4,1,0.3),
     new Result("Get herb *2", 0,0,0,0,0,0,3,2,0.4),
     new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 1)
 
@@ -103,7 +103,7 @@ var AllEventAct = [
     new Action(),
 
     // treasure case
-    new Action("1. Open it", [AllResult[15], AllResult[16]]),
+    new Action("1. Search it", [AllResult[15], AllResult[16]]),
     new Action("2. Go away", [AllResult[17]]),
     new Action(),
     new Action(),
