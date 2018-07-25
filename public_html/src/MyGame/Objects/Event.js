@@ -9,14 +9,22 @@ var AllEventIcon = ["assets/mushroom.png",
     "assets/knight.png",
     "assets/appletree.png",
     "assets/pond.png",
-    "assets/ruins.png"
+    "assets/ruins.png",
+    "assets/hunter.png",
+    //"assets/witch.png",
+    "assets/villager.png",
+    //"assets/villager.png",
 ];
 var AllEventInf = ["This is a monster mushroom!", 
     "This is an evil eagle!", 
     "This is a guard in the forest!",
     "I see an apple tree.",
     "This is a serene pond.",
-    "This is an ancient ruins."
+    "This is an ancient ruins.",
+    //"Witch: Would you like to buy some potions ? They can make you feel better.",
+    "Hunter:Would you like to give me a hand?",
+    "Villager: Hey, young man",
+    //"Villager: I am starving. Can you give some food?  "
 ];
 
 var AllEnemy1=[
@@ -66,7 +74,20 @@ var AllResult=[
     new Result("Money(Apple) *5", 0,0,0,0,0,0,0,5,0.3),
     new Result("Get timber *5", 0,0,0,0,0,0,4,5,0.3),
     new Result("Get herb *2", 0,0,0,0,0,0,3,2,0.4),
-    new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 1)
+    new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 1),
+    
+    // hunter
+    new Result("Apple *2", 0,0,0,0,0,0,0,2,1),
+    new Result("you lose 30HP", -30,0,0,0,0,0,4,5,0.5),
+    new Result("Meat *2", 0,0,0,0,0,0,1,2,0.5),
+    new Result("You leave.", 0,0,0,0,0,0,0,0,1),
+
+    
+    // villager
+    new Result("The king fall serious ill", 0,0,0,0,0,0,0,0,1),
+    new Result("Get apple *1", 0,0,0,0,0,0,0,1,0.6),
+    new Result("You are a liar.", 0,0,0,0,0,0,0,0,0.4),
+    new Result("You leave.", 0,0,0,0,0,0,0,0,1)
 
 ];
 AllResult[0].escape = false;
@@ -103,34 +124,57 @@ var AllEventAct = [
     new Action(),
 
     // treasure case
-    new Action("1. Open it", [AllResult[15], AllResult[16]]),
-    new Action("2. Go away", [AllResult[17]]),
-    new Action(),
-    new Action(),
+//    new Action("1. Open it", [AllResult[15], AllResult[16]]),
+//    new Action("2. Go away", [AllResult[17]]),
+//    new Action(),
+//    new Action(),
 
     // ruins
     new Action("1. Search it", [AllResult[18], AllResult[19], AllResult[20]]),
     new Action("2. Go away", [AllResult[21]]),
     new Action(),
-    new Action()
+    new Action(),
+    
+    // hunter
+    new Action("1. Ok", [AllResult[22]]),
+    new Action("2. Grab him.", [AllResult[23]], AllResult[24]),
+    new Action("3. Sorry, I’m busy.",[AllResult[25]]),
+    new Action(),
+    
+    // witch
+//    new Action("1. Small Healing Potion *1 (HP +20 10G)", [AllResult[18], AllResult[19], AllResult[20]]),
+//    new Action("2. Medium Healing Potion *1 (HP +20 10G)", [AllResult[21]]),
+//    new Action(),
+//    new Action(),
+    
+    // villager1
+    new Action("1. Ask about the king.", [AllResult[26]]),
+    new Action("2. I'm the prince, I need your help.", [AllResult[27], AllResult[28]]),
+    new Action("3. Thanks, but I have to go.",[AllResult[29]]),
+    new Action(),
+    
 
 ];
 
-var AllEventType = [0,1,1,0,0,0];
-var AllEventSize_x = [20, 27, 35, 35, 13, 40];//todo
-var AllEventSize_y = [20, 27, 70, 35, 13, 50];//todo
+var AllEventType = [0,1,1,0,0,0,1,0];
+var AllEventSize_x = [20, 27, 35, 35, 13, 40, 27,27];//todo
+var AllEventSize_y = [20, 27, 70, 35, 13, 50,27,27];//todo
 var AllEventSpriteSequence = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
                               {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
-                              {"topPixel":128, "leftPixel":0, "elmWidthInPixel":75, "elmHeightInPixel":128, "numElements":13, "wPaddingInPixel":0}
+                              {"topPixel":128, "leftPixel":0, "elmWidthInPixel":75, "elmHeightInPixel":128, "numElements":13, "wPaddingInPixel":0},
+                              {},{},{},
+                              {"topPixel":64, "leftPixel":0, "elmWidthInPixel":64, "elmHeightInPixel":64, "numElements":8, "wPaddingInPixel":0},
+                              {}
+                              
                              ];//todo
-var AllEventSpeed = [0,15,7];//todo
+var AllEventSpeed = [0,15,7,0,0,0,15,0];//todo
 
-var AllEventMove_x = [0,0,0,0,0,0];//todo
-var AllEventMove_y = [3,0,-8,12,-5,22];//todo
+var AllEventMove_x = [0,0,0,0,0,0,0,0];//todo
+var AllEventMove_y = [3,0,-8,12,-5,22,5,5];//todo
 function Event(num) {
-    var t = Math.floor(Math.random()*6);
+    var t = Math.floor(Math.random()*8);
     //var t=0;
-   // t = 5;
+    //t = 7;
     // type = 1 -> animation
     this.type = AllEventType[t];
     this.position = [100*num+AllEventMove_x[t], 20+AllEventMove_y[t]];

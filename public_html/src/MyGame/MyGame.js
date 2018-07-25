@@ -48,6 +48,8 @@ function MyGame() {
     this.TreeTexture = "assets/appletree.png";
     this.PondTexture = "assets/pond.png";
     this.RuinsTexture = "assets/ruins.png";
+    this.HunterTexture = "assets/hunter.png";
+    this.VillagerTexture = "assets/villager.png";
    
                   
     this.apple = "assets/item/0_apple.png";
@@ -124,6 +126,8 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.TreeTexture);
     gEngine.Textures.loadTexture(this.PondTexture);
     gEngine.Textures.loadTexture(this.RuinsTexture);
+    gEngine.Textures.loadTexture(this.HunterTexture);
+    gEngine.Textures.loadTexture(this.VillagerTexture);
     
     gEngine.Textures.loadTexture(this.apple);
     gEngine.Textures.loadTexture(this.meat);
@@ -157,6 +161,8 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.bgAttributeTexture);
     gEngine.Textures.unloadTexture(this.EagleTexture);
     gEngine.Textures.unloadTexture(this.Mushroom);
+    gEngine.Textures.unloadTexture(this.HunterTexture);
+    gEngine.Textures.unloadTexture(this.VillagerTexture);
     
     gEngine.Textures.unloadTexture(this.apple);
     gEngine.Textures.unloadTexture(this.meat);
@@ -348,7 +354,7 @@ MyGame.prototype.initialize = function () {
     this.bgMsg.setColor([0,0,0,0.2]);
     
     //event, action and result
-    this.mEventSet = new EventSet(6);
+    this.mEventSet = new EventSet(8);
     console.log(this.mEventSet);
     /*
      var e = new Enemy();
@@ -400,7 +406,7 @@ MyGame.prototype.draw = function () {
     */
     this.bgForest.draw(this.mCamera);
     this.bgForest2.draw(this.mCamera);
-    for(var i=0;i<6;i++){
+    for(var i=0;i<8;i++){
         this.mEventSet[i].icon.draw(this.mCamera);
     }
     this.mKnight.draw(this.mCamera);
@@ -579,7 +585,7 @@ MyGame.prototype.update = function () {
             this.isBagOpened=false;
         }
     }
-    if(this.mEventIndex<6&&this.mKnight.getXform().mPosition[0]>this.mEventSet[this.mEventIndex].icon.getXform().mPosition[0]-25){
+    if(this.mEventIndex<8&&this.mKnight.getXform().mPosition[0]>this.mEventSet[this.mEventIndex].icon.getXform().mPosition[0]-25){
         console.log(this.mEventSet[this.mEventIndex]);
         this.hasChosen = false;
         var info = this.mEventSet[this.mEventIndex].information;
@@ -592,7 +598,7 @@ MyGame.prototype.update = function () {
         this.mBag.update();
     }
     
-    for(var i=0;i<6;i++){
+    for(var i=0;i<8;i++){
        // console.log(this.mEventSet[i].type);
         if(this.mEventSet[i].type==1){
             this.mEventSet[i].icon.updateAnimation();
