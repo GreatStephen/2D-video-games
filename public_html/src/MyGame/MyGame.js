@@ -45,9 +45,24 @@ function MyGame() {
     this.EagleTexture = "assets/eagle.png";
     this.Mushroom = "assets/mushroom.png";
     this.Knight = "assets/knight.png";
+<<<<<<< HEAD
     this.TreeTexture = "assets/appletree.png";
     this.PondTexture = "assets/pond.png";
     this.RuinsTexture = "assets/ruins.png";
+=======
+   
+                  
+    this.apple = "assets/item/0_apple.png";
+    this.meat = "assets/item/1_meat.png";
+    this.fish = "assets/item/2_fish.png";
+    this.herb = "assets/item/3_herb.png";
+    this.timber = "assets/item/4_timber.png";
+    this.axe = "assets/item/5_axe.png";
+    this.spear = "assets/item/6_spear.png";
+    this.sword = "assets/item/7_sword.png";
+    this.shield1 = "assets/item/8_shield1.png";
+    this.shield2 = "assets/item/9_shield2.png";
+>>>>>>> 83560c63d2a8bb01c734c05aefa0e942d1fbd403
 
     // local variables
     this.bgTown = "";
@@ -109,9 +124,28 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.EagleTexture);
     gEngine.Textures.loadTexture(this.Mushroom);
     gEngine.Textures.loadTexture(this.Knight);
+<<<<<<< HEAD
     gEngine.Textures.loadTexture(this.TreeTexture);
     gEngine.Textures.loadTexture(this.PondTexture);
     gEngine.Textures.loadTexture(this.RuinsTexture);
+=======
+    
+    gEngine.Textures.loadTexture(this.apple);
+    gEngine.Textures.loadTexture(this.meat);
+    gEngine.Textures.loadTexture(this.fish);
+    gEngine.Textures.loadTexture(this.herb);
+    gEngine.Textures.loadTexture(this.timber);
+    gEngine.Textures.loadTexture(this.axe);
+    gEngine.Textures.loadTexture(this.spear);
+    gEngine.Textures.loadTexture(this.sword);
+    gEngine.Textures.loadTexture(this.shield1);
+    gEngine.Textures.loadTexture(this.shield2);
+    
+    
+    
+    
+    
+>>>>>>> 83560c63d2a8bb01c734c05aefa0e942d1fbd403
 };
 
 MyGame.prototype.unloadScene = function () {
@@ -129,6 +163,21 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.bgAttributeTexture);
     gEngine.Textures.unloadTexture(this.EagleTexture);
     gEngine.Textures.unloadTexture(this.Mushroom);
+<<<<<<< HEAD
+=======
+    
+    gEngine.Textures.unloadTexture(this.apple);
+    gEngine.Textures.unloadTexture(this.meat);
+    gEngine.Textures.unloadTexture(this.fish);
+    gEngine.Textures.unloadTexture(this.herb);
+    gEngine.Textures.unloadTexture(this.timber);
+    gEngine.Textures.unloadTexture(this.axe);
+    gEngine.Textures.unloadTexture(this.spear);
+    gEngine.Textures.unloadTexture(this.sword);
+    gEngine.Textures.unloadTexture(this.shield1);
+    gEngine.Textures.unloadTexture(this.shield2);
+
+>>>>>>> 83560c63d2a8bb01c734c05aefa0e942d1fbd403
     gEngine.Textures.unloadTexture(this.Knight);
     gEngine.Textures.unloadTexture(this.TreeTexture);
     gEngine.Textures.unloadTexture(this.PondTexture);
