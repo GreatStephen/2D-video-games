@@ -188,7 +188,7 @@ function Event(num) {
 var AllEventMove_x = [0,0,0,0,0,0,0,0,0,0];//todo
 var AllEventMove_y = [-20,-25,-120,20,-100,50,-15,-15,-15,-15];//todo
 function Event(num) {
-    var t = Math.floor(Math.random()*8);
+    var t = Math.floor(Math.random()*10);
 
     if(num>=1 && num<=3){
         // 3 fights
@@ -214,7 +214,7 @@ function Event(num) {
 
     }
     else if(num==16){
-
+        t=2;
     }
 
 
