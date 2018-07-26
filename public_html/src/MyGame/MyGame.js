@@ -35,6 +35,8 @@ function MyGame() {
     this.mCurrentObj = 0;
     this.mTarget = null;
     */
+
+    // scene background
     this.bgForestTexture = "assets/forest3.png";
     this.BagTexture = "assets/bag.png";
     this.kKnight = "assets/Prince_new.png";
@@ -70,6 +72,9 @@ function MyGame() {
     this.treasurechest = "assets/item/13_treasurechest.png";
     
     this.ending = -1;
+
+    // audio
+    this.BGM = "assets/MiddleEarth.mp3";
 
     // local variables
     this.bgTown = "";
@@ -152,6 +157,9 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.WizardTexture);
     gEngine.Textures.loadTexture(this.BusinessmanTexture);
 
+    // load audio
+    gEngine.AudioClips.loadAudio(this.BGM);
+
     // load items
     gEngine.Textures.loadTexture(this.apple);
     gEngine.Textures.loadTexture(this.meat);
@@ -204,6 +212,9 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.shield1);
     gEngine.Textures.unloadTexture(this.shield2);
 
+    gEngine.AudioClips.stopBackgroundAudio();
+    gEngine.AudioClips.unloadAudio(this.BGM);
+
 
     var nextscene = new GameOver();
     //nextscene.id = this.ending;
@@ -241,6 +252,8 @@ MyGame.prototype.initialize = function () {
 
             // sets the background to gray
     gEngine.DefaultResources.setGlobalAmbientIntensity(3);
+
+    gEngine.AudioClips.playBackgroundAudio(this.BGM);
 
     /*
     this.mHero = new Hero(this.kMinionSprite);
