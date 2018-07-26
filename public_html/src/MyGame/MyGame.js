@@ -50,7 +50,8 @@ function MyGame() {
     this.RuinsTexture = "assets/ruins.png";
     this.HunterTexture = "assets/hunter.png";
     this.VillagerTexture = "assets/villager.png";
-   
+    this.WizardTexture = "assets/wizard.png";
+    this.BusinessmanTexture = "assets/businessman.png";
                   
     this.apple = "assets/item/0_apple.png";
     this.meat = "assets/item/1_meat.png";
@@ -134,6 +135,8 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.RuinsTexture);
     gEngine.Textures.loadTexture(this.HunterTexture);
     gEngine.Textures.loadTexture(this.VillagerTexture);
+    gEngine.Textures.loadTexture(this.WizardTexture);
+    gEngine.Textures.loadTexture(this.BusinessmanTexture);
     
     gEngine.Textures.loadTexture(this.apple);
     gEngine.Textures.loadTexture(this.meat);
@@ -169,6 +172,8 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.Mushroom);
     gEngine.Textures.unloadTexture(this.HunterTexture);
     gEngine.Textures.unloadTexture(this.VillagerTexture);
+    gEngine.Textures.unloadTexture(this.WizardTexture);
+    gEngine.Textures.unloadTexture(this.BusinessmanTexture);
     
     gEngine.Textures.unloadTexture(this.apple);
     gEngine.Textures.unloadTexture(this.meat);
@@ -376,7 +381,7 @@ MyGame.prototype.initialize = function () {
     this.bgMsg.setColor([0,0,0,0.2]);
     
     //event, action and result
-    this.mEventSet = new EventSet(8);
+    this.mEventSet = new EventSet(16);
     console.log(this.mEventSet);
     /*
      var e = new Enemy();
@@ -552,7 +557,7 @@ MyGame.prototype.update = function () {
         if(this.isBagOpened==false && this.isMesOn==false){
             var center = this.mCamera.getWCCenter();
             center[0]+=deltaX;
-            if(center[0]<7350){
+            if(center[0]<15350){
                 this.mCamera.setWCCenter(center[0],center[1]);
                // this.mBag.Move(deltaX);
             }
