@@ -68,6 +68,8 @@ function MyGame() {
     this.cape = "assets/item/11_cape.png";
     this.key = "assets/item/12_key.png";
     this.treasurechest = "assets/item/13_treasurechest.png";
+    
+    this.ending = -1;
 
     // local variables
     this.bgTown = "";
@@ -204,7 +206,8 @@ MyGame.prototype.unloadScene = function () {
 
 
     var nextscene = new GameOver();
-
+    //nextscene.id = this.ending;
+    nextscene.setId(this.ending);
     gEngine.Core.startScene(nextscene);// load next scene
 };
 
@@ -689,10 +692,13 @@ MyGame.prototype.update = function () {
         this.mHealth.setText("Health: " + this.mHealthValue + "/"+this.mHealthValueMax);
     }
     if(this.mHealthValue<=0){
+        this.ending = 0;
+        console.log(this.edning);
         gEngine.GameLoop.stop();
     }
     
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Z)){
+        this.ending = 0;
         gEngine.GameLoop.stop();
     }
     

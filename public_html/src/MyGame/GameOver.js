@@ -8,14 +8,16 @@
 "use strict";
 
 function GameOver() {
-
+   // console.log();
     this.bgBackground = "";
-
+    this.id = 0;
     this.mBackground = null;
     this.mCamera = null;
     this.mText = null;
     this.mHint = null;
-
+    
+    this.EndingTexture = ["assets/Endings/Ending_0.png","",""];
+    this.Ending = null;
 }
 
 gEngine.Core.inheritPrototype(GameOver, Scene);
@@ -23,14 +25,17 @@ gEngine.Core.inheritPrototype(GameOver, Scene);
 GameOver.prototype.loadScene = function () {
     //暂时没有图片
     //gEngine.Textures.loadTexture(this.bgBackground);
+    gEngine.Textures.loadTexture(this.EndingTexture[this.id]);
 
 }
-
+GameOver.prototype.setId = function(Id){
+    this.id = Id
+}
 GameOver.prototype.unloadScene = function () {
 
     //暂时没有图片
     // gEngine.Textures.unloadTexture(this.bgBackground);
-
+    gEngine.Textures.unloadTexture(this.EndingTexture[this.id]);
     //开始游戏
     var mygame = new MyGame();
     gEngine.Core.startScene(mygame);
@@ -38,13 +43,18 @@ GameOver.prototype.unloadScene = function () {
 
 GameOver.prototype.initialize = function () {
     this.mCamera = new Camera(
-        vec2.fromValues(50, 40), // position of the camera
-        100,                     // width of camera
+        vec2.fromValues(650, 300), // position of the camera
+        1300,                     // width of camera
         [0, 0, 1300, 600]         // viewport (orgX, orgY, width, height)
     );
     this.mCamera.setBackgroundColor([0.8, 0.8, 0.8, 1.0]);
-
-    this.mBackground = new Renderable();
+    
+    this.Ending = new TextureRenderable(this.EndingTexture[this.id]);
+    this.Ending.getXform().setSize(100, 75);
+    this.Ending.setColor([0, 0, 0, 0]);
+    this.Ending.getXform().setPosition(650, 300);
+    
+  /*  this.mBackground = new Renderable();
     this.mBackground.getXform().setSize(100, 75);
     this.mBackground.setColor([0, 0, 0, 1]);
     this.mBackground.getXform().setPosition(50, 40);
@@ -57,7 +67,7 @@ GameOver.prototype.initialize = function () {
     this.mHint = new FontRenderable("YOU DIE");
     this.mHint.setColor([1, 1, 1, 1]);
     this.mHint.getXform().setPosition(30, 40);
-    this.mHint.setTextHeight(10);
+    this.mHint.setTextHeight(10);*/
 
 }
 
@@ -65,10 +75,10 @@ GameOver.prototype.draw = function () {
     gEngine.Core.clearCanvas([0.9, 0.9, 0.9, 1.0]);
 
     this.mCamera.setupViewProjection();
-
-    this.mBackground.draw(this.mCamera);
+    this.Ending.draw(this.mCamera);
+  /*  this.mBackground.draw(this.mCamera);
     this.mText.draw(this.mCamera);
-    this.mHint.draw(this.mCamera);
+    this.mHint.draw(this.mCamera);*/
 }
 
 GameOver.prototype.update = function () {
