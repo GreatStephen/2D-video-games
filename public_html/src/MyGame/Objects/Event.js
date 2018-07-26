@@ -86,7 +86,7 @@ var AllResult=[
     // villager 26 27 28 29
     new Result("The king fall seriously ill.", 0,0,0,0,0,0,0,0,1),
     new Result("Get apple *1", 0,0,0,0,0,0,0,1,0.6),
-    new Result("You are a liar.", 0,0,0,0,0,0,0,0,0.4),
+    new Result("The villager didn't give you anything.", 0,0,0,0,0,0,0,0,0.4),
     new Result("You leave.", 0,0,0,0,0,0,0,0,1),
 
     // wizard 30 31 32
@@ -186,9 +186,30 @@ function Event(num) {
     var t = Math.floor(Math.random()*8);
 
     if(num>=1 && num<=3){
+        // 3 fights
         while(t>=2){
             t= Math.floor(Math.random()*2);
         }
+    }
+    else if(num==5){
+        //NO.5 is villager;
+        t = 8;
+    }
+    else if(num==7){
+        // NO.7 is businessman
+        t = 10;
+    }
+    else if(num==13){
+        // NO.13 is wizard
+        t=9;
+    }
+    else if(num==15){
+        // NO.15 is villager
+        t=8;
+
+    }
+    else if(num==16){
+
     }
 
 
