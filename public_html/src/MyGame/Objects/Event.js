@@ -185,11 +185,14 @@ var AllEventMove_y = [-20,-25,-120,20,-100,50,-15,10,-15,-15];//todo
 function Event(num) {
     var t = Math.floor(Math.random()*10);
 
-    if(num>=1 && num<=3){
+    if(num>=1 && num<=2){
         // 3 fights
-        while(t>=2){
-            t= Math.floor(Math.random()*1);
+        if(t>=2){
+            t= Math.floor(Math.random()*2);
         }
+    }
+    else if(num==3){
+        t=3;
     }
     else if(num==5){
         //NO.5 is villager;
