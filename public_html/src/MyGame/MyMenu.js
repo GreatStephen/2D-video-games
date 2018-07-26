@@ -86,6 +86,10 @@ MyMenu.prototype.initialize = function () {
     this.mText3.getXform().setPosition(900,110);
     this.mText3.setTextHeight(35);
 
+    this.mText4 = new FontRenderable("[press ENTER to confirm]");
+    this.mText4.setColor([1,1,1,1]);
+    this.mText4.getXform().setPosition(900,50);
+    this.mText4.setTextHeight(25);
 }
 
 MyMenu.prototype.draw = function () {
@@ -98,6 +102,7 @@ MyMenu.prototype.draw = function () {
     this.mText1.draw(this.mCamera);
     this.mText2.draw(this.mCamera);
     this.mText3.draw(this.mCamera);
+    this.mText4.draw(this.mCamera);
 }
 
 MyMenu.prototype.update = function () {
