@@ -44,7 +44,7 @@ function MyGame() {
     // event background
     this.EagleTexture = "assets/eagle.png";
     this.Mushroom = "assets/mushroom.png";
-    this.Knight = "assets/knight.png";
+    this.Knight = "assets/Knight_New.png";
     this.TreeTexture = "assets/appletree.png";
     this.PondTexture = "assets/pond.png";
     this.RuinsTexture = "assets/ruins.png";
@@ -76,6 +76,7 @@ function MyGame() {
     this.bgForest6 = null;
     this.bgForest7 = null;
     this.bgForest8 = null;
+    this.bgForest9 = null;
     this.mBag = null;
     this.bgMsg = null;
     this.bgAttribute = null;
@@ -290,7 +291,10 @@ MyGame.prototype.initialize = function () {
     this.bgForest8.setColor([0, 0, 0, 0]);
     this.bgForest8.getXform().setSize(2000,600);
     this.bgForest8.getXform().setPosition(15000,300);
-
+    this.bgForest9 = new TextureRenderable(this.bgForestTexture);
+    this.bgForest9.setColor([0, 0, 0, 0]);
+    this.bgForest9.getXform().setSize(2000,600);
+    this.bgForest9.getXform().setPosition(17000,300);
   /*  this.bgBag = new TextureRenderable(this.bgBagTexture);
     this.bgBag.setColor([0,0,0,0]);
     this.bgBag.getXform().setSize(100,100);
@@ -452,6 +456,7 @@ MyGame.prototype.draw = function () {
     this.bgForest6.draw(this.mCamera);
     this.bgForest7.draw(this.mCamera);
     this.bgForest8.draw(this.mCamera);
+    this.bgForest9.draw(this.mCamera);
     
     for(var i=0;i<this.mEventNum;i++){
         this.mEventSet[i].icon.draw(this.mCamera);
@@ -565,9 +570,10 @@ MyGame.prototype.update = function () {
         if(this.isBagOpened==false && this.isMesOn==false){
             var center = this.mCamera.getWCCenter();
             center[0]+=deltaX;
-            if(center[0]<7350){
+            if(center[0]<16000){
                 this.mCamera.setWCCenter(center[0],center[1]);
                // this.mBag.Move(deltaX);
+               
             }
             else{
                 center[0]-=deltaX;
@@ -575,7 +581,10 @@ MyGame.prototype.update = function () {
             
             var x=this.mKnight.getXform().mPosition;
             //console.log(x);
-            this.mKnight.getXform().setPosition(x[0]+deltaX,x[1]);
+            if(x[0]<16650){
+                this.mKnight.getXform().setPosition(x[0]+deltaX,x[1]);
+            }
+            
            // this.mKnight.draw(this.mCamera);
             this.flag=1;
         }
