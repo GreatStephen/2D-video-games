@@ -44,7 +44,7 @@ MyMenu.prototype.initialize = function () {
         0
     );
     this.mCamera.setBackgroundColor([1,1,1,0]);
-
+    gEngine.DefaultResources.setGlobalAmbientIntensity(3);
     /*
     this.back = new TextureRenderable(this.bgBackground);
     this.back.getXform().setSize(1300,600);

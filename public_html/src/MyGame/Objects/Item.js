@@ -5,7 +5,7 @@
  */
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
-var NameList = ["1", "2", "3"];
+var NameList = ["Apple","Meat","Fish","Herb","Timber","Axe","Spear","Sword","Shield","Shield"];
 var InfoList = ["Apple: Hunger+10","Meat: Hunger+5","Fish: Hunger+5","Herb: Health+10","Timber: strange timber",
                 "Axe: Attack+5","Spear: Attack+10","Sword: Attack+10","Shield: Defense+5","Shield: Defense+10"
                 ];

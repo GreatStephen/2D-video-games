@@ -5,7 +5,7 @@
  */
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
-function Result(msg, Health, mHealth, Hunger, mHunger, atk, def, id, num,  pr) {
+function Result(msg, Health, mHealth, Hunger, mHunger, atk, def, money, id, num, id2, num2,  pr) {
     this.Id = -1;
     this.msg = msg;   //the message of result
     this.Health = Health;    //effect to health value
@@ -14,9 +14,11 @@ function Result(msg, Health, mHealth, Hunger, mHunger, atk, def, id, num,  pr) {
     this.mHunger = mHunger;   //effect to max hunger
     this.atk = atk;
     this.def = def;
-    this.money = 0;
-    this.numItem = num;
+    this.money = money;
+    this.getItemNum = num;
     this.getItemId = id;
+    this.dropItemId = id2;
+    this.dropItemNum = num2;
     //this.getItem = [{"id":id,"num":num}];  //the item id and number you can got
     this.escape = true;    //the flag of escape successfully or not
     this.pr = pr; //the probabilities of different result
@@ -24,7 +26,21 @@ function Result(msg, Health, mHealth, Hunger, mHunger, atk, def, id, num,  pr) {
 
 Result.prototype.apply = function(mygame, enemy){
     //console.log(mygame);
+    //check the result
+    var msg;
+    if(mygame.mMoneyValue + this.money <0){
+        this.msg = "not enough money";
+        console.log(this.msg);
+        return false;
+    }
+    if(mygame.mBag.GetItemNum(this.dropItemId)<this.dropItemNum){
+        this.msg = "not enough "+ NameList[this.dropItemId];
+        console.log(this.msg);
+        return false;
+    }
+    
     // update attribute value
+    mygame.mMoneyValue += this.money;
     mygame.mHealthValue += this.Health;
     mygame.mHealthValueMax += this.mHealth;
     if(mygame.mHealthValueMax < mygame.mHealthValue){
@@ -37,14 +53,19 @@ Result.prototype.apply = function(mygame, enemy){
     }
     mygame.mAttackValue += this.atk;
     mygame.mDefenseValue += this.def;
-    mygame.mMoneyValue += this.money;
+    mygame.mMoneyValue += this.money
+    
     //update items
-
-    if(this.numItem>0){
-        console.log("res "+this.getItemId);
-        mygame.mBag.AddItem(this.getItemId, this.numItem);
-
+    if(this.getItemNum>0){
+        console.log("get "+this.getItemId);
+        mygame.mBag.AddItem(this.getItemId, this.getItemNum);
     }
+    if(this.dropItemNum>0){
+        console.log("drop "+this.getItemId);
+        mygame.mBag.AddItem(this.getItemId, this.getItemNum);
+    }
+    
+    //fight
     if(!this.escape){
         this.msg = enemy.fight(mygame);
     }
