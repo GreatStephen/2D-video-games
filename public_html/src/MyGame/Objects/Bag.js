@@ -13,7 +13,7 @@ var deltaMove = 0;
 
 var CursorPosition = [x,y];
 
-var InfoPosition =[72,29];
+var InfoPosition =[71,30];
 
 function Bag(myTexture,cursorTexture,myGame){
 
@@ -184,6 +184,8 @@ Bag.prototype.Draw = function(aCamera){
         //console.log(this.current);
         this.itemSet[this.current].Info.getXform().setPosition(InfoPosition[0],InfoPosition[1]);
         this.itemSet[this.current].Info.draw(aCamera);
+        this.itemSet[this.current].Info_1.getXform().setPosition(InfoPosition[0],InfoPosition[1]-3);
+        this.itemSet[this.current].Info_1.draw(aCamera);
     }
       
 };

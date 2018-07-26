@@ -12,7 +12,8 @@ function MyMenu(){
     this.bgBackground = "assets/StartScene/background.png";
     this.CursorTexture = "assets/StartScene/CrownIcons_007.png";
     this.NameTexture = "assets/StartScene/Name.png";
-    this.HelpTexture = "assets/StartScene/help.png";
+    this.HelpTexture = "assets/StartScene/Help.png";
+    
     this.mBackground = null;
     this.back = null;
     this.Cursor = null;
