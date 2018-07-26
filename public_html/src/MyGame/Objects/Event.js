@@ -42,15 +42,15 @@ var AllEnemyId=[
 var AllResult=[
     // mushroom 0 1
     new Result("fight", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-    new Result("escape", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+    new Result("escape", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
 
     // eagle 2 3
     new Result("fight", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-    new Result("escape", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+    new Result("escape", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
 
     // knignt 4 5
     new Result("fight", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-    new Result("escape", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+    new Result("escape", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
 
     // appletree 6 7 8 9 10
     new Result("Get apple *1",0,0,0,0,0,0,0,0,1,0,0,0.8),
@@ -101,7 +101,10 @@ var AllResult=[
     new Result("lose timber*2, get an apple.",0,0,0,0,0,0,0,0,1,4,2,1),
 
     // pass last knight 37
-    new Result("The guard thinks you are a hunter, let you in.",0,0,0,0,0,0,0,0,0,0,0,1)
+    new Result("The town guard thinks you are a hunter, let you in.",0,0,0,0,0,0,0,0,0,0,0,1),
+
+    // escape fail 38
+    new Result("Fail to escape. ",0,0,0,0,0,0,0,0,0,0,0,0.3)
 
 ];
 AllResult[0].escape = false;
@@ -112,17 +115,17 @@ AllResult[4].escape = false;
 var AllEventAct = [
     // mushroom
     new Action("1. Fight",[AllResult[0]]),
-    new Action("2. go away", [AllResult[1]]),
+    new Action("2. go away", [AllResult[1], AllResult[38]]),
     new Action(),
     new Action(),
     // eagle
     new Action("1. Fight",[AllResult[2]]),
-    new Action("2. go away", [AllResult[3]]),
+    new Action("2. go away", [AllResult[3], AllResult[38]]),
     new Action(),
     new Action(),
     // knight
     new Action("1. Fight",[AllResult[4]]),
-    new Action("2. go away", [AllResult[5]]),
+    new Action("2. go away", [AllResult[5], AllResult[38]]),
     new Action(),
     new Action(),
     // appletree
