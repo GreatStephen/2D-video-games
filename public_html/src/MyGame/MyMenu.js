@@ -12,12 +12,13 @@ function MyMenu(){
     this.bgBackground = "assets/StartScene/background.png";
 
     this.mBackground = null;
+    this.back = null;
     this.mCamera = null;
     this.mText = null;
 
 }
 
-gEngine.Core.inheritPrototype(MyMenu, Scene);
+//gEngine.Core.inheritPrototype(MyMenu, Scene);
 
 MyMenu.prototype.loadScene = function () {
     //暂时没有图片
@@ -42,27 +43,35 @@ MyMenu.prototype.initialize = function () {
         [0, 0, 1300, 600],         // viewport (orgX, orgY, width, height)
         0
     );
-    this.mCamera.setBackgroundColor([0,0.8,0.8,1]);
+    this.mCamera.setBackgroundColor([1,1,1,0]);
 
-    this.mBackground = new TextureRenderable(this.bgBackground);
-    this.mBackground.getXform().setSize(1300,600);
-    this.mBackground.setColor([0,0,0,0]);
-    this.mBackground.getXform().setPosition(650,300);
+    /*
+    this.back = new TextureRenderable(this.bgBackground);
+    this.back.getXform().setSize(1300,600);
+    //this.back.setColor([1,1,1,0]);
+    this.back.getXform().setPosition(650,300);
+    */
+    this.back = new Renderable();
+    this.back.getXform().setSize(1300,600);
+    this.back.getXform().setPosition(650,300);
+    this.back.setColor([1,0,0,1.0]);
 
+    /*
     this.mText = new FontRenderable("Press SPACE to start");
     this.mText.setColor([1,1,1,1]);
     this.mText.getXform().setPosition(650,1300);
     this.mText.setTextHeight(19);
+    */
 
 }
 
 MyMenu.prototype.draw = function () {
-    gEngine.Core.clearCanvas([0.9,0.9,0.9,1.0]);
+    gEngine.Core.clearCanvas([0.9,0.9,0.9,1]);
 
     this.mCamera.setupViewProjection();
 
-    this.mBackground.draw(this.mCamera);
-    this.mText.draw(this.mCamera);
+    this.back.draw(this.mCamera);
+    //this.mText.draw(this.mCamera);
 }
 
 MyMenu.prototype.update = function () {
