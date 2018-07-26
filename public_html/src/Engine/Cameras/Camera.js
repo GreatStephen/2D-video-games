@@ -58,7 +58,7 @@ function Camera(wcCenter, wcWidth, viewportArray, bound,flag) {
     this.mVPMatrix = mat4.create();
 
     // background color
-    this.mBgColor = [0.8, 0.8, 0.8, 1]; // RGB and Alpha
+    this.mBgColor = [1, 1, 1, 1]; // RGB and Alpha
 
     // per-rendering cached information
     // needed for computing transforms for shaders

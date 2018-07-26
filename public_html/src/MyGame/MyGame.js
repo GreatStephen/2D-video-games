@@ -184,19 +184,19 @@ MyGame.prototype.unloadScene = function () {
 MyGame.prototype.initialize = function () {
     // setup the main camera
     this.mCamera = new Camera(
-        vec2.fromValues(50, 40), // position of the camera
-        100,                     // width of camera
-        [0, 0, 800, 600],         // viewport (orgX, orgY, width, height)
+        vec2.fromValues(650, 300), // position of the camera
+        1300,                     // width of camera
+        [0, 0, 1300, 600],         // viewport (orgX, orgY, width, height)
         0
     );
-    this.mCamera.setBackgroundColor([0.8, 0.8, 0.8, 1.0]);
+    this.mCamera.setBackgroundColor([1, 1, 1, 1.0]);
 
     // setup attribute camera on the top-left corner
     this.attributeCamera = new Camera(
         vec2.fromValues(50,140),
         100,
         [50,430,160,120],
-        0
+        1
     );
     this.attributeCamera.setBackgroundColor([0.9,0.9,0.9,1]);
 
@@ -205,7 +205,7 @@ MyGame.prototype.initialize = function () {
         vec2.fromValues(50,40),
         100,
         [-270,-100,1100,825],
-        0
+        1
     );
     this.bagCamera.setBackgroundColor([0.9,0.9,0.9,1]);
 
@@ -242,12 +242,12 @@ MyGame.prototype.initialize = function () {
     */
     this.bgForest = new TextureRenderable(this.bgForestTexture);
     this.bgForest.setColor([0,0,0,0]);
-    this.bgForest.getXform().setSize(400,75);
-    this.bgForest.getXform().setPosition(200,40);
+    this.bgForest.getXform().setSize(2000,600);
+    this.bgForest.getXform().setPosition(1000,300);
     this.bgForest2 = new TextureRenderable(this.bgForestTexture);
-    this.bgForest2.setColor([0, 0, 0, 0]);
-    this.bgForest2.getXform().setSize(400, 75);
-    this.bgForest2.getXform().setPosition(600, 40);
+  /*  this.bgForest2.setColor([0, 0, 0, 0]);
+    this.bgForest2.getXform().setSize(2000,600);
+    this.bgForest2.getXform().setPosition(1000,0);*/
 
   /*  this.bgBag = new TextureRenderable(this.bgBagTexture);
     this.bgBag.setColor([0,0,0,0]);
@@ -319,8 +319,8 @@ MyGame.prototype.initialize = function () {
     // knight
     this.mKnight = new SpriteAnimateRenderable(this.kKnight);
     this.mKnight.setColor([1, 1, 1, 0]);
-    this.mKnight.getXform().setPosition(50, 25);
-    this.mKnight.getXform().setSize(27, 27);
+    this.mKnight.getXform().setPosition(600, 180);
+    this.mKnight.getXform().setSize(200, 200);
     this.mKnight.setSpriteSequence(64, 0,      // first element pixel position: top-left 164 from 512 is top of image, 0 is left of image
                                     64, 64,       // widthxheight in pixels
                                     8,              // number of elements in this sequence
@@ -397,7 +397,7 @@ MyGame.prototype.draw = function () {
     this.mAllParticles.draw(this.mCamera);
     */
     this.bgForest.draw(this.mCamera);
-    this.bgForest2.draw(this.mCamera);
+  //  this.bgForest2.draw(this.mCamera);
     for(var i=0;i<8;i++){
         this.mEventSet[i].icon.draw(this.mCamera);
     }
@@ -509,7 +509,7 @@ MyGame.prototype.update = function () {
     this.mShapeMsg.setText(obj.getRigidBody().getCurrentState());
     */
 
-    var deltaX=0.5;
+    var deltaX=2;
     //this.Eagle.updateAnimation();
     if (gEngine.Input.isKeyPressed(gEngine.Input.keys.D)) {
         if(this.isBagOpened==false && this.isMesOn==false){

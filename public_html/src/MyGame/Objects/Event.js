@@ -157,8 +157,8 @@ var AllEventAct = [
 ];
 
 var AllEventType = [0,1,1,0,0,0,1,0];
-var AllEventSize_x = [20, 27, 35, 35, 13, 40, 27,27];//todo
-var AllEventSize_y = [20, 27, 70, 35, 13, 50,27,27];//todo
+var AllEventSize_x = [150, 180, 200, 250, 140, 340, 200,200];//todo
+var AllEventSize_y = [150, 180, 600, 250, 90, 350,200,200];//todo
 var AllEventSpriteSequence = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
                               {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
                               {"topPixel":128, "leftPixel":0, "elmWidthInPixel":75, "elmHeightInPixel":128, "numElements":13, "wPaddingInPixel":0},
@@ -170,14 +170,14 @@ var AllEventSpriteSequence = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":
 var AllEventSpeed = [0,15,7,0,0,0,15,0];//todo
 
 var AllEventMove_x = [0,0,0,0,0,0,0,0];//todo
-var AllEventMove_y = [3,0,-8,12,-5,22,5,5];//todo
+var AllEventMove_y = [-20,-25,-120,20,-100,50,-15,-15];//todo
 function Event(num) {
     var t = Math.floor(Math.random()*8);
-    //var t=0;
-    //t = 7;
+    //t=7;
+    //if(num==1)  t=0;
     // type = 1 -> animation
     this.type = AllEventType[t];
-    this.position = [100*num+AllEventMove_x[t], 20+AllEventMove_y[t]];
+    this.position = [1000*num+AllEventMove_x[t], 200+AllEventMove_y[t]];
     this.picture = AllEventIcon[t];
     console.log(this.picture);
     this.size_x = AllEventSize_x[t];
