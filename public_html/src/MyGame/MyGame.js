@@ -379,7 +379,7 @@ MyGame.prototype.initialize = function () {
 // importantly, make sure to _NOT_ change any state.
 MyGame.prototype.draw = function () {
     // Step A: clear the canvas
-    gEngine.Core.clearCanvas([0.9, 0.9, 0.9, 1.0]); // clear to light gray
+    gEngine.Core.clearCanvas([1, 1, 1, 1.0]); // clear to light gray
 
     this.mCamera.setupViewProjection();
 
