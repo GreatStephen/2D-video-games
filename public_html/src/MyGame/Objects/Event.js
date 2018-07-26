@@ -137,7 +137,7 @@ var AllEventAct = [
     
     // hunter
     new Action("1. Ok", [AllResult[22]]),
-    new Action("2. Grab him.", [AllResult[23]], AllResult[24]),
+    new Action("2. Grab him.", [AllResult[23], AllResult[24]]),
     new Action("3. Sorry, I’m busy.",[AllResult[25]]),
     new Action(),
     
@@ -173,7 +173,6 @@ var AllEventMove_x = [0,0,0,0,0,0,0,0];//todo
 var AllEventMove_y = [-20,-25,-120,20,-100,50,-15,-15];//todo
 function Event(num) {
     var t = Math.floor(Math.random()*8);
-    //t=7;
     //if(num==1)  t=0;
     // type = 1 -> animation
     this.type = AllEventType[t];

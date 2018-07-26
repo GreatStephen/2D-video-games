@@ -89,6 +89,8 @@ function MyGame() {
     this.mAttackValue = 10;
     this.mDefense = null;
     this.mDefenseValue = 10;
+    this.mMoneyTexture = null;
+    this.mMoneyValue = 0;
     this.mMes1 = null;
     this.mMes2 = null;
     this.mMes3 = null;
@@ -202,9 +204,9 @@ MyGame.prototype.initialize = function () {
 
     // setup attribute camera on the top-left corner
     this.attributeCamera = new Camera(
-        vec2.fromValues(50,140),
+        vec2.fromValues(50,135),
         100,
-        [50,430,160,120],
+        [50,430,160,150],
         1
     );
     this.attributeCamera.setBackgroundColor([0.9,0.9,0.9,1]);
@@ -291,8 +293,8 @@ MyGame.prototype.initialize = function () {
     // attribute background
     this.bgAttribute = new TextureRenderable(this.bgAttributeTexture);
     this.bgAttribute.setColor([0,0,0,0]);
-    this.bgAttribute.getXform().setSize(116,80);
-    this.bgAttribute.getXform().setPosition(50,140);
+    this.bgAttribute.getXform().setSize(120,102);
+    this.bgAttribute.getXform().setPosition(50,135);
 
     // health
     this.mHealth = new FontRenderable("Health: "+this.mHealthValue+"/"+this.mHealthValueMax);
@@ -309,14 +311,20 @@ MyGame.prototype.initialize = function () {
     // attack
     this.mAttack = new FontRenderable("Attack: " + this.mAttackValue);
     this.mAttack.setColor([0, 0, 0, 1]);
-    this.mAttack.getXform().setPosition(10, 137.5);
+    this.mAttack.getXform().setPosition(10, 136.5);
     this.mAttack.setTextHeight(9);
 
     // defense
     this.mDefense = new FontRenderable("Defense: " + this.mDefenseValue);
     this.mDefense.setColor([0, 0, 0, 1]);
-    this.mDefense.getXform().setPosition(10, 124.5);
+    this.mDefense.getXform().setPosition(10, 123.5);
     this.mDefense.setTextHeight(9);
+    
+    // money
+    this.mMoneyTexture = new FontRenderable("Money: " + this.mMoneyValue);
+    this.mMoneyTexture.setColor([0, 0, 0, 1]);
+    this.mMoneyTexture.getXform().setPosition(10, 110.5);
+    this.mMoneyTexture.setTextHeight(9);
 
     // message
     this.mMes1 = new FontRenderable("test");
@@ -454,8 +462,11 @@ MyGame.prototype.draw = function () {
         this.mEventSet[i].icon.draw(this.mCamera);
     }
     this.mKnight.draw(this.mCamera);
+<<<<<<< HEAD
    // this.newPrince.draw(this.mCamera);
     //this.Eagle.draw(this.mCamera);
+=======
+>>>>>>> 1266c6de5404c791c2bb19d9a6a653e193942ed4
     this.bgMsg.draw(this.mCamera);
     if(this.isMesOn==true){
         //this.bgBag.draw(this.mCamera);
@@ -467,17 +478,13 @@ MyGame.prototype.draw = function () {
         this.mMes6.draw(this.mCamera);
     }
 
-    
-
-    
-
     this.attributeCamera.setupViewProjection();
     this.bgAttribute.draw(this.attributeCamera);
     this.mHealth.draw(this.attributeCamera);
     this.mHunger.draw(this.attributeCamera);
     this.mAttack.draw(this.attributeCamera);
     this.mDefense.draw(this.attributeCamera);
-
+    this.mMoneyTexture.draw(this.attributeCamera);
     
     this.bagCamera.setupViewProjection();
     if(this.isBagOpened==true){
@@ -597,16 +604,20 @@ MyGame.prototype.update = function () {
     }
     
     if(this.isMesOn && !this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.One)){
-        console.log(this.mEventSet[this.mEventIndex-1].action[0]);
+        //console.log(this.mEventSet[this.mEventIndex-1].action[0]);
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[0].getResult();
-        console.log("res "+res);
+        console.log("res");
+        console.log(res);
         res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
         this.SendMessage(res.msg,"","","","","");
     }
     if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Two)){
+        //console.log(this.mEventSet[this.mEventIndex-1].action[1]);
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[1].getResult();
+        console.log("res");
+        console.log(res);
         res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
         this.SendMessage(res.msg,"","","","","");
     }
