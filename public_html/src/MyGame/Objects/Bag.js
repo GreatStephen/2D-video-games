@@ -49,7 +49,7 @@ function Bag(myTexture,cursorTexture,myGame){
     
     this.weapon = -1;
     this.armor = -1;
-    for(var i=0;i<10;i++){
+    for(var i=0;i<14;i++){
         this.AddItem(i, 1);
        // this.AddItem(1);
        // this.AddItem(2);
@@ -227,6 +227,12 @@ Bag.prototype.update = function(){
         if(this.itemSet[this.current].type==0){
             this.itemSet[this.current].Use(this.myGame);
             this.RemoveItem();
+        }
+        else if(this.itemSet[this.current].Id == 13 && this.GetItemNum(12)>0){
+            this.itemSet[this.current].Use(this.myGame);
+            this.RemoveItem();
+            this.RemoveItemById(12,1);
+            this.AddItem(11,1);
         }
         else if(this.itemSet[this.current].type==2){
             if(this.weapon!=-1){
