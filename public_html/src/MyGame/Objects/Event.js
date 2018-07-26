@@ -6,7 +6,7 @@
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 var AllEventIcon = ["assets/mushroom.png", 
     "assets/eagle.png", 
-    "assets/knight.png",
+    "assets/Knight_New.png",
     "assets/appletree.png",
     "assets/pond.png",
     "assets/ruins.png",
@@ -172,7 +172,7 @@ var AllEventSize_x = [150, 180, 200, 250, 140, 340, 200,200,200,200];//todo
 var AllEventSize_y = [150, 180, 600, 250, 90, 350,200,350,200,200];//todo
 var AllEventSpriteSequence = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
                               {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
-                              {"topPixel":128, "leftPixel":0, "elmWidthInPixel":75, "elmHeightInPixel":128, "numElements":13, "wPaddingInPixel":0},
+                              {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
                               {},{},{},
                               {"topPixel":64, "leftPixel":0, "elmWidthInPixel":64, "elmHeightInPixel":64, "numElements":8, "wPaddingInPixel":0},
                               {}
