@@ -9,7 +9,7 @@
 
 function MyMenu(){
 
-    this.bgBackground = "";
+    this.bgBackground = "assets/StartScene/background.png";
 
     this.mBackground = null;
     this.mCamera = null;
@@ -21,14 +21,14 @@ gEngine.Core.inheritPrototype(MyMenu, Scene);
 
 MyMenu.prototype.loadScene = function () {
     //暂时没有图片
-    //gEngine.Textures.loadTexture(this.bgBackground);
+    gEngine.Textures.loadTexture(this.bgBackground);
 
 }
 
 MyMenu.prototype.unloadScene = function () {
 
     //暂时没有图片
-    // gEngine.Textures.unloadTexture(this.bgBackground);
+     gEngine.Textures.unloadTexture(this.bgBackground);
 
     //开始游戏
     var mygame = new MyGame();
@@ -37,21 +37,22 @@ MyMenu.prototype.unloadScene = function () {
 
 MyMenu.prototype.initialize = function () {
     this.mCamera = new Camera(
-        vec2.fromValues(50, 40), // position of the camera
-        100,                     // width of camera
-        [0, 0, 1300, 600]         // viewport (orgX, orgY, width, height)
+        vec2.fromValues(650, 300), // position of the camera
+        1300,                     // width of camera
+        [0, 0, 1300, 600],         // viewport (orgX, orgY, width, height)
+        0
     );
-    this.mCamera.setBackgroundColor([0.8,0.8,0.8,1.0]);
+    this.mCamera.setBackgroundColor([0,0.8,0.8,1]);
 
-    this.mBackground = new Renderable();
-    this.mBackground.getXform().setSize(100,75);
-    this.mBackground.setColor([0,0,0,1]);
-    this.mBackground.getXform().setPosition(50,40);
+    this.mBackground = new TextureRenderable(this.bgBackground);
+    this.mBackground.getXform().setSize(1300,600);
+    this.mBackground.setColor([0,0,0,0]);
+    this.mBackground.getXform().setPosition(650,300);
 
     this.mText = new FontRenderable("Press SPACE to start");
     this.mText.setColor([1,1,1,1]);
-    this.mText.getXform().setPosition(20,30);
-    this.mText.setTextHeight(5);
+    this.mText.getXform().setPosition(650,1300);
+    this.mText.setTextHeight(19);
 
 }
 
