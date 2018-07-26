@@ -27,15 +27,15 @@ var AllEventInf = ["This is a monster mushroom!",
     "Do you have anything to trade?"
 ];
 
-var AllEnemy1=[
+var AllEnemyId=[
      // mushroom
-    new Enemy(0),
+    0,
 
     // eagle
-    new Enemy(1),
+    1,
 
     // knignt
-    new Enemy(2),
+    2,
 ];
 
 // possible results
@@ -98,8 +98,10 @@ var AllResult=[
     new Result("lose money*30, get a new spear.", 0,0,0,0,0,0,-30,6,1,0,0,1),
     new Result("lose money*30, get a new shield.",0,0,0,0,0,0,-30,9,1,0,0,1),
     new Result("lose money*20, get an apple.",0,0,0,0,0,0,-20,0,1,0,0,1),
-    new Result("lose timber*2, get an apple.",0,0,0,0,0,0,0,0,1,4,2,1)
+    new Result("lose timber*2, get an apple.",0,0,0,0,0,0,0,0,1,4,2,1),
 
+    // pass last knight 37
+    new Result("The guard thinks you are a hunter, let you in.",0,0,0,0,0,0,0,0,0,0,0,1)
 
 ];
 AllResult[0].escape = false;
@@ -253,6 +255,8 @@ function Event(num) {
         this.icon.getXform().setPosition(this.position[0],this.position[1]);
     }
 
+
+
     this.information = AllEventInf[t];
     this.action = [];
     this.action.push(AllEventAct[4*t]);
@@ -260,7 +264,10 @@ function Event(num) {
     this.action.push(AllEventAct[4*t+2]);
     this.action.push(AllEventAct[4*t+3]);
     this.isBattle = false;
-    this.enemy = AllEnemy1[t];
+    if(AllEnemyId[t]>-1)
+        this.enemy = new Enemy(AllEnemyId[t]);
+    else
+        this.enemy = null;
     
 }
 gEngine.Core.inheritPrototype(Event, GameObject);
