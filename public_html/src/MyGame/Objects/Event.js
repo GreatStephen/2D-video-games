@@ -41,16 +41,16 @@ var AllEnemyId=[
 // possible results
 var AllResult=[
     // mushroom 0 1
-    new Result("fight", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-    new Result("escape", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
+    new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+    new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
 
     // eagle 2 3
-    new Result("fight", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-    new Result("escape", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
+    new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+    new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
 
     // knignt 4 5
-    new Result("fight", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-    new Result("escape", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
+    new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+    new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
 
     // appletree 6 7 8 9 10
     new Result("Get apple *1",0,0,0,0,0,0,0,0,1,0,0,0.8),
@@ -110,26 +110,27 @@ var AllResult=[
 AllResult[0].escape = false;
 AllResult[2].escape = false;
 AllResult[4].escape = false;
+AllResult[38].escape = false;
 
 // 4 actions
 var AllEventAct = [
     // mushroom
     new Action("1. Fight",[AllResult[0]]),
-    new Action("2. go away", [AllResult[1], AllResult[38]]),
+    new Action("2. Escape (70% succeed)", [AllResult[1], AllResult[38]]),
     new Action(),
     new Action(),
     // eagle
     new Action("1. Fight",[AllResult[2]]),
-    new Action("2. go away", [AllResult[3], AllResult[38]]),
+    new Action("2. Escape (70% succeed)", [AllResult[3], AllResult[38]]),
     new Action(),
     new Action(),
     // knight
     new Action("1. Fight",[AllResult[4]]),
-    new Action("2. go away", [AllResult[5], AllResult[38]]),
+    new Action("2. Escape (70% succeed)", [AllResult[5], AllResult[38]]),
     new Action(),
     new Action(),
     // appletree
-    new Action("1. Shake it(80%)",[AllResult[6], AllResult[7]]),
+    new Action("1. Shake it",[AllResult[6], AllResult[7]]),
     new Action("2. Cut it down", [AllResult[8], AllResult[9]]),
     new Action("3. Go away", [AllResult[10]]),
     new Action(),
@@ -148,27 +149,27 @@ var AllEventAct = [
     
     // hunter
     new Action("1. Ok", [AllResult[22]]),
-    new Action("2. rob him.", [AllResult[23], AllResult[24]]),
+    new Action("2. Rob him.", [AllResult[23], AllResult[24]]),
     new Action("3. Sorry, I' m busy.",[AllResult[25]]),
     new Action(),
     
 
     // villager1
     new Action("1. Ask about the king.", [AllResult[26]]),
-    new Action("2. Beg for something.(60%)", [AllResult[27], AllResult[28]]),
+    new Action("2. Beg for something.(60% succeed)", [AllResult[27], AllResult[28]]),
     new Action("3. Thanks, but I have to go.",[AllResult[29]]),
     new Action(),
 
     // wizard
     new Action("1. I want your precious advice.", [AllResult[30]]),
     new Action("2. I want a valuable gift from you.", [AllResult[31]]),
-    new Action("3. I want to exchange my health for a weapon.",[AllResult[32]]),
+    new Action("3. I want to exchange my max health for a weapon.",[AllResult[32]]),
     new Action(),
 
     // businessman
-    new Action("1. money*30 for a spear.", [AllResult[33]]),
-    new Action("2. money*30 for a shield.", [AllResult[34]]),
-    new Action("3. money*20 for an apple.",[AllResult[35]]),
+    new Action("1. 30G for a spear.", [AllResult[33]]),
+    new Action("2. 30G for a shield.", [AllResult[34]]),
+    new Action("3. 20G for an apple.",[AllResult[35]]),
     new Action("4. timber*2 for an apple.",[AllResult[36]])
 
 ];

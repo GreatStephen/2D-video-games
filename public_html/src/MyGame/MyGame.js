@@ -129,6 +129,8 @@ function MyGame() {
     //event
     this.mEventSet = null;
     this.mEventNum = 16;
+    
+    this.hungerRate = 1;
 }
 gEngine.Core.inheritPrototype(MyGame, Scene);
 
@@ -709,7 +711,11 @@ MyGame.prototype.update = function () {
     
     this.mCounter++;
     if(this.mCounter%60==0){
-        this.mHungerValue-=5;
+        if(this.flag==1)
+            this.hungerRate = 2;
+        else
+            this.hungerRate = 1;
+        this.mHungerValue-=this.hungerRate;
         if(this.mHungerValue<=0){
             //gEngine.GameLoop.stop();
             this.mHungerValue = 0;
@@ -748,7 +754,7 @@ MyGame.prototype.EndGame = function(){
 MyGame.prototype.SendMessage = function(line1, line2, line3, line4,line5, line6){
     var cameraCenter = this.mCamera.getWCCenter();
     this.bgMsg.getXform().setPosition(cameraCenter[0],cameraCenter[1]-150);
-
+    
 
     this.mMes1.setText(line1);
     this.mMes1.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]+70-150);
