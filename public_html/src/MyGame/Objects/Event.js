@@ -188,7 +188,7 @@ function Event(num) {
     if(num>=1 && num<=3){
         // 3 fights
         while(t>=2){
-            t= Math.floor(Math.random()*2);
+            t= Math.floor(Math.random()*1);
         }
     }
     else if(num==5){
