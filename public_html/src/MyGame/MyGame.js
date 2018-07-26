@@ -71,6 +71,9 @@ function MyGame() {
     this.key = "assets/item/12_key.png";
     this.treasurechest = "assets/item/13_treasurechest.png";
     
+    
+    this.IntroTexture = "assets/introduction.png";
+   
     this.ending = -1;
 
     // audio
@@ -110,6 +113,7 @@ function MyGame() {
     this.mMes4 = null;
     this.mMes5 = null;
     this.mMes6 = null;
+    this.Intro = null;
     
 
     // cameras
@@ -122,6 +126,7 @@ function MyGame() {
     this.isMesOn = false;
     this.hasChosen = false;
     this.mEventIndex = 0;
+    this.isIntroOpen = true;
     
     //counter 
     this.mCounter = 0;
@@ -156,7 +161,9 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.VillagerTexture);
     gEngine.Textures.loadTexture(this.WizardTexture);
     gEngine.Textures.loadTexture(this.BusinessmanTexture);
-
+    
+    
+    gEngine.Textures.loadTexture(this.IntroTexture);
     // load audio
     gEngine.AudioClips.loadAudio(this.BGM);
 
@@ -211,6 +218,8 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.sword);
     gEngine.Textures.unloadTexture(this.shield1);
     gEngine.Textures.unloadTexture(this.shield2);
+    
+    gEngine.Textures.unloadTexture(this.IntroTexture);
 
     gEngine.AudioClips.stopBackgroundAudio();
     gEngine.AudioClips.unloadAudio(this.BGM);
@@ -249,6 +258,11 @@ MyGame.prototype.initialize = function () {
         1
     );
     this.bagCamera.setBackgroundColor([0.9,0.9,0.9,1]);
+    
+    this.Intro = new TextureRenderable(this.IntroTexture);
+    this.Intro.getXform().setSize(512,512);
+    this.Intro.setColor([1,0,0,0]);
+    this.Intro.getXform().setPosition(650,300);
 
             // sets the background to gray
     gEngine.DefaultResources.setGlobalAmbientIntensity(3);
@@ -458,7 +472,7 @@ MyGame.prototype.draw = function () {
     gEngine.Core.clearCanvas([1, 1, 1, 1.0]); // clear to light gray
 
     this.mCamera.setupViewProjection();
-
+    
     /*
     this.mAllObjs.draw(this.mCamera);
     
@@ -482,6 +496,11 @@ MyGame.prototype.draw = function () {
     this.bgForest8.draw(this.mCamera);
     this.bgForest9.draw(this.mCamera);
     
+    if(this.isIntroOpen==true){
+        this.Intro.draw(this.mCamera);
+        return;
+    }
+    
     for(var i=0;i<this.mEventNum;i++){
         this.mEventSet[i].icon.draw(this.mCamera);
     }
@@ -496,6 +515,8 @@ MyGame.prototype.draw = function () {
         this.mMes5.draw(this.mCamera);
         this.mMes6.draw(this.mCamera);
     }
+    
+    
 
     this.attributeCamera.setupViewProjection();
     this.bgAttribute.draw(this.attributeCamera);
@@ -588,6 +609,12 @@ MyGame.prototype.update = function () {
     this.mShapeMsg.setText(obj.getRigidBody().getCurrentState());
     */
 
+    if(this.isIntroOpen==true){
+        if (gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
+            console.log("x");
+            this.isIntroOpen = false;
+        }
+    }
     var deltaX=10;
     //this.Eagle.updateAnimation();
     if (gEngine.Input.isKeyPressed(gEngine.Input.keys.D)) {
