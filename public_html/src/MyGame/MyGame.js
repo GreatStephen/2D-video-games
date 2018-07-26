@@ -584,16 +584,20 @@ MyGame.prototype.update = function () {
     }
     
     if(this.isMesOn && !this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.One)){
-        console.log(this.mEventSet[this.mEventIndex-1].action[0]);
+        //console.log(this.mEventSet[this.mEventIndex-1].action[0]);
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[0].getResult();
-        console.log("res "+res);
+        console.log("res");
+        console.log(res);
         res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
         this.SendMessage(res.msg,"","","","","");
     }
     if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Two)){
+        //console.log(this.mEventSet[this.mEventIndex-1].action[1]);
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[1].getResult();
+        console.log("res");
+        console.log(res);
         res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
         this.SendMessage(res.msg,"","","","","");
     }

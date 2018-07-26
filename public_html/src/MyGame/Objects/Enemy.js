@@ -52,8 +52,6 @@ Enemy.prototype.fight = function (game){
         for(var i=0;i<this.numItem;i++){
             game.mBag.AddItem(this.dropItemId);
         }
-        console.log("money");
-        console.log(game.mMoneyValue);
         game.mMoneyValue += this.money;
     }
     msg = "You win, you lose " + total + " HP, get item " + this.dropItemId + ", get gold "+this.money;
