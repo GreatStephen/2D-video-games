@@ -53,7 +53,7 @@ function MyGame() {
     this.WizardTexture = "assets/wizard.png";
     this.BusinessmanTexture = "assets/businessman.png";
    
-                  
+    // item texture
     this.apple = "assets/item/0_apple.png";
     this.meat = "assets/item/1_meat.png";
     this.fish = "assets/item/2_fish.png";
@@ -64,6 +64,10 @@ function MyGame() {
     this.sword = "assets/item/7_sword.png";
     this.shield1 = "assets/item/8_shield1.png";
     this.shield2 = "assets/item/9_shield2.png";
+    this.secretbag = "assets/item/10_secretbag.png";
+    this.cape = "assets/item/11_cape.png";
+    this.key = "assets/item/12_key.png";
+    this.treasurechest = "assets/item/13_treasurechest.png";
 
     // local variables
     this.bgTown = "";
@@ -145,7 +149,8 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.VillagerTexture);
     gEngine.Textures.loadTexture(this.WizardTexture);
     gEngine.Textures.loadTexture(this.BusinessmanTexture);
-    
+
+    // load items
     gEngine.Textures.loadTexture(this.apple);
     gEngine.Textures.loadTexture(this.meat);
     gEngine.Textures.loadTexture(this.fish);
@@ -156,7 +161,10 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.sword);
     gEngine.Textures.loadTexture(this.shield1);
     gEngine.Textures.loadTexture(this.shield2);
-    
+    gEngine.Textures.loadTexture(this.secretbag);
+    gEngine.Textures.loadTexture(this.cape);
+    gEngine.Textures.loadTexture(this.key);
+    gEngine.Textures.loadTexture(this.treasurechest);
     
     
     
