@@ -10,13 +10,15 @@
 function MyMenu(){
 
     this.bgBackground = "assets/StartScene/background.png";
-    this.Cursor = "assets/StartScene/CrownIcons_007.png";
+    this.CursorTexture = "assets/StartScene/CrownIcons_007.png";
     this.mBackground = null;
     this.back = null;
+    this.Cursor = null;
     this.mCamera = null;
     this.mText1 = null;
     this.mText2 = null;
     this.mText3 = null;
+    this.mText4 = null;
     
     this.choice = 0;
 
@@ -27,14 +29,14 @@ function MyMenu(){
 MyMenu.prototype.loadScene = function () {
     //暂时没有图片
     gEngine.Textures.loadTexture(this.bgBackground);
-    gEngine.Textures.loadTexture(this.Cursor);
+    gEngine.Textures.loadTexture(this.CursorTexture);
 }
 
 MyMenu.prototype.unloadScene = function () {
 
     //暂时没有图片
      gEngine.Textures.unloadTexture(this.bgBackground);
-     gEngine.Textures.unloadTexture(this.Cursor);
+     gEngine.Textures.unloadTexture(this.CursorTexture);
     //开始游戏
     var mygame = new MyGame();
     gEngine.Core.startScene(mygame);
@@ -55,7 +57,7 @@ MyMenu.prototype.initialize = function () {
     this.mBackground.setColor([1,0,0,0]);
     this.mBackground.getXform().setPosition(450,300);
     
-    this.Cursor = new TextureRenderable(this.Cursor);
+    this.Cursor = new TextureRenderable(this.CursorTexture);
     this.Cursor.getXform().setSize(70,90);
     this.Cursor.setColor([1,0,0,0]);
     this.Cursor.getXform().setPosition(830,250);
@@ -89,7 +91,7 @@ MyMenu.prototype.draw = function () {
 }
 
 MyMenu.prototype.update = function () {
-    if(this.choice==0&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
+    if(this.choice==0&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Enter)){
         gEngine.GameLoop.stop();
     }
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Up)){
