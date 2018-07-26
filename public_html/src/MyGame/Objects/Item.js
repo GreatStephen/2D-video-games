@@ -14,9 +14,21 @@ var mHealthList = [0,0,0,0,0,0,0,0,0,0,0,0];
 var HungerList = [10,5,5,0,0,0,0,0,0,0,0,0];
 var mHungerList = [0,0,0,0,0,0,0,0,0,0,0,0];
 var ColorList = [[1,0,0,0],[0,1,0,0],[0,0,1,0]];
-var PictureList = ["assets/item/0_apple.png","assets/item/1_meat.png","assets/item/2_fish.png","assets/item/3_herb.png","assets/item/4_timber.png",
-                   "assets/item/5_axe.png","assets/item/6_spear.png","assets/item/7_sword.png","assets/item/8_shield1.png","assets/item/9_shield2.png"
-                  ];
+var PictureList = ["assets/item/0_apple.png",
+    "assets/item/1_meat.png",
+    "assets/item/2_fish.png",
+    "assets/item/3_herb.png",
+    "assets/item/4_timber.png",
+    "assets/item/5_axe.png",
+    "assets/item/6_spear.png",
+    "assets/item/7_sword.png",
+    "assets/item/8_shield1.png",
+    "assets/item/9_shield2.png",
+    "assets/item/10_secretbag.png",
+    "assets/item/11_cape.png",
+    "assets/item/12_key.png",
+    "assets/item/13_treasurechest.png"
+];
 var AtkList = [0,0,0,0,0,5,10,10,0,0,0,0];
 var DefList = [0,0,0,0,0,0,0,0,5,10,0,0];
 var TypeList = [0,0,0,0,1,2,2,2,3,3,0,0];  // 0: consume  1: cannot use   2: weapon  3:armor
