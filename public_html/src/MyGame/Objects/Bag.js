@@ -193,8 +193,13 @@ Bag.prototype.update = function(){
         }
     }
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Right)){
-        if((this.current%5!=4) && ((this.current+1)<this.itemSet.length)){
-            this.current++;
+        if((this.current%5!=4)){
+            if((this.current+1)<this.itemSet.length){
+                this.current++;
+            }
+            else{
+                this.current = this.current - this.current%5-1;
+            }
         }
     }
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Up)){
@@ -203,9 +208,15 @@ Bag.prototype.update = function(){
         }
     }
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Down)){
-        if((this.current<15) && ((this.current+5)<this.itemSet.length)){
-            this.current += 5;
+        if((this.current<15)){
+            if((this.current+5)<this.itemSet.length){
+                this.current += 5;
+            }
+            else{
+                this.current = this.itemSet.length-1;
+            }
         }
+        
     }  
     
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.T)){
