@@ -28,6 +28,7 @@ function MyMenu(){
     this.choice = 0;
     
     this.isHelpOpen = false;
+    this.BGM = "assets/StartScene/PilotsOfStone.mp3";
 
 }
 
@@ -39,6 +40,8 @@ MyMenu.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.CursorTexture);
     gEngine.Textures.loadTexture(this.NameTexture);
     gEngine.Textures.loadTexture(this.HelpTexture);
+    gEngine.AudioClips.loadAudio(this.BGM);
+
 }
 
 MyMenu.prototype.unloadScene = function () {
@@ -49,6 +52,8 @@ MyMenu.prototype.unloadScene = function () {
      gEngine.Textures.unloadTexture(this.NameTexture);
      gEngine.Textures.unloadTexture(this.HelpTexture);
     //开始游戏
+    gEngine.AudioClips.stopBackgroundAudio();
+    gEngine.AudioClips.unloadAudio(this.BGM);
     var mygame = new MyGame();
     gEngine.Core.startScene(mygame);
 }
@@ -62,6 +67,8 @@ MyMenu.prototype.initialize = function () {
     );
     this.mCamera.setBackgroundColor([0,0.8,0.8,0]);
     gEngine.DefaultResources.setGlobalAmbientIntensity(3);
+    
+    gEngine.AudioClips.playBackgroundAudio(this.BGM);
     
     this.mBackground = new TextureRenderable(this.bgBackground);
     this.mBackground.getXform().setSize(1800,600);
