@@ -96,7 +96,7 @@ function MyGame() {
     this.mMes4 = null;
     this.mMes5 = null;
     this.mMes6 = null;
-    this.mEventSet = null;
+    
 
     // cameras
     this.mCamera = null;
@@ -111,6 +111,10 @@ function MyGame() {
     
     //counter 
     this.mCounter = 0;
+    
+    //event
+    this.mEventSet = null;
+    this.mEventNum = 16;
 }
 gEngine.Core.inheritPrototype(MyGame, Scene);
 
@@ -384,7 +388,7 @@ MyGame.prototype.initialize = function () {
     this.bgMsg.setColor([0,0,0,0.2]);
     
     //event, action and result
-    this.mEventSet = new EventSet(8);
+    this.mEventSet = new EventSet(this.mEventNum);
     console.log(this.mEventSet);
     /*
      var e = new Enemy();
@@ -443,7 +447,7 @@ MyGame.prototype.draw = function () {
     this.bgForest7.draw(this.mCamera);
     this.bgForest8.draw(this.mCamera);
     
-    for(var i=0;i<8;i++){
+    for(var i=0;i<this.mEventNum;i++){
         this.mEventSet[i].icon.draw(this.mCamera);
     }
     this.mKnight.draw(this.mCamera);
@@ -621,7 +625,7 @@ MyGame.prototype.update = function () {
             this.isBagOpened=false;
         }
     }
-    if(this.mEventIndex<8&&this.mKnight.getXform().mPosition[0]>this.mEventSet[this.mEventIndex].icon.getXform().mPosition[0]-200){
+    if(this.mEventIndex<this.mEventNum && this.mKnight.getXform().mPosition[0]>this.mEventSet[this.mEventIndex].icon.getXform().mPosition[0]-200){
         console.log(this.mEventSet[this.mEventIndex]);
         this.hasChosen = false;
         var info = this.mEventSet[this.mEventIndex].information;
@@ -634,7 +638,7 @@ MyGame.prototype.update = function () {
         this.mBag.update();
     }
     
-    for(var i=0;i<8;i++){
+    for(var i=0;i<this.mEventNum;i++){
        // console.log(this.mEventSet[i].type);
         if(this.mEventSet[i].type==1){
             this.mEventSet[i].icon.updateAnimation();
