@@ -55,8 +55,8 @@ var AllResult=[
     // appletree 6 7 8 9 10
     new Result("Get apple *1",0,0,0,0,0,0,0,1,0.8),
     new Result("Get nothing",0,0,0,0,0,0,-1,-1,0.2),
-    new Result("Get herb *1",0,0,0,0,0,0,3,1,0.6),
-    new Result("Get timber *1",0,0,0,0,0,0,4,1,0.4),
+    new Result("Get herb *1",0,0,0,0,0,0,3,1,0.2),
+    new Result("Get timber *1",0,0,0,0,0,0,4,1,0.8),
     new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 1),
 
     // pond 11 12 13 14
@@ -142,7 +142,7 @@ var AllEventAct = [
     
     // hunter
     new Action("1. Ok", [AllResult[22]]),
-    new Action("2. Grab him.", [AllResult[23], AllResult[24]]),
+    new Action("2. rob him.", [AllResult[23], AllResult[24]]),
     new Action("3. Sorry, I’m busy.",[AllResult[25]]),
     new Action(),
     
