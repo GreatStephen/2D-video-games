@@ -37,7 +37,7 @@ function MyGame() {
     */
     this.bgForestTexture = "assets/forest3.png";
     this.BagTexture = "assets/bag.png";
-    this.kKnight = "assets/Prince_new.png";
+    this.kKnight = "assets/prince.png";
     this.CursorTexture = "assets/cursor.png";
     this.bgAttributeTexture = "assets/attribute.png";
     
@@ -50,10 +50,7 @@ function MyGame() {
     this.RuinsTexture = "assets/ruins.png";
     this.HunterTexture = "assets/hunter.png";
     this.VillagerTexture = "assets/villager.png";
-    this.WizardTexture = "assets/wizard.png";
-    this.BusinessmanTexture = "assets/businessman.png";
    
-    this.New_Prince = "assets/Prince_new.png";
                   
     this.apple = "assets/item/0_apple.png";
     this.meat = "assets/item/1_meat.png";
@@ -99,8 +96,7 @@ function MyGame() {
     this.mMes4 = null;
     this.mMes5 = null;
     this.mMes6 = null;
-    this.mEventSet = null;
-    this.newPrince = null;
+    
 
     // cameras
     this.mCamera = null;
@@ -115,6 +111,10 @@ function MyGame() {
     
     //counter 
     this.mCounter = 0;
+    
+    //event
+    this.mEventSet = null;
+    this.mEventNum = 16;
 }
 gEngine.Core.inheritPrototype(MyGame, Scene);
 
@@ -140,8 +140,6 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.RuinsTexture);
     gEngine.Textures.loadTexture(this.HunterTexture);
     gEngine.Textures.loadTexture(this.VillagerTexture);
-    gEngine.Textures.loadTexture(this.WizardTexture);
-    gEngine.Textures.loadTexture(this.BusinessmanTexture);
     
     gEngine.Textures.loadTexture(this.apple);
     gEngine.Textures.loadTexture(this.meat);
@@ -153,7 +151,7 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.sword);
     gEngine.Textures.loadTexture(this.shield1);
     gEngine.Textures.loadTexture(this.shield2);
-    //gEngine.Textures.loadTexture(this.New_Prince);
+    
     
     
     
@@ -177,8 +175,6 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.Mushroom);
     gEngine.Textures.unloadTexture(this.HunterTexture);
     gEngine.Textures.unloadTexture(this.VillagerTexture);
-    gEngine.Textures.unloadTexture(this.WizardTexture);
-    gEngine.Textures.unloadTexture(this.BusinessmanTexture);
     
     gEngine.Textures.unloadTexture(this.apple);
     gEngine.Textures.unloadTexture(this.meat);
@@ -191,7 +187,6 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.shield1);
     gEngine.Textures.unloadTexture(this.shield2);
 
-    //gEngine.Textures.unloadTexture(this.New_Prince);
 
     var nextscene = new GameOver();
 
@@ -364,25 +359,13 @@ MyGame.prototype.initialize = function () {
     this.mMes6.setTextHeight(30);
     
     // knight
-   /* this.mKnight = new SpriteAnimateRenderable(this.kKnight);
+    this.mKnight = new SpriteAnimateRenderable(this.kKnight);
     this.mKnight.setColor([1, 1, 1, 0]);
     this.mKnight.getXform().setPosition(600, 180);
     this.mKnight.getXform().setSize(200, 200);
     this.mKnight.setSpriteSequence(64, 0,      // first element pixel position: top-left 164 from 512 is top of image, 0 is left of image
                                     64, 64,       // widthxheight in pixels
                                     8,              // number of elements in this sequence
-                                    0);             // horizontal padding in between
-    this.mKnight.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
-    this.mKnight.setAnimationSpeed(5);*/
-    
-    
-    this.mKnight = new SpriteAnimateRenderable(this.New_Prince);
-    this.mKnight.setColor([1, 1, 1, 0]);
-    this.mKnight.getXform().setPosition(600, 200);
-    this.mKnight.getXform().setSize(500, 400);
-    this.mKnight.setSpriteSequence(256, 0,      // first element pixel position: top-left 164 from 512 is top of image, 0 is left of image
-                                    295, 256,       // widthxheight in pixels
-                                    6,              // number of elements in this sequence
                                     0);             // horizontal padding in between
     this.mKnight.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
     this.mKnight.setAnimationSpeed(5);
@@ -405,7 +388,7 @@ MyGame.prototype.initialize = function () {
     this.bgMsg.setColor([0,0,0,0.2]);
     
     //event, action and result
-    this.mEventSet = new EventSet(16);
+    this.mEventSet = new EventSet(this.mEventNum);
     console.log(this.mEventSet);
     /*
      var e = new Enemy();
@@ -464,11 +447,10 @@ MyGame.prototype.draw = function () {
     this.bgForest7.draw(this.mCamera);
     this.bgForest8.draw(this.mCamera);
     
-    for(var i=0;i<8;i++){
+    for(var i=0;i<this.mEventNum;i++){
         this.mEventSet[i].icon.draw(this.mCamera);
     }
     this.mKnight.draw(this.mCamera);
-
     this.bgMsg.draw(this.mCamera);
     if(this.isMesOn==true){
         //this.bgBag.draw(this.mCamera);
@@ -570,14 +552,14 @@ MyGame.prototype.update = function () {
     
     this.mShapeMsg.setText(obj.getRigidBody().getCurrentState());
     */
-  // this.newPrince.updateAnimation();
+
     var deltaX=10;
     //this.Eagle.updateAnimation();
     if (gEngine.Input.isKeyPressed(gEngine.Input.keys.D)) {
         if(this.isBagOpened==false && this.isMesOn==false){
             var center = this.mCamera.getWCCenter();
             center[0]+=deltaX;
-            if(center[0]<15350){
+            if(center[0]<7350){
                 this.mCamera.setWCCenter(center[0],center[1]);
                // this.mBag.Move(deltaX);
             }
@@ -643,7 +625,7 @@ MyGame.prototype.update = function () {
             this.isBagOpened=false;
         }
     }
-    if(this.mEventIndex<8&&this.mKnight.getXform().mPosition[0]>this.mEventSet[this.mEventIndex].icon.getXform().mPosition[0]-200){
+    if(this.mEventIndex<this.mEventNum && this.mKnight.getXform().mPosition[0]>this.mEventSet[this.mEventIndex].icon.getXform().mPosition[0]-200){
         console.log(this.mEventSet[this.mEventIndex]);
         this.hasChosen = false;
         var info = this.mEventSet[this.mEventIndex].information;
@@ -656,7 +638,7 @@ MyGame.prototype.update = function () {
         this.mBag.update();
     }
     
-    for(var i=0;i<8;i++){
+    for(var i=0;i<this.mEventNum;i++){
        // console.log(this.mEventSet[i].type);
         if(this.mEventSet[i].type==1){
             this.mEventSet[i].icon.updateAnimation();
