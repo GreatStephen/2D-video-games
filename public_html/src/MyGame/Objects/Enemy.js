@@ -49,7 +49,7 @@ Enemy.prototype.fight = function (game){
             game.ending = 5;
         }
         else
-            game.ending = 1;
+            game.ending = 0;
         msg = "you lose";
         game.EndGame();
         return msg;
