@@ -229,7 +229,7 @@ MyGame.prototype.initialize = function () {
     this.bagCamera.setBackgroundColor([0.9,0.9,0.9,1]);
 
             // sets the background to gray
-    gEngine.DefaultResources.setGlobalAmbientIntensity(3);
+    gngine.DefaultResources.setGlobalAmbientIntensity(3);E
 
     /*
     this.mHero = new Hero(this.kMinionSprite);

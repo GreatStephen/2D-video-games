@@ -62,7 +62,7 @@ var AllResult=[
     // pond 11 12 13 14
     new Result("Hunger +10",0,0,+10,0,0,0,-1,-1,1),
     new Result("Get fish *1", 0,0,0,0,0,0,2,1,0.8),
-    new Result("Get nothing", 0,0,0,0,0,0,-1,-1,0.2),
+    new Result("Get a key...", 0,0,0,0,0,0,-1,-1,0.2),
     new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 1),
 
     // treasure  case 15 16 17
@@ -71,15 +71,15 @@ var AllResult=[
     new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 1),
 
     // ruins 18 19 20 21
-    new Result("Money(Apple) *1", 0,0,0,0,0,0,0,1,0.3),
-    new Result("Get timber *1", 0,0,0,0,0,0,4,1,0.3),
+    new Result("Money *10", 0,0,0,0,0,0,0,1,0.3),
+    new Result("Get timber *2", 0,0,0,0,0,0,4,1,0.3),
     new Result("Get herb *2", 0,0,0,0,0,0,3,2,0.4),
     new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 1),
     
     // hunter 22 23 24 25
-    new Result("Apple *2", 0,0,0,0,0,0,0,2,1),
-    new Result("you lose 30HP", -30,0,0,0,0,0,4,5,0.5),
-    new Result("Meat *2", 0,0,0,0,0,0,1,2,0.5),
+    new Result("receive the hunter's cloak", 0,0,0,0,0,0,0,2,1),
+    new Result("Defeated, you lose 30HP", -30,0,0,0,0,0,4,5,0.5),
+    new Result("Knock him down, get meat *2", 0,0,0,0,0,0,1,2,0.5),
     new Result("You leave.", 0,0,0,0,0,0,0,0,1),
 
     
@@ -90,14 +90,15 @@ var AllResult=[
     new Result("You leave.", 0,0,0,0,0,0,0,0,1),
 
     // wizard 30 31 32
-    new Result("The wizard gives you a secret bag.",0,0,0,0,0,0,0,0,1),
+    new Result("The wizard gives you a secret bag. Open it when urgent.",0,0,0,0,0,0,0,0,1),
     new Result("The wizard gives you a treasure case.",0,0,0,0,0,0,0,0,1),
     new Result("Max HP-30, get a new weapon.",0,0,0,0,0,0,0,0,1),
 
-    // businessman 33 34 35
-    new Result("lose timber*3, get a new spear.", 0,0,0,0,0,0,6,1,1),
-    new Result("lose timber*3, get a new shield.",0,0,0,0,0,0,9,1,1),
-    new Result("lose timber*2, get an apple.",0,0,0,0,0,0,0,1,1)
+    // businessman 33 34 35 36
+    new Result("lose money*30, get a new spear.", 0,0,0,0,0,0,6,1,1),
+    new Result("lose money*30, get a new shield.",0,0,0,0,0,0,9,1,1),
+    new Result("lose money*20, get an apple.",0,0,0,0,0,0,0,1,1),
+    new Result("lose timber*2, get an apple.")
 
 
 ];
@@ -130,7 +131,7 @@ var AllEventAct = [
 
     // pond
     new Action("1. Drink water", [AllResult[11]]),
-    new Action("2. Catch fish", [AllResult[12], AllResult[13]]),
+    new Action("2. Catch something", [AllResult[12], AllResult[13]]),
     new Action("3. Go away", [AllResult[14]]),
     new Action(),
 
@@ -149,21 +150,21 @@ var AllEventAct = [
 
     // villager1
     new Action("1. Ask about the king.", [AllResult[26]]),
-    new Action("2. I'm the prince, I need your help.", [AllResult[27], AllResult[28]]),
+    new Action("2. Beg for something.(60%)", [AllResult[27], AllResult[28]]),
     new Action("3. Thanks, but I have to go.",[AllResult[29]]),
     new Action(),
 
     // wizard
     new Action("1. I want your precious advice.", [AllResult[30]]),
-    new Action("2. I want a valuable gift.", [AllResult[31]]),
+    new Action("2. I want a valuable gift from you.", [AllResult[31]]),
     new Action("3. I want to exchange my health for a weapon.",[AllResult[32]]),
     new Action(),
 
     // businessman
-    new Action("1. timber*3 for a spear.", [AllResult[33]]),
-    new Action("2. timber*3 for a shield.", [AllResult[34]]),
-    new Action("3. timber*2 for an apple.",[AllResult[35]]),
-    new Action()
+    new Action("1. money*30 for a spear.", [AllResult[33]]),
+    new Action("2. money*30 for a shield.", [AllResult[34]]),
+    new Action("3. money*20 for an apple.",[AllResult[35]]),
+    new Action("4. timber*2 for an apple.",[AllResult[36]])
 
 ];
 

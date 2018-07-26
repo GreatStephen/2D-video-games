@@ -12,6 +12,7 @@ function MyMenu(){
     this.bgBackground = "assets/StartScene/background.png";
 
     this.mBackground = null;
+    this.back = null;
     this.mCamera = null;
     this.mText1 = null;
     this.mText2 = null;
@@ -19,7 +20,7 @@ function MyMenu(){
 
 }
 
-gEngine.Core.inheritPrototype(MyMenu, Scene);
+//gEngine.Core.inheritPrototype(MyMenu, Scene);
 
 MyMenu.prototype.loadScene = function () {
     //暂时没有图片
