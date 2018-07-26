@@ -50,6 +50,8 @@ function MyGame() {
     this.RuinsTexture = "assets/ruins.png";
     this.HunterTexture = "assets/hunter.png";
     this.VillagerTexture = "assets/villager.png";
+    this.WizardTexture = "assets/wizard.png";
+    this.BusinessmanTexture = "assets/businessman.png";
    
                   
     this.apple = "assets/item/0_apple.png";
@@ -140,6 +142,8 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.RuinsTexture);
     gEngine.Textures.loadTexture(this.HunterTexture);
     gEngine.Textures.loadTexture(this.VillagerTexture);
+    gEngine.Textures.loadTexture(this.WizardTexture);
+    gEngine.Textures.loadTexture(this.BusinessmanTexture);
     
     gEngine.Textures.loadTexture(this.apple);
     gEngine.Textures.loadTexture(this.meat);
@@ -175,6 +179,8 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.Mushroom);
     gEngine.Textures.unloadTexture(this.HunterTexture);
     gEngine.Textures.unloadTexture(this.VillagerTexture);
+    gEngine.Textures.unloadTexture(this.WizardTexture);
+    gEngine.Textures.unloadTexture(this.BusinessmanTexture);
     
     gEngine.Textures.unloadTexture(this.apple);
     gEngine.Textures.unloadTexture(this.meat);
