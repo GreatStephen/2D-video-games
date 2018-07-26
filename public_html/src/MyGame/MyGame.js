@@ -462,11 +462,7 @@ MyGame.prototype.draw = function () {
         this.mEventSet[i].icon.draw(this.mCamera);
     }
     this.mKnight.draw(this.mCamera);
-<<<<<<< HEAD
-   // this.newPrince.draw(this.mCamera);
-    //this.Eagle.draw(this.mCamera);
-=======
->>>>>>> 1266c6de5404c791c2bb19d9a6a653e193942ed4
+
     this.bgMsg.draw(this.mCamera);
     if(this.isMesOn==true){
         //this.bgBag.draw(this.mCamera);
