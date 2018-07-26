@@ -5,9 +5,9 @@
  */
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
-var AllEnemy = [{Id:0, msg:"", mHealth:"50", atk:15, def:0, numItem:1, dropItemId:0, money:20},
-    {Id:1, msg:"", mHealth:"50", atk:15, def:0, numItem:1, dropItemId:1, money:30},
-    {Id:2, msg:"", mHealth:"50", atk:15, def:5, numItem:1, dropItemId:2, money:30},
+var AllEnemy = [{Id:0, msg:"", mHealth:"50", atk:15, def:0, numItem:1, dropItemId:0, money:20},//mushroom
+    {Id:1, msg:"", mHealth:"50", atk:15, def:0, numItem:2, dropItemId:1, money:30},//eagle
+    {Id:2, msg:"", mHealth:"50", atk:15, def:5, numItem:2, dropItemId:3, money:30},//knight
     {Id:3, msg:"", mHealth:"50", atk:15, def:0, numItem:0, dropItemId:0, money:10}]
 
 function Enemy(id) {
@@ -52,6 +52,6 @@ Enemy.prototype.fight = function (game){
         game.mBag.AddItem(this.dropItemId, this.numItem);
         game.mMoneyValue += this.money;
     }
-    msg = "You win, you lose " + total + " HP, get item " + this.dropItemId + ", get gold "+this.money;
+    msg = "You win, lose " + total + " HP, get " + NameList[this.dropItemId] + " * "+this.numItem+", "+this.money+" gold.";
     return msg;    
 }

@@ -754,9 +754,26 @@ MyGame.prototype.EndGame = function(){
 MyGame.prototype.SendMessage = function(line1, line2, line3, line4,line5, line6){
     var cameraCenter = this.mCamera.getWCCenter();
     this.bgMsg.getXform().setPosition(cameraCenter[0],cameraCenter[1]-150);
-    
+    var line11;
+    if(line1.length>50){
+        var idx=0;
+        for(var i=0;i<50;i++){
+            if(line1.charAt(i)==' '){
+                idx = i;
+            }
+        }
+        console.log(i);
+        line11 = line1.slice(0,idx);
+        line6 = line5;
+        line5 = line4;
+        line4 = line3;
+        line3 = line2;
+        line2 = line1.slice(idx+1);
+    }else{
+        line11 = line1;
+    }
 
-    this.mMes1.setText(line1);
+    this.mMes1.setText(line11);
     this.mMes1.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]+70-150);
     this.mMes2.setText(line2);
     this.mMes2.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]+35-150);
