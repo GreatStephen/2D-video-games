@@ -167,9 +167,9 @@ var AllEventAct = [
 
 ];
 
-var AllEventType = [0,1,1,0,0,0,1,0];
-var AllEventSize_x = [150, 180, 200, 250, 140, 340, 200,200,200];//todo
-var AllEventSize_y = [150, 180, 600, 250, 90, 350,200,200,200];//todo
+var AllEventType = [0,1,1,0,0,0,1,0,0,0];
+var AllEventSize_x = [150, 180, 200, 250, 140, 340, 200,200,200,200];//todo
+var AllEventSize_y = [150, 180, 600, 250, 90, 350,200,200,200,200];//todo
 var AllEventSpriteSequence = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
                               {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
                               {"topPixel":128, "leftPixel":0, "elmWidthInPixel":75, "elmHeightInPixel":128, "numElements":13, "wPaddingInPixel":0},
