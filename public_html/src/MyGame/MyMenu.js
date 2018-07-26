@@ -11,9 +11,11 @@ function MyMenu(){
 
     this.bgBackground = "assets/StartScene/background.png";
     this.CursorTexture = "assets/StartScene/CrownIcons_007.png";
+    this.NameTexture = "assets/StartScene/Name.png";
     this.mBackground = null;
     this.back = null;
     this.Cursor = null;
+    this.Name = null;
     this.mCamera = null;
     this.mText1 = null;
     this.mText2 = null;
@@ -30,6 +32,7 @@ MyMenu.prototype.loadScene = function () {
     //暂时没有图片
     gEngine.Textures.loadTexture(this.bgBackground);
     gEngine.Textures.loadTexture(this.CursorTexture);
+    gEngine.Textures.loadTexture(this.NameTexture);
 }
 
 MyMenu.prototype.unloadScene = function () {
@@ -37,6 +40,7 @@ MyMenu.prototype.unloadScene = function () {
     //暂时没有图片
      gEngine.Textures.unloadTexture(this.bgBackground);
      gEngine.Textures.unloadTexture(this.CursorTexture);
+     gEngine.Textures.unloadTexture(this.NameTexture);
     //开始游戏
     var mygame = new MyGame();
     gEngine.Core.startScene(mygame);
@@ -61,6 +65,11 @@ MyMenu.prototype.initialize = function () {
     this.Cursor.getXform().setSize(70,90);
     this.Cursor.setColor([1,0,0,0]);
     this.Cursor.getXform().setPosition(830,250);
+    
+    this.Name = new TextureRenderable(this.NameTexture);
+    this.Name.getXform().setSize(1024,200);
+    this.Name.setColor([1,0,0,0]);
+    this.Name.getXform().setPosition(1130,450);
 
     this.mText1 = new FontRenderable("Start Game");
     this.mText1.setColor([0,0,0,1]);
@@ -85,6 +94,7 @@ MyMenu.prototype.draw = function () {
     this.mCamera.setupViewProjection();
     this.mBackground.draw(this.mCamera);
     this.Cursor.draw(this.mCamera);
+    this.Name.draw(this.mCamera);
     this.mText1.draw(this.mCamera);
     this.mText2.draw(this.mCamera);
     this.mText3.draw(this.mCamera);
