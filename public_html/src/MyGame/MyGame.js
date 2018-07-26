@@ -37,7 +37,7 @@ function MyGame() {
     */
     this.bgForestTexture = "assets/forest3.png";
     this.BagTexture = "assets/bag.png";
-    this.kKnight = "assets/prince.png";
+    this.kKnight = "assets/Prince_new.png";
     this.CursorTexture = "assets/cursor.png";
     this.bgAttributeTexture = "assets/attribute.png";
     
@@ -367,11 +367,11 @@ MyGame.prototype.initialize = function () {
     // knight
     this.mKnight = new SpriteAnimateRenderable(this.kKnight);
     this.mKnight.setColor([1, 1, 1, 0]);
-    this.mKnight.getXform().setPosition(600, 180);
-    this.mKnight.getXform().setSize(200, 200);
-    this.mKnight.setSpriteSequence(64, 0,      // first element pixel position: top-left 164 from 512 is top of image, 0 is left of image
-                                    64, 64,       // widthxheight in pixels
-                                    8,              // number of elements in this sequence
+    this.mKnight.getXform().setPosition(600, 200);
+    this.mKnight.getXform().setSize(500, 400);
+    this.mKnight.setSpriteSequence(256, 0,      // first element pixel position: top-left 164 from 512 is top of image, 0 is left of image
+                                    295, 256,       // widthxheight in pixels
+                                    6,              // number of elements in this sequence
                                     0);             // horizontal padding in between
     this.mKnight.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
     this.mKnight.setAnimationSpeed(5);
