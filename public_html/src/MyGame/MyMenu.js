@@ -66,7 +66,7 @@ MyMenu.prototype.initialize = function () {
     this.mBackground = new TextureRenderable(this.bgBackground);
     this.mBackground.getXform().setSize(1800,600);
     this.mBackground.setColor([1,0,0,0]);
-    this.mBackground.getXform().setPosition(450,300);
+    this.mBackground.getXform().setPosition(505,300);
     
     this.Cursor = new TextureRenderable(this.CursorTexture);
     this.Cursor.getXform().setSize(70,90);
