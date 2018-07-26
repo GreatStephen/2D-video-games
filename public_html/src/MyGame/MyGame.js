@@ -611,7 +611,7 @@ MyGame.prototype.update = function () {
     }
     
     if(this.isMesOn && !this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.One)){
-        //console.log(this.mEventSet[this.mEventIndex-1].action[0]);
+        console.log(this.mEventSet[this.mEventIndex-1].action[0]);
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[0].getResult();
         console.log("res");
