@@ -353,17 +353,17 @@ MyGame.prototype.initialize = function () {
     this.mMes3.getXform().setPosition(10000, 10000);
     this.mMes3.setTextHeight(30);
 
-    this.mMes4 = new FontRenderable("test");
+    this.mMes4 = new FontRenderable("");
     this.mMes4.setColor([1, 1, 1, 1]);
     this.mMes4.getXform().setPosition(10000, 10000);
     this.mMes4.setTextHeight(30);
 
-    this.mMes5 = new FontRenderable("test");
+    this.mMes5 = new FontRenderable("");
     this.mMes5.setColor([1, 1, 1, 1]);
     this.mMes5.getXform().setPosition(11000, 11000);
     this.mMes5.setTextHeight(30);
 
-    this.mMes6 = new FontRenderable("test");
+    this.mMes6 = new FontRenderable("");
     this.mMes6.setColor([1, 1, 1, 1]);
     this.mMes6.getXform().setPosition(11000, 11000);
     this.mMes6.setTextHeight(30);
@@ -620,6 +620,15 @@ MyGame.prototype.update = function () {
         res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
         this.SendMessage(res.msg,"","","","","");
     }
+    if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Three)){
+        //console.log(this.mEventSet[this.mEventIndex-1].action[1]);
+        this.hasChosen = true;
+        var res = this.mEventSet[this.mEventIndex-1].action[2].getResult();
+        console.log("res");
+        console.log(res);
+        res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
+        this.SendMessage(res.msg,"","","","","");
+    }
     
     if (gEngine.Input.isKeyClicked(gEngine.Input.keys.U)) {
         if(this.flag==1){
@@ -645,7 +654,7 @@ MyGame.prototype.update = function () {
         this.hasChosen = false;
         var info = this.mEventSet[this.mEventIndex].information;
         var act = this.mEventSet[this.mEventIndex].action;
-        this.SendMessage(info, act[0].content, act[1].content,"","","");
+        this.SendMessage(info, act[0].content, act[1].content,act[2].content,"","");
         this.mEventIndex++;
     }
     
@@ -699,11 +708,14 @@ MyGame.prototype.SendMessage = function(line1, line2, line3, line4,line5, line6)
     this.mMes2.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]+35-150);
     this.mMes3.setText(line3);
     this.mMes3.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]-0-150);
-    this.mMes4.setText(line4);
+    if(typeof(line4) != "undefined")
+        this.mMes4.setText(line4);
     this.mMes4.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]-35-150);
-    this.mMes5.setText(line5);
+    if(typeof(line5) != "undefined")
+        this.mMes5.setText(line5);
     this.mMes5.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]-70-150);
-    this.mMes6.setText(line6);
+    if(typeof(line6) != "undefined")
+        this.mMes6.setText(line6);
     this.mMes6.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]-105-150);
 
 
