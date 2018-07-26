@@ -68,6 +68,12 @@ function MyGame() {
     this.bgPalace = "";
     this.bgForest = null;
     this.bgForest2 = null;
+    this.bgForest3 = null;
+    this.bgForest4 = null;
+    this.bgForest5 = null;
+    this.bgForest6 = null;
+    this.bgForest7 = null;
+    this.bgForest8 = null;
     this.mBag = null;
     this.bgMsg = null;
     this.bgAttribute = null;
@@ -204,7 +210,7 @@ MyGame.prototype.initialize = function () {
     this.bagCamera = new Camera(
         vec2.fromValues(50,40),
         100,
-        [-270,-100,1100,825],
+        [200,-130,1100,825],
         1
     );
     this.bagCamera.setBackgroundColor([0.9,0.9,0.9,1]);
@@ -245,9 +251,33 @@ MyGame.prototype.initialize = function () {
     this.bgForest.getXform().setSize(2000,600);
     this.bgForest.getXform().setPosition(1000,300);
     this.bgForest2 = new TextureRenderable(this.bgForestTexture);
-  /*  this.bgForest2.setColor([0, 0, 0, 0]);
+    this.bgForest2.setColor([0, 0, 0, 0]);
     this.bgForest2.getXform().setSize(2000,600);
-    this.bgForest2.getXform().setPosition(1000,0);*/
+    this.bgForest2.getXform().setPosition(3000,300);
+    this.bgForest3 = new TextureRenderable(this.bgForestTexture);
+    this.bgForest3.setColor([0, 0, 0, 0]);
+    this.bgForest3.getXform().setSize(2000,600);
+    this.bgForest3.getXform().setPosition(5000,300);
+    this.bgForest4 = new TextureRenderable(this.bgForestTexture);
+    this.bgForest4.setColor([0, 0, 0, 0]);
+    this.bgForest4.getXform().setSize(2000,600);
+    this.bgForest4.getXform().setPosition(7000,300);
+    this.bgForest5 = new TextureRenderable(this.bgForestTexture);
+    this.bgForest5.setColor([0,0,0,0]);
+    this.bgForest5.getXform().setSize(2000,600);
+    this.bgForest5.getXform().setPosition(9000,300);
+    this.bgForest6 = new TextureRenderable(this.bgForestTexture);
+    this.bgForest6.setColor([0, 0, 0, 0]);
+    this.bgForest6.getXform().setSize(2000,600);
+    this.bgForest6.getXform().setPosition(11000,300);
+    this.bgForest7 = new TextureRenderable(this.bgForestTexture);
+    this.bgForest7.setColor([0, 0, 0, 0]);
+    this.bgForest7.getXform().setSize(2000,600);
+    this.bgForest7.getXform().setPosition(13000,300);
+    this.bgForest8 = new TextureRenderable(this.bgForestTexture);
+    this.bgForest8.setColor([0, 0, 0, 0]);
+    this.bgForest8.getXform().setSize(2000,600);
+    this.bgForest8.getXform().setPosition(15000,300);
 
   /*  this.bgBag = new TextureRenderable(this.bgBagTexture);
     this.bgBag.setColor([0,0,0,0]);
@@ -288,33 +318,33 @@ MyGame.prototype.initialize = function () {
     // message
     this.mMes1 = new FontRenderable("test");
     this.mMes1.setColor([1, 1, 1, 1]);
-    this.mMes1.getXform().setPosition(1000, 1000);
-    this.mMes1.setTextHeight(3);
+    this.mMes1.getXform().setPosition(10000, 10000);
+    this.mMes1.setTextHeight(30);
 
     this.mMes2 = new FontRenderable("test");
     this.mMes2.setColor([1, 1, 1, 1]);
-    this.mMes2.getXform().setPosition(1000, 1000);
-    this.mMes2.setTextHeight(3);
+    this.mMes2.getXform().setPosition(10000, 10000);
+    this.mMes2.setTextHeight(30);
 
     this.mMes3 = new FontRenderable("test");
     this.mMes3.setColor([1, 1, 1, 1]);
-    this.mMes3.getXform().setPosition(1000, 1000);
-    this.mMes3.setTextHeight(3);
+    this.mMes3.getXform().setPosition(10000, 10000);
+    this.mMes3.setTextHeight(30);
 
     this.mMes4 = new FontRenderable("test");
     this.mMes4.setColor([1, 1, 1, 1]);
-    this.mMes4.getXform().setPosition(1000, 1000);
-    this.mMes4.setTextHeight(3);
+    this.mMes4.getXform().setPosition(10000, 10000);
+    this.mMes4.setTextHeight(30);
 
     this.mMes5 = new FontRenderable("test");
     this.mMes5.setColor([1, 1, 1, 1]);
-    this.mMes5.getXform().setPosition(1100, 1100);
-    this.mMes5.setTextHeight(3);
+    this.mMes5.getXform().setPosition(11000, 11000);
+    this.mMes5.setTextHeight(30);
 
     this.mMes6 = new FontRenderable("test");
     this.mMes6.setColor([1, 1, 1, 1]);
-    this.mMes6.getXform().setPosition(1100, 1100);
-    this.mMes6.setTextHeight(3);
+    this.mMes6.getXform().setPosition(11000, 11000);
+    this.mMes6.setTextHeight(30);
     
     // knight
     this.mKnight = new SpriteAnimateRenderable(this.kKnight);
@@ -341,8 +371,8 @@ MyGame.prototype.initialize = function () {
 
     // message background
     this.bgMsg = new Renderable();
-    this.bgMsg.getXform().setPosition(2000,2000);
-    this.bgMsg.getXform().setSize(80,20);
+    this.bgMsg.getXform().setPosition(-650,-300);
+    this.bgMsg.getXform().setSize(930,200);
     this.bgMsg.setColor([0,0,0,0.2]);
     
     //event, action and result
@@ -397,7 +427,14 @@ MyGame.prototype.draw = function () {
     this.mAllParticles.draw(this.mCamera);
     */
     this.bgForest.draw(this.mCamera);
-  //  this.bgForest2.draw(this.mCamera);
+    this.bgForest2.draw(this.mCamera);
+    this.bgForest3.draw(this.mCamera);
+    this.bgForest4.draw(this.mCamera);
+    this.bgForest5.draw(this.mCamera);
+    this.bgForest6.draw(this.mCamera);
+    this.bgForest7.draw(this.mCamera);
+    this.bgForest8.draw(this.mCamera);
+    
     for(var i=0;i<8;i++){
         this.mEventSet[i].icon.draw(this.mCamera);
     }
@@ -509,13 +546,13 @@ MyGame.prototype.update = function () {
     this.mShapeMsg.setText(obj.getRigidBody().getCurrentState());
     */
 
-    var deltaX=2;
+    var deltaX=10;
     //this.Eagle.updateAnimation();
     if (gEngine.Input.isKeyPressed(gEngine.Input.keys.D)) {
         if(this.isBagOpened==false && this.isMesOn==false){
             var center = this.mCamera.getWCCenter();
             center[0]+=deltaX;
-            if(center[0]<750){
+            if(center[0]<7350){
                 this.mCamera.setWCCenter(center[0],center[1]);
                // this.mBag.Move(deltaX);
             }
@@ -577,7 +614,7 @@ MyGame.prototype.update = function () {
             this.isBagOpened=false;
         }
     }
-    if(this.mEventIndex<8&&this.mKnight.getXform().mPosition[0]>this.mEventSet[this.mEventIndex].icon.getXform().mPosition[0]-25){
+    if(this.mEventIndex<8&&this.mKnight.getXform().mPosition[0]>this.mEventSet[this.mEventIndex].icon.getXform().mPosition[0]-200){
         console.log(this.mEventSet[this.mEventIndex]);
         this.hasChosen = false;
         var info = this.mEventSet[this.mEventIndex].information;
@@ -627,21 +664,21 @@ MyGame.prototype.update = function () {
 //遇到事件后弹窗消息，只能按空格继续
 MyGame.prototype.SendMessage = function(line1, line2, line3, line4,line5, line6){
     var cameraCenter = this.mCamera.getWCCenter();
-    this.bgMsg.getXform().setPosition(cameraCenter[0],cameraCenter[1]-25);
+    this.bgMsg.getXform().setPosition(cameraCenter[0],cameraCenter[1]-150);
 
 
     this.mMes1.setText(line1);
-    this.mMes1.getXform().setPosition(cameraCenter[0]-35,cameraCenter[1]-18);
+    this.mMes1.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]+70-150);
     this.mMes2.setText(line2);
-    this.mMes2.getXform().setPosition(cameraCenter[0]-35,cameraCenter[1]-21);
+    this.mMes2.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]+35-150);
     this.mMes3.setText(line3);
-    this.mMes3.getXform().setPosition(cameraCenter[0]-35,cameraCenter[1]-24);
+    this.mMes3.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]-0-150);
     this.mMes4.setText(line4);
-    this.mMes4.getXform().setPosition(cameraCenter[0]-35,cameraCenter[1]-27);
+    this.mMes4.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]-35-150);
     this.mMes5.setText(line5);
-    this.mMes5.getXform().setPosition(cameraCenter[0]-35,cameraCenter[1]-30);
+    this.mMes5.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]-70-150);
     this.mMes6.setText(line6);
-    this.mMes6.getXform().setPosition(cameraCenter[0]-35,cameraCenter[1]-33);
+    this.mMes6.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]-105-150);
 
 
     this.isMesOn=true;
