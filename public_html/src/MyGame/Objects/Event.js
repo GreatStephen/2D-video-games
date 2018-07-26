@@ -95,7 +95,7 @@ var AllResult=[
     new Result("Max HP-30, get a new weapon.",0,-30,0,0,0,0,0,7,1,0,0,1),
 
     // businessman 33 34 35 36
-    new Result("lose money*30, get a new spear.", 0,0,0,0,0,0,-30,6,1,0,0,0,1),
+    new Result("lose money*30, get a new spear.", 0,0,0,0,0,0,-30,6,1,0,0,1),
     new Result("lose money*30, get a new shield.",0,0,0,0,0,0,-30,9,1,0,0,1),
     new Result("lose money*20, get an apple.",0,0,0,0,0,0,-20,0,1,0,0,1),
     new Result("lose timber*2, get an apple.",0,0,0,0,0,0,-2,0,1,0,0,1)
@@ -215,7 +215,7 @@ function Event(num) {
     else if(num==16){
         t=2;
     }
-    t=(num-1)%9;
+    t=(num-1)%10;
 
     //if(num==1)  t=0;
     // type = 1 -> animation
