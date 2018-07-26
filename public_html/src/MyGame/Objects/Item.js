@@ -5,15 +5,16 @@
  */
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
-var NameList = ["Apple","Meat","Fish","Herb","Timber","Axe","Spear","Sword","Shield","Shield"];
+var NameList = ["Apple","Meat","Fish","Herb","Timber","Axe","Spear","Sword","Shield1","Shield2","secretbag","cape","key","treasurechest"];
 var InfoList = ["Apple: Hunger+10","Meat: Hunger+5","Fish: Hunger+5","Herb: Health+10","Timber: strange timber",
-                "Axe: Attack+5","Spear: Attack+10","Sword: Attack+10","Shield: Defense+5","Shield: Defense+10"
+                "Axe: Attack+5","Spear: Attack+10","Sword: Attack+10","Shield: Defense+5","Shield: Defense+10",
+                "secretbag: you don't know what is in it","cape: it can hide yourself  ","key: maybe it can open something",
+                "treasurechest: it is locked"
                 ];
-var HealthList = [0,0,0,10,0,0,0,0,0,0,0,0];
-var mHealthList = [0,0,0,0,0,0,0,0,0,0,0,0];
-var HungerList = [10,5,5,0,0,0,0,0,0,0,0,0];
-var mHungerList = [0,0,0,0,0,0,0,0,0,0,0,0];
-var ColorList = [[1,0,0,0],[0,1,0,0],[0,0,1,0]];
+var HealthList = [0,0,0,10,0,0,0,0,0,0,0,0,0,0];
+var mHealthList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var HungerList = [10,5,5,0,0,0,0,0,0,0,0,0,0,0];
+var mHungerList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var PictureList = ["assets/item/0_apple.png",
     "assets/item/1_meat.png",
     "assets/item/2_fish.png",
@@ -29,9 +30,9 @@ var PictureList = ["assets/item/0_apple.png",
     "assets/item/12_key.png",
     "assets/item/13_treasurechest.png"
 ];
-var AtkList = [0,0,0,0,0,5,10,10,0,0,0,0];
-var DefList = [0,0,0,0,0,0,0,0,5,10,0,0];
-var TypeList = [0,0,0,0,1,2,2,2,3,3,0,0];  // 0: consume  1: cannot use   2: weapon  3:armor
+var AtkList = [0,0,0,0,0,5,10,10,0,0,0,0,0,0];
+var DefList = [0,0,0,0,0,0,0,0,5,10,0,5,0,0];
+var TypeList = [0,0,0,0,1,2,2,2,3,3,1,3,1,1];  // 0: consume  1: cannot use   2: weapon  3:armor
 
 function Item(id) {
     this.Id = id;
