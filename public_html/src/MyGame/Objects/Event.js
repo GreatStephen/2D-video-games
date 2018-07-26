@@ -142,7 +142,7 @@ var AllEventAct = [
     
     // hunter
     new Action("1. Ok", [AllResult[22]]),
-    new Action("2. Grab him.", [AllResult[23]], AllResult[24]),
+    new Action("2. Grab him.", [AllResult[23], AllResult[24]]),
     new Action("3. Sorry, I’m busy.",[AllResult[25]]),
     new Action(),
     
@@ -192,6 +192,8 @@ function Event(num) {
     }
 
 
+    //if(num==1)  t=0;
+    // type = 1 -> animation
     this.type = AllEventType[t];
     this.position = [1000*num+AllEventMove_x[t], 200+AllEventMove_y[t]];
     this.picture = AllEventIcon[t];

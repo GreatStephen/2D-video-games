@@ -14,6 +14,7 @@ function Result(msg, Health, mHealth, Hunger, mHunger, atk, def, id, num,  pr) {
     this.mHunger = mHunger;   //effect to max hunger
     this.atk = atk;
     this.def = def;
+    this.money = 0;
     this.numItem = num;
     this.getItemId = id;
     //this.getItem = [{"id":id,"num":num}];  //the item id and number you can got
@@ -36,6 +37,7 @@ Result.prototype.apply = function(mygame, enemy){
     }
     mygame.mAttackValue += this.atk;
     mygame.mDefenseValue += this.def;
+    mygame.mMoneyValue += this.money;
     //update items
 
     if(this.numItem>0){
@@ -52,4 +54,5 @@ Result.prototype.apply = function(mygame, enemy){
     mygame.mHunger.setText("Hunger: " + mygame.mHungerValue + "/"+ mygame.mHungerValueMax);
     mygame.mAttack.setText("Attack: " + mygame.mAttackValue);
     mygame.mDefense.setText("Defense: " + mygame.mDefenseValue);
+    mygame.mMoneyTexture.setText("Money: " + mygame.mMoneyValue);
 }

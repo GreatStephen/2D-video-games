@@ -37,7 +37,7 @@ function MyGame() {
     */
     this.bgForestTexture = "assets/forest3.png";
     this.BagTexture = "assets/bag.png";
-    this.kKnight = "assets/prince.png";
+    this.kKnight = "assets/Prince_new.png";
     this.CursorTexture = "assets/cursor.png";
     this.bgAttributeTexture = "assets/attribute.png";
     
@@ -52,6 +52,8 @@ function MyGame() {
     this.VillagerTexture = "assets/villager.png";
     this.WizardTexture = "assets/wizard.png";
     this.BusinessmanTexture = "assets/businessman.png";
+   
+    this.New_Prince = "assets/Prince_new.png";
                   
     this.apple = "assets/item/0_apple.png";
     this.meat = "assets/item/1_meat.png";
@@ -89,6 +91,8 @@ function MyGame() {
     this.mAttackValue = 10;
     this.mDefense = null;
     this.mDefenseValue = 10;
+    this.mMoneyTexture = null;
+    this.mMoneyValue = 0;
     this.mMes1 = null;
     this.mMes2 = null;
     this.mMes3 = null;
@@ -96,6 +100,7 @@ function MyGame() {
     this.mMes5 = null;
     this.mMes6 = null;
     this.mEventSet = null;
+    this.newPrince = null;
 
     // cameras
     this.mCamera = null;
@@ -148,7 +153,7 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.sword);
     gEngine.Textures.loadTexture(this.shield1);
     gEngine.Textures.loadTexture(this.shield2);
-    
+    //gEngine.Textures.loadTexture(this.New_Prince);
     
     
     
@@ -186,6 +191,7 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.shield1);
     gEngine.Textures.unloadTexture(this.shield2);
 
+    //gEngine.Textures.unloadTexture(this.New_Prince);
 
     var nextscene = new GameOver();
 
@@ -204,9 +210,9 @@ MyGame.prototype.initialize = function () {
 
     // setup attribute camera on the top-left corner
     this.attributeCamera = new Camera(
-        vec2.fromValues(50,140),
+        vec2.fromValues(50,135),
         100,
-        [50,430,160,120],
+        [50,430,160,150],
         1
     );
     this.attributeCamera.setBackgroundColor([0.9,0.9,0.9,1]);
@@ -293,8 +299,8 @@ MyGame.prototype.initialize = function () {
     // attribute background
     this.bgAttribute = new TextureRenderable(this.bgAttributeTexture);
     this.bgAttribute.setColor([0,0,0,0]);
-    this.bgAttribute.getXform().setSize(116,80);
-    this.bgAttribute.getXform().setPosition(50,140);
+    this.bgAttribute.getXform().setSize(120,102);
+    this.bgAttribute.getXform().setPosition(50,135);
 
     // health
     this.mHealth = new FontRenderable("Health: "+this.mHealthValue+"/"+this.mHealthValueMax);
@@ -311,14 +317,20 @@ MyGame.prototype.initialize = function () {
     // attack
     this.mAttack = new FontRenderable("Attack: " + this.mAttackValue);
     this.mAttack.setColor([0, 0, 0, 1]);
-    this.mAttack.getXform().setPosition(10, 137.5);
+    this.mAttack.getXform().setPosition(10, 136.5);
     this.mAttack.setTextHeight(9);
 
     // defense
     this.mDefense = new FontRenderable("Defense: " + this.mDefenseValue);
     this.mDefense.setColor([0, 0, 0, 1]);
-    this.mDefense.getXform().setPosition(10, 124.5);
+    this.mDefense.getXform().setPosition(10, 123.5);
     this.mDefense.setTextHeight(9);
+    
+    // money
+    this.mMoneyTexture = new FontRenderable("Money: " + this.mMoneyValue);
+    this.mMoneyTexture.setColor([0, 0, 0, 1]);
+    this.mMoneyTexture.getXform().setPosition(10, 110.5);
+    this.mMoneyTexture.setTextHeight(9);
 
     // message
     this.mMes1 = new FontRenderable("test");
@@ -352,13 +364,25 @@ MyGame.prototype.initialize = function () {
     this.mMes6.setTextHeight(30);
     
     // knight
-    this.mKnight = new SpriteAnimateRenderable(this.kKnight);
+   /* this.mKnight = new SpriteAnimateRenderable(this.kKnight);
     this.mKnight.setColor([1, 1, 1, 0]);
     this.mKnight.getXform().setPosition(600, 180);
     this.mKnight.getXform().setSize(200, 200);
     this.mKnight.setSpriteSequence(64, 0,      // first element pixel position: top-left 164 from 512 is top of image, 0 is left of image
                                     64, 64,       // widthxheight in pixels
                                     8,              // number of elements in this sequence
+                                    0);             // horizontal padding in between
+    this.mKnight.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
+    this.mKnight.setAnimationSpeed(5);*/
+    
+    
+    this.mKnight = new SpriteAnimateRenderable(this.New_Prince);
+    this.mKnight.setColor([1, 1, 1, 0]);
+    this.mKnight.getXform().setPosition(600, 200);
+    this.mKnight.getXform().setSize(500, 400);
+    this.mKnight.setSpriteSequence(256, 0,      // first element pixel position: top-left 164 from 512 is top of image, 0 is left of image
+                                    295, 256,       // widthxheight in pixels
+                                    6,              // number of elements in this sequence
                                     0);             // horizontal padding in between
     this.mKnight.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
     this.mKnight.setAnimationSpeed(5);
@@ -444,7 +468,7 @@ MyGame.prototype.draw = function () {
         this.mEventSet[i].icon.draw(this.mCamera);
     }
     this.mKnight.draw(this.mCamera);
-    //this.Eagle.draw(this.mCamera);
+
     this.bgMsg.draw(this.mCamera);
     if(this.isMesOn==true){
         //this.bgBag.draw(this.mCamera);
@@ -456,17 +480,13 @@ MyGame.prototype.draw = function () {
         this.mMes6.draw(this.mCamera);
     }
 
-    
-
-    
-
     this.attributeCamera.setupViewProjection();
     this.bgAttribute.draw(this.attributeCamera);
     this.mHealth.draw(this.attributeCamera);
     this.mHunger.draw(this.attributeCamera);
     this.mAttack.draw(this.attributeCamera);
     this.mDefense.draw(this.attributeCamera);
-
+    this.mMoneyTexture.draw(this.attributeCamera);
     
     this.bagCamera.setupViewProjection();
     if(this.isBagOpened==true){
@@ -550,7 +570,7 @@ MyGame.prototype.update = function () {
     
     this.mShapeMsg.setText(obj.getRigidBody().getCurrentState());
     */
-
+  // this.newPrince.updateAnimation();
     var deltaX=10;
     //this.Eagle.updateAnimation();
     if (gEngine.Input.isKeyPressed(gEngine.Input.keys.D)) {
@@ -586,16 +606,20 @@ MyGame.prototype.update = function () {
     }
     
     if(this.isMesOn && !this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.One)){
-        console.log(this.mEventSet[this.mEventIndex-1].action[0]);
+        //console.log(this.mEventSet[this.mEventIndex-1].action[0]);
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[0].getResult();
-        console.log("res "+res);
+        console.log("res");
+        console.log(res);
         res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
         this.SendMessage(res.msg,"","","","","");
     }
     if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Two)){
+        //console.log(this.mEventSet[this.mEventIndex-1].action[1]);
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[1].getResult();
+        console.log("res");
+        console.log(res);
         res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
         this.SendMessage(res.msg,"","","","","");
     }
