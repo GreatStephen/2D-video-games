@@ -193,19 +193,19 @@ function Event(num) {
     }
     else if(num==5){
         //NO.5 is villager;
-        t = 8;
+        t = 7;
     }
     else if(num==7){
         // NO.7 is businessman
-        t = 10;
+        t = 9;
     }
     else if(num==13){
         // NO.13 is wizard
-        t=9;
+        t=8;
     }
     else if(num==15){
         // NO.15 is villager
-        t=8;
+        t=7;
 
     }
     else if(num==16){
