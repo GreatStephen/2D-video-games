@@ -37,7 +37,7 @@ function MyGame() {
     */
     this.bgForestTexture = "assets/forest3.png";
     this.BagTexture = "assets/bag.png";
-    this.kKnight = "assets/prince.png";
+    this.kKnight = "assets/Prince_new.png";
     this.CursorTexture = "assets/cursor.png";
     this.bgAttributeTexture = "assets/attribute.png";
     
@@ -51,6 +51,7 @@ function MyGame() {
     this.HunterTexture = "assets/hunter.png";
     this.VillagerTexture = "assets/villager.png";
    
+    this.New_Prince = "assets/Prince_new.png";
                   
     this.apple = "assets/item/0_apple.png";
     this.meat = "assets/item/1_meat.png";
@@ -95,6 +96,7 @@ function MyGame() {
     this.mMes5 = null;
     this.mMes6 = null;
     this.mEventSet = null;
+    this.newPrince = null;
 
     // cameras
     this.mCamera = null;
@@ -145,7 +147,7 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.sword);
     gEngine.Textures.loadTexture(this.shield1);
     gEngine.Textures.loadTexture(this.shield2);
-    
+    //gEngine.Textures.loadTexture(this.New_Prince);
     
     
     
@@ -181,6 +183,7 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.shield1);
     gEngine.Textures.unloadTexture(this.shield2);
 
+    //gEngine.Textures.unloadTexture(this.New_Prince);
 
     var nextscene = new GameOver();
 
@@ -347,13 +350,25 @@ MyGame.prototype.initialize = function () {
     this.mMes6.setTextHeight(30);
     
     // knight
-    this.mKnight = new SpriteAnimateRenderable(this.kKnight);
+   /* this.mKnight = new SpriteAnimateRenderable(this.kKnight);
     this.mKnight.setColor([1, 1, 1, 0]);
     this.mKnight.getXform().setPosition(600, 180);
     this.mKnight.getXform().setSize(200, 200);
     this.mKnight.setSpriteSequence(64, 0,      // first element pixel position: top-left 164 from 512 is top of image, 0 is left of image
                                     64, 64,       // widthxheight in pixels
                                     8,              // number of elements in this sequence
+                                    0);             // horizontal padding in between
+    this.mKnight.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
+    this.mKnight.setAnimationSpeed(5);*/
+    
+    
+    this.mKnight = new SpriteAnimateRenderable(this.New_Prince);
+    this.mKnight.setColor([1, 1, 1, 0]);
+    this.mKnight.getXform().setPosition(600, 200);
+    this.mKnight.getXform().setSize(500, 400);
+    this.mKnight.setSpriteSequence(256, 0,      // first element pixel position: top-left 164 from 512 is top of image, 0 is left of image
+                                    295, 256,       // widthxheight in pixels
+                                    6,              // number of elements in this sequence
                                     0);             // horizontal padding in between
     this.mKnight.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
     this.mKnight.setAnimationSpeed(5);
@@ -439,6 +454,7 @@ MyGame.prototype.draw = function () {
         this.mEventSet[i].icon.draw(this.mCamera);
     }
     this.mKnight.draw(this.mCamera);
+   // this.newPrince.draw(this.mCamera);
     //this.Eagle.draw(this.mCamera);
     this.bgMsg.draw(this.mCamera);
     if(this.isMesOn==true){
@@ -545,7 +561,7 @@ MyGame.prototype.update = function () {
     
     this.mShapeMsg.setText(obj.getRigidBody().getCurrentState());
     */
-
+  // this.newPrince.updateAnimation();
     var deltaX=10;
     //this.Eagle.updateAnimation();
     if (gEngine.Input.isKeyPressed(gEngine.Input.keys.D)) {
