@@ -26,3 +26,11 @@ Action.prototype.getResult = function (){     //get the result according to prob
         r-=this.result[i].pr;
     }
 }
+
+Action.prototype.setContent = function(content){
+    this.content = content;
+}
+
+Action.prototype.setResult = function(result){
+    this.result = result;
+}
