@@ -19,7 +19,7 @@ function Bag(myTexture,cursorTexture,myGame){
 
     this.current = 0;
     this.itemSet = [];   //items that in the bag,they are in order
-    
+    this.itemNum = [];      //number of items
     this.capacity = 20;
     
     this.myGame = myGame;
@@ -39,10 +39,18 @@ function Bag(myTexture,cursorTexture,myGame){
     this.cursor.getXform().setSize(5.7,5.7);
     this.cursor.getXform().setPosition(CursorPosition);
     
+    this.NumTexture = [];
+    for(var i=0;i<20 ;i++){
+        this.NumTexture[i] = new FontRenderable("1");
+        this.NumTexture[i].setColor([1, 1, 1, 1]);
+        this.NumTexture[i].getXform().setPosition(x+(i%5)*delta,y-Math.floor(i/5)*delta);
+        this.NumTexture[i].setTextHeight(2);
+    }
+    
     this.weapon = -1;
     this.armor = -1;
     for(var i=0;i<10;i++){
-        this.AddItem(i);
+        this.AddItem(i, 1);
        // this.AddItem(1);
        // this.AddItem(2);
     }
@@ -51,24 +59,66 @@ function Bag(myTexture,cursorTexture,myGame){
     this.defenceChange=0;
     
 }
+Bag.prototype.GetItemIdx = function(id){
+    for(var i=0; i<this.itemSet.length;i++)
+    {
+        if(id == this.itemSet[i].Id)
+            return i;
+    }
+    return -1;
+}
 
-Bag.prototype.AddItem = function(id,myCamera){
-    this.itemSet[this.itemSet.length]=new Item(id);
-    this.itemSet[this.itemSet.length-1].renderable.getXform().setSize(3.5,3.5);
-    //this.itemSet[this.itemSet.length-1].renderable.getXform().setPosition(x+((this.itemSet.length-1)%5)*delta,y-Math.floor((this.itemSet.length-1)/5)*delta);
-    this.itemSet[this.itemSet.length-1].renderable.getXform().setPosition(x,y);
+Bag.prototype.AddItem = function(id, num){
+    var idx = this.GetItemIdx(id);
+    //console.log(id);
+    //console.log(idx);
+    //console.log(this.itemSet);
+    //console.log(this.itemNum);
+    if(idx>=0){
+        this.itemNum[idx]+=num;
+        //setfont
+    }
+    else{
+        this.itemSet[this.itemSet.length]=new Item(id);
+        this.itemNum[this.itemNum.length]=num;
+        this.itemSet[this.itemSet.length-1].renderable.getXform().setSize(3.5,3.5);
+        //this.itemSet[this.itemSet.length-1].renderable.getXform().setPosition(x+((this.itemSet.length-1)%5)*delta,y-Math.floor((this.itemSet.length-1)/5)*delta);
+        this.itemSet[this.itemSet.length-1].renderable.getXform().setPosition(x,y);
 
-   // console.log(Math.floor(this.itemNum/5));
-   //thi this.itemNum++;
+       // console.log(Math.floor(this.itemNum/5));
+       //thi this.itemNum++;
+    }
 };
 
 Bag.prototype.RemoveItem = function(){
     console.log("!");
     console.log(this.current);
-    this.itemSet.splice(this.current,1);
-    if(this.current!=0) this.current--;
+    this.itemNum[this.current]--;
+    if(this.itemNum[this.current] == 0){
+        this.itemSet.splice(this.current,1);
+        this.itemNum.splice(this.current,1);
+        if(this.current!=0) 
+            this.current--;
+    }
 }
 
+Bag.prototype.RemoveItemById = function(id ,num){
+    //console.log("id");
+    //console.log(id);
+    var idx = this.GetItemIdx(id);
+    if(idx<0 || this.itemNum[idx] < 0){
+        return false;
+    }
+    else{
+        this.itemNum[idx]-=num;
+        if(this.itemNum[idx] == 0){
+            this.itemSet.splice(idx,1);
+            this.itemNum.splice(idx,1);
+            if(this.current!=0) 
+                this.current--;
+        }
+    }
+}
 
 Bag.prototype.Move = function(deltaX){
     var temp = this.bag.getXform().mPosition;
@@ -103,6 +153,12 @@ Bag.prototype.Draw = function(aCamera){
         this.itemSet[i].renderable.getXform().setPosition(x+(i%5)*delta,y-Math.floor(i/5)*delta);
         this.itemSet[i].renderable.draw(aCamera);
     }
+    
+    //draw the number of items
+    for(var i=0;i<this.itemNum.length;i++){
+        this.NumTexture[i].setText(""+this.itemNum[i]);
+        this.NumTexture[i].draw(aCamera);
+    }
 
     // draw the cursor
     if(this.itemSet.length!=0){
@@ -110,14 +166,12 @@ Bag.prototype.Draw = function(aCamera){
         //console.log(y-Math.floor(this.current/5)*delta);
         this.cursor.getXform().setPosition(x+(this.current%5)*delta,y-Math.floor(this.current/5)*delta);
         this.cursor.draw(aCamera);
-        console.log(InfoPosition);
+        //console.log(InfoPosition);
         //console.log(this.current);
         this.itemSet[this.current].Info.getXform().setPosition(InfoPosition[0],InfoPosition[1]);
         this.itemSet[this.current].Info.draw(aCamera);
     }
-    
-
-    
+      
 };
 
 Bag.prototype.update = function(){   
@@ -154,7 +208,7 @@ Bag.prototype.update = function(){
         else if(this.itemSet[this.current].type==2){
             if(this.weapon!=-1){
                 this.myGame.mAttackValue -= this.attackChange;
-                this.AddItem(this.weapon);
+                this.AddItem(this.weapon, 1);
                 this.weapon = this.itemSet[this.current].Id;
                 this.attackChange = this.itemSet[this.current].atk;
                 this.itemSet[this.current].Use(this.myGame);
@@ -170,7 +224,7 @@ Bag.prototype.update = function(){
         else if(this.itemSet[this.current].type==3){
             if(this.armor!=-1){
                 this.myGame.mDefenseValue -= this.defenceChange;
-                this.AddItem(this.armor);
+                this.AddItem(this.armor, 1);
                 this.armor = this.itemSet[this.current].Id;
                 this.defenceChange = this.itemSet[this.current].def;
                 this.itemSet[this.current].Use(this.myGame);

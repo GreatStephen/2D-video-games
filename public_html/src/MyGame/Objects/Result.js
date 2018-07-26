@@ -41,10 +41,9 @@ Result.prototype.apply = function(mygame, enemy){
     //update items
 
     if(this.numItem>0){
-        for(var i=0;i<this.numItem;i++){
-            console.log("res "+this.getItemId);
-            mygame.mBag.AddItem(this.getItemId);
-        }
+        console.log("res "+this.getItemId);
+        mygame.mBag.AddItem(this.getItemId, this.numItem);
+
     }
     if(!this.escape){
         this.msg = enemy.fight(mygame);

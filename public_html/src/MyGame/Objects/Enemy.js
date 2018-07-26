@@ -49,9 +49,7 @@ Enemy.prototype.fight = function (game){
         return msg;
     }   
     else if(this.numItem>0){
-        for(var i=0;i<this.numItem;i++){
-            game.mBag.AddItem(this.dropItemId);
-        }
+        game.mBag.AddItem(this.dropItemId, this.numItem);
         game.mMoneyValue += this.money;
     }
     msg = "You win, you lose " + total + " HP, get item " + this.dropItemId + ", get gold "+this.money;
