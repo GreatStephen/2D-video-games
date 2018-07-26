@@ -12,6 +12,7 @@ function MyMenu(){
     this.bgBackground = "assets/StartScene/background.png";
     this.CursorTexture = "assets/StartScene/CrownIcons_007.png";
     this.NameTexture = "assets/StartScene/Name.png";
+    this.HelpTexture = "assets/StartScene/help.png";
     this.mBackground = null;
     this.back = null;
     this.Cursor = null;
@@ -22,7 +23,11 @@ function MyMenu(){
     this.mText3 = null;
     this.mText4 = null;
     
+    this.Help = null;
+    
     this.choice = 0;
+    
+    this.isHelpOpen = false;
 
 }
 
@@ -33,6 +38,7 @@ MyMenu.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.bgBackground);
     gEngine.Textures.loadTexture(this.CursorTexture);
     gEngine.Textures.loadTexture(this.NameTexture);
+    gEngine.Textures.loadTexture(this.HelpTexture);
 }
 
 MyMenu.prototype.unloadScene = function () {
@@ -41,6 +47,7 @@ MyMenu.prototype.unloadScene = function () {
      gEngine.Textures.unloadTexture(this.bgBackground);
      gEngine.Textures.unloadTexture(this.CursorTexture);
      gEngine.Textures.unloadTexture(this.NameTexture);
+     gEngine.Textures.unloadTexture(this.HelpTexture);
     //开始游戏
     var mygame = new MyGame();
     gEngine.Core.startScene(mygame);
@@ -66,6 +73,11 @@ MyMenu.prototype.initialize = function () {
     this.Cursor.setColor([1,0,0,0]);
     this.Cursor.getXform().setPosition(830,250);
     
+    this.Help = new TextureRenderable(this.HelpTexture);
+    this.Help.getXform().setSize(512,512);
+    this.Help.setColor([1,0,0,0]);
+    this.Help.getXform().setPosition(350,300);
+    
     this.Name = new TextureRenderable(this.NameTexture);
     this.Name.getXform().setSize(1024,200);
     this.Name.setColor([1,0,0,0]);
@@ -76,7 +88,7 @@ MyMenu.prototype.initialize = function () {
     this.mText1.getXform().setPosition(900,250);
     this.mText1.setTextHeight(35);
     
-    this.mText2 = new FontRenderable("Help");
+    this.mText2 = new FontRenderable("How to Play");
     this.mText2.setColor([0,0,0,1]);
     this.mText2.getXform().setPosition(900,180);
     this.mText2.setTextHeight(35);
@@ -98,7 +110,11 @@ MyMenu.prototype.draw = function () {
     this.mCamera.setupViewProjection();
     this.mBackground.draw(this.mCamera);
     this.Cursor.draw(this.mCamera);
+    
     this.Name.draw(this.mCamera);
+    if(this.isHelpOpen==true){
+        this.Help.draw(this.mCamera);
+    }
     this.mText1.draw(this.mCamera);
     this.mText2.draw(this.mCamera);
     this.mText3.draw(this.mCamera);
@@ -108,6 +124,12 @@ MyMenu.prototype.draw = function () {
 MyMenu.prototype.update = function () {
     if(this.choice==0&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Enter)){
         gEngine.GameLoop.stop();
+    }
+    if(this.choice==1&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Enter)){
+        this.isHelpOpen=true;
+    }
+    if(this.isHelpOpen==true&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
+        this.isHelpOpen=false;
     }
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Up)){
         var temp = this.Cursor.getXform().mPosition;
