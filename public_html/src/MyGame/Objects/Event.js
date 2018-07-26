@@ -6,7 +6,7 @@
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 var AllEventIcon = ["assets/mushroom.png", 
     "assets/eagle.png", 
-    "assets/knight.png",
+    "assets/Knight_New.png",
     "assets/appletree.png",
     "assets/pond.png",
     "assets/ruins.png",
@@ -157,11 +157,11 @@ var AllEventAct = [
 ];
 
 var AllEventType = [0,1,1,0,0,0,1,0];
-var AllEventSize_x = [150, 180, 200, 250, 140, 340, 200,200];//todo
-var AllEventSize_y = [150, 180, 600, 250, 90, 350,200,200];//todo
+var AllEventSize_x = [150, 180, 350, 250, 140, 340, 200,200];//todo
+var AllEventSize_y = [150, 180, 700, 250, 90, 350,200,200];//todo
 var AllEventSpriteSequence = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
                               {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
-                              {"topPixel":128, "leftPixel":0, "elmWidthInPixel":75, "elmHeightInPixel":128, "numElements":13, "wPaddingInPixel":0},
+                              {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
                               {},{},{},
                               {"topPixel":64, "leftPixel":0, "elmWidthInPixel":64, "elmHeightInPixel":64, "numElements":8, "wPaddingInPixel":0},
                               {}
@@ -170,9 +170,10 @@ var AllEventSpriteSequence = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":
 var AllEventSpeed = [0,15,7,0,0,0,15,0];//todo
 
 var AllEventMove_x = [0,0,0,0,0,0,0,0];//todo
-var AllEventMove_y = [-20,-25,-120,20,-100,50,-15,-15];//todo
+var AllEventMove_y = [-20,-25,-10,20,-100,50,-15,-15];//todo
 function Event(num) {
     var t = Math.floor(Math.random()*8);
+    t = 2;
     //if(num==1)  t=0;
     // type = 1 -> animation
     this.type = AllEventType[t];
