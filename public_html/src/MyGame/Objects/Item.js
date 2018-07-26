@@ -6,11 +6,16 @@
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
 var NameList = ["Apple","Meat","Fish","Herb","Timber","Axe","Spear","Sword","Shield1","Shield2","secretbag","cape","key","treasurechest"];
-var InfoList = ["Apple: Hunger+10","Meat: Hunger+5","Fish: Hunger+5","Herb: Health+10","Timber: strange timber",
-                "Axe: Attack+5","Spear: Attack+10","Sword: Attack+10","Shield: Defense+5","Shield: Defense+10",
-                "secretbag: you don't know what is in it","cape: it can hide yourself  ","key: maybe it can open something",
-                "treasurechest: it is locked"
+var InfoList = ["Apple:","Meat:","Fish:","Herb:","Timber:",
+                "Axe:","Spear:","Sword: ","Shield: ","Shield:",
+                "Secret bag: ","Cape: ","Key:",
+                "Treasure Chest: "
                 ];
+var InfoList_1 = ["Hunger+10","Hunger+5","Hunger+5","Health+10","strange timber",
+                "Attack+5","Attack+10","Attack+10","Defense+5","Defense+10",
+                "What's in it?","Disguise yourself","May open something?",
+                "It is locked"
+                ];               
 var HealthList = [0,0,0,10,0,0,0,0,0,0,0,0,0,0];
 var mHealthList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var HungerList = [10,5,5,0,0,0,0,0,0,0,0,0,0,0];
@@ -51,9 +56,11 @@ function Item(id) {
     
     this.Info = new FontRenderable(InfoList[id]);
     this.Info.setColor([0, 0, 0, 1]);
-   // this.Info.getXform().setPosition(73, 44);
     this.Info.setTextHeight(2);
-   // this.Info.draw(aCamera);
+    
+    this.Info_1 = new FontRenderable(InfoList_1[id]);
+    this.Info_1.setColor([0, 0, 0, 1]);
+    this.Info_1.setTextHeight(2);
     
     this.eventType = -1;    //the item may have effect on the following event    
 }

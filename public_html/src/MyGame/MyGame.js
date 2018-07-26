@@ -72,7 +72,7 @@ function MyGame() {
     this.treasurechest = "assets/item/13_treasurechest.png";
     
     
-    this.IntroTexture = "assets/introduction.png";
+    this.IntroTexture = "assets/Intro.png";
    
     this.ending = -1;
 
@@ -616,6 +616,7 @@ MyGame.prototype.update = function () {
             console.log("x");
             this.isIntroOpen = false;
         }
+        return;
     }
     var deltaX=10;
     //this.Eagle.updateAnimation();
