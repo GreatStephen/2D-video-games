@@ -27,7 +27,6 @@ function Result(msg, Health, mHealth, Hunger, mHunger, atk, def, money, id, num,
 Result.prototype.apply = function(mygame, enemy){
     //console.log(mygame);
     //check the result
-    var msg;
     if(mygame.mMoneyValue + this.money <0){
         this.msg = "not enough money";
         console.log(this.msg);
