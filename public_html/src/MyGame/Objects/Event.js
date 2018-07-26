@@ -191,7 +191,7 @@ var AllEventMove_x = [0,0,0,0,0,0,0,0,0,0];//todo
 var AllEventMove_y = [-20,-25,-10,20,-100,50,-15,10,-15,-15];//todo
 function Event(num) {
     var t = Math.floor(Math.random()*10);
-    while(t>=6 && t<=9 && t==2){
+    while((t>=6 && t<=9) || t==2){
         t = Math.floor(Math.random()*10);
     }
 
