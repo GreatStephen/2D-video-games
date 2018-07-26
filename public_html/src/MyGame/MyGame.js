@@ -778,7 +778,7 @@ MyGame.prototype.update = function () {
 //遇到事件后弹窗消息，只能按空格继续
 MyGame.prototype.EndGame = function(){
     if(this.ending==-1){
-        this.ending = 0;
+        this.ending = 1;
     }
     gEngine.GameLoop.stop();
 }
