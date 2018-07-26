@@ -13,7 +13,9 @@ function MyMenu(){
 
     this.mBackground = null;
     this.mCamera = null;
-    this.mText = null;
+    this.mText1 = null;
+    this.mText2 = null;
+    this.mText3 = null;
 
 }
 
@@ -40,29 +42,41 @@ MyMenu.prototype.initialize = function () {
         vec2.fromValues(650, 300), // position of the camera
         1300,                     // width of camera
         [0, 0, 1300, 600],         // viewport (orgX, orgY, width, height)
-        0
+        1
     );
-    this.mCamera.setBackgroundColor([0,0.8,0.8,1]);
-
+    this.mCamera.setBackgroundColor([0,0.8,0.8,0]);
+    gEngine.DefaultResources.setGlobalAmbientIntensity(3);
     this.mBackground = new TextureRenderable(this.bgBackground);
-    this.mBackground.getXform().setSize(1300,600);
-    this.mBackground.setColor([0,0,0,0]);
-    this.mBackground.getXform().setPosition(650,300);
+    this.mBackground.getXform().setSize(1800,600);
+    this.mBackground.setColor([1,0,0,0]);
+    this.mBackground.getXform().setPosition(450,300);
 
-    this.mText = new FontRenderable("Press SPACE to start");
-    this.mText.setColor([1,1,1,1]);
-    this.mText.getXform().setPosition(650,1300);
-    this.mText.setTextHeight(19);
+    this.mText1 = new FontRenderable("Start Game");
+    this.mText1.setColor([0,0,0,1]);
+    this.mText1.getXform().setPosition(850,250);
+    this.mText1.setTextHeight(35);
+    
+    this.mText2 = new FontRenderable("Help");
+    this.mText2.setColor([0,0,0,1]);
+    this.mText2.getXform().setPosition(850,180);
+    this.mText2.setTextHeight(35);
+    
+    this.mText3 = new FontRenderable("Endings Overview");
+    this.mText3.setColor([0,0,0,1]);
+    this.mText3.getXform().setPosition(850,110);
+    this.mText3.setTextHeight(35);
 
 }
 
 MyMenu.prototype.draw = function () {
-    gEngine.Core.clearCanvas([0.9,0.9,0.9,1.0]);
+    gEngine.Core.clearCanvas([0,0,0,1]);
 
     this.mCamera.setupViewProjection();
 
     this.mBackground.draw(this.mCamera);
-    this.mText.draw(this.mCamera);
+    this.mText1.draw(this.mCamera);
+    this.mText2.draw(this.mCamera);
+    this.mText3.draw(this.mCamera);
 }
 
 MyMenu.prototype.update = function () {
