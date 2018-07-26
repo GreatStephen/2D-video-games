@@ -85,7 +85,7 @@ var AllResult=[
     
     // villager 26 27 28 29
     new Result("The king fall seriously ill.", 0,0,0,0,0,0,0,0,0,0,0,1),
-    new Result("Get apple *1", 0,0,0,0,0,0,0,0,1,0,,0.6),
+    new Result("Get apple *1", 0,0,0,0,0,0,0,0,1,0,0,0.6),
     new Result("The villager doesn't give you anything.", 0,0,0,0,0,0,0,0,0,0,0,0.4),
     new Result("You leave.", 0,0,0,0,0,0,0,0,0,0,0,1),
 

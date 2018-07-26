@@ -16,7 +16,7 @@ function GameOver() {
     this.mText = null;
     this.mHint = null;
     
-    this.EndingTexture = ["assets/Endings/Ending_0.png","",""];
+    this.EndingTexture = ["assets/Endings/Ending_0.png","assets/Endings/Ending_1.png","assets/Endings/Ending_2.png"];
     this.Ending = null;
 }
 
@@ -73,7 +73,7 @@ GameOver.prototype.initialize = function () {
 }
 
 GameOver.prototype.draw = function () {
-    gEngine.Core.clearCanvas([0.9, 0.9, 0.9, 1.0]);
+    gEngine.Core.clearCanvas([0, 0, 0, 1.0]);
 
     this.mCamera.setupViewProjection();
     this.Ending.draw(this.mCamera);
