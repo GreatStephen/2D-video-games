@@ -608,6 +608,10 @@ MyGame.prototype.update = function () {
             if(x[0]<16650){
                 this.mKnight.getXform().setPosition(x[0]+deltaX,x[1]);
             }
+            else{
+                this.ending = 3;
+                this.EndGame();
+            }
             
            // this.mKnight.draw(this.mCamera);
             this.flag=1;
@@ -705,18 +709,14 @@ MyGame.prototype.update = function () {
         this.mHealth.setText("Health: " + this.mHealthValue + "/"+this.mHealthValueMax);
     }
     if(this.mHealthValue<=0){
-        console.log(this.mBag.GetItemIdx(0));
-        if(this.mBag.GetItemIdx(0)==-1)  this.ending = 0;
-        else this.ending = 2;
-        //console.log(this.edning);
-        gEngine.GameLoop.stop();
+        
+       // if(this.mBag.GetItemIdx(0)==-1)  this.ending = 0;
+        this.EndGame();
     }
     
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Z)){
-        console.log(this.mBag.GetItemIdx(0));
-        if(this.mBag.GetItemIdx(0)==-1)  this.ending = 0;
-        else this.ending = 2;
-        gEngine.GameLoop.stop();
+        this.ending = 4;
+        this.EndGame();
     }
     
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.R)){
@@ -728,6 +728,13 @@ MyGame.prototype.update = function () {
 };
 
 //遇到事件后弹窗消息，只能按空格继续
+MyGame.prototype.EndGame = function(){
+    if(this.ending==-1){
+        this.ending = 0;
+    }
+    gEngine.GameLoop.stop();
+}
+
 MyGame.prototype.SendMessage = function(line1, line2, line3, line4,line5, line6){
     var cameraCenter = this.mCamera.getWCCenter();
     this.bgMsg.getXform().setPosition(cameraCenter[0],cameraCenter[1]-150);

@@ -7,16 +7,26 @@
 
 "use strict";
 
+
+
+// Ending_0: you are killed
+// Ending_1:
+// Ending_2:
+// Ending_3: pass the game
+// Ending_4: give up 
+// Ending_5: lose in the fight with soldier and is arrested
+
 function GameOver() {
    // console.log();
     this.bgBackground = "";
-    this.id = 0;
+    this.id = 3;
     this.mBackground = null;
     this.mCamera = null;
     this.mText = null;
     this.mHint = null;
     
-    this.EndingTexture = ["assets/Endings/Ending_0.png","assets/Endings/Ending_1.png","assets/Endings/Ending_2.png"];
+    this.EndingTexture = ["assets/Endings/Ending_0.png","assets/Endings/Ending_1.png","assets/Endings/Ending_2.png",
+                          "assets/Endings/Ending_3.png","assets/Endings/Ending_4.png","assets/Endings/Ending_5.png"];
     this.Ending = null;
 }
 
@@ -37,7 +47,7 @@ GameOver.prototype.unloadScene = function () {
     // gEngine.Textures.unloadTexture(this.bgBackground);
     gEngine.Textures.unloadTexture(this.EndingTexture[this.id]);
     //开始游戏
-    var mygame = new MyGame();
+    var mygame = new MyMenu();
     gEngine.Core.startScene(mygame);
 }
 
