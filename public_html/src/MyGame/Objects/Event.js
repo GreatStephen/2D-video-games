@@ -11,9 +11,9 @@ var AllEventIcon = ["assets/mushroom.png",
     "assets/pond.png",
     "assets/ruins.png",
     "assets/hunter.png",
-    //"assets/witch.png",
     "assets/villager.png",
-    //"assets/villager.png",
+    "assets/wizard.png",
+    "assets/businessman.png"
 ];
 var AllEventInf = ["This is a monster mushroom!", 
     "This is an evil eagle!", 
@@ -21,10 +21,10 @@ var AllEventInf = ["This is a monster mushroom!",
     "I see an apple tree.",
     "This is a serene pond.",
     "This is an ancient ruins.",
-    //"Witch: Would you like to buy some potions ? They can make you feel better.",
     "Hunter:Would you like to give me a hand?",
-    "Villager: Hey, young man",
-    //"Villager: I am starving. Can you give some food?  "
+    "Villager: Hey, young man!",
+    "Wizard: Poor prince! I can give you something.",
+    "Do you have anything to trade?"
 ];
 
 var AllEnemy1=[
@@ -40,54 +40,65 @@ var AllEnemy1=[
 
 // possible results
 var AllResult=[
-    // mushroom
+    // mushroom 0 1
     new Result("fight", 0, 0, 0, 0, 0, 0, 0, 0, 1),
     new Result("escape", 0, 0, 0, 0, 0, 0, 0, 0, 1),
 
-    // eagle
+    // eagle 2 3
     new Result("fight", 0, 0, 0, 0, 0, 0, 0, 0, 1),
     new Result("escape", 0, 0, 0, 0, 0, 0, 0, 0, 1),
 
-    // knignt
+    // knignt 4 5
     new Result("fight", 0, 0, 0, 0, 0, 0, 0, 0, 1),
     new Result("escape", 0, 0, 0, 0, 0, 0, 0, 0, 1),
 
-    // appletree
+    // appletree 6 7 8 9 10
     new Result("Get apple *1",0,0,0,0,0,0,0,1,0.8),
     new Result("Get nothing",0,0,0,0,0,0,-1,-1,0.2),
     new Result("Get herb *1",0,0,0,0,0,0,3,1,0.6),
     new Result("Get timber *1",0,0,0,0,0,0,4,1,0.4),
     new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 1),
 
-    // pond
+    // pond 11 12 13 14
     new Result("Hunger +10",0,0,+10,0,0,0,-1,-1,1),
     new Result("Get fish *1", 0,0,0,0,0,0,2,1,0.8),
     new Result("Get nothing", 0,0,0,0,0,0,-1,-1,0.2),
     new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 1),
 
-    // treasure  case
+    // treasure  case 15 16 17
     new Result("Money(Apple) *1",0,0,0,0,0,0,0,1,0.4),
     new Result("Money(Apple) *2", 0,0,0,0,0,0,0,2,0.6),
     new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 1),
 
-    // ruins
+    // ruins 18 19 20 21
     new Result("Money(Apple) *1", 0,0,0,0,0,0,0,1,0.3),
     new Result("Get timber *1", 0,0,0,0,0,0,4,1,0.3),
     new Result("Get herb *2", 0,0,0,0,0,0,3,2,0.4),
     new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 1),
     
-    // hunter
+    // hunter 22 23 24 25
     new Result("Apple *2", 0,0,0,0,0,0,0,2,1),
     new Result("you lose 30HP", -30,0,0,0,0,0,4,5,0.5),
     new Result("Meat *2", 0,0,0,0,0,0,1,2,0.5),
     new Result("You leave.", 0,0,0,0,0,0,0,0,1),
 
     
-    // villager
-    new Result("The king fall serious ill", 0,0,0,0,0,0,0,0,1),
+    // villager 26 27 28 29
+    new Result("The king fall seriously ill.", 0,0,0,0,0,0,0,0,1),
     new Result("Get apple *1", 0,0,0,0,0,0,0,1,0.6),
-    new Result("You are a liar.", 0,0,0,0,0,0,0,0,0.4),
-    new Result("You leave.", 0,0,0,0,0,0,0,0,1)
+    new Result("The villager didn't give you anything.", 0,0,0,0,0,0,0,0,0.4),
+    new Result("You leave.", 0,0,0,0,0,0,0,0,1),
+
+    // wizard 30 31 32
+    new Result("The wizard gives you a secret bag.",0,0,0,0,0,0,0,0,1),
+    new Result("The wizard gives you a treasure case.",0,0,0,0,0,0,0,0,1),
+    new Result("Max HP-30, get a new weapon.",0,0,0,0,0,0,0,0,1),
+
+    // businessman 33 34 35
+    new Result("lose timber*3, get a new spear.", 0,0,0,0,0,0,6,1,1),
+    new Result("lose timber*3, get a new shield.",0,0,0,0,0,0,9,1,1),
+    new Result("lose timber*2, get an apple.",0,0,0,0,0,0,0,1,1)
+
 
 ];
 AllResult[0].escape = false;
@@ -123,12 +134,6 @@ var AllEventAct = [
     new Action("3. Go away", [AllResult[14]]),
     new Action(),
 
-    // treasure case
-//    new Action("1. Open it", [AllResult[15], AllResult[16]]),
-//    new Action("2. Go away", [AllResult[17]]),
-//    new Action(),
-//    new Action(),
-
     // ruins
     new Action("1. Search it", [AllResult[18], AllResult[19], AllResult[20]]),
     new Action("2. Go away", [AllResult[21]]),
@@ -141,18 +146,24 @@ var AllEventAct = [
     new Action("3. Sorry, I’m busy.",[AllResult[25]]),
     new Action(),
     
-    // witch
-//    new Action("1. Small Healing Potion *1 (HP +20 10G)", [AllResult[18], AllResult[19], AllResult[20]]),
-//    new Action("2. Medium Healing Potion *1 (HP +20 10G)", [AllResult[21]]),
-//    new Action(),
-//    new Action(),
-    
+
     // villager1
     new Action("1. Ask about the king.", [AllResult[26]]),
     new Action("2. I'm the prince, I need your help.", [AllResult[27], AllResult[28]]),
     new Action("3. Thanks, but I have to go.",[AllResult[29]]),
     new Action(),
-    
+
+    // wizard
+    new Action("1. I want your precious advice.", [AllResult[30]]),
+    new Action("2. I want a valuable gift.", [AllResult[31]]),
+    new Action("3. I want to exchange my health for a weapon.",[AllResult[32]]),
+    new Action(),
+
+    // businessman
+    new Action("1. timber*3 for a spear.", [AllResult[33]]),
+    new Action("2. timber*3 for a shield.", [AllResult[34]]),
+    new Action("3. timber*2 for an apple.",[AllResult[35]]),
+    new Action()
 
 ];
 
@@ -167,54 +178,43 @@ var AllEventSpriteSequence = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":
                               {}
                               
                              ];//todo
-var AllEventSpeed = [0,15,7,0,0,0,15,0];//todo
+var AllEventSpeed = [0,15,7,0,0,0,15,0,0,0];//todo
 
 var AllEventMove_x = [0,0,0,0,0,0,0,0];//todo
 var AllEventMove_y = [-20,-25,-10,20,-100,50,-15,-15];//todo
 function Event(num) {
     var t = Math.floor(Math.random()*8);
-    t = 2;
-    //if(num==1)  t=0;
-    // type = 1 -> animation
-    this.type = AllEventType[t];
-    this.position = [1000*num+AllEventMove_x[t], 200+AllEventMove_y[t]];
-    this.picture = AllEventIcon[t];
-    console.log(this.picture);
-    this.size_x = AllEventSize_x[t];
-    this.size_y = AllEventSize_y[t];
-    this.sequence = AllEventSpriteSequence[t];
-    this.speed = AllEventSpeed[t];
+    //t = 2;
+var AllEventMove_x = [0,0,0,0,0,0,0,0,0,0];//todo
+var AllEventMove_y = [-20,-25,-120,20,-100,50,-15,-15,-15,-15];//todo
+function Event(num) {
+    var t = Math.floor(Math.random()*8);
 
-    this.icon = null;
-    if(this.type==1){
-        // animation texture
-        this.icon = new SpriteAnimateRenderable(this.picture);
-        this.icon.setColor([1, 1, 1, 0]);
-        this.icon.getXform().setPosition(this.position[0], this.position[1]);
-        this.icon.getXform().setSize(this.size_x, this.size_y);
-        this.icon.setSpriteSequence(this.sequence.topPixel, this.sequence.leftPixel, this.sequence.elmWidthInPixel, this.sequence.elmHeightInPixel, this.sequence.numElements, this.sequence.wPaddingInPixel);
-        this.icon.setAnimationSpeed(this.speed);
+    if(num>=1 && num<=3){
+        // 3 fights
+        while(t>=2){
+            t= Math.floor(Math.random()*2);
+        }
     }
-    else{
-        // static texture
-        this.icon = new TextureRenderable(this.picture);
-        this.icon.setColor([0,0,0,0]);
-        this.icon.getXform().setSize(this.size_x,this.size_y);
-        this.icon.getXform().setPosition(this.position[0],this.position[1]);
+    else if(num==5){
+        //NO.5 is villager;
+        t = 8;
     }
+    else if(num==7){
+        // NO.7 is businessman
+        t = 10;
+    }
+    else if(num==13){
+        // NO.13 is wizard
+        t=9;
+    }
+    else if(num==15){
+        // NO.15 is villager
+        t=8;
 
-    this.information = AllEventInf[t];
-    this.action = [];
-    this.action.push(AllEventAct[4*t]);
-    this.action.push(AllEventAct[4*t+1]);
-    this.action.push(AllEventAct[4*t+2]);
-    this.action.push(AllEventAct[4*t+3]);
-    this.isBattle = false;
-    this.enemy = AllEnemy1[t];
-    
-}
-gEngine.Core.inheritPrototype(Event, GameObject);
+    }
+    else if(num==16){
 
-
+    }
 
 
