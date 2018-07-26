@@ -738,7 +738,7 @@ MyGame.prototype.update = function () {
     }
     
     this.mCounter++;
-    if(this.mCounter%60==0){
+    if(this.mCounter%120==0){
         if(this.isIntroOpen==true){
             this.hungerRate=0;
         }
