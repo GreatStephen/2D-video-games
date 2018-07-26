@@ -715,13 +715,17 @@ MyGame.prototype.update = function () {
         this.mHealth.setText("Health: " + this.mHealthValue + "/"+this.mHealthValueMax);
     }
     if(this.mHealthValue<=0){
-        this.ending = 0;
-        console.log(this.edning);
+        console.log(this.mBag.GetItemIdx(0));
+        if(this.mBag.GetItemIdx(0)==-1)  this.ending = 0;
+        else this.ending = 2;
+        //console.log(this.edning);
         gEngine.GameLoop.stop();
     }
     
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Z)){
-        this.ending = 0;
+        console.log(this.mBag.GetItemIdx(0));
+        if(this.mBag.GetItemIdx(0)==-1)  this.ending = 0;
+        else this.ending = 2;
         gEngine.GameLoop.stop();
     }
     

@@ -27,15 +27,15 @@ var AllEventInf = ["This is a monster mushroom!",
     "Do you have anything to trade?"
 ];
 
-var AllEnemy1=[
+var AllEnemyId=[
      // mushroom
-    new Enemy(0),
+    0,
 
     // eagle
-    new Enemy(1),
+    1,
 
     // knignt
-    new Enemy(2),
+    2,
 ];
 
 // possible results
@@ -264,7 +264,10 @@ function Event(num) {
     this.action.push(AllEventAct[4*t+2]);
     this.action.push(AllEventAct[4*t+3]);
     this.isBattle = false;
-    this.enemy = AllEnemy1[t];
+    if(AllEnemyId[t]>-1)
+        this.enemy = new Enemy(AllEnemyId[t]);
+    else
+        this.enemy = null;
     
 }
 gEngine.Core.inheritPrototype(Event, GameObject);
