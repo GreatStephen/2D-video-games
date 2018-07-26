@@ -65,7 +65,7 @@ Result.prototype.apply = function(mygame, enemy){
     
     //fight
     if(!this.escape){
-        this.msg = enemy.fight(mygame);
+        this.msg += enemy.fight(mygame);
     }
     // update attribute renderable
     mygame.mHealth.setText("Health: "+ mygame.mHealthValue+"/"+ mygame.mHealthValueMax);
