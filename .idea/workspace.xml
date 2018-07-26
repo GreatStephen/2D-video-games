@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3602db3-c356-4238-8c90-350eabf4f048" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/public_html/src/MyGame/Objects/Event.js" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/src/MyGame/Objects/Event.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -66,8 +66,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Event.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="215" column="22" lean-forward="true" selection-start-line="215" selection-start-column="22" selection-end-line="215" selection-end-column="22" />
+            <state relative-caret-position="241">
+              <caret line="227" column="21" lean-forward="true" selection-start-line="227" selection-start-column="21" selection-end-line="227" selection-end-column="21" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -125,7 +125,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="590" />
     <option name="y" value="106" />
     <option name="width" value="799" />
@@ -220,12 +220,12 @@
       <workItem from="1532432244148" duration="12716000" />
       <workItem from="1532479964806" duration="3679000" />
       <workItem from="1532511159737" duration="6262000" />
-      <workItem from="1532587079469" duration="4885000" />
+      <workItem from="1532587079469" duration="4965000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59401000" />
+    <option name="totallyTimeSpent" value="59481000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="590" y="106" width="799" height="793" extended-state="0" />
@@ -406,8 +406,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Event.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="215" column="22" lean-forward="true" selection-start-line="215" selection-start-column="22" selection-end-line="215" selection-end-column="22" />
+        <state relative-caret-position="241">
+          <caret line="227" column="21" lean-forward="true" selection-start-line="227" selection-start-column="21" selection-end-line="227" selection-end-column="21" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
