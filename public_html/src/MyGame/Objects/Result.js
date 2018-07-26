@@ -39,7 +39,6 @@ Result.prototype.apply = function(mygame, enemy){
     }
     
     // update attribute value
-    mygame.mMoneyValue += this.money;
     mygame.mHealthValue += this.Health;
     mygame.mHealthValueMax += this.mHealth;
     if(mygame.mHealthValueMax < mygame.mHealthValue){
