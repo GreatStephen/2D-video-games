@@ -44,14 +44,22 @@ Enemy.prototype.fight = function (game){
         total += dmg1;
     }
     if(game.mHealthValue <= 0){
-        gEngine.GameLoop.stop();
+        //gEngine.GameLoop.stop();
+        if(this.Id == 2){
+            game.ending = 5;
+        }
+        else
+            game.ending = 1;
         msg = "you lose";
+        game.EndGame();
         return msg;
     }   
     else if(this.numItem>0){
         game.mBag.AddItem(this.dropItemId, this.numItem);
-        game.mMoneyValue += this.money;
     }
+    console.log(this.money);
+    game.mMoneyValue += this.money;
+    console.log(game.mMoneyValue);
     msg = "You win, lose " + total + " HP, get " + NameList[this.dropItemId] + " * "+this.numItem+", "+this.money+" gold.";
     return msg;    
 }

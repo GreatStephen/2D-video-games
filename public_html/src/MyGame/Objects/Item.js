@@ -13,7 +13,7 @@ var InfoList = ["Apple: Hunger+10","Meat: Hunger+5","Fish: Hunger+5","Herb: Heal
                 ];
 var HealthList = [0,0,0,10,0,0,0,0,0,0,0,0,0,0];
 var mHealthList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-var HungerList = [10,5,5,0,0,0,0,0,0,0,0,0,0,0];
+var HungerList = [10,20,25,0,0,0,0,0,0,0,0,0,0,0];
 var mHungerList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var PictureList = ["assets/item/0_apple.png",
     "assets/item/1_meat.png",

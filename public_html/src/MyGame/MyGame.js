@@ -665,8 +665,8 @@ MyGame.prototype.update = function () {
         var res = this.mEventSet[this.mEventIndex-1].action[0].getResult();
         console.log("res");
         console.log(res);
-        res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
-        this.SendMessage(res.msg,"","","","","");
+        var msg = res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
+        this.SendMessage(msg,"","","","","");
     }
     if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Two)){
         //console.log(this.mEventSet[this.mEventIndex-1].action[1]);
@@ -674,8 +674,8 @@ MyGame.prototype.update = function () {
         var res = this.mEventSet[this.mEventIndex-1].action[1].getResult();
         console.log("res");
         console.log(res);
-        res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
-        this.SendMessage(res.msg,"","","","","");
+        var msg = res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
+        this.SendMessage(msg,"","","","","");
     }
     if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Three)){
         //console.log(this.mEventSet[this.mEventIndex-1].action[1]);
@@ -770,6 +770,7 @@ MyGame.prototype.update = function () {
         var nextscene = new MyGame();
         gEngine.Core.startScene(nextscene);
     }
+    this.mMoneyTexture.setText("Money: " + this.mMoneyValue);
     
 };
 
