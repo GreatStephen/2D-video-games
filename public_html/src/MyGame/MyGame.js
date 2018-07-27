@@ -663,7 +663,7 @@ MyGame.prototype.update = function () {
         this.mMes6.getXform().setPosition(1000,1000);
     }
     
-    if(this.isMesOn && !this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.One)){
+    if(this.isMesOn && !this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.One) && this.mEventSet[this.mEventIndex-1].action[0].content){
         console.log(this.mEventSet[this.mEventIndex-1].action[0]);
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[0].getResult();
@@ -672,7 +672,7 @@ MyGame.prototype.update = function () {
         var msg = res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
         this.SendMessage(msg,"","","","","");
     }
-    if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Two)){
+    if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Two) && this.mEventSet[this.mEventIndex-1].action[1].content){
         //console.log(this.mEventSet[this.mEventIndex-1].action[1]);
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[1].getResult();
@@ -681,10 +681,19 @@ MyGame.prototype.update = function () {
         var msg = res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
         this.SendMessage(msg,"","","","","");
     }
-    if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Three)){
+    if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Three) && this.mEventSet[this.mEventIndex-1].action[2].content){
         //console.log(this.mEventSet[this.mEventIndex-1].action[1]);
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[2].getResult();
+        console.log("res");
+        console.log(res);
+        res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
+        this.SendMessage(res.msg,"","","","","");
+    }
+    if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Four) && this.mEventSet[this.mEventIndex-1].action[3].content){
+        //console.log(this.mEventSet[this.mEventIndex-1].action[1]);
+        this.hasChosen = true;
+        var res = this.mEventSet[this.mEventIndex-1].action[3].getResult();
         console.log("res");
         console.log(res);
         res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
@@ -725,7 +734,7 @@ MyGame.prototype.update = function () {
 
         var info = this.mEventSet[this.mEventIndex].information;
         var act = this.mEventSet[this.mEventIndex].action;
-        this.SendMessage(info, act[0].content, act[1].content,act[2].content,"","");
+        this.SendMessage(info, act[0].content, act[1].content,act[2].content,act[3].content,"");
         this.mEventIndex++;
     }
     
