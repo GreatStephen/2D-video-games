@@ -201,7 +201,7 @@ Bag.prototype.update = function(){
             if((this.current+1)<this.itemSet.length){
                 this.current++;
             }
-            else{
+            else if(this.current>4){
                 this.current = this.current - this.current%5-1;
             }
         }
