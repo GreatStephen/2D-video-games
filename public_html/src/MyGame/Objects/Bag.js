@@ -56,6 +56,8 @@ function Bag(myTexture,cursorTexture,myGame){
     // }
     this.AddItem(0,2);
     this.AddItem(3,2);
+    //this.AddItem(19,1);
+   // this.AddItem(17,1);
     
     this.attackChange=0;
     this.defenceChange=0;
