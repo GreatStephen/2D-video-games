@@ -135,17 +135,20 @@ MyEnding.prototype.update = function () {
         this.endingView.setColor([1,0,0,0]);
         this.endingView.getXform().setPosition(650,300);
     }
-    if(this.isShow==true&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
+    if(this.isShow&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
         this.isShow=false;
     }
-    if(!this.isshow&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Up)){
+    if(!this.isShow&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Up)){
         this.choice = (this.choice+6-1)%6;
         //var temp = this.Cursor.getXform().mPosition;
         this.Cursor.getXform().setPosition(150,500-69*this.choice);
     }
-    if(!this.isshow&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Down)){
+    if(!this.isShow&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Down)){
         this.choice = (this.choice+1)%6;
         this.Cursor.getXform().setPosition(150,500-69*this.choice);
+    }
+    if(!this.isShow&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
+        gEngine.GameLoop.stop();
     }
 }
 
