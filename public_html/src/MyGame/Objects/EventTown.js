@@ -22,8 +22,8 @@ function EventTown(num) {
     var AllEventMove_xTown = [0,0,0,0,0,0,0,0,0,0,0];
     var AllEventMove_yTown = [-20,-25,-10,20,-100,50,-15,10,-15,-15,-15];
 
-    var AllEventIconTown = ["assets/mushroom.png",
-        "assets/eagle.png",
+    var AllEventIconTown = ["assets/dog2.png",
+        "assets/wolf.png",
         "assets/Knight_New.png",
         "assets/appletree.png",
         "assets/pond.png",
