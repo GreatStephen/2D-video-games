@@ -1,5 +1,5 @@
-+/*
- * File: MyGame.js
+/*
+ * File: MyPalace.js
  * This is the logic of our game.
  */
 
@@ -14,7 +14,8 @@
 function MyPalace() {
 
     // scene background
-    this.bgTownTexture = "assets/forest3.png";
+    this.bgForestTexture1 = "assets/new_forest1.png";
+    this.bgForestTexture2 = "assets/new_forest2.png";
     this.BagTexture = "assets/bag.png";
     this.kKnight = "assets/Prince_new.png";
     this.CursorTexture = "assets/cursor.png";
@@ -31,6 +32,7 @@ function MyPalace() {
     this.VillagerTexture = "assets/villager.png";
     this.WizardTexture = "assets/wizard.png";
     this.BusinessmanTexture = "assets/businessman.png";
+    this.BeggarTexture = "assets/beggar.png";
 
     // item texture
     this.apple = "assets/item/0_apple.png";
@@ -57,7 +59,7 @@ function MyPalace() {
     this.BGM = "assets/MiddleEarth.mp3";
 
     // local variables
-    this.bgTown = "";
+
     this.bgPalace = "";
     this.bgForest = null;
     this.bgForest2 = null;
@@ -103,14 +105,17 @@ function MyPalace() {
     this.isMesOn = false;
     this.hasChosen = false;
     this.mEventIndex = 0;
-    this.isIntroOpen = false;
+    this.isIntroOpen = true;
+    this.isPrincessLocation = false;
+    this.isPrincessAmbition = false;
+    this.eventFlag = -1;
 
     //counter
     this.mCounter = 0;
 
     //event
     this.mEventSet = null;
-    this.mEventNum = 16;
+    this.mEventNum = 10;
 
     this.hungerRate = 1;
 }
@@ -119,7 +124,8 @@ gEngine.Core.inheritPrototype(MyPalace, Scene);
 
 MyPalace.prototype.loadScene = function () {
 
-    gEngine.Textures.loadTexture(this.bgTownTexture);
+    gEngine.Textures.loadTexture(this.bgForestTexture1);
+    gEngine.Textures.loadTexture(this.bgForestTexture2);
     gEngine.Textures.loadTexture(this.kKnight);
     gEngine.Textures.loadTexture(this.BagTexture);
     gEngine.Textures.loadTexture(this.CursorTexture);
@@ -134,6 +140,7 @@ MyPalace.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.VillagerTexture);
     gEngine.Textures.loadTexture(this.WizardTexture);
     gEngine.Textures.loadTexture(this.BusinessmanTexture);
+    gEngine.Textures.loadTexture(this.BeggarTexture);
 
 
     gEngine.Textures.loadTexture(this.IntroTexture);
@@ -163,7 +170,8 @@ MyPalace.prototype.loadScene = function () {
 
 MyPalace.prototype.unloadScene = function () {
 
-    gEngine.Textures.unloadTexture(this.bgTownTexture);
+    gEngine.Textures.unloadTexture(this.bgForestTexture1);
+    gEngine.Textures.unloadTexture(this.bgForestTexture2);
     gEngine.Textures.unloadTexture(this.kKnight);
     gEngine.Textures.unloadTexture(this.BagTexture);
     gEngine.Textures.unloadTexture(this.CursorTexture);
@@ -174,6 +182,8 @@ MyPalace.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.VillagerTexture);
     gEngine.Textures.unloadTexture(this.WizardTexture);
     gEngine.Textures.unloadTexture(this.BusinessmanTexture);
+    gEngine.Textures.unloadTexture(this.BeggarTexture);
+
 
     gEngine.Textures.unloadTexture(this.apple);
     gEngine.Textures.unloadTexture(this.meat);
@@ -192,16 +202,23 @@ MyPalace.prototype.unloadScene = function () {
     gEngine.AudioClips.unloadAudio(this.BGM);
 
 
-    var nextscene = new GameOver();
-    //nextscene.id = this.ending;
-    nextscene.setId(this.ending);
+    var nextscene = null;
+    if(this.ending>1){
+        nextscene = new MyPalace();
+    }
+    else{
+        nextscene = new GameOver();
+        nextscene.id = this.ending;
+        nextscene.setId(this.ending);
+    }
     gEngine.Core.startScene(nextscene);// load next scene
 };
 
 MyPalace.prototype.initialize = function () {
-    // setup the main camera
+    
     var temp = gEngine.ResourceMap.retrieveAsset("status");
     
+    // setup the main camera
     this.mCamera = new Camera(
         vec2.fromValues(650, 300), // position of the camera
         1300,                     // width of camera
@@ -210,8 +227,10 @@ MyPalace.prototype.initialize = function () {
     );
     this.mCamera.setBackgroundColor([1, 1, 1, 1.0]);
 
+    // setup attribute camera on the top-left corner
     this.attributeCamera = temp.attributeCamera;
 
+    //setup bag camera
     this.bagCamera = temp.bagCamera;
 
     // sets the background to gray
@@ -219,52 +238,52 @@ MyPalace.prototype.initialize = function () {
 
     gEngine.AudioClips.playBackgroundAudio(this.BGM);
 
-    this.bgForest = new TextureRenderable(this.bgTownTexture);
+     this.bgForest = new TextureRenderable(this.bgForestTexture1);
     this.bgForest.setColor([0,0,0,0]);
     this.bgForest.getXform().setSize(2000,600);
     this.bgForest.getXform().setPosition(1000,300);
-    this.bgForest2 = new TextureRenderable(this.bgTownTexture);
+    this.bgForest2 = new TextureRenderable(this.bgForestTexture2);
     this.bgForest2.setColor([0, 0, 0, 0]);
     this.bgForest2.getXform().setSize(2000,600);
     this.bgForest2.getXform().setPosition(3000,300);
-    this.bgForest3 = new TextureRenderable(this.bgTownTexture);
+    this.bgForest3 = new TextureRenderable(this.bgForestTexture1);
     this.bgForest3.setColor([0, 0, 0, 0]);
     this.bgForest3.getXform().setSize(2000,600);
     this.bgForest3.getXform().setPosition(5000,300);
-    this.bgForest4 = new TextureRenderable(this.bgTownTexture);
+    this.bgForest4 = new TextureRenderable(this.bgForestTexture2);
     this.bgForest4.setColor([0, 0, 0, 0]);
     this.bgForest4.getXform().setSize(2000,600);
     this.bgForest4.getXform().setPosition(7000,300);
-    this.bgForest5 = new TextureRenderable(this.bgTownTexture);
+    this.bgForest5 = new TextureRenderable(this.bgForestTexture1);
     this.bgForest5.setColor([0,0,0,0]);
     this.bgForest5.getXform().setSize(2000,600);
     this.bgForest5.getXform().setPosition(9000,300);
-    this.bgForest6 = new TextureRenderable(this.bgTownTexture);
+    this.bgForest6 = new TextureRenderable(this.bgForestTexture2);
     this.bgForest6.setColor([0, 0, 0, 0]);
     this.bgForest6.getXform().setSize(2000,600);
     this.bgForest6.getXform().setPosition(11000,300);
-    this.bgForest7 = new TextureRenderable(this.bgTownTexture);
+    this.bgForest7 = new TextureRenderable(this.bgForestTexture1);
     this.bgForest7.setColor([0, 0, 0, 0]);
     this.bgForest7.getXform().setSize(2000,600);
     this.bgForest7.getXform().setPosition(13000,300);
-    this.bgForest8 = new TextureRenderable(this.bgTownTexture);
+    this.bgForest8 = new TextureRenderable(this.bgForestTexture2);
     this.bgForest8.setColor([0, 0, 0, 0]);
     this.bgForest8.getXform().setSize(2000,600);
     this.bgForest8.getXform().setPosition(15000,300);
-    this.bgForest9 = new TextureRenderable(this.bgTownTexture);
+    this.bgForest9 = new TextureRenderable(this.bgForestTexture1);
     this.bgForest9.setColor([0, 0, 0, 0]);
     this.bgForest9.getXform().setSize(2000,600);
     this.bgForest9.getXform().setPosition(17000,300);
 
     this.mBag = temp.mBag;
     this.mBag.myGame = this;
-    // attribute background
+
     this.bgAttribute = temp.bgAttribute;
-    this.mHealth = temp.mHealth
+    this.mHealth = temp.mHealth;
     this.mHunger = temp.mHunger;
     this.mAttack = temp.mAttack;
     this.mDefense = temp.mDefense;
-    this.mMoneyTexture = temp.mMoneyTexture
+    this.mMoneyTexture = temp.mMoneyTexture;
     
     this.mHealthValue = temp.mHealthValue;
     this.mHealthValueMax = temp.mHealthValueMax;
@@ -273,7 +292,7 @@ MyPalace.prototype.initialize = function () {
     this.mAttackValue = temp.mAttackValue;
     this.mDefenseValue = temp.mDefenseValue;
     this.mMoneyValue = temp.mMoneyValue;
-    
+
     // message
     this.mMes1 = new FontRenderable("test");
     this.mMes1.setColor([1, 1, 1, 1]);
@@ -325,8 +344,11 @@ MyPalace.prototype.initialize = function () {
     this.bgMsg.setColor([0,0,0,0.2]);
 
     //event, action and result
-    this.mEventSet = new EventSet(this.mEventNum);
-   // console.log(this.mEventSet);
+    //this.mEventSet = new EventPalaceSet(this.mEventNum);
+    this.mEventSet = [];
+    this.mEventSet.push(new EventPalace(1, this.eventFlag));
+
+    
 
 };
 
@@ -350,7 +372,7 @@ MyPalace.prototype.draw = function () {
     this.bgForest9.draw(this.mCamera);
 
 
-    for(var i=0;i<this.mEventNum;i++){
+    for(var i=0;i<this.mEventIndex+1;i++){
         this.mEventSet[i].icon.draw(this.mCamera);
     }
     this.mKnight.draw(this.mCamera);
@@ -385,6 +407,7 @@ MyPalace.prototype.draw = function () {
 MyPalace.kBoundDelta = 0.1;
 MyPalace.prototype.update = function () {
     this.flag=0;
+
     var deltaX=10;
     //this.Eagle.updateAnimation();
     if (gEngine.Input.isKeyPressed(gEngine.Input.keys.D)) {
@@ -416,7 +439,7 @@ MyPalace.prototype.update = function () {
 
     }
 
-   if(this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
+    if(this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
         this.isMesOn=false;
         this.bgMsg.getXform().setPosition(1000,1000);
         this.mMes1.getXform().setPosition(1000,1000);
@@ -491,13 +514,14 @@ MyPalace.prototype.update = function () {
         var act = this.mEventSet[this.mEventIndex].action;
         this.SendMessage(info, act[0].content, act[1].content,act[2].content,"","");
         this.mEventIndex++;
+        this.mEventSet.push(new EventPalace(this.mEventIndex, this.eventFlag));
     }
 
     if(this.isBagOpened==true){
         this.mBag.update();
     }
 
-    for(var i=0;i<this.mEventNum;i++){
+    for(var i=0;i<this.mEventIndex;i++){
         // console.log(this.mEventSet[i].type);
         if(this.mEventSet[i].type==1){
             this.mEventSet[i].icon.updateAnimation();
@@ -506,13 +530,12 @@ MyPalace.prototype.update = function () {
 
     this.mCounter++;
     if(this.mCounter%120==0){
-        if(this.isIntroOpen==true){
-            this.hungerRate=0;
-        }
-        else if(this.flag==1)
+        if(this.flag==1){
             this.hungerRate = 2;
-        else
+        }           
+        else{
             this.hungerRate = 1;
+        }          
         this.mHungerValue-=this.hungerRate;
         if(this.mHungerValue<=0){
             //gEngine.GameLoop.stop();
@@ -535,7 +558,7 @@ MyPalace.prototype.update = function () {
 
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.R)){
         gEngine.GameLoop.stop();
-        var nextscene = new MyGame();
+        var nextscene = new MyPalace();
         gEngine.Core.startScene(nextscene);
     }
     this.mMoneyTexture.setText("Money: " + this.mMoneyValue);
@@ -547,6 +570,8 @@ MyPalace.prototype.EndGame = function(){
     if(this.ending==-1){
         this.ending = 1;
     }
+    gEngine.ResourceMap.asyncLoadRequested("status");   
+    gEngine.ResourceMap.asyncLoadCompleted("status",this);
     gEngine.GameLoop.stop();
 }
 
@@ -576,7 +601,8 @@ MyPalace.prototype.SendMessage = function(line1, line2, line3, line4,line5, line
     this.mMes1.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]+70-150);
     this.mMes2.setText(line2);
     this.mMes2.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]+35-150);
-    this.mMes3.setText(line3);
+    if(typeof(line3)!="undefined")
+        this.mMes3.setText(line3);
     this.mMes3.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]-0-150);
     if(typeof(line4) != "undefined")
         this.mMes4.setText(line4);
@@ -591,5 +617,4 @@ MyPalace.prototype.SendMessage = function(line1, line2, line3, line4,line5, line
 
     this.isMesOn=true;
 }
-
 

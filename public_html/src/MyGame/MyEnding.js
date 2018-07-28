@@ -127,7 +127,9 @@ MyEnding.prototype.draw = function () {
 }
 
 MyEnding.prototype.update = function () {
-
+    if(!this.isShow&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Esc)){
+        gEngine.GameLoop.stop();
+    }
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Enter)&&AllEndings[this.choice].flag){
         this.isShow=true;
         this.endingView = new TextureRenderable(AllEndings[this.choice].pic);
@@ -147,9 +149,7 @@ MyEnding.prototype.update = function () {
         this.choice = (this.choice+1)%6;
         this.Cursor.getXform().setPosition(150,500-69*this.choice);
     }
-    if(!this.isShow&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
-        gEngine.GameLoop.stop();
-    }
+    
 }
 
 

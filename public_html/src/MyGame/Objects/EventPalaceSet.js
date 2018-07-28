@@ -8,21 +8,23 @@
 function EventPalaceSet(num) {
 
     // 0号位置不要
-    var order = [-1,-1,-1,7,-1,-1,6,-1,-1,7,-1,-1,7,-1,-1,-1,-1];
-    var index = 1;
-    var mEventSet=[];
-
+    this.order = [];
+    this.index = 0;
+    this.mEventSet=[];
     for(var i=0;i<num;i++){
-        mEventSet = this.forward();
+        this.mEventSet.push(new EventPalace(i+1));
     }
+    
+
+
 
     //console.log(mEventSet);
-    return mEventSet;
+    return this.mEventSet;
 }
 gEngine.Core.inheritPrototype(EventSet, GameObjectSet);
 
 EventPalaceSet.prototype.forward = function () {
-    this.mEventSet.push(new EventTown(this.index++, this.order[this.index]));
+    this.mEventSet.push(new EventPalace(this.index++, this.order[this.index]));
     return this.mEventSet;
 }
 

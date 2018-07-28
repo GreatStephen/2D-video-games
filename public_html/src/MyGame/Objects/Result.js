@@ -22,13 +22,12 @@ function Result(msg, Health, mHealth, Hunger, mHunger, atk, def, money, id, num,
     //this.getItem = [{"id":id,"num":num}];  //the item id and number you can got
     this.escape = true;    //the flag of escape successfully or not
     this.pr = pr; //the probabilities of different result
+    this.flag = -1;
 }
 
 Result.prototype.apply = function(mygame, enemy){
     //console.log(mygame);
     //check the result
-    console.log(this.money);
-    console.log(mygame.mMoneyValue);
     if(mygame.mMoneyValue + this.money <0){
         this.msg = "not enough money";
         console.log(this.msg);
@@ -75,5 +74,10 @@ Result.prototype.apply = function(mygame, enemy){
     mygame.mAttack.setText("Attack: " + mygame.mAttackValue);
     mygame.mDefense.setText("Defense: " + mygame.mDefenseValue);
     mygame.mMoneyTexture.setText("Money: " + mygame.mMoneyValue);
+    //console.log(this.flag);
+    if(this.flag>0){
+        
+        mygame.eventFlag = this.flag;
+    }
     return this.msg;
 }
