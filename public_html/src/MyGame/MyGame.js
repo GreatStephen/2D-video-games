@@ -823,7 +823,8 @@ MyGame.prototype.SendMessage = function(line1, line2, line3, line4,line5, line6)
     this.mMes1.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]+70-150);
     this.mMes2.setText(line2);
     this.mMes2.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]+35-150);
-    this.mMes3.setText(line3);
+    if(typeof (line3)!= "undefined")
+        this.mMes3.setText(line3);
     this.mMes3.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]-0-150);
     if(typeof(line4) != "undefined")
         this.mMes4.setText(line4);

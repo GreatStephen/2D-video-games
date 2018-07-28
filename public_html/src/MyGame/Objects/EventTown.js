@@ -266,7 +266,7 @@ function EventTown(num) {
     this.information = AllEventInfTown[t];
     this.action = [];
     this.action.push(AllEventActTown[4*t]);
-    console.log(AllEventActTown[4*t].content);
+    //console.log(AllEventActTown[4*t].content);
     this.action.push(AllEventActTown[4*t+1]);
     this.action.push(AllEventActTown[4*t+2]);
     this.action.push(AllEventActTown[4*t+3]);

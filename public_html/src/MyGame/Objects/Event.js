@@ -41,70 +41,70 @@ var AllEnemyId=[
 // possible results
 var AllResult=[
     // mushroom 0 1
-    new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-    new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
+    new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0, 0, 0, 1),
+    new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0.7),
 
     // eagle 2 3
     new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-    new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
+    new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0.7),
 
     // knignt 4 5
     new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-    new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
+    new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0.7),
 
     // appletree 6 7 8 9 10
-    new Result("Get apple *1",0,0,0,0,0,0,0,0,1,0,0,0.8),
-    new Result("Get nothing",0,0,0,0,0,0,0,-1,-1,0,0,0.2),
-    new Result("Get herb *1",0,0,0,0,0,0,0,3,1,0,0,0.2),
-    new Result("Get timber *1",0,0,0,0,0,0,0,4,1,0,0,0.8),
-    new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+    new Result("Get apple *1",0,0,0,0,0,0,0,0,0,0,1,0,0,0.8),
+    new Result("Get nothing",0,0,0,0,0,0,0,0,0,-1,-1,0,0,0.2),
+    new Result("Get herb *1",0,0,0,0,0,0,0,0,0,3,1,0,0,0.2),
+    new Result("Get timber *1",0,0,0,0,0,0,0,0,0,4,1,0,0,0.8),
+    new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0, 1),
 
     // pond 11 12 13 14
-    new Result("Hunger +10",0,0,+10,0,0,0,0,-1,-1,0,0,1),
-    new Result("Get fish *1", 0,0,0,0,0,0,0,2,1,0,0,0.8),
-    new Result("Get a key...", 0,0,0,0,0,0,0,12,1,0,0,0.2),
-    new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+    new Result("Hunger +10",0,0,+10,0,0,0,0,0,0,-1,-1,0,0,1),
+    new Result("Get fish *1", 0,0,0,0,0,0,0,0,0,2,1,0,0,0.8),
+    new Result("Get a key...", 0,0,0,0,0,0,0,0,0,12,1,0,0,0.2),
+    new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0, 1),
 
     // treasure  case 15 16 17
-    new Result("Money(Apple) *1",0,0,0,0,0,0,0,0,1,0,0,0.4),
-    new Result("Money(Apple) *2", 0,0,0,0,0,0,0,0,2,0,0,0.6),
-    new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+    new Result("Money(Apple) *1",0,0,0,0,0,0,0,0,0,0,1,0,0,0.4),
+    new Result("Money(Apple) *2", 0,0,0,0,0,0,0,0,0,0,2,0,0,0.6),
+    new Result("Get nothing", 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0, 0, 1),
 
     // ruins 18 19 20 21
-    new Result("Money *10", 0,0,0,0,0,0,10,0,0,0,0,0.3),
-    new Result("Get timber *2", 0,0,0,0,0,0,0,4,2,0,0,0.3),
-    new Result("Get herb *2", 0,0,0,0,0,0,0,3,2,0,0,0.4),
-    new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+    new Result("Money *10", 0,0,0,0,0,0,10,0,0,0,0,0,0,0.3),
+    new Result("Get timber *2", 0,0,0,0,0,0,0,4,2,0,0,0,0,0.3),
+    new Result("Get herb *2", 0,0,0,0,0,0,0,3,2,0,0,0,0,0.4),
+    new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0, 1),
     
     // hunter 22 23 24 25
-    new Result("receive the hunter's cape", 0,0,0,0,0,0,0,11,1,0,0,1),
-    new Result("Defeated, you lose 30HP", -30,0,0,0,0,0,0,0,0,0,0,0.5),
-    new Result("Knock him down, get meat *2", 0,0,0,0,0,0,0,1,2,0,0,0.5),
-    new Result("You leave.", 0,0,0,0,0,0,0,0,0,0,0,1),
+    new Result("receive the hunter's cape", 0,0,0,0,0,0,0,0,0,11,1,0,0,1),
+    new Result("Defeated, you lose 30HP", -30,0,0,0,0,0,0,0,0,0,0,0,0,0.5),
+    new Result("Knock him down, get meat *2", 0,0,0,0,0,0,0,0,0,1,2,0,0,0.5),
+    new Result("You leave.", 0,0,0,0,0,0,0,0,0,0,0,0,0,1),
 
     
     // villager 26 27 28 29
-    new Result("The king fall seriously ill.", 0,0,0,0,0,0,0,0,0,0,0,1),
-    new Result("Get apple *1", 0,0,0,0,0,0,0,0,1,0,0,0.6),
-    new Result("The villager doesn't give you anything.", 0,0,0,0,0,0,0,0,0,0,0,0.4),
-    new Result("You leave.", 0,0,0,0,0,0,0,0,0,0,0,1),
+    new Result("The king fall seriously ill.", 0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+    new Result("Get apple *1", 0,0,0,0,0,0,0,0,0,0,1,0,0,0.6),
+    new Result("The villager doesn't give you anything.", 0,0,0,0,0,0,0,0,0,0,0,0,0,0.4),
+    new Result("You leave.", 0,0,0,0,0,0,0,0,0,0,0,0,0,1),
 
     // wizard 30 31 32
-    new Result("The wizard gives you a secret bag. Open it when urgent.",0,0,0,0,0,0,0,10,1,0,0,1),//todo
-    new Result("The wizard gives you a treasure case.",0,0,0,0,0,0,0,13,1,0,0,1),//todo
-    new Result("Max HP-30, get a new weapon.",0,-30,0,0,0,0,0,7,1,0,0,1),
+    new Result("The wizard gives you a secret bag. Open it when urgent.",0,0,0,0,0,0,0,0,0,10,1,0,0,1),//todo
+    new Result("The wizard gives you a treasure case.",0,0,0,0,0,0,0,0,0,13,1,0,0,1),//todo
+    new Result("Max HP-30, get a new weapon.",0,-30,0,0,0,0,0,0,0,7,1,0,0,1),
 
     // businessman 33 34 35 36
-    new Result("lose money*30, get a new spear.", 0,0,0,0,0,0,-30,6,1,0,0,1),
-    new Result("lose money*30, get a new shield.",0,0,0,0,0,0,-30,9,1,0,0,1),
-    new Result("lose money*20, get an apple.",0,0,0,0,0,0,-20,0,1,0,0,1),
-    new Result("lose timber*2, get an apple.",0,0,0,0,0,0,0,0,1,4,2,1),
+    new Result("lose money*30, get a new spear.", 0,0,0,0,0,0,0,0,-30,6,1,0,0,1),
+    new Result("lose money*30, get a new shield.",0,0,0,0,0,0,0,0,-30,9,1,0,0,1),
+    new Result("lose money*20, get an apple.",0,0,0,0,0,0,0,0,-20,0,1,0,0,1),
+    new Result("lose timber*2, get an apple.",0,0,0,0,0,0,0,0,0,0,1,4,2,1),
 
     // pass last knight 37
-    new Result("The town guard thinks you are a hunter, let you in.",0,0,0,0,0,0,0,0,0,0,0,1),
+    new Result("The town guard thinks you are a hunter, let you in.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
 
     // escape fail 38
-    new Result("Fail to escape. ",0,0,0,0,0,0,0,0,0,0,0,0.3)
+    new Result("Fail to escape. ",0,0,0,0,0,0,0,0,0,0,0,0,0,0.3)
 
 ];
 AllResult[0].escape = false;
