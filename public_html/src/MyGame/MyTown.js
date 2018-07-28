@@ -359,22 +359,7 @@ MyTown.prototype.initialize = function () {
         0);             // horizontal padding in between
     this.mKnight.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
     this.mKnight.setAnimationSpeed(5);
-    
-    this.dog = new SpriteAnimateRenderable(this.DogTexture);
-    this.dog.setColor([1, 1, 1, 0]);
-    this.dog.getXform().setPosition(700, 200);
-    this.dog.getXform().setSize(500, 400);
-    this.dog.setSpriteSequence(256, 0,      // first element pixel position: top-left 164 from 512 is top of image, 0 is left of image
-        281, 256,       // widthxheight in pixels
-        3,              // number of elements in this sequence
-        0);             // horizontal padding in between
-    this.dog.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
-    this.dog.setAnimationSpeed(5);
 
-    this.wolf = new TextureRenderable(this.WolfTexture);
-    this.wolf.setColor([1, 1, 1, 0]);
-    this.wolf.getXform().setPosition(700, 200);
-    this.wolf.getXform().setSize(300, 300);
    
     
     // message background
@@ -413,7 +398,7 @@ MyTown.prototype.draw = function () {
         this.mEventSet[i].icon.draw(this.mCamera);
     }
     this.mKnight.draw(this.mCamera);
-    this.wolf.draw(this.mCamera);
+
     this.bgMsg.draw(this.mCamera);
     if(this.isMesOn==true){
         //this.bgBag.draw(this.mCamera);
@@ -445,7 +430,6 @@ MyTown.prototype.draw = function () {
 MyTown.kBoundDelta = 0.1;
 MyTown.prototype.update = function () {
     this.flag=0;
-    this.dog.updateAnimation();
     var deltaX=10;
     //this.Eagle.updateAnimation();
     if (gEngine.Input.isKeyPressed(gEngine.Input.keys.D)) {
