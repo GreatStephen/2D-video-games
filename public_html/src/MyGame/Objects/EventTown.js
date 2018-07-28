@@ -170,7 +170,7 @@ function EventTown(num) {
         new Action(),
         new Action(),
 
-        // hunter
+        // assassin
         new Action("1. Fight with him!", [AllResultTown[22]]),
         new Action(),
         new Action(),
