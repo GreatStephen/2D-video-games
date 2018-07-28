@@ -6,7 +6,7 @@
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
 function EventTown(num) {
-    var AllEventTypeTown = [0,1,1,0,0,0,1,0,0,0,0]; // 11 pics
+    var AllEventTypeTown = [0,1,1,0,0,0,0,0,0,0,0]; // 11 pics
     var AllEventSize_xTown = [150, 180, 350, 250, 140, 340, 200,200,200,200,200];//todo
     var AllEventSize_yTown = [150, 180, 700, 250, 90, 350,200,350,350,200,200];//todo
     var AllEventSpriteSequenceTown = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
@@ -20,7 +20,7 @@ function EventTown(num) {
     var AllEventSpeedTown = [0,15,7,0,0,0,15,0,0,0,0];
 
     var AllEventMove_xTown = [0,0,0,0,0,0,0,0,0,0,0];
-    var AllEventMove_yTown = [-20,-25,-10,20,-100,50,-15,10,-15,-15,0];
+    var AllEventMove_yTown = [-20,-25,-10,20,-100,50,-15,10,-15,-15,-15];
 
     var AllEventIconTown = ["assets/mushroom.png",
         "assets/eagle.png",
@@ -28,7 +28,7 @@ function EventTown(num) {
         "assets/appletree.png",
         "assets/pond.png",
         "assets/ruins.png",
-        "assets/hunter.png",
+        "assets/assassin.png",
         "assets/villager.png",
         "assets/villager.png",
         "assets/businessman.png",
@@ -96,8 +96,8 @@ function EventTown(num) {
         new Result("Get herb *2", 0,0,0,0,0,0,0,3,2,0,0,0.4),
         new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
 
-        // hunter 22 23 24 25
-        new Result("receive the hunter's cape", 0,0,0,0,0,0,0,11,1,0,0,1),
+        // assassin 22 23 24 25
+        new Result("Get a piece of paper from his corpse.", 0,0,0,0,0,0,0,14,1,0,0,1),
         new Result("Defeated, you lose 30HP", -30,0,0,0,0,0,0,0,0,0,0,0.5),
         new Result("Knock him down, get meat *2", 0,0,0,0,0,0,0,1,2,0,0,0.5),
         new Result("You leave.", 0,0,0,0,0,0,0,0,0,0,0,1),

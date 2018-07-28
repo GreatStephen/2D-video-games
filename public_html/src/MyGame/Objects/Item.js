@@ -9,17 +9,17 @@ var NameList = ["Apple","Meat","Fish","Herb","Timber","Axe","Spear","Sword","Shi
 var InfoList = ["Apple:","Meat:","Fish:","Herb:","Timber:",
                 "Axe:","Spear:","Sword: ","Shield: ","Shield:",
                 "Secret bag: ","Cape: ","Key:",
-                "Treasure Chest: "
+                "Treasure Chest: ", "Letter: "
                 ];
 var InfoList_1 = ["Hunger+10","Hunger+5","Hunger+5","Health+10","strange timber",
                 "Attack+5","Attack+10","Attack+10","Defense+5","Defense+10",
                 "What's in it?","Disguise yourself","May open something?",
-                "It is locked"
+                "It is locked", "Empty letter"
                 ];               
-var HealthList = [0,0,0,10,0,0,0,0,0,0,0,0,0,0];
-var mHealthList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-var HungerList = [10,5,25,0,0,0,0,0,0,0,0,0,0,0];
-var mHungerList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var HealthList = [0,0,0,10,0,0,0,0,0,0,0,0,0,0,0];
+var mHealthList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var HungerList = [10,5,25,0,0,0,0,0,0,0,0,0,0,0,0];
+var mHungerList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var PictureList = ["assets/item/0_apple.png",
     "assets/item/1_meat.png",
     "assets/item/2_fish.png",
@@ -33,11 +33,12 @@ var PictureList = ["assets/item/0_apple.png",
     "assets/item/10_secretbag.png",
     "assets/item/11_cape.png",
     "assets/item/12_key.png",
-    "assets/item/13_treasurechest.png"
+    "assets/item/13_treasurechest.png",
+    "assets/item/14_letter.png"
 ];
-var AtkList = [0,0,0,0,0,5,10,10,0,0,0,0,0,0];
-var DefList = [0,0,0,0,0,0,0,0,5,10,0,5,0,0];
-var TypeList = [0,0,0,0,1,2,2,2,3,3,1,3,1,1];  // 0: consume  1: cannot use   2: weapon  3:armor
+var AtkList = [0,0,0,0,0,5,10,10,0,0,0,0,0,0,0];
+var DefList = [0,0,0,0,0,0,0,0,5,10,0,5,0,0,0];
+var TypeList = [0,0,0,0,1,2,2,2,3,3,1,3,1,1,1];  // 0: consume  1: cannot use   2: weapon  3:armor
 
 function Item(id) {
     this.Id = id;
