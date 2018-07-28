@@ -72,7 +72,12 @@ function MyGame() {
     this.cape = "assets/item/11_cape.png";
     this.key = "assets/item/12_key.png";
     this.treasurechest = "assets/item/13_treasurechest.png";
-    
+    this.potion1 = "assets/item/15_potion1.jpg";
+    this.potion2 = "assets/item/16_potion2.jpg";
+    this.letter1 = "assets/item/14_letter1.png";
+    this.letter2 = "assets/item/17_letter2.png";
+    this.ring = "assets/item/18_ring.png";
+    this.bread = "assets/item/19_bread.png";
     
     this.IntroTexture = "assets/Intro.png";
    
@@ -188,9 +193,12 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.cape);
     gEngine.Textures.loadTexture(this.key);
     gEngine.Textures.loadTexture(this.treasurechest);
-    
-    
-    
+    gEngine.Textures.loadTexture(this.potion1);
+    gEngine.Textures.loadTexture(this.potion2);
+    gEngine.Textures.loadTexture(this.letter1);
+    gEngine.Textures.loadTexture(this.letter2);
+    gEngine.Textures.loadTexture(this.ring);
+    gEngine.Textures.loadTexture(this.bread);
     
 };
 
@@ -225,6 +233,12 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.sword);
     gEngine.Textures.unloadTexture(this.shield1);
     gEngine.Textures.unloadTexture(this.shield2);
+    gEngine.Textures.unloadTexture(this.potion1);
+    gEngine.Textures.unloadTexture(this.potion2);
+    gEngine.Textures.unloadTexture(this.letter1);
+    gEngine.Textures.unloadTexture(this.letter2);
+    gEngine.Textures.unloadTexture(this.ring);
+    gEngine.Textures.unloadTexture(this.bread);
     
     gEngine.Textures.unloadTexture(this.IntroTexture);
 
