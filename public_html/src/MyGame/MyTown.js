@@ -34,8 +34,8 @@ function MyTown() {
     this.BusinessmanTexture = "assets/businessman.png";
     this.BeggarTexture = "assets/beggar.png";
     this.AssassinTexture = "assets/assassin.png";
-    this.DogTexture = "assets/dog.png";
-    this.WolfTexture = "assets/dog2.png";
+    this.DogTexture = "assets/dog2.png";
+    this.WolfTexture = "assets/wolf.png";
 
     // item texture
     this.apple = "assets/item/0_apple.png";
