@@ -235,7 +235,7 @@ function Event(num) {
     this.type = AllEventType[t];
     this.position = [1000*num+AllEventMove_x[t], 200+AllEventMove_y[t]];
     this.picture = AllEventIcon[t];
-    console.log(this.picture);
+    //console.log(this.picture);
     this.size_x = AllEventSize_x[t];
     this.size_y = AllEventSize_y[t];
     this.sequence = AllEventSpriteSequence[t];

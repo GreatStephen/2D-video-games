@@ -136,7 +136,7 @@ function MyGame() {
     this.mEventSet = null;
     this.mEventNum = 16;
     
-    this.hungerRate = 1;
+    this.hungerRate = 20;
 }
 gEngine.Core.inheritPrototype(MyGame, Scene);
 
@@ -229,10 +229,16 @@ MyGame.prototype.unloadScene = function () {
     gEngine.AudioClips.stopBackgroundAudio();
     gEngine.AudioClips.unloadAudio(this.BGM);
 
-
-    var nextscene = new GameOver();
-    //nextscene.id = this.ending;
-    nextscene.setId(this.ending);
+    var nextscene = null;
+    if(this.ending>1){
+        nextscene = new MyTown();
+    }
+    else{
+        nextscene = new GameOver();
+        nextscene.id = this.ending;
+        nextscene.setId(this.ending);
+    }
+    
     gEngine.Core.startScene(nextscene);// load next scene
 };
 
@@ -792,6 +798,11 @@ MyGame.prototype.EndGame = function(){
     if(this.ending==-1){
         this.ending = 1;
     }
+   
+    gEngine.ResourceMap.asyncLoadRequested("status");
+    
+    gEngine.ResourceMap.asyncLoadCompleted("status",this);
+   // console.log(gEngine.ResourceMap.mResourceMap )
     gEngine.GameLoop.stop();
 }
 

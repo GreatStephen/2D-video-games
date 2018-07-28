@@ -11,7 +11,7 @@
 
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
-function MyTown() {
+function MyPalace() {
 
     // scene background
     this.bgTownTexture = "assets/forest3.png";
@@ -114,10 +114,10 @@ function MyTown() {
 
     this.hungerRate = 1;
 }
-gEngine.Core.inheritPrototype(MyTown, Scene);
+gEngine.Core.inheritPrototype(MyPalace, Scene);
 
 
-MyTown.prototype.loadScene = function () {
+MyPalace.prototype.loadScene = function () {
 
     gEngine.Textures.loadTexture(this.bgTownTexture);
     gEngine.Textures.loadTexture(this.kKnight);
@@ -161,7 +161,7 @@ MyTown.prototype.loadScene = function () {
 
 };
 
-MyTown.prototype.unloadScene = function () {
+MyPalace.prototype.unloadScene = function () {
 
     gEngine.Textures.unloadTexture(this.bgTownTexture);
     gEngine.Textures.unloadTexture(this.kKnight);
@@ -192,19 +192,13 @@ MyTown.prototype.unloadScene = function () {
     gEngine.AudioClips.unloadAudio(this.BGM);
 
 
-    var nextscene = null;
-    if(this.ending>1){
-        nextscene = new MyPalace();
-    }
-    else{
-        nextscene = new GameOver();
-        nextscene.id = this.ending;
-        nextscene.setId(this.ending);
-    }
+    var nextscene = new GameOver();
+    //nextscene.id = this.ending;
+    nextscene.setId(this.ending);
     gEngine.Core.startScene(nextscene);// load next scene
 };
 
-MyTown.prototype.initialize = function () {
+MyPalace.prototype.initialize = function () {
     // setup the main camera
     var temp = gEngine.ResourceMap.retrieveAsset("status");
     
@@ -338,7 +332,7 @@ MyTown.prototype.initialize = function () {
 
 // This is the draw function, make sure to setup proper drawing environment, and more
 // importantly, make sure to _NOT_ change any state.
-MyTown.prototype.draw = function () {
+MyPalace.prototype.draw = function () {
     // Step A: clear the canvas
     gEngine.Core.clearCanvas([1, 1, 1, 1.0]); // clear to light gray
 
@@ -388,8 +382,8 @@ MyTown.prototype.draw = function () {
 };
 
 
-MyTown.kBoundDelta = 0.1;
-MyTown.prototype.update = function () {
+MyPalace.kBoundDelta = 0.1;
+MyPalace.prototype.update = function () {
     this.flag=0;
     var deltaX=10;
     //this.Eagle.updateAnimation();
@@ -549,17 +543,14 @@ MyTown.prototype.update = function () {
 };
 
 //遇到事件后弹窗消息，只能按空格继续
-MyTown.prototype.EndGame = function(){
+MyPalace.prototype.EndGame = function(){
     if(this.ending==-1){
         this.ending = 1;
     }
-    gEngine.ResourceMap.asyncLoadRequested("status");
-    
-    gEngine.ResourceMap.asyncLoadCompleted("status",this);
     gEngine.GameLoop.stop();
 }
 
-MyTown.prototype.SendMessage = function(line1, line2, line3, line4,line5, line6){
+MyPalace.prototype.SendMessage = function(line1, line2, line3, line4,line5, line6){
     var cameraCenter = this.mCamera.getWCCenter();
     this.bgMsg.getXform().setPosition(cameraCenter[0],cameraCenter[1]-150);
     var line11;
