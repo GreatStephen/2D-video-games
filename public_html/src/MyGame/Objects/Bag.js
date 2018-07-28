@@ -239,14 +239,14 @@ Bag.prototype.update = function(){
             this.itemSet[this.current].Use(this.myGame);
             this.RemoveItem();
             this.RemoveItemById(12,1);
-            this.AddItem(11,1);
+            this.AddItem(18,1);
         }
         else if(this.itemSet[this.current].Id == 12 && this.GetItemNum(13)>0){
             // use key to open treasure case
             this.itemSet[this.current].Use(this.myGame);
             this.RemoveItem();
             this.RemoveItemById(13,1);
-            this.AddItem(11,1);
+            this.AddItem(18,1);
         }
         else if(this.itemSet[this.current].Id == 14 && this.GetItemNum(16)>0){
             // use secret bag on letter
@@ -299,7 +299,7 @@ Bag.prototype.update = function(){
             this.myGame.BagOpenInMes = true;
            // this.myGame.SendMessage("The duke said he had poisoned the elder king...");
             console.log("item type="+this.itemSet[this.current.type]);
-            this.myGame.SendMessage("The prince has been exiled.","As soon as I kill the king, I will be the new king.","                   From Duke","","","");
+            this.myGame.SendMessage("The prince has been exiled.","As soon as I kill the king, I will be the new king.","                                            From Duke","             [press SPACE to close]","","");
            // this.myGame.SendMessage("The duke said he had poisoned the elder king...","","","","","");
         }
     }  
