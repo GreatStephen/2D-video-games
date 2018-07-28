@@ -37,7 +37,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         "assets/businessman.png"
     ];
     var AllEventInfPalace = ["Would you like to meet with the princess?",
-        "You prove that you are the prince by the ring, than you'd like to:",
+        "You prove that you are the prince by the ring, then you'd like to:",
         "You meet the king",
         "This is a soldier",
         "This is a captain",
@@ -125,10 +125,9 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
     if(isMeetPrincess){
         AllEventActPalace[10] = new Action("3. Force him to give your crown by the country's power of princess", [AllResultPalace[10]]);
     }
-    AllEventActPalace[8].ending = 3;
-    AllEventActPalace[10].ending = 4;
-    AllEventActPalace[11].ending = 11;
-    //AllEventActPalace[4].ending = 4;
+    AllResultPalace[8].ending = 3;
+    AllResultPalace[10].ending = 4;
+    AllResultPalace[11].ending = 11;
     
     var t = Math.floor(Math.random()*2)+3;
     if(num==1&&isPrincessLocation)

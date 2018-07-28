@@ -214,14 +214,10 @@ MyPalace.prototype.unloadScene = function () {
 
 
     var nextscene = null;
-    if(this.ending>1){
-        nextscene = new MyPalace();
-    }
-    else{
-        nextscene = new GameOver();
-        nextscene.id = this.ending;
-        nextscene.setId(this.ending);
-    }
+    nextscene = new GameOver();
+    nextscene.id = this.ending;
+    nextscene.setId(this.ending);
+
     gEngine.Core.startScene(nextscene);// load next scene
 };
 

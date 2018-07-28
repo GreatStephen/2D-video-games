@@ -33,7 +33,10 @@ function GameOver() {
     this.mHint = null;
     
     this.EndingTexture = ["assets/Endings/Ending_0.png","assets/Endings/Ending_1.png","assets/Endings/Ending_2.png",
-                          "assets/Endings/Ending_3.png","assets/Endings/Ending_4.png","assets/Endings/Ending_5.png"];
+                          "assets/Endings/Ending_3.png","assets/Endings/Ending_4.png","assets/Endings/Ending_5.png",
+                          "assets/Endings/Ending_6.png","assets/Endings/Ending_7.png","assets/Endings/Ending_8.png",
+                          "assets/Endings/Ending_9.png","assets/Endings/Ending_10.png","assets/Endings/Ending_11.png",
+                          "assets/Endings/Ending_12.png"];
     this.Ending = null;
     
     
