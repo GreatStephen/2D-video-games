@@ -8,7 +8,7 @@
 var AllEnemy = [{Id:0, msg:"", mHealth:"50", atk:15, def:0, numItem:1, dropItemId:0, money:20},//mushroom
     {Id:1, msg:"", mHealth:"50", atk:15, def:0, numItem:2, dropItemId:1, money:30},//eagle
     {Id:2, msg:"", mHealth:"50", atk:15, def:5, numItem:2, dropItemId:3, money:30},//knight
-    {Id:3, msg:"", mHealth:"50", atk:15, def:0, numItem:0, dropItemId:0, money:10}]
+    {Id:3, msg:"", mHealth:"50", atk:20, def:5, numItem:0, dropItemId:0, money:10}]
 
 function Enemy(id) {
    
@@ -46,8 +46,10 @@ Enemy.prototype.fight = function (game){
     if(game.mHealthValue <= 0){
         //gEngine.GameLoop.stop();
         if(this.Id == 2){
-            game.ending = 5;
+            game.ending = 2;
         }
+        else if(this.Id == 3)
+            game.ending = 5;
         else
             game.ending = 0;
         msg = "you lose";
@@ -57,9 +59,12 @@ Enemy.prototype.fight = function (game){
     else if(this.numItem>0){
         game.mBag.AddItem(this.dropItemId, this.numItem);
     }
-    console.log(this.money);
     game.mMoneyValue += this.money;
-    console.log(game.mMoneyValue);
+    if(this.Id == 3){
+        game.ending = 7;
+        game.EndGame();
+    }
+        
     msg = "You win, lose " + total + " HP, get " + NameList[this.dropItemId] + " * "+this.numItem+", "+this.money+" gold.";
     return msg;    
 }
