@@ -537,15 +537,6 @@ MyTown.prototype.update = function () {
         console.log(this.mEventSet[this.mEventIndex]);
         this.hasChosen = false;
 
-        // pass through last knight
-        if(this.mBag.GetItemIdx(11)!=-1){
-            if(this.mEventIndex==15){
-                var action = this.mEventSet[this.mEventIndex].action[2];
-                action.setContent("3. I am a hunter, I have this cape!");
-                action.setResult([AllResult[37]]);
-            }
-        }
-
         var info = this.mEventSet[this.mEventIndex].information;
         var act = this.mEventSet[this.mEventIndex].action;
         this.SendMessage(info, act[0].content, act[1].content,act[2].content,"","");

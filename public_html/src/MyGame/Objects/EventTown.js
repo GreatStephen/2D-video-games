@@ -63,11 +63,11 @@ function EventTown(num) {
 
 // possible results
     var AllResultTown=[
-        // mushroom 0 1
+        // dog 0 1
         new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 1),
         new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0.7),
 
-        // eagle 2 3
+        // wolf 2 3
         new Result("Fight result: ", 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0, 0, 1),
         new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0, 0, 0.7),
 
@@ -170,7 +170,7 @@ function EventTown(num) {
         new Action(),
         new Action(),
 
-        // hunter
+        // assassin
         new Action("1. Fight with him!", [AllResultTown[22]]),
         new Action(),
         new Action(),
