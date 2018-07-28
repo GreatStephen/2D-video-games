@@ -89,12 +89,12 @@ GameOver.prototype.initialize = function () {
     this.mText = new FontRenderable("Press SPACE to restart");
     this.mText.setColor([1, 1, 1, 1]);
     this.mText.getXform().setPosition(20, 30);
-    this.mText.setTextHeight(5);
+    this.mText.setTextHeight(5);*/
 
-    this.mHint = new FontRenderable("YOU DIE");
-    this.mHint.setColor([1, 1, 1, 1]);
-    this.mHint.getXform().setPosition(30, 40);
-    this.mHint.setTextHeight(10);*/
+    this.mHint = new FontRenderable("[press SPACE to restart]");
+    this.mHint.setColor([0, 0, 0, 1]);
+    this.mHint.getXform().setPosition(850, 70);
+    this.mHint.setTextHeight(30);
 
 }
 
@@ -104,8 +104,8 @@ GameOver.prototype.draw = function () {
     this.mCamera.setupViewProjection();
     this.Ending.draw(this.mCamera);
   /*  this.mBackground.draw(this.mCamera);
-    this.mText.draw(this.mCamera);
-    this.mHint.draw(this.mCamera);*/
+    this.mText.draw(this.mCamera);*/
+    this.mHint.draw(this.mCamera);
 }
 
 GameOver.prototype.update = function () {
