@@ -1,5 +1,5 @@
 /*
- * File: MyGame.js
+ * File: MyTown.js
  * This is the logic of our game.
  */
 
@@ -103,7 +103,9 @@ function MyTown() {
     this.isMesOn = false;
     this.hasChosen = false;
     this.mEventIndex = 0;
-    this.isIntroOpen = false;
+    this.isIntroOpen = true;
+    this.isPrincessLocation = false;
+    this.isPrincessAmbition = false;
 
     //counter
     this.mCounter = 0;
@@ -192,22 +194,14 @@ MyTown.prototype.unloadScene = function () {
     gEngine.AudioClips.unloadAudio(this.BGM);
 
 
-    var nextscene = null;
-    if(this.ending>1){
-        nextscene = new MyPalace();
-    }
-    else{
-        nextscene = new GameOver();
-        nextscene.id = this.ending;
-        nextscene.setId(this.ending);
-    }
+    var nextscene = new GameOver();
+    //nextscene.id = this.ending;
+    nextscene.setId(this.ending);
     gEngine.Core.startScene(nextscene);// load next scene
 };
 
 MyTown.prototype.initialize = function () {
     // setup the main camera
-    var temp = gEngine.ResourceMap.retrieveAsset("status");
-    
     this.mCamera = new Camera(
         vec2.fromValues(650, 300), // position of the camera
         1300,                     // width of camera
@@ -216,9 +210,28 @@ MyTown.prototype.initialize = function () {
     );
     this.mCamera.setBackgroundColor([1, 1, 1, 1.0]);
 
-    this.attributeCamera = temp.attributeCamera;
+    // setup attribute camera on the top-left corner
+    this.attributeCamera = new Camera(
+        vec2.fromValues(50,135),
+        100,
+        [50,430,160,150],
+        1
+    );
+    this.attributeCamera.setBackgroundColor([0.9,0.9,0.9,1]);
 
-    this.bagCamera = temp.bagCamera;
+    //setup bag camera
+    this.bagCamera = new Camera(
+        vec2.fromValues(50,40),
+        100,
+        [200,-130,1100,825],
+        1
+    );
+    this.bagCamera.setBackgroundColor([0.9,0.9,0.9,1]);
+
+    this.Intro = new TextureRenderable(this.IntroTexture);
+    this.Intro.getXform().setSize(512,512);
+    this.Intro.setColor([1,0,0,0]);
+    this.Intro.getXform().setPosition(650,300);
 
     // sets the background to gray
     gEngine.DefaultResources.setGlobalAmbientIntensity(3);
@@ -262,24 +275,44 @@ MyTown.prototype.initialize = function () {
     this.bgForest9.getXform().setSize(2000,600);
     this.bgForest9.getXform().setPosition(17000,300);
 
-    this.mBag = temp.mBag;
-    this.mBag.myGame = this;
+    this.mBag = new Bag(this.BagTexture,this.CursorTexture,this);
+
     // attribute background
-    this.bgAttribute = temp.bgAttribute;
-    this.mHealth = temp.mHealth
-    this.mHunger = temp.mHunger;
-    this.mAttack = temp.mAttack;
-    this.mDefense = temp.mDefense;
-    this.mMoneyTexture = temp.mMoneyTexture
-    
-    this.mHealthValue = temp.mHealthValue;
-    this.mHealthValueMax = temp.mHealthValueMax;
-    this.mHungerValue = temp.mHungerValue;
-    this.mHungerValueMax = temp.mHungerValueMax;
-    this.mAttackValue = temp.mAttackValue;
-    this.mDefenseValue = temp.mDefenseValue;
-    this.mMoneyValue = temp.mMoneyValue;
-    
+    this.bgAttribute = new TextureRenderable(this.bgAttributeTexture);
+    this.bgAttribute.setColor([0,0,0,0]);
+    this.bgAttribute.getXform().setSize(120,102);
+    this.bgAttribute.getXform().setPosition(50,135);
+
+    // health
+    this.mHealth = new FontRenderable("Health: "+this.mHealthValue+"/"+this.mHealthValueMax);
+    this.mHealth.setColor([0,0,0,1]);
+    this.mHealth.getXform().setPosition(10,163.5);
+    this.mHealth.setTextHeight(9);
+
+    // hunger
+    this.mHunger = new FontRenderable("Hunger: " + this.mHungerValue + "/"+this.mHungerValueMax);
+    this.mHunger.setColor([0, 0, 0, 1]);
+    this.mHunger.getXform().setPosition(10, 150.5);
+    this.mHunger.setTextHeight(9);
+
+    // attack
+    this.mAttack = new FontRenderable("Attack: " + this.mAttackValue);
+    this.mAttack.setColor([0, 0, 0, 1]);
+    this.mAttack.getXform().setPosition(10, 136.5);
+    this.mAttack.setTextHeight(9);
+
+    // defense
+    this.mDefense = new FontRenderable("Defense: " + this.mDefenseValue);
+    this.mDefense.setColor([0, 0, 0, 1]);
+    this.mDefense.getXform().setPosition(10, 123.5);
+    this.mDefense.setTextHeight(9);
+
+    // money
+    this.mMoneyTexture = new FontRenderable("Money: " + this.mMoneyValue);
+    this.mMoneyTexture.setColor([0, 0, 0, 1]);
+    this.mMoneyTexture.getXform().setPosition(10, 110.5);
+    this.mMoneyTexture.setTextHeight(9);
+
     // message
     this.mMes1 = new FontRenderable("test");
     this.mMes1.setColor([1, 1, 1, 1]);
@@ -331,8 +364,8 @@ MyTown.prototype.initialize = function () {
     this.bgMsg.setColor([0,0,0,0.2]);
 
     //event, action and result
-    this.mEventSet = new EventSet(this.mEventNum);
-   // console.log(this.mEventSet);
+    this.mEventSet = new EventTownSet(this.mEventNum);
+    console.log(this.mEventSet);
 
 };
 
@@ -355,6 +388,10 @@ MyTown.prototype.draw = function () {
     this.bgForest8.draw(this.mCamera);
     this.bgForest9.draw(this.mCamera);
 
+    if(this.isIntroOpen==true){
+        this.Intro.draw(this.mCamera);
+        return;
+    }
 
     for(var i=0;i<this.mEventNum;i++){
         this.mEventSet[i].icon.draw(this.mCamera);
@@ -391,6 +428,14 @@ MyTown.prototype.draw = function () {
 MyTown.kBoundDelta = 0.1;
 MyTown.prototype.update = function () {
     this.flag=0;
+
+    if(this.isIntroOpen==true){
+        if (gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
+            console.log("x");
+            this.isIntroOpen = false;
+        }
+        return;
+    }
     var deltaX=10;
     //this.Eagle.updateAnimation();
     if (gEngine.Input.isKeyPressed(gEngine.Input.keys.D)) {
@@ -422,7 +467,7 @@ MyTown.prototype.update = function () {
 
     }
 
-   if(this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
+    if(this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
         this.isMesOn=false;
         this.bgMsg.getXform().setPosition(1000,1000);
         this.mMes1.getXform().setPosition(1000,1000);
@@ -541,7 +586,7 @@ MyTown.prototype.update = function () {
 
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.R)){
         gEngine.GameLoop.stop();
-        var nextscene = new MyGame();
+        var nextscene = new MyTown();
         gEngine.Core.startScene(nextscene);
     }
     this.mMoneyTexture.setText("Money: " + this.mMoneyValue);
@@ -553,9 +598,6 @@ MyTown.prototype.EndGame = function(){
     if(this.ending==-1){
         this.ending = 1;
     }
-    gEngine.ResourceMap.asyncLoadRequested("status");
-    
-    gEngine.ResourceMap.asyncLoadCompleted("status",this);
     gEngine.GameLoop.stop();
 }
 
@@ -585,7 +627,8 @@ MyTown.prototype.SendMessage = function(line1, line2, line3, line4,line5, line6)
     this.mMes1.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]+70-150);
     this.mMes2.setText(line2);
     this.mMes2.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]+35-150);
-    this.mMes3.setText(line3);
+    if(typeof(line3)!="undefined")
+        this.mMes3.setText(line3);
     this.mMes3.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]-0-150);
     if(typeof(line4) != "undefined")
         this.mMes4.setText(line4);
