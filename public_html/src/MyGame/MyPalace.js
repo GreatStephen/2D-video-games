@@ -11,7 +11,7 @@
 
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
-function MyPalace() {
+function MyPalace(isPrincessLocation, isPrincessAmbition) {
 
     // scene background
     this.bgForestTexture1 = "assets/Palace/palace1.png";
@@ -111,6 +111,8 @@ function MyPalace() {
     this.isPrincessLocation = false;
     this.isPrincessAmbition = false;
     this.isMeetPrincess = false;
+    this.isPrincessLocation = isPrincessLocation;
+    this.isPrincessAmbition = isPrincessAmbition;
 
     //counter
     this.mCounter = 0;
@@ -352,9 +354,7 @@ MyPalace.prototype.initialize = function () {
     //event, action and result
     //this.mEventSet = new EventPalaceSet(this.mEventNum);
     this.mEventSet = [];
-    this.mEventSet.push(new EventPalace(1, this.isMeetPrincess));
-
-    
+    this.mEventSet.push(new EventPalace(1,this.isPrincessLocation, this.isPrincessAmbition, this.isMeetPrincess));
 
 };
 
@@ -531,7 +531,7 @@ MyPalace.prototype.update = function () {
         this.SendMessage(info, act[0].content, act[1].content,act[2].content,"","");
         this.mEventIndex++;
         if(this.mEventIndex<this.mEventNum)
-            this.mEventSet.push(new EventPalace(this.mEventIndex, this.isMeetPrincess));
+            this.mEventSet.push(new EventPalace(this.mEventIndex,this.isPrincessLocation, this.isPrincessAmbition, this.isMeetPrincess));
         console.log(this.mEventSet);
     }
 
