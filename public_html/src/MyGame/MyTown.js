@@ -34,6 +34,8 @@ function MyTown() {
     this.BusinessmanTexture = "assets/businessman.png";
     this.BeggarTexture = "assets/beggar.png";
     this.AssassinTexture = "assets/assassin.png";
+    this.DogTexture = "assets/dog.png";
+    this.WolfTexture = "assets/dog2.png";
 
     // item texture
     this.apple = "assets/item/0_apple.png";
@@ -100,8 +102,9 @@ function MyTown() {
     this.mMes5 = null;
     this.mMes6 = null;
     this.Intro = null;
-
-
+    
+    this.dog = null;
+    this.wolf = null;
     // cameras
     this.mCamera = null;
     this.attributeCamera = null;
@@ -148,8 +151,9 @@ MyTown.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.BusinessmanTexture);
     gEngine.Textures.loadTexture(this.BeggarTexture);
     gEngine.Textures.loadTexture(this.AssassinTexture);
-
-
+    gEngine.Textures.loadTexture(this.DogTexture);
+    gEngine.Textures.loadTexture(this.WolfTexture);
+    
     gEngine.Textures.loadTexture(this.IntroTexture);
     // load audio
     gEngine.AudioClips.loadAudio(this.BGM);
@@ -195,8 +199,8 @@ MyTown.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.BusinessmanTexture);
     gEngine.Textures.unloadTexture(this.BeggarTexture);
     gEngine.Textures.unloadTexture(this.AssassinTexture);
-
-
+    gEngine.Textures.unloadTexture(this.DogTexture);
+    gEngine.Textures.unloadTexture(this.WolfTexture);
 
     gEngine.Textures.unloadTexture(this.apple);
     gEngine.Textures.unloadTexture(this.meat);
@@ -355,8 +359,24 @@ MyTown.prototype.initialize = function () {
         0);             // horizontal padding in between
     this.mKnight.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
     this.mKnight.setAnimationSpeed(5);
+    
+    this.dog = new SpriteAnimateRenderable(this.DogTexture);
+    this.dog.setColor([1, 1, 1, 0]);
+    this.dog.getXform().setPosition(700, 200);
+    this.dog.getXform().setSize(500, 400);
+    this.dog.setSpriteSequence(256, 0,      // first element pixel position: top-left 164 from 512 is top of image, 0 is left of image
+        281, 256,       // widthxheight in pixels
+        3,              // number of elements in this sequence
+        0);             // horizontal padding in between
+    this.dog.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
+    this.dog.setAnimationSpeed(5);
 
-
+    this.wolf = new TextureRenderable(this.WolfTexture);
+    this.wolf.setColor([1, 1, 1, 0]);
+    this.wolf.getXform().setPosition(700, 200);
+    this.wolf.getXform().setSize(300, 300);
+   
+    
     // message background
     this.bgMsg = new Renderable();
     this.bgMsg.getXform().setPosition(-650,-300);
@@ -393,6 +413,7 @@ MyTown.prototype.draw = function () {
         this.mEventSet[i].icon.draw(this.mCamera);
     }
     this.mKnight.draw(this.mCamera);
+    this.wolf.draw(this.mCamera);
     this.bgMsg.draw(this.mCamera);
     if(this.isMesOn==true){
         //this.bgBag.draw(this.mCamera);
@@ -424,7 +445,7 @@ MyTown.prototype.draw = function () {
 MyTown.kBoundDelta = 0.1;
 MyTown.prototype.update = function () {
     this.flag=0;
-
+    this.dog.updateAnimation();
     var deltaX=10;
     //this.Eagle.updateAnimation();
     if (gEngine.Input.isKeyPressed(gEngine.Input.keys.D)) {
