@@ -216,7 +216,9 @@ MyPalace.prototype.unloadScene = function () {
     var nextscene = null;
     nextscene = new GameOver();
     nextscene.id = this.ending;
-    nextscene.setId(this.ending);
+    console.log("what?");
+    console.log(this.ending);
+   // nextscene.setId(this.ending);
 
     gEngine.Core.startScene(nextscene);// load next scene
 };
@@ -588,8 +590,8 @@ MyPalace.prototype.EndGame = function(){
     if(this.ending==-1){
         this.ending = 1;
     }
-    gEngine.ResourceMap.asyncLoadRequested("status");   
-    gEngine.ResourceMap.asyncLoadCompleted("status",this);
+   // gEngine.ResourceMap.asyncLoadRequested("status");   
+  //  gEngine.ResourceMap.asyncLoadCompleted("status",this);
     gEngine.GameLoop.stop();
 }
 
