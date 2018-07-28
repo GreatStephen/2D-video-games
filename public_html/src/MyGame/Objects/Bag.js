@@ -294,5 +294,8 @@ Bag.prototype.update = function(){
                 this.RemoveItem();
             }
         }
+        else if(ghis.itemSet[this.current.type==4]){
+            this.myGame.SendMessage("The duke said he had poisoned the elder king...");
+        }
     }  
 }
