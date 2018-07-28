@@ -22,6 +22,8 @@ function Result(msg, Health, mHealth, Hunger, mHunger, atk, def, money, isPrince
     //this.getItem = [{"id":id,"num":num}];  //the item id and number you can got
     this.escape = true;    //the flag of escape successfully or not
     this.pr = pr; //the probabilities of different result
+    this.isPrincessLocation = isPrincessLocation;
+    this.isPrincessAmbition = isPrincessAmbition;
 }
 
 Result.prototype.apply = function(mygame, enemy){
@@ -55,16 +57,16 @@ Result.prototype.apply = function(mygame, enemy){
     mygame.mDefenseValue += this.def;
     mygame.mMoneyValue += this.money;
 
-    /*
-    if(mygame.isPrincessLocation==false && isPrincessLoation==1){
+
+    if(mygame.isPrincessLocation==false && this.isPrincessLocation==1){
         mygame.isPrincessLocation=true;
         console.log("isPrincessLocation");
     }
-    if(mygame.isPrincessAmbition==false && isPrincessAmbition==1){
+    if(mygame.isPrincessAmbition==false && this.isPrincessAmbition==1){
         mygame.isPrincessAmbition=true;
         console.log("isPrincessAmbition");
     }
-    */
+
     
     //update items
     if(this.getItemNum>0){

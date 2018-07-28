@@ -226,6 +226,7 @@ function EventTown(num) {
     else if(num==12){
         //NO.10 is villager2
         t = 8;
+        console.log("there should be vilagger");
     }
 
 
