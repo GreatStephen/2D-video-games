@@ -55,6 +55,7 @@ function MyGame() {
     this.VillagerTexture = "assets/villager.png";
     this.WizardTexture = "assets/wizard.png";
     this.BusinessmanTexture = "assets/businessman.png";
+    this.PrincessTexture = "assets/princess.png";
    
     // item texture
     this.apple = "assets/item/0_apple.png";
@@ -137,6 +138,8 @@ function MyGame() {
     this.mEventNum = 16;
     
     this.hungerRate = 20;
+    
+    this.princess = null;
 }
 gEngine.Core.inheritPrototype(MyGame, Scene);
 
@@ -165,7 +168,6 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.VillagerTexture);
     gEngine.Textures.loadTexture(this.WizardTexture);
     gEngine.Textures.loadTexture(this.BusinessmanTexture);
-    
     
     gEngine.Textures.loadTexture(this.IntroTexture);
     // load audio
@@ -429,17 +431,6 @@ MyGame.prototype.initialize = function () {
     this.mKnight.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
     this.mKnight.setAnimationSpeed(5);
     
-  /*  this.Eagle = new SpriteAnimateRenderable(this.EagleTexture);
-    this.Eagle.setColor([1, 1, 1, 0]);
-    this.Eagle.getXform().setPosition(50, 25);
-    this.Eagle.getXform().setSize(30, 30);
-    this.Eagle.setSpriteSequence(128, 0,      // first element pixel position: top-left 164 from 512 is top of image, 0 is left of image
-                                    80, 120,       // widthxheight in pixels
-                                    9,              // number of elements in this sequence
-                                    0);             // horizontal padding in between
-    this.Eagle.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
-    this.Eagle.setAnimationSpeed(10);*/
-
     // message background
     this.bgMsg = new Renderable();
     this.bgMsg.getXform().setPosition(-650,-300);
