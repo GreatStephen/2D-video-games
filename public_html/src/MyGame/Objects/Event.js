@@ -72,8 +72,8 @@ var AllResult=[
 
     // ruins 18 19 20 21
     new Result("Money *10", 0,0,0,0,0,0,10,0,0,0,0,0,0,0.3),
-    new Result("Get timber *2", 0,0,0,0,0,0,0,4,2,0,0,0,0,0.3),
-    new Result("Get herb *2", 0,0,0,0,0,0,0,3,2,0,0,0,0,0.4),
+    new Result("Get timber *2", 0,0,0,0,0,0,0,0,0,4,2,0,0,0.3),
+    new Result("Get herb *2", 0,0,0,0,0,0,0,0,0,3,2,0,0,0.4),
     new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0, 1),
     
     // hunter 22 23 24 25
@@ -90,7 +90,7 @@ var AllResult=[
     new Result("You leave.", 0,0,0,0,0,0,0,0,0,0,0,0,0,1),
 
     // wizard 30 31 32
-    new Result("The wizard gives you a secret bag. Open it when urgent.",0,0,0,0,0,0,0,0,0,10,1,0,0,1),//todo
+    new Result("The wizard gives you a secret potion. Use it on something.",0,0,0,0,0,0,0,0,0,16,1,0,0,1),//todo
     new Result("The wizard gives you a treasure case.",0,0,0,0,0,0,0,0,0,13,1,0,0,1),//todo
     new Result("Max HP-30, get a new weapon.",0,-30,0,0,0,0,0,0,0,7,1,0,0,1),
 
@@ -98,7 +98,7 @@ var AllResult=[
     new Result("lose money*30, get a new spear.", 0,0,0,0,0,0,0,0,-30,6,1,0,0,1),
     new Result("lose money*30, get a new shield.",0,0,0,0,0,0,0,0,-30,9,1,0,0,1),
     new Result("lose money*20, get an apple.",0,0,0,0,0,0,0,0,-20,0,1,0,0,1),
-    new Result("lose timber*2, get an apple.",0,0,0,0,0,0,0,0,0,0,1,4,2,1),
+    new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
 
     // pass last knight 37
     new Result("The town guard thinks you are a hunter, let you in.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
@@ -161,16 +161,16 @@ var AllEventAct = [
     new Action(),
 
     // wizard
-    new Action("1. I want your precious advice.", [AllResult[30]]),
+    new Action("1. I want a useful tool.", [AllResult[30]]),
     new Action("2. I want a valuable gift from you.", [AllResult[31]]),
     new Action("3. I want to exchange my max health for a weapon.",[AllResult[32]]),
     new Action(),
 
     // businessman
-    new Action("1. 30G for a spear.", [AllResult[33]]),
-    new Action("2. 30G for a shield.", [AllResult[34]]),
-    new Action("3. 20G for an apple.",[AllResult[35]]),
-    new Action("4. timber*2 for an apple.",[AllResult[36]])
+    new Action("1. 30 gold for a spear.", [AllResult[33]]),
+    new Action("2. 30 gold for a shield.", [AllResult[34]]),
+    new Action("3. 20 gold for an apple.",[AllResult[35]]),
+    new Action("4. Leave.",[AllResult[36]])
 
 ];
 

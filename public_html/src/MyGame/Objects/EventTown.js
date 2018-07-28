@@ -112,9 +112,9 @@ function EventTown(num) {
 
         // businessman 31 32 33 34
         new Result("Lose money*80, get a new axe.", 0,0,0,0,0,0,-80,0,0,5,1,0,0,1),
-        new Result("Lose timber*2, get a herb.",0,0,0,0,0,0,0,0,0,3,1,4,2,1),
+        new Result("Lose timber*2, get a potion.",0,0,0,0,0,0,0,0,0,15,1,4,2,1),
         new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
-        new Result("error35",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+        new Result("error34",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
 
         // pass last knight 35
         new Result("The town guard thinks you are a hunter, let you in.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
@@ -123,7 +123,7 @@ function EventTown(num) {
         new Result("Fail to escape. ",0,0,0,0,0,0,0,0,0,0,0,0,0,0.3),
 
         // beggar 37 38
-        new Result("Received a key.",0,0,0,0,0,0,0,0,0,12,1,0,0,1),
+        new Result("Received a key.",0,0,0,0,0,0,-50,0,0,12,1,0,0,1),
         new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,0,0,1)
 
     ];

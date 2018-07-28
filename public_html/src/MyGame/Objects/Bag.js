@@ -241,12 +241,26 @@ Bag.prototype.update = function(){
             this.RemoveItemById(12,1);
             this.AddItem(11,1);
         }
-        else if(this.itemSet[this.current].Id == 14 && this.GetItemNum(10)>0){
+        else if(this.itemSet[this.current].Id == 12 && this.GetItemNum(13)>0){
+            // use key to open treasure case
+            this.itemSet[this.current].Use(this.myGame);
+            this.RemoveItem();
+            this.RemoveItemById(13,1);
+            this.AddItem(11,1);
+        }
+        else if(this.itemSet[this.current].Id == 14 && this.GetItemNum(16)>0){
             // use secret bag on letter
             this.itemSet[this.current].Use(this.myGame);
             this.RemoveItem();
-            this.RemoveItemById(10,1);
-            this.AddItem(11,1);
+            this.RemoveItemById(16,1);
+            this.AddItem(17,1);
+        }
+        else if(this.itemSet[this.current].Id == 16 && this.GetItemNum(14)>0){
+            // use secret bag on letter
+            this.itemSet[this.current].Use(this.myGame);
+            this.RemoveItem();
+            this.RemoveItemById(14,1);
+            this.AddItem(17,1);
         }
         else if(this.itemSet[this.current].type==2){
             if(this.weapon!=-1){
