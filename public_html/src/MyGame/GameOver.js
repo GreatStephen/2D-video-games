@@ -9,12 +9,19 @@
 
 
 
-// Ending_0: you are killed
-// Ending_1:
-// Ending_2:
-// Ending_3: pass the game
-// Ending_4: give up 
-// Ending_5: lose in the fight with soldier and is arrested
+// Ending_0:  战死
+// Ending_1:  饿死
+// Ending_2:  被士兵抓走
+// Ending_3:  没有戒指，见到公主，被抓
+// Ending_4:  公主无阴谋，打败国王
+// Ending_5:  被国王杀死
+// Ending_6:  被公主杀死
+// Ending_7:  没有公主，打败国王
+// Ending_8:  打败公爵，有解药
+// Ending_9:  打败公爵，没有解药
+// Ending_10: 被公爵杀死
+// Ending_11: 打败公主
+// Ending_12: 放弃游戏
 
 function GameOver() {
    // console.log();
