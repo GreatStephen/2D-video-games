@@ -33,6 +33,7 @@ function MyTown() {
     this.WizardTexture = "assets/wizard.png";
     this.BusinessmanTexture = "assets/businessman.png";
     this.BeggarTexture = "assets/beggar.png";
+    this.AssassinTexture = "assets/assassin.png";
 
     // item texture
     this.apple = "assets/item/0_apple.png";
@@ -49,6 +50,7 @@ function MyTown() {
     this.cape = "assets/item/11_cape.png";
     this.key = "assets/item/12_key.png";
     this.treasurechest = "assets/item/13_treasurechest.png";
+    this.letter = "assets/item/14_letter.png";
 
 
     this.IntroTexture = "assets/Intro.png";
@@ -140,6 +142,7 @@ MyTown.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.WizardTexture);
     gEngine.Textures.loadTexture(this.BusinessmanTexture);
     gEngine.Textures.loadTexture(this.BeggarTexture);
+    gEngine.Textures.loadTexture(this.AssassinTexture);
 
 
     gEngine.Textures.loadTexture(this.IntroTexture);
@@ -161,7 +164,7 @@ MyTown.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.cape);
     gEngine.Textures.loadTexture(this.key);
     gEngine.Textures.loadTexture(this.treasurechest);
-
+    gEngine.Textures.loadTexture(this.letter);
 
 
 
@@ -182,6 +185,8 @@ MyTown.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.WizardTexture);
     gEngine.Textures.unloadTexture(this.BusinessmanTexture);
     gEngine.Textures.unloadTexture(this.BeggarTexture);
+    gEngine.Textures.loadTexture(this.AssassinTexture);
+
 
 
     gEngine.Textures.unloadTexture(this.apple);
@@ -194,6 +199,8 @@ MyTown.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.sword);
     gEngine.Textures.unloadTexture(this.shield1);
     gEngine.Textures.unloadTexture(this.shield2);
+    gEngine.Textures.unloadTexture(this.letter);
+
 
     gEngine.Textures.unloadTexture(this.IntroTexture);
 

@@ -14,8 +14,10 @@
 function MyPalace() {
 
     // scene background
-    this.bgForestTexture1 = "assets/new_forest1.png";
-    this.bgForestTexture2 = "assets/new_forest2.png";
+    this.bgForestTexture1 = "assets/Palace/palace1.png";
+    this.bgForestTexture2 = "assets/Palace/palace2.png";
+    this.bgForestTexture3 = "assets/Palace/palace3.png";
+    this.bgForestTexture4 = "assets/Palace/palace4.png";
     this.BagTexture = "assets/bag.png";
     this.kKnight = "assets/Prince_new.png";
     this.CursorTexture = "assets/cursor.png";
@@ -115,7 +117,7 @@ function MyPalace() {
 
     //event
     this.mEventSet = null;
-    this.mEventNum = 10;
+    this.mEventNum = 11;
 
     this.hungerRate = 1;
 }
@@ -123,9 +125,11 @@ gEngine.Core.inheritPrototype(MyPalace, Scene);
 
 
 MyPalace.prototype.loadScene = function () {
-
+    
     gEngine.Textures.loadTexture(this.bgForestTexture1);
     gEngine.Textures.loadTexture(this.bgForestTexture2);
+    gEngine.Textures.loadTexture(this.bgForestTexture3);
+    gEngine.Textures.loadTexture(this.bgForestTexture4);
     gEngine.Textures.loadTexture(this.kKnight);
     gEngine.Textures.loadTexture(this.BagTexture);
     gEngine.Textures.loadTexture(this.CursorTexture);
@@ -172,6 +176,8 @@ MyPalace.prototype.unloadScene = function () {
 
     gEngine.Textures.unloadTexture(this.bgForestTexture1);
     gEngine.Textures.unloadTexture(this.bgForestTexture2);
+    gEngine.Textures.unloadTexture(this.bgForestTexture3);
+    gEngine.Textures.unloadTexture(this.bgForestTexture4);
     gEngine.Textures.unloadTexture(this.kKnight);
     gEngine.Textures.unloadTexture(this.BagTexture);
     gEngine.Textures.unloadTexture(this.CursorTexture);
@@ -238,7 +244,7 @@ MyPalace.prototype.initialize = function () {
 
     gEngine.AudioClips.playBackgroundAudio(this.BGM);
 
-     this.bgForest = new TextureRenderable(this.bgForestTexture1);
+    this.bgForest = new TextureRenderable(this.bgForestTexture1);
     this.bgForest.setColor([0,0,0,0]);
     this.bgForest.getXform().setSize(2000,600);
     this.bgForest.getXform().setPosition(1000,300);
@@ -246,11 +252,11 @@ MyPalace.prototype.initialize = function () {
     this.bgForest2.setColor([0, 0, 0, 0]);
     this.bgForest2.getXform().setSize(2000,600);
     this.bgForest2.getXform().setPosition(3000,300);
-    this.bgForest3 = new TextureRenderable(this.bgForestTexture1);
+    this.bgForest3 = new TextureRenderable(this.bgForestTexture3);
     this.bgForest3.setColor([0, 0, 0, 0]);
     this.bgForest3.getXform().setSize(2000,600);
     this.bgForest3.getXform().setPosition(5000,300);
-    this.bgForest4 = new TextureRenderable(this.bgForestTexture2);
+    this.bgForest4 = new TextureRenderable(this.bgForestTexture4);
     this.bgForest4.setColor([0, 0, 0, 0]);
     this.bgForest4.getXform().setSize(2000,600);
     this.bgForest4.getXform().setPosition(7000,300);
@@ -262,11 +268,11 @@ MyPalace.prototype.initialize = function () {
     this.bgForest6.setColor([0, 0, 0, 0]);
     this.bgForest6.getXform().setSize(2000,600);
     this.bgForest6.getXform().setPosition(11000,300);
-    this.bgForest7 = new TextureRenderable(this.bgForestTexture1);
+    this.bgForest7 = new TextureRenderable(this.bgForestTexture3);
     this.bgForest7.setColor([0, 0, 0, 0]);
     this.bgForest7.getXform().setSize(2000,600);
     this.bgForest7.getXform().setPosition(13000,300);
-    this.bgForest8 = new TextureRenderable(this.bgForestTexture2);
+    this.bgForest8 = new TextureRenderable(this.bgForestTexture4);
     this.bgForest8.setColor([0, 0, 0, 0]);
     this.bgForest8.getXform().setSize(2000,600);
     this.bgForest8.getXform().setPosition(15000,300);
@@ -373,7 +379,8 @@ MyPalace.prototype.draw = function () {
 
 
     for(var i=0;i<this.mEventIndex+1;i++){
-        this.mEventSet[i].icon.draw(this.mCamera);
+        if(this.mEventSet[i])
+            this.mEventSet[i].icon.draw(this.mCamera);
     }
     this.mKnight.draw(this.mCamera);
     this.bgMsg.draw(this.mCamera);
@@ -514,7 +521,9 @@ MyPalace.prototype.update = function () {
         var act = this.mEventSet[this.mEventIndex].action;
         this.SendMessage(info, act[0].content, act[1].content,act[2].content,"","");
         this.mEventIndex++;
-        this.mEventSet.push(new EventPalace(this.mEventIndex, this.eventFlag));
+        if(this.mEventIndex<this.mEventNum)
+            this.mEventSet.push(new EventPalace(this.mEventIndex, this.eventFlag));
+        console.log(this.mEventSet);
     }
 
     if(this.isBagOpened==true){

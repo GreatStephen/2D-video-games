@@ -50,16 +50,16 @@ function EventPalace(num, type){
 // possible results
     var AllResultPalace=[
         // common
-        new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-        new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
-        new Result("Fail to escape. ",0,0,0,0,0,0,0,0,0,0,0,0.3),
-        new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-        new Result("ok", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+        new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+        new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
+        new Result("Fail to escape. ",0,0,0,0,0,0,0,0, 0, 0,0,0,0,0.3),
+        new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+        new Result("ok", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
 
         // businessman 567
-        new Result("Lose money*80, get a new axe.", 0,0,0,0,0,0,-80,5,1,0,0,1),
-        new Result("Lose timber*2, get a herb.",0,0,0,0,0,0,0,3,1,4,2,1),
-        new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,1),
+        new Result("Lose money*80, get a new axe.", 0,0,0,0,0,0,-80,0,0,5,1,0,0,1),
+        new Result("Lose timber*2, get a herb.",0,0,0,0,0,0,0,0,0,3,1,4,2,1),
+        new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
 
     ];
     AllResultPalace[0].escape = false;
