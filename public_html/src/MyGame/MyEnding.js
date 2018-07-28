@@ -79,16 +79,16 @@ MyEnding.prototype.initialize = function () {
     this.Cursor = new TextureRenderable(this.CursorTexture);
     this.Cursor.getXform().setSize(70,90);
     this.Cursor.setColor([1,0,0,0]);
-    this.Cursor.getXform().setPosition(600,500);
+    this.Cursor.getXform().setPosition(150,500);
 
     for(var i=0;i<6;i++){
         var fr;
         if(AllEndings[i].flag)
             fr = new FontRenderable(AllEndings[i].name);
         else
-            fr = new FontRenderable("???");
+            fr = new FontRenderable("     ???      ");
         fr.setColor([1,1,1,1]);
-        fr.getXform().setPosition(650,500-i*70);
+        fr.getXform().setPosition(200,500-i*70);
         fr.setTextHeight(35);
         this.mText.push(fr);
         
@@ -105,7 +105,7 @@ MyEnding.prototype.initialize = function () {
     
     this.bgMsg = new Renderable();
     this.bgMsg.getXform().setPosition(650,300);
-    this.bgMsg.getXform().setSize(900,500);
+    this.bgMsg.getXform().setSize(1100,500);
     this.bgMsg.setColor([0,0,0,0.2]);
 }
 
@@ -141,11 +141,11 @@ MyEnding.prototype.update = function () {
     if(!this.isshow&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Up)){
         this.choice = (this.choice+6-1)%6;
         //var temp = this.Cursor.getXform().mPosition;
-        this.Cursor.getXform().setPosition(600,500-69*this.choice);
+        this.Cursor.getXform().setPosition(150,500-69*this.choice);
     }
     if(!this.isshow&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Down)){
         this.choice = (this.choice+1)%6;
-        this.Cursor.getXform().setPosition(600,500-69*this.choice);
+        this.Cursor.getXform().setPosition(150,500-69*this.choice);
     }
 }
 
