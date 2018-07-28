@@ -1,4 +1,4 @@
-/*
++/*
  * File: MyGame.js
  * This is the logic of our game.
  */
@@ -591,4 +591,5 @@ MyPalace.prototype.SendMessage = function(line1, line2, line3, line4,line5, line
 
     this.isMesOn=true;
 }
+
 
