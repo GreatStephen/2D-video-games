@@ -34,8 +34,8 @@ function MyTown() {
     this.BusinessmanTexture = "assets/businessman.png";
     this.BeggarTexture = "assets/beggar.png";
     this.AssassinTexture = "assets/assassin.png";
-    this.DogTexture = "assets/dog.png";
-    this.WolfTexture = "assets/dog2.png";
+    this.DogTexture = "assets/dog2.png";
+    this.WolfTexture = "assets/wolf.png";
 
     // item texture
     this.apple = "assets/item/0_apple.png";
@@ -118,6 +118,7 @@ function MyTown() {
     this.isIntroOpen = true;
     this.isPrincessLocation = false;
     this.isPrincessAmbition = false;
+    this.BagOpenInMes = false;
 
     //counter
     this.mCounter = 0;
@@ -462,6 +463,10 @@ MyTown.prototype.update = function () {
     }
 
     if(this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
+        if(this.BagOpenInMes==true){
+            this.BagOpenInMes = false;
+            this.isBagOpened = true;
+        }
         this.isMesOn=false;
         this.bgMsg.getXform().setPosition(1000,1000);
         this.mMes1.getXform().setPosition(1000,1000);
@@ -631,7 +636,8 @@ MyTown.prototype.SendMessage = function(line1, line2, line3, line4,line5, line6)
 
     this.mMes1.setText(line11);
     this.mMes1.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]+70-150);
-    this.mMes2.setText(line2);
+    if(typeof(line2)!="undefined")
+        this.mMes2.setText(line2);
     this.mMes2.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]+35-150);
     if(typeof(line3)!="undefined")
         this.mMes3.setText(line3);
