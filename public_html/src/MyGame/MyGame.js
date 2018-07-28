@@ -737,8 +737,8 @@ MyGame.prototype.update = function () {
         // pass through last knight
         if(this.mBag.GetItemIdx(11)!=-1){
             if(this.mEventIndex==15){
-                var action = this.mEventSet[this.mEventIndex].action[2];
-                action.setContent("3. I am a hunter, I have this cape!");
+                var action = this.mEventSet[this.mEventIndex].action[1];
+                action.setContent("2. I am a hunter, I have this cape!");
                 action.setResult([AllResult[37]]);
             }
         }

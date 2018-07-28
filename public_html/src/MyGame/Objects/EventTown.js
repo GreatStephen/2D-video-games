@@ -6,7 +6,7 @@
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
 function EventTown(num) {
-    var AllEventTypeTown = [0,1,1,0,0,0,0,0,0,0,0]; // 11 pics
+    var AllEventTypeTown = [0,0,1,0,0,0,0,0,0,0,0]; // 11 pics
     var AllEventSize_xTown = [150, 180, 350, 250, 140, 340, 200,200,200,200,200];//todo
     var AllEventSize_yTown = [150, 180, 700, 250, 90, 350,200,350,350,200,200];//todo
     var AllEventSpriteSequenceTown = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
@@ -17,7 +17,7 @@ function EventTown(num) {
         {}
 
     ];
-    var AllEventSpeedTown = [0,15,7,0,0,0,15,0,0,0,0];
+    var AllEventSpeedTown = [0,0,7,0,0,0,15,0,0,0,0];
 
     var AllEventMove_xTown = [0,0,0,0,0,0,0,0,0,0,0];
     var AllEventMove_yTown = [-20,-25,-10,20,-100,50,-15,10,-15,-15,-15];
@@ -48,11 +48,11 @@ function EventTown(num) {
     ];
 
     var AllEnemyIdTown=[
-        // mushroom
-        0,
+        // dog
+        4,
 
-        // eagle
-        1,
+        // wolf
+        5,
 
         // knignt
         2,

@@ -126,7 +126,7 @@ var AllEventAct = [
     new Action(),
     // knight
     new Action("1. Fight",[AllResult[4]]),
-    new Action("2. Escape (70% succeed)", [AllResult[5], AllResult[38]]),
+    new Action(),
     new Action(),
     new Action(),
     // appletree
