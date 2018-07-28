@@ -37,8 +37,8 @@ function MyGame() {
     */
 
     // scene background
-    this.bgForestTexture1 = "assets/new_forest5.png";
-    this.bgForestTexture2 = "assets/new_forest6.png";
+    this.bgForestTexture1 = "assets/forest_x5.png";
+    this.bgForestTexture2 = "assets/forest_x6.png";
     this.BagTexture = "assets/bag.png";
     this.kKnight = "assets/Prince_new.png";
     this.CursorTexture = "assets/cursor.png";
