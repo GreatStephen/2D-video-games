@@ -300,6 +300,7 @@ Bag.prototype.update = function(){
            // this.myGame.SendMessage("The duke said he had poisoned the elder king...");
             console.log("item type="+this.itemSet[this.current.type]);
             this.myGame.SendMessage("The prince has been exiled.","As soon as I kill the king, I will be the new king.","                   From Duke","","","");
+           // this.myGame.SendMessage("The duke said he had poisoned the elder king...","","","","","");
         }
     }  
 }

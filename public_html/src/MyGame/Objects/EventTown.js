@@ -17,7 +17,7 @@ function EventTown(num) {
         {}
 
     ];
-    var AllEventSpeedTown = [0,15,7,0,0,0,15,0,0,0,0];
+    var AllEventSpeedTown = [0,0,7,0,0,0,15,0,0,0,0];
 
     var AllEventMove_xTown = [0,0,0,0,0,0,0,0,0,0,0];
     var AllEventMove_yTown = [-20,-25,-10,20,-100,50,-15,10,-15,-15,-15];
@@ -48,11 +48,11 @@ function EventTown(num) {
     ];
 
     var AllEnemyIdTown=[
-        // mushroom
-        0,
+        // dog
+        4,
 
-        // eagle
-        1,
+        // wolf
+        5,
 
         // knignt
         2,
