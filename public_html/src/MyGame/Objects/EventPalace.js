@@ -5,7 +5,7 @@
  */
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
-function EventPalace(num, type){
+function EventPalace(num, isMeetPrincess){
     console.log(num);
     var AllEventTypePalace = [0,1,1,0,0,0,1,0,0,0];
     var AllEventSize_xPalace = [150, 180, 350, 250, 140, 340, 200,200,200,200];//todo
@@ -106,7 +106,7 @@ function EventPalace(num, type){
         new Action(),
         new Action()
     ];
-    AllResultPalace[4].flag = 1;
+    AllResultPalace[4].isMeetPrincess = true;
     var t = Math.floor(Math.random()*2)+3;
     if(num==1)
         t=0;
@@ -114,7 +114,7 @@ function EventPalace(num, type){
         t=6;
     if(num==8)
         t=5;
-    if(num==9&&type>0)
+    if(num==9&&isMeetPrincess)
         t=1;
     if(num==10)
         t=2;

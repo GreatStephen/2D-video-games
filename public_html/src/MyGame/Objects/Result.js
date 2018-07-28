@@ -24,7 +24,7 @@ function Result(msg, Health, mHealth, Hunger, mHunger, atk, def, money, isPrince
     this.pr = pr; //the probabilities of different result
     this.isPrincessLocation = isPrincessLocation;
     this.isPrincessAmbition = isPrincessAmbition;
-    this.flag = -1;
+    this.isMeetPrincess = false;
 }
 
 Result.prototype.apply = function(mygame, enemy){
@@ -65,7 +65,9 @@ Result.prototype.apply = function(mygame, enemy){
         mygame.isPrincessAmbition=true;
         console.log("isPrincessAmbition");
     }
-
+    if(this.isMeetPrincess){
+        mygame.isMeetPrincess = true;
+    }
     
     //update items
     if(this.getItemNum>0){
@@ -88,9 +90,6 @@ Result.prototype.apply = function(mygame, enemy){
     mygame.mDefense.setText("Defense: " + mygame.mDefenseValue);
     mygame.mMoneyTexture.setText("Money: " + mygame.mMoneyValue);
     //console.log(this.flag);
-    if(this.flag>0){
-        
-        mygame.eventFlag = this.flag;
-    }
+    
     return this.msg;
 }

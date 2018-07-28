@@ -110,7 +110,7 @@ function MyPalace() {
     this.isIntroOpen = true;
     this.isPrincessLocation = false;
     this.isPrincessAmbition = false;
-    this.eventFlag = -1;
+    this.isMeetPrincess = false;
 
     //counter
     this.mCounter = 0;
@@ -352,7 +352,7 @@ MyPalace.prototype.initialize = function () {
     //event, action and result
     //this.mEventSet = new EventPalaceSet(this.mEventNum);
     this.mEventSet = [];
-    this.mEventSet.push(new EventPalace(1, this.eventFlag));
+    this.mEventSet.push(new EventPalace(1, this.isMeetPrincess));
 
     
 
@@ -457,7 +457,7 @@ MyPalace.prototype.update = function () {
         this.mMes6.getXform().setPosition(1000,1000);
     }
 
-    if(this.isMesOn && !this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.One)){
+    if(this.isMesOn && !this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.One) && this.mEventSet[this.mEventIndex-1].action[0].content){
         console.log(this.mEventSet[this.mEventIndex-1].action[0]);
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[0].getResult();
@@ -466,7 +466,7 @@ MyPalace.prototype.update = function () {
         var msg = res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
         this.SendMessage(msg,"","","","","");
     }
-    if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Two)){
+    if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Two) && this.mEventSet[this.mEventIndex-1].action[1].content){
         //console.log(this.mEventSet[this.mEventIndex-1].action[1]);
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[1].getResult();
@@ -475,10 +475,19 @@ MyPalace.prototype.update = function () {
         var msg = res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
         this.SendMessage(msg,"","","","","");
     }
-    if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Three)){
+    if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Three) && this.mEventSet[this.mEventIndex-1].action[2].content){
         //console.log(this.mEventSet[this.mEventIndex-1].action[1]);
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[2].getResult();
+        console.log("res");
+        console.log(res);
+        res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
+        this.SendMessage(res.msg,"","","","","");
+    }
+    if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Four) && this.mEventSet[this.mEventIndex-1].action[3].content){
+        //console.log(this.mEventSet[this.mEventIndex-1].action[1]);
+        this.hasChosen = true;
+        var res = this.mEventSet[this.mEventIndex-1].action[3].getResult();
         console.log("res");
         console.log(res);
         res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
@@ -522,7 +531,7 @@ MyPalace.prototype.update = function () {
         this.SendMessage(info, act[0].content, act[1].content,act[2].content,"","");
         this.mEventIndex++;
         if(this.mEventIndex<this.mEventNum)
-            this.mEventSet.push(new EventPalace(this.mEventIndex, this.eventFlag));
+            this.mEventSet.push(new EventPalace(this.mEventIndex, this.isMeetPrincess));
         console.log(this.mEventSet);
     }
 
