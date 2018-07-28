@@ -45,11 +45,11 @@ var AllResult=[
     new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0.7),
 
     // eagle 2 3
-    new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0, 1),
+    new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
     new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0.7),
 
     // knignt 4 5
-    new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+    new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
     new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0.7),
 
     // appletree 6 7 8 9 10

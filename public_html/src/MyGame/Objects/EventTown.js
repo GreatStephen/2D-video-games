@@ -22,8 +22,8 @@ function EventTown(num) {
     var AllEventMove_xTown = [0,0,0,0,0,0,0,0,0,0,0];
     var AllEventMove_yTown = [-20,-25,-10,20,-100,50,-15,10,-15,-15,-15];
 
-    var AllEventIconTown = ["assets/mushroom.png",
-        "assets/eagle.png",
+    var AllEventIconTown = ["assets/dog2.png",
+        "assets/wolf.png",
         "assets/Knight_New.png",
         "assets/appletree.png",
         "assets/pond.png",
@@ -34,8 +34,8 @@ function EventTown(num) {
         "assets/businessman.png",
         "assets/beggar.png"
     ];
-    var AllEventInfTown = ["This is a monster mushroom!",
-        "This is an evil eagle!",
+    var AllEventInfTown = ["This is a god damn dog!",
+        "This is a fierce wolf",
         "This is a guard in the forest!",
         "I see an apple tree.",
         "This is a serene pond.",
