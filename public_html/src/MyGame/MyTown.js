@@ -32,6 +32,7 @@ function MyTown() {
     this.VillagerTexture = "assets/villager.png";
     this.WizardTexture = "assets/wizard.png";
     this.BusinessmanTexture = "assets/businessman.png";
+    this.BeggarTexture = "assets/beggar.png";
 
     // item texture
     this.apple = "assets/item/0_apple.png";
@@ -138,6 +139,7 @@ MyTown.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.VillagerTexture);
     gEngine.Textures.loadTexture(this.WizardTexture);
     gEngine.Textures.loadTexture(this.BusinessmanTexture);
+    gEngine.Textures.loadTexture(this.BeggarTexture);
 
 
     gEngine.Textures.loadTexture(this.IntroTexture);
@@ -179,6 +181,8 @@ MyTown.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.VillagerTexture);
     gEngine.Textures.unloadTexture(this.WizardTexture);
     gEngine.Textures.unloadTexture(this.BusinessmanTexture);
+    gEngine.Textures.unloadTexture(this.BeggarTexture);
+
 
     gEngine.Textures.unloadTexture(this.apple);
     gEngine.Textures.unloadTexture(this.meat);

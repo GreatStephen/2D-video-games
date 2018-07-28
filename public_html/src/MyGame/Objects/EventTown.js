@@ -6,9 +6,9 @@
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
 function EventTown(num) {
-    var AllEventTypeTown = [0,1,1,0,0,0,1,0,0,0];
-    var AllEventSize_xTown = [150, 180, 350, 250, 140, 340, 200,200,200,200];//todo
-    var AllEventSize_yTown = [150, 180, 700, 250, 90, 350,200,350,350,200];//todo
+    var AllEventTypeTown = [0,1,1,0,0,0,1,0,0,0,0]; // 11 pics
+    var AllEventSize_xTown = [150, 180, 350, 250, 140, 340, 200,200,200,200,200];//todo
+    var AllEventSize_yTown = [150, 180, 700, 250, 90, 350,200,350,350,200,200];//todo
     var AllEventSpriteSequenceTown = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
         {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
         {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
@@ -17,10 +17,10 @@ function EventTown(num) {
         {}
 
     ];
-    var AllEventSpeedTown = [0,15,7,0,0,0,15,0,0,0];
+    var AllEventSpeedTown = [0,15,7,0,0,0,15,0,0,0,0];
 
-    var AllEventMove_xTown = [0,0,0,0,0,0,0,0,0,0];
-    var AllEventMove_yTown = [-20,-25,-10,20,-100,50,-15,10,-15,-15];
+    var AllEventMove_xTown = [0,0,0,0,0,0,0,0,0,0,0];
+    var AllEventMove_yTown = [-20,-25,-10,20,-100,50,-15,10,-15,-15,0];
 
     var AllEventIconTown = ["assets/mushroom.png",
         "assets/eagle.png",
@@ -31,7 +31,8 @@ function EventTown(num) {
         "assets/hunter.png",
         "assets/villager.png",
         "assets/villager.png",
-        "assets/businessman.png"
+        "assets/businessman.png",
+        "assets/beggar.png"
     ];
     var AllEventInfTown = ["This is a monster mushroom!",
         "This is an evil eagle!",
@@ -42,7 +43,8 @@ function EventTown(num) {
         "Assassin: I was ordered to kill you today",
         "Villager: I think you are the prince!",
         "Villager: Life is getting harder",
-        "Do you have anything to trade?"
+        "Do you have anything to trade?",
+        "Can you give me some coins?"
     ];
 
     var AllEnemyIdTown=[
@@ -113,13 +115,17 @@ function EventTown(num) {
         new Result("Lose money*80, get a new axe.", 0,0,0,0,0,0,-80,5,1,0,0,1),
         new Result("Lose timber*2, get a herb.",0,0,0,0,0,0,0,3,1,4,2,1),
         new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,1),
-        new Result("",0,0,0,0,0,0,0,0,0,0,0,1),
+        new Result("error35",0,0,0,0,0,0,0,0,0,0,0,1),
 
         // pass last knight 35
         new Result("The town guard thinks you are a hunter, let you in.",0,0,0,0,0,0,0,0,0,0,0,1),
 
         // escape fail 36
-        new Result("Fail to escape. ",0,0,0,0,0,0,0,0,0,0,0,0.3)
+        new Result("Fail to escape. ",0,0,0,0,0,0,0,0,0,0,0,0.3),
+
+        // beggar 37 38
+        new Result("Received a key.",0,0,0,0,0,0,0,12,1,0,0,1),
+        new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,1)
 
     ];
     AllResultTown[0].escape = false;
@@ -186,18 +192,24 @@ function EventTown(num) {
         new Action("1. 80 gold for an axe", [AllResultTown[31]]),
         new Action("2. timber*2 for an herb", [AllResultTown[32]]),
         new Action("3. leave",[AllResultTown[33]]),
+        new Action(),
+
+        // beggar
+        new Action("1. Give him money", [AllResultTown[37]]),
+        new Action("2. Fuck off", [AllResultTown[38]]),
+        new Action(),
         new Action()
 
     ];
 
-    var t = Math.floor(Math.random()*9);
-    while((t>=6 && t<=9)){
+    var t = Math.floor(Math.random()*10);
+    while((t>=6 && t<=10)){
         t = Math.floor(Math.random()*6);
     }
 
     if(num==3){
         // beggar, the key
-        t=7;
+        t=10;
     }
     else if(num==5){
         // businessman
