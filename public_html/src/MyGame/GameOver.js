@@ -92,7 +92,7 @@ GameOver.prototype.initialize = function () {
 }
 
 GameOver.prototype.draw = function () {
-    gEngine.Core.clearCanvas([0, 0, 0, 1.0]);
+    gEngine.Core.clearCanvas([1, 1, 1, 1.0]);
 
     this.mCamera.setupViewProjection();
     this.Ending.draw(this.mCamera);
