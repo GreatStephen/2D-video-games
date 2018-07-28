@@ -55,7 +55,10 @@ MyMenu.prototype.unloadScene = function () {
     //开始游戏
     gEngine.AudioClips.stopBackgroundAudio();
     gEngine.AudioClips.unloadAudio(this.BGM);
-    var mygame = new MyGame();
+    if(this.choice == 2)
+        var mygame = new MyEnding();
+    else
+        var mygame = new MyGame();
     gEngine.Core.startScene(mygame);
 }
 
@@ -130,36 +133,23 @@ MyMenu.prototype.draw = function () {
 }
 
 MyMenu.prototype.update = function () {
-    if(this.choice==0&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Enter)){
-        gEngine.GameLoop.stop();
-    }
-    if(this.choice==1&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Enter)){
-        this.isHelpOpen=true;
+    if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Enter)){
+        if(this.choice == 0||this.choice == 2)
+            gEngine.GameLoop.stop();
+        else if(this.choice==1)
+            this.isHelpOpen=true;
     }
     if(this.isHelpOpen==true&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
         this.isHelpOpen=false;
     }
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Up)){
-        var temp = this.Cursor.getXform().mPosition;
-        if(this.choice>0){           
-            this.Cursor.getXform().setPosition(temp[0],temp[1]+67);
-            this.choice -= 1;
-        }
-        else{
-            this.Cursor.getXform().setPosition(temp[0],temp[1]-67*2);
-            this.choice = 2;
-        }
+        this.choice = (this.choice+3-1)%3;
+        //var temp = this.Cursor.getXform().mPosition;
+        this.Cursor.getXform().setPosition(830,250-67*this.choice);
     }
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Down)){
-        var temp = this.Cursor.getXform().mPosition;
-        if(this.choice<2){
-            var temp = this.Cursor.getXform().mPosition;
-            this.Cursor.getXform().setPosition(temp[0],temp[1]-67);
-            this.choice += 1;
-        }
-        else{
-            this.Cursor.getXform().setPosition(temp[0],temp[1]+67*2);
-            this.choice = 0;
-        }
+        this.choice = (this.choice+1)%3;
+        //var temp = this.Cursor.getXform().mPosition;
+        this.Cursor.getXform().setPosition(830,250-67*this.choice);
     }
 }
