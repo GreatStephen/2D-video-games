@@ -3,3 +3,4 @@ nbproject/project.properties
 nbproject/project.properties
 /nbproject/private/
 public_html/src/MyGame/MyGame.js
+public_html/src/MyGame/Objects/Bag.js
