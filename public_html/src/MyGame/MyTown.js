@@ -118,6 +118,7 @@ function MyTown() {
     this.isIntroOpen = true;
     this.isPrincessLocation = false;
     this.isPrincessAmbition = false;
+    this.BagOpenInMes = false;
 
     //counter
     this.mCounter = 0;
@@ -462,6 +463,10 @@ MyTown.prototype.update = function () {
     }
 
     if(this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
+        if(this.BagOpenInMes==true){
+            this.BagOpenInMes = false;
+            this.isBagOpened = true;
+        }
         this.isMesOn=false;
         this.bgMsg.getXform().setPosition(1000,1000);
         this.mMes1.getXform().setPosition(1000,1000);
