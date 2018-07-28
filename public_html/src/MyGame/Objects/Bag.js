@@ -295,6 +295,7 @@ Bag.prototype.update = function(){
             }
         }
         else if(this.itemSet[this.current].type==4){
+            this.myGame.SendMessage("The duke said he had poisoned the elder king...");
             console.log("item type="+this.itemSet[this.current.type]);
             this.myGame.SendMessage("The duke said he had poisoned the elder king...","","","","","");
         }
