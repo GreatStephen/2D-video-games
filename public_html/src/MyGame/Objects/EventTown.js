@@ -61,71 +61,70 @@ function EventTown(num) {
 // possible results
     var AllResultTown=[
         // mushroom 0 1
-        new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-        new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
+        new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 1),
+        new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0.7),
 
         // eagle 2 3
-        new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-        new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
+        new Result("Fight result: ", 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0, 0, 1),
+        new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0, 0, 0.7),
 
         // knignt 4 5
-        new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-        new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
+        new Result("Fight result: ", 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0, 0, 1),
+        new Result("Escape successfully. ", 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0, 0, 0, 0.7),
 
         // appletree 6 7 8 9 10
-        new Result("Get apple *1",0,0,0,0,0,0,0,0,1,0,0,0.8),
-        new Result("Get nothing",0,0,0,0,0,0,0,-1,-1,0,0,0.2),
-        new Result("Get herb *1",0,0,0,0,0,0,0,3,1,0,0,0.2),
-        new Result("Get timber *1",0,0,0,0,0,0,0,4,1,0,0,0.8),
-        new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+        new Result("Get apple *1",0,0,0,0,0,0,0,0,0,0,1,0,0,0.8),
+        new Result("Get nothing",0,0,0,0,0,0,0,0,0,-1,-1,0,0,0.2),
+        new Result("Get herb *1",0,0,0,0,0,0,0,0,0,3,1,0,0,0.2),
+        new Result("Get timber *1",0,0,0,0,0,0,0,0,0,4,1,0,0,0.8),
+        new Result("Get nothing", 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0, 0, 0, 1),
 
         // pond 11 12 13 14
-        new Result("Hunger +10",0,0,+10,0,0,0,0,-1,-1,0,0,1),
-        new Result("Get fish *1", 0,0,0,0,0,0,0,2,1,0,0,0.8),
-        new Result("Get a key...", 0,0,0,0,0,0,0,12,1,0,0,0.2),
-        new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+        new Result("Hunger +10",0,0,+10,0,0,0,0,0,0,-1,-1,0,0,1),
+        new Result("Get fish *1", 0,0,0,0,0,0,0,0,0,2,1,0,0,0.8),
+        new Result("Get a key...", 0,0,0,0,0,0,0,0,0,12,1,0,0,0.2),
+        new Result("Get nothing", 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0, 0, 0, 1),
 
         // treasure  case 15 16 17
-        new Result("Money(Apple) *1",0,0,0,0,0,0,0,0,1,0,0,0.4),
-        new Result("Money(Apple) *2", 0,0,0,0,0,0,0,0,2,0,0,0.6),
-        new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+        new Result("Money(Apple) *1",0,0,0,0,0,0,0,0,0,0,1,0,0,0.4),
+        new Result("Money(Apple) *2", 0,0,0,0,0,0,0,0,0,0,2,0,0,0.6),
+        new Result("Get nothing", 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0, 0, 1),
 
         // ruins 18 19 20 21
-        new Result("Money *10", 0,0,0,0,0,0,10,0,0,0,0,0.3),
-        new Result("Get timber *2", 0,0,0,0,0,0,0,4,2,0,0,0.3),
-        new Result("Get herb *2", 0,0,0,0,0,0,0,3,2,0,0,0.4),
-        new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+        new Result("Money *10", 0,0,0,0,0,0,10,0,0,0,0,0,0,0.3),
+        new Result("Get timber *2", 0,0,0,0,0,0,0,0,0,4,2,0,0,0.3),
+        new Result("Get herb *2", 0,0,0,0,0,0,0,0,0,3,2,0,0,0.4),
+        new Result("Get nothing", 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0, 0, 1),
 
         // assassin 22 23 24 25
-        new Result("Get a piece of paper from his corpse.", 0,0,0,0,0,0,0,14,1,0,0,1),
-        new Result("Defeated, you lose 30HP", -30,0,0,0,0,0,0,0,0,0,0,0.5),
-        new Result("Knock him down, get meat *2", 0,0,0,0,0,0,0,1,2,0,0,0.5),
-        new Result("You leave.", 0,0,0,0,0,0,0,0,0,0,0,1),
+        new Result("Get a piece of paper from his corpse.", 0,0,0,0,0,0,0,0,0,14,1,0,0,1),
+        new Result("Defeated, you lose 30HP", -30,0,0,0,0,0,0,0,0,0,0,0,0,0.5),
+        new Result("Knock him down, get meat *2", 0,0,0,0,0,0,0,0,0,1,2,0,0,0.5),
+        new Result("You leave.", 0,0,0,0,0,0,0,0,0,0,0,0,0,1),
 
 
         // villager 26 27 28 29 30
-        new Result("The princess moved to a secret castle.", 0,0,0,0,0,0,0,0,0,0,0,1),
-        new Result("Get herb *1", 0,0,0,0,0,0,0,0,3,0,0,0.6),
-        new Result("The villager doesn't give you anything.", 0,0,0,0,0,0,0,0,0,0,0,0.4),
-        new Result("You kill him, lose 10HP.", -10,0,0,0,0,0,0,0,0,0,0,1),
-
-        new Result("The princess seemed to be chasing the crown!",0,0,0,0,0,0,0,0,0,0,0,1),
+        new Result("The princess moved to a secret castle.", 0,0,0,0,0,0,0,1,0,0,0,0,0,1),
+        new Result("Get herb *1", 0,0,0,0,0,0,0,0,0,0,3,0,0,0.6),
+        new Result("The villager doesn't give you anything.", 0,0,0,0,0,0,0,0,0,0,0,0,0,0.4),
+        new Result("You kill him, lose 10HP.", -10,0,0,0,0,0,0,0,0,0,0,0,0,1),
+        new Result("The princess seemed to be chasing the crown!",0,0,0,0,0,0,0,0,1,0,0,0,0,1),
 
         // businessman 31 32 33 34
-        new Result("Lose money*80, get a new axe.", 0,0,0,0,0,0,-80,5,1,0,0,1),
-        new Result("Lose timber*2, get a herb.",0,0,0,0,0,0,0,3,1,4,2,1),
-        new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,1),
-        new Result("error35",0,0,0,0,0,0,0,0,0,0,0,1),
+        new Result("Lose money*80, get a new axe.", 0,0,0,0,0,0,-80,0,0,5,1,0,0,1),
+        new Result("Lose timber*2, get a herb.",0,0,0,0,0,0,0,0,0,3,1,4,2,1),
+        new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+        new Result("error35",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
 
         // pass last knight 35
-        new Result("The town guard thinks you are a hunter, let you in.",0,0,0,0,0,0,0,0,0,0,0,1),
+        new Result("The town guard thinks you are a hunter, let you in.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
 
         // escape fail 36
-        new Result("Fail to escape. ",0,0,0,0,0,0,0,0,0,0,0,0.3),
+        new Result("Fail to escape. ",0,0,0,0,0,0,0,0,0,0,0,0,0,0.3),
 
         // beggar 37 38
-        new Result("Received a key.",0,0,0,0,0,0,0,12,1,0,0,1),
-        new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,1)
+        new Result("Received a key.",0,0,0,0,0,0,0,0,0,12,1,0,0,1),
+        new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,0,0,1)
 
     ];
     AllResultTown[0].escape = false;
