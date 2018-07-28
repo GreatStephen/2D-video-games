@@ -14,7 +14,8 @@
 function MyTown() {
 
     // scene background
-    this.bgTownTexture = "assets/forest3.png";
+    this.bgForestTexture1 = "assets/Town/Town_1.png";
+    this.bgForestTexture2 = "assets/Town/Town_2.png";
     this.BagTexture = "assets/bag.png";
     this.kKnight = "assets/Prince_new.png";
     this.CursorTexture = "assets/cursor.png";
@@ -121,7 +122,8 @@ gEngine.Core.inheritPrototype(MyTown, Scene);
 
 MyTown.prototype.loadScene = function () {
 
-    gEngine.Textures.loadTexture(this.bgTownTexture);
+    gEngine.Textures.loadTexture(this.bgForestTexture1);
+    gEngine.Textures.loadTexture(this.bgForestTexture2);
     gEngine.Textures.loadTexture(this.kKnight);
     gEngine.Textures.loadTexture(this.BagTexture);
     gEngine.Textures.loadTexture(this.CursorTexture);
@@ -165,7 +167,8 @@ MyTown.prototype.loadScene = function () {
 
 MyTown.prototype.unloadScene = function () {
 
-    gEngine.Textures.unloadTexture(this.bgTownTexture);
+    gEngine.Textures.unloadTexture(this.bgForestTexture1);
+    gEngine.Textures.unloadTexture(this.bgForestTexture2);
     gEngine.Textures.unloadTexture(this.kKnight);
     gEngine.Textures.unloadTexture(this.BagTexture);
     gEngine.Textures.unloadTexture(this.CursorTexture);
@@ -230,39 +233,39 @@ MyTown.prototype.initialize = function () {
 
     gEngine.AudioClips.playBackgroundAudio(this.BGM);
 
-    this.bgForest = new TextureRenderable(this.bgTownTexture);
+     this.bgForest = new TextureRenderable(this.bgForestTexture1);
     this.bgForest.setColor([0,0,0,0]);
     this.bgForest.getXform().setSize(2000,600);
     this.bgForest.getXform().setPosition(1000,300);
-    this.bgForest2 = new TextureRenderable(this.bgTownTexture);
+    this.bgForest2 = new TextureRenderable(this.bgForestTexture2);
     this.bgForest2.setColor([0, 0, 0, 0]);
     this.bgForest2.getXform().setSize(2000,600);
     this.bgForest2.getXform().setPosition(3000,300);
-    this.bgForest3 = new TextureRenderable(this.bgTownTexture);
+    this.bgForest3 = new TextureRenderable(this.bgForestTexture1);
     this.bgForest3.setColor([0, 0, 0, 0]);
     this.bgForest3.getXform().setSize(2000,600);
     this.bgForest3.getXform().setPosition(5000,300);
-    this.bgForest4 = new TextureRenderable(this.bgTownTexture);
+    this.bgForest4 = new TextureRenderable(this.bgForestTexture2);
     this.bgForest4.setColor([0, 0, 0, 0]);
     this.bgForest4.getXform().setSize(2000,600);
     this.bgForest4.getXform().setPosition(7000,300);
-    this.bgForest5 = new TextureRenderable(this.bgTownTexture);
+    this.bgForest5 = new TextureRenderable(this.bgForestTexture1);
     this.bgForest5.setColor([0,0,0,0]);
     this.bgForest5.getXform().setSize(2000,600);
     this.bgForest5.getXform().setPosition(9000,300);
-    this.bgForest6 = new TextureRenderable(this.bgTownTexture);
+    this.bgForest6 = new TextureRenderable(this.bgForestTexture2);
     this.bgForest6.setColor([0, 0, 0, 0]);
     this.bgForest6.getXform().setSize(2000,600);
     this.bgForest6.getXform().setPosition(11000,300);
-    this.bgForest7 = new TextureRenderable(this.bgTownTexture);
+    this.bgForest7 = new TextureRenderable(this.bgForestTexture1);
     this.bgForest7.setColor([0, 0, 0, 0]);
     this.bgForest7.getXform().setSize(2000,600);
     this.bgForest7.getXform().setPosition(13000,300);
-    this.bgForest8 = new TextureRenderable(this.bgTownTexture);
+    this.bgForest8 = new TextureRenderable(this.bgForestTexture2);
     this.bgForest8.setColor([0, 0, 0, 0]);
     this.bgForest8.getXform().setSize(2000,600);
     this.bgForest8.getXform().setPosition(15000,300);
-    this.bgForest9 = new TextureRenderable(this.bgTownTexture);
+    this.bgForest9 = new TextureRenderable(this.bgForestTexture1);
     this.bgForest9.setColor([0, 0, 0, 0]);
     this.bgForest9.getXform().setSize(2000,600);
     this.bgForest9.getXform().setPosition(17000,300);
