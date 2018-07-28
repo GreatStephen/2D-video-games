@@ -34,8 +34,8 @@ function EventTown(num) {
         "assets/businessman.png",
         "assets/beggar.png"
     ];
-    var AllEventInfTown = ["This is a monster mushroom!",
-        "This is an evil eagle!",
+    var AllEventInfTown = ["This is a god damn dog!",
+        "This is a fierce wolf",
         "This is a guard in the forest!",
         "I see an apple tree.",
         "This is a serene pond.",
