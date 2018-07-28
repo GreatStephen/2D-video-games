@@ -56,6 +56,9 @@ function EventTown(num) {
 
         // knignt
         2,
+
+        // assassin
+        -1,-1,-1,6
     ];
 
 // possible results

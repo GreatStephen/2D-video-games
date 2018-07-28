@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3602db3-c356-4238-8c90-350eabf4f048" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/public_html/src/MyGame/MyGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/src/MyGame/MyGame.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public_html/src/MyGame/Objects/Bag.js" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/src/MyGame/Objects/Bag.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public_html/src/MyGame/Objects/Enemy.js" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/src/MyGame/Objects/Enemy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public_html/src/MyGame/Objects/Event.js" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/src/MyGame/Objects/Event.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public_html/src/MyGame/Objects/EventTown.js" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/src/MyGame/Objects/EventTown.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -36,13 +33,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="135" />
-          <entry key="js" value="7132" />
+          <entry key="js" value="7201" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="135" />
-          <entry key="JavaScript" value="7132" />
+          <entry key="JavaScript" value="7201" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -61,7 +58,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/MyGame.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="327">
@@ -88,8 +85,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/EventTown.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+            <state relative-caret-position="62">
+              <caret line="60" column="18" selection-start-line="60" selection-start-column="18" selection-end-line="60" selection-end-column="18" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -121,11 +118,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Enemy.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-76">
-              <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+            <state relative-caret-position="209">
+              <caret line="11" column="71" selection-start-line="11" selection-start-column="71" selection-end-line="11" selection-end-column="71" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -136,8 +133,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Event.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="128" column="15" selection-start-line="128" selection-start-column="15" selection-end-line="128" selection-end-column="15" />
+            <state relative-caret-position="285">
+              <caret line="132" column="18" lean-forward="true" selection-start-line="132" selection-start-column="18" selection-end-line="132" selection-end-column="18" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -192,10 +189,10 @@
         <option value="$PROJECT_DIR$/public_html/src/MyGame/Objects/Action.js" />
         <option value="$PROJECT_DIR$/public_html/src/MyGame/MyTown.js" />
         <option value="$PROJECT_DIR$/public_html/src/MyGame/Objects/Bag.js" />
-        <option value="$PROJECT_DIR$/public_html/src/MyGame/Objects/EventTown.js" />
-        <option value="$PROJECT_DIR$/public_html/src/MyGame/Objects/Enemy.js" />
         <option value="$PROJECT_DIR$/public_html/src/MyGame/Objects/Event.js" />
         <option value="$PROJECT_DIR$/public_html/src/MyGame/MyGame.js" />
+        <option value="$PROJECT_DIR$/public_html/src/MyGame/Objects/EventTown.js" />
+        <option value="$PROJECT_DIR$/public_html/src/MyGame/Objects/Enemy.js" />
       </list>
     </option>
   </component>
@@ -297,12 +294,12 @@
       <workItem from="1532661603981" duration="23000" />
       <workItem from="1532696769438" duration="2622000" />
       <workItem from="1532740249973" duration="876000" />
-      <workItem from="1532757526658" duration="18631000" />
+      <workItem from="1532757526658" duration="19880000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101459000" />
+    <option name="totallyTimeSpent" value="102708000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -512,16 +509,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/EventTown.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Item.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="722">
@@ -532,10 +519,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Enemy.js">
+    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/MyGame.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-76">
-          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        <state relative-caret-position="327">
+          <caret line="739" column="70" selection-start-line="739" selection-start-column="70" selection-end-line="739" selection-end-column="70" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -544,18 +531,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Event.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="128" column="15" selection-start-line="128" selection-start-column="15" selection-end-line="128" selection-end-column="15" />
+        <state relative-caret-position="285">
+          <caret line="132" column="18" lean-forward="true" selection-start-line="132" selection-start-column="18" selection-end-line="132" selection-end-column="18" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/MyGame.js">
+    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/EventTown.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="739" column="70" selection-start-line="739" selection-start-column="70" selection-end-line="739" selection-end-column="70" />
+        <state relative-caret-position="62">
+          <caret line="60" column="18" selection-start-line="60" selection-start-column="18" selection-end-line="60" selection-end-column="18" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Enemy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="71" selection-start-line="11" selection-start-column="71" selection-end-line="11" selection-end-column="71" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
