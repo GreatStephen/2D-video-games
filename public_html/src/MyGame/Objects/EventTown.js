@@ -4,242 +4,232 @@
  * and open the template in the editor.
  */
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
-var AllEventIcon = ["assets/mushroom.png",
-    "assets/eagle.png",
-    "assets/Knight_New.png",
-    "assets/appletree.png",
-    "assets/pond.png",
-    "assets/ruins.png",
-    "assets/hunter.png",
-    "assets/villager.png",
-    "assets/wizard.png",
-    "assets/businessman.png"
-];
-var AllEventInf = ["This is a monster mushroom!",
-    "This is an evil eagle!",
-    "This is a guard in the forest!",
-    "I see an apple tree.",
-    "This is a serene pond.",
-    "This is an ancient ruins.",
-    "Hunter:Would you like to give me a hand?",
-    "Villager: Hey, young man!",
-    "Wizard: Poor prince! I can give you something.",
-    "Do you have anything to trade?"
-];
 
-var AllEnemyId=[
-    // mushroom
-    0,
+function EventTown(num) {
+    var AllEventTypeTown = [0,1,1,0,0,0,1,0,0,0];
+    var AllEventSize_xTown = [150, 180, 350, 250, 140, 340, 200,200,200,200];//todo
+    var AllEventSize_yTown = [150, 180, 700, 250, 90, 350,200,350,350,200];//todo
+    var AllEventSpriteSequenceTown = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
+        {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
+        {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
+        {},{},{},
+        {"topPixel":64, "leftPixel":0, "elmWidthInPixel":64, "elmHeightInPixel":64, "numElements":8, "wPaddingInPixel":0},
+        {}
 
-    // eagle
-    1,
+    ];
+    var AllEventSpeedTown = [0,15,7,0,0,0,15,0,0,0];
 
-    // knignt
-    2,
-];
+    var AllEventMove_xTown = [0,0,0,0,0,0,0,0,0,0];
+    var AllEventMove_yTown = [-20,-25,-10,20,-100,50,-15,10,-15,-15];
+
+    var AllEventIconTown = ["assets/mushroom.png",
+        "assets/eagle.png",
+        "assets/Knight_New.png",
+        "assets/appletree.png",
+        "assets/pond.png",
+        "assets/ruins.png",
+        "assets/hunter.png",
+        "assets/villager.png",
+        "assets/villager.png",
+        "assets/businessman.png"
+    ];
+    var AllEventInfTown = ["This is a monster mushroom!",
+        "This is an evil eagle!",
+        "This is a guard in the forest!",
+        "I see an apple tree.",
+        "This is a serene pond.",
+        "This is an ancient ruins.",
+        "Assassin: I was ordered to kill you today",
+        "Villager: I think you are the prince!",
+        "Villager: Life is getting harder",
+        "Do you have anything to trade?"
+    ];
+
+    var AllEnemyIdTown=[
+        // mushroom
+        0,
+
+        // eagle
+        1,
+
+        // knignt
+        2,
+    ];
 
 // possible results
-var AllResult=[
-    // mushroom 0 1
-    new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-    new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
+    var AllResultTown=[
+        // mushroom 0 1
+        new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+        new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
 
-    // eagle 2 3
-    new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-    new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
+        // eagle 2 3
+        new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+        new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
 
-    // knignt 4 5
-    new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-    new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
+        // knignt 4 5
+        new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+        new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7),
 
-    // appletree 6 7 8 9 10
-    new Result("Get apple *1",0,0,0,0,0,0,0,0,1,0,0,0.8),
-    new Result("Get nothing",0,0,0,0,0,0,0,-1,-1,0,0,0.2),
-    new Result("Get herb *1",0,0,0,0,0,0,0,3,1,0,0,0.2),
-    new Result("Get timber *1",0,0,0,0,0,0,0,4,1,0,0,0.8),
-    new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+        // appletree 6 7 8 9 10
+        new Result("Get apple *1",0,0,0,0,0,0,0,0,1,0,0,0.8),
+        new Result("Get nothing",0,0,0,0,0,0,0,-1,-1,0,0,0.2),
+        new Result("Get herb *1",0,0,0,0,0,0,0,3,1,0,0,0.2),
+        new Result("Get timber *1",0,0,0,0,0,0,0,4,1,0,0,0.8),
+        new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
 
-    // pond 11 12 13 14
-    new Result("Hunger +10",0,0,+10,0,0,0,0,-1,-1,0,0,1),
-    new Result("Get fish *1", 0,0,0,0,0,0,0,2,1,0,0,0.8),
-    new Result("Get a key...", 0,0,0,0,0,0,0,12,1,0,0,0.2),
-    new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+        // pond 11 12 13 14
+        new Result("Hunger +10",0,0,+10,0,0,0,0,-1,-1,0,0,1),
+        new Result("Get fish *1", 0,0,0,0,0,0,0,2,1,0,0,0.8),
+        new Result("Get a key...", 0,0,0,0,0,0,0,12,1,0,0,0.2),
+        new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
 
-    // treasure  case 15 16 17
-    new Result("Money(Apple) *1",0,0,0,0,0,0,0,0,1,0,0,0.4),
-    new Result("Money(Apple) *2", 0,0,0,0,0,0,0,0,2,0,0,0.6),
-    new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+        // treasure  case 15 16 17
+        new Result("Money(Apple) *1",0,0,0,0,0,0,0,0,1,0,0,0.4),
+        new Result("Money(Apple) *2", 0,0,0,0,0,0,0,0,2,0,0,0.6),
+        new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
 
-    // ruins 18 19 20 21
-    new Result("Money *10", 0,0,0,0,0,0,10,0,0,0,0,0.3),
-    new Result("Get timber *2", 0,0,0,0,0,0,0,4,2,0,0,0.3),
-    new Result("Get herb *2", 0,0,0,0,0,0,0,3,2,0,0,0.4),
-    new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+        // ruins 18 19 20 21
+        new Result("Money *10", 0,0,0,0,0,0,10,0,0,0,0,0.3),
+        new Result("Get timber *2", 0,0,0,0,0,0,0,4,2,0,0,0.3),
+        new Result("Get herb *2", 0,0,0,0,0,0,0,3,2,0,0,0.4),
+        new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
 
-    // hunter 22 23 24 25
-    new Result("receive the hunter's cape", 0,0,0,0,0,0,0,11,1,0,0,1),
-    new Result("Defeated, you lose 30HP", -30,0,0,0,0,0,0,0,0,0,0,0.5),
-    new Result("Knock him down, get meat *2", 0,0,0,0,0,0,0,1,2,0,0,0.5),
-    new Result("You leave.", 0,0,0,0,0,0,0,0,0,0,0,1),
+        // hunter 22 23 24 25
+        new Result("receive the hunter's cape", 0,0,0,0,0,0,0,11,1,0,0,1),
+        new Result("Defeated, you lose 30HP", -30,0,0,0,0,0,0,0,0,0,0,0.5),
+        new Result("Knock him down, get meat *2", 0,0,0,0,0,0,0,1,2,0,0,0.5),
+        new Result("You leave.", 0,0,0,0,0,0,0,0,0,0,0,1),
 
 
-    // villager 26 27 28 29
-    new Result("The king fall seriously ill.", 0,0,0,0,0,0,0,0,0,0,0,1),
-    new Result("Get apple *1", 0,0,0,0,0,0,0,0,1,0,0,0.6),
-    new Result("The villager doesn't give you anything.", 0,0,0,0,0,0,0,0,0,0,0,0.4),
-    new Result("You leave.", 0,0,0,0,0,0,0,0,0,0,0,1),
+        // villager 26 27 28 29 30
+        new Result("The princess moved to a secret castle.", 0,0,0,0,0,0,0,0,0,0,0,1),
+        new Result("Get herb *1", 0,0,0,0,0,0,0,0,3,0,0,0.6),
+        new Result("The villager doesn't give you anything.", 0,0,0,0,0,0,0,0,0,0,0,0.4),
+        new Result("You kill him, lose 10HP.", -10,0,0,0,0,0,0,0,0,0,0,1),
 
-    // wizard 30 31 32
-    new Result("The wizard gives you a secret bag. Open it when urgent.",0,0,0,0,0,0,0,10,1,0,0,1),//todo
-    new Result("The wizard gives you a treasure case.",0,0,0,0,0,0,0,13,1,0,0,1),//todo
-    new Result("Max HP-30, get a new weapon.",0,-30,0,0,0,0,0,7,1,0,0,1),
+        new Result("The princess seemed to be chasing the crown!",0,0,0,0,0,0,0,0,0,0,0,1),
 
-    // businessman 33 34 35 36
-    new Result("lose money*30, get a new spear.", 0,0,0,0,0,0,-30,6,1,0,0,1),
-    new Result("lose money*30, get a new shield.",0,0,0,0,0,0,-30,9,1,0,0,1),
-    new Result("lose money*20, get an apple.",0,0,0,0,0,0,-20,0,1,0,0,1),
-    new Result("lose timber*2, get an apple.",0,0,0,0,0,0,0,0,1,4,2,1),
+        // businessman 31 32 33 34
+        new Result("Lose money*80, get a new axe.", 0,0,0,0,0,0,-80,5,1,0,0,1),
+        new Result("Lose timber*2, get a herb.",0,0,0,0,0,0,0,3,1,4,2,1),
+        new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,1),
+        new Result("",0,0,0,0,0,0,0,0,0,0,0,1),
 
-    // pass last knight 37
-    new Result("The town guard thinks you are a hunter, let you in.",0,0,0,0,0,0,0,0,0,0,0,1),
+        // pass last knight 35
+        new Result("The town guard thinks you are a hunter, let you in.",0,0,0,0,0,0,0,0,0,0,0,1),
 
-    // escape fail 38
-    new Result("Fail to escape. ",0,0,0,0,0,0,0,0,0,0,0,0.3)
+        // escape fail 36
+        new Result("Fail to escape. ",0,0,0,0,0,0,0,0,0,0,0,0.3)
 
-];
-AllResult[0].escape = false;
-AllResult[2].escape = false;
-AllResult[4].escape = false;
-AllResult[38].escape = false;
+    ];
+    AllResultTown[0].escape = false;
+    AllResultTown[2].escape = false;
+    AllResultTown[4].escape = false;
+    AllResultTown[36].escape = false;
 
 // 4 actions
-var AllEventAct = [
-    // mushroom
-    new Action("1. Fight",[AllResult[0]]),
-    new Action("2. Escape (70% succeed)", [AllResult[1], AllResult[38]]),
-    new Action(),
-    new Action(),
-    // eagle
-    new Action("1. Fight",[AllResult[2]]),
-    new Action("2. Escape (70% succeed)", [AllResult[3], AllResult[38]]),
-    new Action(),
-    new Action(),
-    // knight
-    new Action("1. Fight",[AllResult[4]]),
-    new Action("2. Escape (70% succeed)", [AllResult[5], AllResult[38]]),
-    new Action(),
-    new Action(),
-    // appletree
-    new Action("1. Shake it",[AllResult[6], AllResult[7]]),
-    new Action("2. Cut it down", [AllResult[8], AllResult[9]]),
-    new Action("3. Go away", [AllResult[10]]),
-    new Action(),
+    var AllEventActTown = [
+        // mushroom
+        new Action("1. Fight",[AllResultTown[0]]),
+        new Action("2. Escape (70% succeed)", [AllResultTown[1], AllResultTown[36]]),
+        new Action(),
+        new Action(),
+        // eagle
+        new Action("1. Fight",[AllResultTown[2]]),
+        new Action("2. Escape (70% succeed)", [AllResultTown[3], AllResultTown[36]]),
+        new Action(),
+        new Action(),
+        // knight
+        new Action("1. Fight",[AllResultTown[4]]),
+        new Action("2. Escape (70% succeed)", [AllResultTown[5], AllResultTown[36]]),
+        new Action(),
+        new Action(),
+        // appletree
+        new Action("1. Shake it",[AllResultTown[6], AllResultTown[7]]),
+        new Action("2. Cut it down", [AllResultTown[8], AllResultTown[9]]),
+        new Action("3. Go away", [AllResultTown[10]]),
+        new Action(),
 
-    // pond
-    new Action("1. Drink water", [AllResult[11]]),
-    new Action("2. Catch something", [AllResult[12], AllResult[13]]),
-    new Action("3. Go away", [AllResult[14]]),
-    new Action(),
+        // pond
+        new Action("1. Drink water", [AllResultTown[11]]),
+        new Action("2. Catch something", [AllResultTown[12], AllResultTown[13]]),
+        new Action("3. Go away", [AllResultTown[14]]),
+        new Action(),
 
-    // ruins
-    new Action("1. Search it", [AllResult[18], AllResult[19], AllResult[20]]),
-    new Action("2. Go away", [AllResult[21]]),
-    new Action(),
-    new Action(),
+        // ruins
+        new Action("1. Search it", [AllResultTown[18], AllResultTown[19], AllResultTown[20]]),
+        new Action("2. Go away", [AllResultTown[21]]),
+        new Action(),
+        new Action(),
 
-    // hunter
-    new Action("1. Ok", [AllResult[22]]),
-    new Action("2. Rob him.", [AllResult[23], AllResult[24]]),
-    new Action("3. Sorry, I' m busy.",[AllResult[25]]),
-    new Action(),
+        // hunter
+        new Action("1. Fight with him!", [AllResultTown[22]]),
+        new Action(),
+        new Action(),
+        new Action(),
 
 
-    // villager1
-    new Action("1. Ask about the king.", [AllResult[26]]),
-    new Action("2. Beg for something.(60% succeed)", [AllResult[27], AllResult[28]]),
-    new Action("3. Thanks, but I have to go.",[AllResult[29]]),
-    new Action(),
+        // villager1
+        new Action("1. Talk to him.", [AllResultTown[26]]),
+        new Action("2. Kill him, or he will call the guards!", [AllResultTown[29]]),
+        new Action("3. Beg for something.(60% succeed)",[AllResultTown[27], AllResultTown[28]]),
+        new Action(),
 
-    // wizard
-    new Action("1. I want your precious advice.", [AllResult[30]]),
-    new Action("2. I want a valuable gift from you.", [AllResult[31]]),
-    new Action("3. I want to exchange my max health for a weapon.",[AllResult[32]]),
-    new Action(),
+        // villager2
+        new Action("1. Talk to him.", [AllResultTown[30]]),
+        new Action("2. Kill him, or he will call the guards!", [AllResultTown[29]]),
+        new Action("3. Beg for something.(60% succeed)",[AllResultTown[27], AllResultTown[28]]),
+        new Action(),
 
-    // businessman
-    new Action("1. 30G for a spear.", [AllResult[33]]),
-    new Action("2. 30G for a shield.", [AllResult[34]]),
-    new Action("3. 20G for an apple.",[AllResult[35]]),
-    new Action("4. timber*2 for an apple.",[AllResult[36]])
 
-];
+        // businessman
+        new Action("1. 80 gold for an axe", [AllResultTown[31]]),
+        new Action("2. timber*2 for an herb", [AllResultTown[32]]),
+        new Action("3. leave",[AllResultTown[33]]),
+        new Action()
 
-var AllEventType = [0,1,1,0,0,0,1,0,0,0];
-var AllEventSize_x = [150, 180, 350, 250, 140, 340, 200,200,200,200];//todo
-var AllEventSize_y = [150, 180, 700, 250, 90, 350,200,350,200,200];//todo
-var AllEventSpriteSequence = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
-    {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
-    {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
-    {},{},{},
-    {"topPixel":64, "leftPixel":0, "elmWidthInPixel":64, "elmHeightInPixel":64, "numElements":8, "wPaddingInPixel":0},
-    {}
+    ];
 
-];//todo
-var AllEventSpeed = [0,15,7,0,0,0,15,0,0,0];//todo
-
-var AllEventMove_x = [0,0,0,0,0,0,0,0,0,0];//todo
-var AllEventMove_y = [-20,-25,-10,20,-100,50,-15,10,-15,-15];//todo
-function Event(num) {
-    var t = Math.floor(Math.random()*10);
-    while((t>=6 && t<=9) || t==2){
-        t = Math.floor(Math.random()*10);
+    var t = Math.floor(Math.random()*9);
+    while((t>=6 && t<=9)){
+        t = Math.floor(Math.random()*6);
     }
 
-    if(num==1 || num==2){
-        // 2 fights
-        if(t>=2){
-            t= Math.floor(Math.random()*2);
-        }
-    }
-    else if(num==3){
-        t=3;
+    if(num==3){
+        // beggar, the key
+        t=7;
     }
     else if(num==5){
-        //NO.5 is villager;
-        t = 7;
+        // businessman
+        t=9;
     }
-    else if(num==7){
-        // NO.7 is businessman
-        t = 9;
-    }
-    else if(num==10){
-        //NO.10 is hunter
+
+    else if(num==6){
+        //NO.5 is assassin;
         t = 6;
     }
-    else if(num==13){
-        // NO.13 is wizard
-        t=8;
+    else if(num==9){
+        // NO.7 is villager1
+        t = 7;
     }
-    else if(num==15){
-        // NO.15 is villager
-        t=7;
+    else if(num==12){
+        //NO.10 is villager2
+        t = 8;
+    }
 
-    }
-    else if(num==16){
-        t=2;
-    }
-    //t=(num-1)%10;
 
     //if(num==1)  t=0;
     // type = 1 -> animation
-    this.type = AllEventType[t];
-    this.position = [1000*num+AllEventMove_x[t], 200+AllEventMove_y[t]];
-    this.picture = AllEventIcon[t];
+    console.log("t="+t);
+    this.type = AllEventTypeTown[t];
+    this.position = [1000*num+AllEventMove_xTown[t], 200+AllEventMove_yTown[t]];
+    this.picture = AllEventIconTown[t];
+
     console.log(this.picture);
-    this.size_x = AllEventSize_x[t];
-    this.size_y = AllEventSize_y[t];
-    this.sequence = AllEventSpriteSequence[t];
-    this.speed = AllEventSpeed[t];
+    this.size_x = AllEventSize_xTown[t];
+    this.size_y = AllEventSize_yTown[t];
+    this.sequence = AllEventSpriteSequenceTown[t];
+    this.speed = AllEventSpeedTown[t];
 
     this.icon = null;
     if(this.type==1){
@@ -261,20 +251,21 @@ function Event(num) {
 
 
 
-    this.information = AllEventInf[t];
+    this.information = AllEventInfTown[t];
     this.action = [];
-    this.action.push(AllEventAct[4*t]);
-    this.action.push(AllEventAct[4*t+1]);
-    this.action.push(AllEventAct[4*t+2]);
-    this.action.push(AllEventAct[4*t+3]);
+    this.action.push(AllEventActTown[4*t]);
+    console.log(AllEventActTown[4*t].content);
+    this.action.push(AllEventActTown[4*t+1]);
+    this.action.push(AllEventActTown[4*t+2]);
+    this.action.push(AllEventActTown[4*t+3]);
     this.isBattle = false;
-    if(AllEnemyId[t]>-1)
-        this.enemy = new Enemy(AllEnemyId[t]);
+    if(AllEnemyIdTown[t]>-1)
+        this.enemy = new Enemy(AllEnemyIdTown[t]);
     else
         this.enemy = null;
 
 }
-gEngine.Core.inheritPrototype(Event, GameObject);
+gEngine.Core.inheritPrototype(EventTown, GameObject);
 
 
 
