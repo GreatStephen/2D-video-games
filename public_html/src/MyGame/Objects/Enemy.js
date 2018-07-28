@@ -50,8 +50,10 @@ Enemy.prototype.fight = function (game){
     if(game.mHealthValue <= 0){
         //gEngine.GameLoop.stop();
         if(this.Id == 2){
-            game.ending = 5;
+            game.ending = 2;
         }
+        else if(this.Id == 3)
+            game.ending = 5;
         else
             game.ending = 0;
         msg = "you lose";
@@ -61,9 +63,12 @@ Enemy.prototype.fight = function (game){
     else if(this.numItem>0){
         game.mBag.AddItem(this.dropItemId, this.numItem);
     }
-    console.log(this.money);
     game.mMoneyValue += this.money;
-    console.log(game.mMoneyValue);
+    if(this.Id == 3){
+        game.ending = 7;
+        game.EndGame();
+    }
+        
     msg = "You win, lose " + total + " HP, get " + NameList[this.dropItemId] + " * "+this.numItem+", "+this.money+" gold.";
     return msg;    
 }

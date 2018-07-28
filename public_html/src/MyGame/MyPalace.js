@@ -35,6 +35,7 @@ function MyPalace(isPrincessLocation, isPrincessAmbition) {
     this.WizardTexture = "assets/wizard.png";
     this.BusinessmanTexture = "assets/businessman.png";
     this.BeggarTexture = "assets/beggar.png";
+    this.PrincessTexture = "assets/princess.png";
 
     // item texture
     this.apple = "assets/item/0_apple.png";
@@ -147,6 +148,7 @@ MyPalace.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.WizardTexture);
     gEngine.Textures.loadTexture(this.BusinessmanTexture);
     gEngine.Textures.loadTexture(this.BeggarTexture);
+    gEngine.Textures.loadTexture(this.PrincessTexture);
 
 
     gEngine.Textures.loadTexture(this.IntroTexture);
@@ -191,6 +193,7 @@ MyPalace.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.WizardTexture);
     gEngine.Textures.unloadTexture(this.BusinessmanTexture);
     gEngine.Textures.unloadTexture(this.BeggarTexture);
+    gEngine.Textures.unloadTexture(this.PrincessTexture);
 
 
     gEngine.Textures.unloadTexture(this.apple);
@@ -300,6 +303,7 @@ MyPalace.prototype.initialize = function () {
     this.mAttackValue = temp.mAttackValue;
     this.mDefenseValue = temp.mDefenseValue;
     this.mMoneyValue = temp.mMoneyValue;
+    this.ending = temp.ending;
 
     // message
     this.mMes1 = new FontRenderable("test");

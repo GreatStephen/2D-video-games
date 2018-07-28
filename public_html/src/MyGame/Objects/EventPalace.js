@@ -7,29 +7,31 @@
 
 function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess){
     console.log(num);
-    var AllEventTypePalace = [0,1,1,0,0,0,1,0,0,0];
-    var AllEventSize_xPalace = [150, 180, 350, 250, 140, 340, 200,200,200,200];//todo
-    var AllEventSize_yPalace = [150, 180, 700, 250, 90, 350,200,350,350,200];//todo
+    var AllEventTypePalace = [0,0,1,1,1,0,0,0,0,0];
+    var AllEventSize_xPalace = [150, 180, 350, 350, 350, 340, 200,200,200,200];//todo
+    var AllEventSize_yPalace = [150, 180, 700, 700, 700, 350,200,350,350,200];//todo
     var AllEventSpriteSequencePalace = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
         {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
         {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
-        {},{},{},
+        {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
+        {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},{"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
+        {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
         {"topPixel":64, "leftPixel":0, "elmWidthInPixel":64, "elmHeightInPixel":64, "numElements":8, "wPaddingInPixel":0},
         {}
 
     ];
-    var AllEventSpeedPalace = [0,15,7,0,0,0,15,0,0,0];
+    var AllEventSpeedPalace = [0,15,7,7,7,7,15,0,0,0];
 
     var AllEventMove_xPalace = [0,0,0,0,0,0,0,0,0,0];
-    var AllEventMove_yPalace = [-20,-25,-10,20,-100,50,-15,10,-15,-15];
+    var AllEventMove_yPalace = [-20,-25,-10,-10,-10,50,-15,10,-15,-15];
 
     var AllEventIconPalace = ["assets/mushroom.png",
-        "assets/eagle.png",
+        "assets/princess.png",
         "assets/Knight_New.png",
-        "assets/appletree.png",
-        "assets/pond.png",
+        "assets/Knight_New.png",
+        "assets/Knight_New.png",
         "assets/businessman.png",
-        "assets/hunter.png",
+        "assets/villager.png",
         "assets/villager.png",
         "assets/villager.png",
         "assets/businessman.png"
@@ -44,7 +46,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
     ];
 
     var AllEnemyIdPalace=[
-        -1,-1,0,0,0,-1,-1
+        -1,-1,0,1,3,-1,-1
     ];
 
 // possible results
@@ -60,6 +62,14 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         new Result("Lose money*80, get a new axe.", 0,0,0,0,0,0,-80,0,0,5,1,0,0,1),
         new Result("Lose timber*2, get a herb.",0,0,0,0,0,0,0,0,0,3,1,4,2,1),
         new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+        
+        //8-13
+        new Result("The princess don't believe you are the princess, you are arrested", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
+        new Result("You defeat the king", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
+        new Result("The king give in and give you the crown", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
+        new Result("You defeat the princess", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
+        new Result("You defeat the duke and save the king", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
+        new Result("You defeat the duke but the king died", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
 
     ];
     AllResultPalace[0].escape = false;
@@ -80,8 +90,9 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         new Action(),
         // king
         new Action("1. Fight with him",[AllResultPalace[0]]),
-        new Action("2. Force him to give your crown by the country's power of princess", [AllResultPalace[3]]),
-        new Action("3. persuade him", [AllResultPalace[3]]),
+        new Action("2. Try to persuade him", [AllResultPalace[3]]),
+        new Action(),
+        //new Action("3. Force him to give your crown by the country's power of princess", [AllResultPalace[3]]), 
         new Action(),
         // soldier
         new Action("1. Fight",[AllResultPalace[0]]),
@@ -109,8 +120,16 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
     ];
     AllResultPalace[4].isMeetPrincess = true;
     if(isPrincessAmbition){
-        AllEventActPalace[5] = new Action("2. Reveal her plot", [AllResultPalace[3]]);
+        AllEventActPalace[5] = new Action("2. Reveal her plot", [AllResultPalace[11]]);
     }
+    if(isMeetPrincess){
+        AllEventActPalace[10] = new Action("3. Force him to give your crown by the country's power of princess", [AllResultPalace[10]]);
+    }
+    AllEventActPalace[8].ending = 3;
+    AllEventActPalace[10].ending = 4;
+    AllEventActPalace[11].ending = 11;
+    //AllEventActPalace[4].ending = 4;
+    
     var t = Math.floor(Math.random()*2)+3;
     if(num==1&&isPrincessLocation)
         t=0;

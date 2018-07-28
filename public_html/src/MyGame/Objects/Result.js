@@ -25,11 +25,16 @@ function Result(msg, Health, mHealth, Hunger, mHunger, atk, def, money, isPrince
     this.isPrincessLocation = isPrincessLocation;
     this.isPrincessAmbition = isPrincessAmbition;
     this.isMeetPrincess = false;
+    this.ending = -1;
 }
 
 Result.prototype.apply = function(mygame, enemy){
     //console.log(mygame);
     //check the result
+    if(this.ending>0){
+        mygame.ending = this.ending;
+        mygame.EndGame();
+    }
     if(mygame.mMoneyValue + this.money <0){
         this.msg = "not enough money";
         console.log(this.msg);
