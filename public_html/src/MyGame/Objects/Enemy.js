@@ -11,7 +11,8 @@ var AllEnemy = [{Id:0, msg:"", mHealth:"50", atk:15, def:0, numItem:1, dropItemI
     {Id:3, msg:"", mHealth:"50", atk:15, def:0, numItem:0, dropItemId:0, money:10},
     {Id:4, msg:"", mHealth:"50", atk:15, def:0, numItem:0, dropItemId:0, money:20}, //dog
     {Id:5, msg:"", mHealth:"50", atk:15, def:0, numItem:0, dropItemId:0, money:20},// wolf
-    {Id:6, msg:"", mHealth:"50", atk:15, def:0, numItem:0, dropItemId:0, money:20} // assassin
+    {Id:6, msg:"", mHealth:"50", atk:15, def:0, numItem:0, dropItemId:0, money:20}, // assassin
+    {Id:7, msg:"", mHealth:"100", atk:20, def:5, numItem:0, dropItemId:0, money:0}, // king
     ]
 
 function Enemy(id) {
@@ -52,7 +53,7 @@ Enemy.prototype.fight = function (game){
         if(this.Id == 2){
             game.ending = 2;
         }
-        else if(this.Id == 3)
+        else if(this.Id == 7)
             game.ending = 5;
         else
             game.ending = 0;
@@ -64,7 +65,7 @@ Enemy.prototype.fight = function (game){
         game.mBag.AddItem(this.dropItemId, this.numItem);
     }
     game.mMoneyValue += this.money;
-    if(this.Id == 3){
+    if(this.Id == 7){
         game.ending = 7;
         game.EndGame();
     }
