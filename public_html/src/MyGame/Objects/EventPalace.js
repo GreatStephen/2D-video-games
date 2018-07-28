@@ -46,7 +46,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
     ];
 
     var AllEnemyIdPalace=[
-        -1,-1,0,1,3,-1,-1
+        -1,-1,7,1,1,-1,-1
     ];
 
 // possible results

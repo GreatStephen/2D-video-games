@@ -42,7 +42,11 @@ function GameOver() {
     
     this.BGM = ["assets/Endings/Kan R. Gao - Too Bad So Sad.mp3","assets/Endings/Kan R. Gao - Too Bad So Sad.mp3",
                 "assets/Endings/Kan R. Gao - Too Bad So Sad.mp3","assets/Endings/HappyUkulele.mp3",
-                "assets/Endings/Kan R. Gao - Too Bad So Sad.mp3","assets/Endings/Kan R. Gao - Too Bad So Sad.mp3"];
+                "assets/Endings/Kan R. Gao - Too Bad So Sad.mp3","assets/Endings/Kan R. Gao - Too Bad So Sad.mp3",
+                "assets/Endings/Kan R. Gao - Too Bad So Sad.mp3","assets/Endings/Kan R. Gao - Too Bad So Sad.mp3",
+                "assets/Endings/Kan R. Gao - Too Bad So Sad.mp3","assets/Endings/Kan R. Gao - Too Bad So Sad.mp3",
+                "assets/Endings/Kan R. Gao - Too Bad So Sad.mp3","assets/Endings/Kan R. Gao - Too Bad So Sad.mp3",
+                "assets/Endings/Kan R. Gao - Too Bad So Sad.mp3"];
 }
 
 gEngine.Core.inheritPrototype(GameOver, Scene);
