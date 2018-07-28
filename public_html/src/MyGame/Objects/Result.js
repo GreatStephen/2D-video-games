@@ -5,7 +5,7 @@
  */
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
-function Result(msg, Health, mHealth, Hunger, mHunger, atk, def, money, id, num, id2, num2,  pr) {
+function Result(msg, Health, mHealth, Hunger, mHunger, atk, def, money, isPrincessLocation,isPrincessAmbition ,id, num, id2, num2,  pr) {
     this.Id = -1;
     this.msg = msg;   //the message of result
     this.Health = Health;    //effect to health value
@@ -53,7 +53,18 @@ Result.prototype.apply = function(mygame, enemy){
     }
     mygame.mAttackValue += this.atk;
     mygame.mDefenseValue += this.def;
-    mygame.mMoneyValue += this.money
+    mygame.mMoneyValue += this.money;
+
+    /*
+    if(mygame.isPrincessLocation==false && isPrincessLoation==1){
+        mygame.isPrincessLocation=true;
+        console.log("isPrincessLocation");
+    }
+    if(mygame.isPrincessAmbition==false && isPrincessAmbition==1){
+        mygame.isPrincessAmbition=true;
+        console.log("isPrincessAmbition");
+    }
+    */
     
     //update items
     if(this.getItemNum>0){
