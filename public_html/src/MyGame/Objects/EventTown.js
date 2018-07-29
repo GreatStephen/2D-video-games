@@ -17,13 +17,13 @@ function EventTown(num) {
     var AllEventSpeedTown = [0,0,7,0,0,0,15,0,0,0,0];
 
     var AllEventMove_xTown = [0,0,0,0,0,0,0,0,0,0,0];
-    var AllEventMove_yTown = [-30,-25,-10,20,-100,50,-15,10,-15,-15,-15];
+    var AllEventMove_yTown = [-30,-25,-10,20,0,50,-15,10,-15,-15,-15];
 
     var AllEventIconTown = ["assets/dog2.png",
         "assets/wolf.png",
         "assets/Knight_New.png",
         "assets/appletree.png",
-        "assets/pond.png",
+        "assets/fountain.png",
         "assets/house.png",
         "assets/assassin.png",
         "assets/villager.png",
@@ -35,7 +35,7 @@ function EventTown(num) {
         "This is a fierce wolf",
         "This is a guard in the forest!",
         "I see an apple tree.",
-        "This is a serene pond.",
+        "This is a fountain.",
         "This is a house with no man in it.",
         "Assassin: I was ordered to kill you today",
         "Villager: I think you are the prince!",

@@ -28,7 +28,7 @@ function MyTown() {
     this.Mushroom = "assets/mushroom.png";
     this.Knight = "assets/Knight_New.png";
     this.TreeTexture = "assets/appletree.png";
-    this.PondTexture = "assets/pond.png";
+    this.PondTexture = "assets/fountain.png";
     this.HouseTexture = "assets/house.png";
     this.HunterTexture = "assets/hunter.png";
     this.VillagerTexture = "assets/villager.png";
