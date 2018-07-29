@@ -44,7 +44,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
     ];
 
     var AllEnemyIdPalace=[
-        -1,-1,7,1,1,-1,-1,8,9,-1
+        -1,-1,7,10,11,-1,-1,8,9,-1
     ];
 
 // possible results
@@ -141,7 +141,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
     ];
     AllResultPalace[4].isMeetPrincess = true;
     AllResultPalace[11].isFightPrincess = true;
-    if(isPrincessAmbition){
+    if(isMeetPrincess&&isPrincessAmbition){
         AllEventActPalace[5] = new Action("2. Reveal her plot", [AllResultPalace[11]]);
     }
     if(isMeetPrincess){
