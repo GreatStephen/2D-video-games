@@ -193,7 +193,7 @@ function EventTown(num) {
 
         // beggar
         new Action("1. Give him money", [AllResultTown[37]]),
-        new Action("2. Fuck off", [AllResultTown[38]]),
+        new Action("2. Get away", [AllResultTown[38]]),
         new Action(),
         new Action()
 
