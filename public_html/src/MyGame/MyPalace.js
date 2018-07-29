@@ -52,6 +52,12 @@ function MyPalace(isPrincessLocation, isPrincessAmbition) {
     this.cape = "assets/item/11_cape.png";
     this.key = "assets/item/12_key.png";
     this.treasurechest = "assets/item/13_treasurechest.png";
+    this.letter1 = "assets/item/14_letter1.png";
+    this.potion1 = "assets/item/15_potion1.jpg";
+    this.potion2 = "assets/item/16_potion2.jpg";
+    this.letter2 = "assets/item/17_letter2.png";
+    this.ring = "assets/item/18_ring.png";
+    this.bread = "assets/item/19_bread.png";
 
 
     this.IntroTexture = "assets/Intro.png";
