@@ -52,8 +52,10 @@ Enemy.prototype.fight = function (game){
         game.mHealthValue -= dmg1;
         total += dmg1;
     }
+    console.log(game.mHealthValue);
     if(game.mHealthValue <= 0){
         //gEngine.GameLoop.stop();
+        console.log("die");
         if(this.Id == 2){
             game.ending = 2;
         }
@@ -81,9 +83,6 @@ Enemy.prototype.fight = function (game){
         game.EndGame();
     }else if(this.Id == 9){
         game.ending = 11;
-        game.EndGame();
-    }else{
-        game.ending = 0;
         game.EndGame();
     }
         

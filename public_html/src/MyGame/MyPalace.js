@@ -676,7 +676,7 @@ MyPalace.prototype.update = function () {
         this.mHunger.setText("Hunger: " + this.mHungerValue + "/"+this.mHungerValueMax);
         this.mHealth.setText("Health: " + this.mHealthValue + "/"+this.mHealthValueMax);
     }
-    if(this.mHealthValue<=0){
+    if(this.mHealthValue<=0&&this.ending<0){
         this.ending = 1;
         // if(this.mBag.GetItemIdx(0)==-1)  this.ending = 0;
         this.EndGame();
@@ -701,6 +701,7 @@ MyPalace.prototype.EndGame = function(){
     if(this.ending==-1){
         this.ending = 1;
     }
+    console.log(this.ending);
    // gEngine.ResourceMap.asyncLoadRequested("status");   
   //  gEngine.ResourceMap.asyncLoadCompleted("status",this);
     gEngine.GameLoop.stop();
