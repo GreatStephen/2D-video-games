@@ -83,13 +83,13 @@ function MyGame() {
     this.bgAttribute = null;
     this.mHero = null;
     this.mHealth = null;
-    this.mHealthValue = 1000;
-    this.mHealthValueMax = 1000;
+    this.mHealthValue = 100;
+    this.mHealthValueMax = 100;
     this.mHunger = null;
     this.mHungerValue = 100;
     this.mHungerValueMax = 100;
     this.mAttack = null;
-    this.mAttackValue = 100;
+    this.mAttackValue = 10;
     this.mDefense = null;
     this.mDefenseValue = 10;
     this.mMoneyTexture = null;
