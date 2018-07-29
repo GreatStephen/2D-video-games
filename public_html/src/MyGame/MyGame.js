@@ -51,11 +51,12 @@ function MyGame() {
     this.key = "assets/item/12_key.png";
     this.treasurechest = "assets/item/13_treasurechest.png";
     this.potion1 = "assets/item/15_potion1.jpg";
-    this.potion2 = "assets/item/16_potion2.jpg";
+    this.potion2 = "assets/item/16_potion2.jpg";    
     this.letter1 = "assets/item/14_letter1.png";
     this.letter2 = "assets/item/17_letter2.png";
     this.ring = "assets/item/18_ring.png";
     this.bread = "assets/item/19_bread.png";
+    this.potion3 = "assets/item/20_potion3.png";
     
     this.IntroTexture = "assets/Intro.png";
    
@@ -178,6 +179,7 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.letter2);
     gEngine.Textures.loadTexture(this.ring);
     gEngine.Textures.loadTexture(this.bread);
+    gEngine.Textures.loadTexture(this.potion3);
     
 };
 
@@ -223,6 +225,7 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.letter2);
     gEngine.Textures.unloadTexture(this.ring);
     gEngine.Textures.unloadTexture(this.bread);
+    gEngine.Textures.unloadTexture(this.potion3);
     
     gEngine.Textures.unloadTexture(this.IntroTexture);
 
