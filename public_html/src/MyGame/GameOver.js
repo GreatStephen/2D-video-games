@@ -56,7 +56,7 @@ GameOver.prototype.loadScene = function () {
     //暂时没有图片
     //gEngine.Textures.loadTexture(this.bgBackground);
     gEngine.Textures.loadTexture(this.EndingTexture[this.id]);
-    gEngine.AudioClips.loadAudio(this.BGM[0]);
+    gEngine.AudioClips.loadAudio(this.BGM[this.id]);
 
 }
 GameOver.prototype.setId = function(Id){
@@ -69,7 +69,7 @@ GameOver.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.EndingTexture[this.id]);
     //开始游戏
     gEngine.AudioClips.stopBackgroundAudio();
-    gEngine.AudioClips.unloadAudio(this.BGM[0]);
+    gEngine.AudioClips.unloadAudio(this.BGM[this.id]);
     //save the endings
     var endings = gEngine.ResourceMap.retrieveAsset("endings");
     endings[this.id].flag = true;
