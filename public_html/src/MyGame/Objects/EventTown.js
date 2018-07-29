@@ -7,7 +7,7 @@
 
 function EventTown(num) {
     var AllEventTypeTown = [0,0,1,0,0,0,0,0,0,0,0]; // 11 pics
-    var AllEventSize_xTown = [200, 180, 350, 250, 200, 340, 200,200,200,200,200];//todo
+    var AllEventSize_xTown = [200, 230, 350, 250, 200, 340, 200,200,200,200,200];//todo
     var AllEventSize_yTown = [200, 150, 700, 250, 100, 350,200,350,350,200,200];//todo
     var AllEventSpriteSequenceTown = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
         {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
@@ -126,7 +126,7 @@ function EventTown(num) {
         new Result("Fail to escape. ",0,0,0,0,0,0,0,0,0,0,0,0,0,0.3),
 
         // beggar 37 38
-        new Result("Received a key.",0,0,0,0,0,0,-50,0,0,12,1,0,0,1),
+        new Result("Thanks. I give you this mysterious key.",0,0,0,0,0,0,-50,0,0,12,1,0,0,1),
         new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,0,0,1)
 
     ];

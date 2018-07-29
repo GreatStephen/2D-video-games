@@ -7,9 +7,9 @@
 
 function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess, hasRing, hasLetter, isFightPrincess){
     console.log(num);
-    var AllEventTypePalace = [0,0,1,1,1,0,0,0,0,0];
-    var AllEventSize_xPalace = [150, 180, 350, 350, 350, 340, 200,200,200,200];//todo
-    var AllEventSize_yPalace = [150, 180, 700, 700, 700, 350,200,350,350,200];//todo
+    var AllEventTypePalace = [0,0,0,1,1,0,0,0,0,0];
+    var AllEventSize_xPalace = [150, 180, 250, 350, 350, 340, 200,200,200,200];//todo
+    var AllEventSize_yPalace = [150, 180, 250, 700, 700, 350,200,350,350,200];//todo
     var AllEventSpriteSequencePalace = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
         {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
         {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
@@ -27,7 +27,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
 
     var AllEventIconPalace = ["assets/mushroom.png",
         "assets/princess.png",
-        "assets/Knight_New.png",
+        "assets/king.png",
         "assets/Knight_New.png",
         "assets/Knight_New.png",
         "assets/businessman.png",
@@ -163,7 +163,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         else
             t=2;  //boss is king
     }
-
+   // t=2;
     this.type = AllEventTypePalace[t];
     this.position = [1000*num+AllEventMove_xPalace[t], 200+AllEventMove_yPalace[t]];
     this.picture = AllEventIconPalace[t];

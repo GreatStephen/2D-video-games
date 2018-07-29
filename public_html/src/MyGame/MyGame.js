@@ -44,6 +44,8 @@ function MyGame() {
     this.CursorTexture = "assets/cursor.png";
     this.bgAttributeTexture = "assets/attribute.png";
     
+    this.PrinceAttackTexture = "assets/prince_attack.png";
+    
     // event background
     this.EagleTexture = "assets/eagle.png";
     this.Mushroom = "assets/mushroom.png";
@@ -135,6 +137,7 @@ function MyGame() {
     this.mEventIndex = 0;
     this.isIntroOpen = true;
     this.BagOpenInMes = false;
+    this.attack = false;
     
     //counter 
     this.mCounter = 0;
@@ -161,6 +164,7 @@ MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.bgForestTexture1);
     gEngine.Textures.loadTexture(this.bgForestTexture2);
     gEngine.Textures.loadTexture(this.kKnight);
+    gEngine.Textures.loadTexture(this.PrinceAttackTexture);
     gEngine.Textures.loadTexture(this.BagTexture);
     gEngine.Textures.loadTexture(this.CursorTexture);
     gEngine.Textures.loadTexture(this.bgAttributeTexture);
@@ -214,6 +218,7 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.bgForestTexture1);
     gEngine.Textures.unloadTexture(this.bgForestTexture2);
     gEngine.Textures.unloadTexture(this.kKnight);
+    gEngine.Textures.unloadTexture(this.PrinceAttackTexture);
     gEngine.Textures.unloadTexture(this.BagTexture);
     gEngine.Textures.unloadTexture(this.CursorTexture);
     gEngine.Textures.unloadTexture(this.bgAttributeTexture);
@@ -448,7 +453,7 @@ MyGame.prototype.initialize = function () {
                                     6,              // number of elements in this sequence
                                     0);             // horizontal padding in between
     this.mKnight.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
-    this.mKnight.setAnimationSpeed(5);
+    this.mKnight.setAnimationSpeed(10);
     
     // message background
     this.bgMsg = new Renderable();
@@ -564,6 +569,10 @@ MyGame.prototype.increasShapeSize = function(obj, delta) {
 // anything from this function!
 MyGame.kBoundDelta = 0.1;
 MyGame.prototype.update = function () {
+    
+    if(this.attack==true){
+        this.mKnight.updateAnimation();
+    }
     this.flag=0;
     /*
     var msg = "";   
@@ -721,11 +730,16 @@ MyGame.prototype.update = function () {
     }
     
     if (gEngine.Input.isKeyClicked(gEngine.Input.keys.U)) {
-        if(this.flag==1){
-            this.flag=0;
+        if(this.attack==false){
+            this.attack = true;
+            this.mKnight.setTexture(this.PrinceAttackTexture);
         }
-        else this.flag =1;
+        else{
+            this.attack =false;
+            this.mKnight.setTexture(this.kKnight);
+        }
     }
+    
     if(this.flag==1){
         this.mKnight.updateAnimation();
     }
