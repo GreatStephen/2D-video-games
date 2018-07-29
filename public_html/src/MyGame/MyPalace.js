@@ -112,7 +112,7 @@ function MyPalace(isPrincessLocation, isPrincessAmbition) {
     // flags
     this.isBagOpened = false;
     this.isMesOn = false;
-    this.hasChosen = false;
+    this.hasChosen = true;
     this.mEventIndex = 0;
     this.isIntroOpen = true;
     this.isPrincessLocation = false;
@@ -120,6 +120,7 @@ function MyPalace(isPrincessLocation, isPrincessAmbition) {
     this.isMeetPrincess = false;
     this.isPrincessLocation = isPrincessLocation;
     this.isPrincessAmbition = isPrincessAmbition;
+    this.BagOpenInMes = false;
 
     //counter
     this.mCounter = 0;
@@ -176,7 +177,12 @@ MyPalace.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.cape);
     gEngine.Textures.loadTexture(this.key);
     gEngine.Textures.loadTexture(this.treasurechest);
-
+    gEngine.Textures.loadTexture(this.letter1);
+    gEngine.Textures.loadTexture(this.potion1);
+    gEngine.Textures.loadTexture(this.potion2);
+    gEngine.Textures.loadTexture(this.letter2);
+    gEngine.Textures.loadTexture(this.ring);
+    gEngine.Textures.loadTexture(this.bread);
 
 
 
@@ -212,6 +218,16 @@ MyPalace.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.sword);
     gEngine.Textures.unloadTexture(this.shield1);
     gEngine.Textures.unloadTexture(this.shield2);
+    gEngine.Textures.unloadTexture(this.secretbag);
+    gEngine.Textures.unloadTexture(this.cape);
+    gEngine.Textures.unloadTexture(this.key);
+    gEngine.Textures.unloadTexture(this.treasurechest);
+    gEngine.Textures.unloadTexture(this.potion1);
+    gEngine.Textures.unloadTexture(this.potion2);
+    gEngine.Textures.unloadTexture(this.letter1);
+    gEngine.Textures.unloadTexture(this.letter2);
+    gEngine.Textures.unloadTexture(this.ring);
+    gEngine.Textures.unloadTexture(this.bread);
 
     gEngine.Textures.unloadTexture(this.IntroTexture);
 
@@ -455,6 +471,10 @@ MyPalace.prototype.update = function () {
     }
 
     if(this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
+        if(this.BagOpenInMes==true){
+            this.BagOpenInMes = false;
+            this.isBagOpened = true;
+        }
         this.isMesOn=false;
         this.bgMsg.getXform().setPosition(1000,1000);
         this.mMes1.getXform().setPosition(1000,1000);

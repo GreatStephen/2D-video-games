@@ -230,6 +230,8 @@ Bag.prototype.update = function(){
     }  
     
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Enter)){
+        console.log("type");
+        console.log(this.itemSet[this.current].type);
         if(this.itemSet[this.current].type==0){
             this.itemSet[this.current].Use(this.myGame);
             this.RemoveItem();
@@ -297,10 +299,11 @@ Bag.prototype.update = function(){
         else if(this.itemSet[this.current].type==4){
             this.myGame.isBagOpened = false;
             this.myGame.BagOpenInMes = true;
+            //this.myGame.hasChosen = true;
             this.myGame.isMesOn = true;
            // this.myGame.SendMessage("The duke said he had poisoned the elder king...");
-            console.log("item type="+this.itemSet[this.current.type]);
-            this.myGame.SendMessage("The prince has been exiled.","As soon as I kill the king, I will be the new king.","                                   From Duke","             [press SPACE to close]","","");
+            console.log("item type="+this.itemSet[this.current].type);
+            this.myGame.SendMessage("The prince has been exiled.","As soon as I kill the king, I will be the new king.","                                 From Duke","             [press SPACE to close]","","");
            // this.myGame.SendMessage("The duke said he had poisoned the elder king...","","","","","");
         }
     }  

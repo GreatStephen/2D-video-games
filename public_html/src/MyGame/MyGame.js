@@ -131,9 +131,10 @@ function MyGame() {
     // flags
     this.isBagOpened = false;
     this.isMesOn = false;
-    this.hasChosen = false;
+    this.hasChosen = true;
     this.mEventIndex = 0;
     this.isIntroOpen = true;
+    this.BagOpenInMes = false;
     
     //counter 
     this.mCounter = 0;
@@ -233,6 +234,10 @@ MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.sword);
     gEngine.Textures.unloadTexture(this.shield1);
     gEngine.Textures.unloadTexture(this.shield2);
+    gEngine.Textures.unloadTexture(this.secretbag);
+    gEngine.Textures.unloadTexture(this.cape);
+    gEngine.Textures.unloadTexture(this.key);
+    gEngine.Textures.unloadTexture(this.treasurechest);
     gEngine.Textures.unloadTexture(this.potion1);
     gEngine.Textures.unloadTexture(this.potion2);
     gEngine.Textures.unloadTexture(this.letter1);
@@ -664,6 +669,10 @@ MyGame.prototype.update = function () {
     }
 
     if(this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
+        if(this.BagOpenInMes==true){
+            this.BagOpenInMes = false;
+            this.isBagOpened = true;
+        }
         this.isMesOn=false;
         this.bgMsg.getXform().setPosition(1000,1000);
         this.mMes1.getXform().setPosition(1000,1000);

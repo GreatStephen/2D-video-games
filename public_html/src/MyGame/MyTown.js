@@ -113,7 +113,7 @@ function MyTown() {
     // flags
     this.isBagOpened = false;
     this.isMesOn = false;
-    this.hasChosen = false;
+    this.hasChosen = true;
     this.mEventIndex = 0;
     this.isIntroOpen = true;
     this.isPrincessLocation = false;
@@ -213,9 +213,13 @@ MyTown.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.sword);
     gEngine.Textures.unloadTexture(this.shield1);
     gEngine.Textures.unloadTexture(this.shield2);
-    gEngine.Textures.unloadTexture(this.letter1);
+    gEngine.Textures.unloadTexture(this.secretbag);
+    gEngine.Textures.unloadTexture(this.cape);
+    gEngine.Textures.unloadTexture(this.key);
+    gEngine.Textures.unloadTexture(this.treasurechest);
     gEngine.Textures.unloadTexture(this.potion1);
     gEngine.Textures.unloadTexture(this.potion2);
+    gEngine.Textures.unloadTexture(this.letter1);
     gEngine.Textures.unloadTexture(this.letter2);
     gEngine.Textures.unloadTexture(this.ring);
     gEngine.Textures.unloadTexture(this.bread);
@@ -461,8 +465,9 @@ MyTown.prototype.update = function () {
         }
 
     }
-
+    
     if(this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
+        console.log("now it's here");
         if(this.BagOpenInMes==true){
             this.BagOpenInMes = false;
             this.isBagOpened = true;
@@ -643,7 +648,7 @@ MyTown.prototype.SendMessage = function(line1, line2, line3, line4,line5, line6)
         this.mMes6.setText(line6);
     this.mMes6.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]-105-150);
 
-
+    console.log("what now?"+this.hasChose);
     this.isMesOn=true;
 }
 
