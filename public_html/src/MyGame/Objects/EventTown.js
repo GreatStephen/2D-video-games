@@ -199,20 +199,15 @@ function EventTown(num) {
 
     ];
 
-    var t = Math.floor(Math.random()*10);
-    while((t>=6 && t<=10)){
-        t = Math.floor(Math.random()*6);
+    var t = Math.floor(Math.random()*11);
+    while((t>=6 && t<=8) || t==10){
+        t = Math.floor(Math.random()*11);
     }
 
     if(num==3){
         // beggar, the key
         t=10;
     }
-    else if(num==5){
-        // businessman
-        t=9;
-    }
-
     else if(num==6){
         //NO.5 is assassin;
         t = 6;
