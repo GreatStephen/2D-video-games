@@ -115,9 +115,8 @@ function MyPalace(isPrincessLocation, isPrincessAmbition) {
     this.hasChosen = true;
     this.mEventIndex = 0;
     this.isIntroOpen = true;
-    this.isPrincessLocation = false;
-    this.isPrincessAmbition = false;
     this.isMeetPrincess = false;
+    this.isFightPrincess = false;
     this.isPrincessLocation = isPrincessLocation;
     this.isPrincessAmbition = isPrincessAmbition;
     this.BagOpenInMes = false;
@@ -127,7 +126,7 @@ function MyPalace(isPrincessLocation, isPrincessAmbition) {
 
     //event
     this.mEventSet = null;
-    this.mEventNum = 11;
+    this.mEventNum = 12;
 
     this.hungerRate = 1;
 }
@@ -561,7 +560,7 @@ MyPalace.prototype.update = function () {
         var hasRing = this.mBag.GetItemIdx(18) < 0 ? false:true;
         var hasLetter = this.mBag.GetItemIdx(17) < 0 ? false:true;
         if(this.mEventIndex<this.mEventNum)
-            this.mEventSet.push(new EventPalace(this.mEventIndex,this.isPrincessLocation, this.isPrincessAmbition, this.isMeetPrincess, hasRing, hasLetter));
+            this.mEventSet.push(new EventPalace(this.mEventIndex,this.isPrincessLocation, this.isPrincessAmbition, this.isMeetPrincess, hasRing, hasLetter, this.isFightPrincess));
         console.log(this.mEventSet);
     }
 

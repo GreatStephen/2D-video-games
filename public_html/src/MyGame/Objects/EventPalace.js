@@ -5,7 +5,7 @@
  */
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
-function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess, hasRing, hasLetter){
+function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess, hasRing, hasLetter, isFightPrincess){
     console.log(num);
     var AllEventTypePalace = [0,0,1,1,1,0,0,0,0,0];
     var AllEventSize_xPalace = [150, 180, 350, 350, 350, 340, 200,200,200,200];//todo
@@ -20,10 +20,10 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         {}
 
     ];
-    var AllEventSpeedPalace = [0,15,7,7,7,7,15,7,0,0];
+    var AllEventSpeedPalace = [0,15,7,7,7,7,15,0,0,0];
 
     var AllEventMove_xPalace = [0,0,0,0,0,0,0,0,0,0];
-    var AllEventMove_yPalace = [-20,-25,-10,-10,-10,50,-15,-10,0,0];
+    var AllEventMove_yPalace = [-20,-25,-10,-10,-10,50,-15,-10,-10,0];
 
     var AllEventIconPalace = ["assets/mushroom.png",
         "assets/princess.png",
@@ -33,6 +33,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         "assets/businessman.png",
         "assets/villager.png",
         "assets/villager.png",
+        "assets/princess.png",
     ];
     var AllEventInfPalace = ["Would you like to meet with the princess?",
         "You prove that you are the prince by the ring, then you'd like to:",
@@ -41,11 +42,12 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         "This is a captain",
         "Merchant: Would you like to buy something",
         "Servant: I ...",
-        "Yoou meet the duke, he wants to kill you and the king"
+        "You meet the duke, he wants to kill you and the king",
+        "You decide to catch the princess to stop the war"
     ];
 
     var AllEnemyIdPalace=[
-        -1,-1,7,1,1,-1,-1,8
+        -1,-1,7,1,1,-1,-1,8,9
     ];
 
 // possible results
@@ -66,7 +68,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         new Result("The princess don't believe you are the princess, you are arrested", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
         new Result("You defeat the king", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
         new Result("The king give in and give you the crown", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
-        new Result("You defeat the princess", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
+        new Result("You pointed out that the princess egged the duke to frame you to make chaos and attack your country", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
         new Result("You defeat the duke and save the king", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
         new Result("You defeat the duke but the king died", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
         new Result("ok", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
@@ -123,8 +125,15 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         new Action(),
         new Action(),
         new Action(),
+        
+        // fight princess
+        new Action("1. Fight",[AllResultPalace[0]]),
+        new Action(),
+        new Action(),
+        new Action(),
     ];
     AllResultPalace[4].isMeetPrincess = true;
+    AllResultPalace[11].isFightPrincess = true;
     if(isPrincessAmbition){
         AllEventActPalace[5] = new Action("2. Reveal her plot", [AllResultPalace[11]]);
     }
@@ -135,8 +144,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
        AllEventActPalace[4] = new Action("1. Ask for her help",[AllResultPalace[8]]);
     }
     AllResultPalace[8].ending = 3;
-    AllResultPalace[10].ending = 4;
-    AllResultPalace[11].ending = 11;
+    AllResultPalace[10].ending = 4; 
     
     var t = Math.floor(Math.random()*2)+3;
     if(num==1&&isPrincessLocation)
@@ -147,9 +155,11 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         t=5;
     if(num==9&&isMeetPrincess)
         t=1;
-    if(num==10){
+    if(num==11){
         if(hasLetter && !isMeetPrincess)
             t = 7;  //boss is duke
+        else if(isFightPrincess)
+            t=8;    //boss is princess
         else
             t=2;  //boss is king
     }

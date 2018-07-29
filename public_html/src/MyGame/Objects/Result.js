@@ -25,6 +25,7 @@ function Result(msg, Health, mHealth, Hunger, mHunger, atk, def, money, isPrince
     this.isPrincessLocation = isPrincessLocation;
     this.isPrincessAmbition = isPrincessAmbition;
     this.isMeetPrincess = false;
+    this.isFightPrincess = false;
     this.ending = -1;
 }
 
@@ -72,6 +73,10 @@ Result.prototype.apply = function(mygame, enemy){
     }
     if(this.isMeetPrincess){
         mygame.isMeetPrincess = true;
+    }
+    if(this.isFightPrincess){
+        mygame.isFightPrincess = true;
+        console.log("fight princess");
     }
     
     //update items

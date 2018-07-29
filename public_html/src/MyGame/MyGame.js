@@ -831,7 +831,6 @@ MyGame.prototype.SendMessage = function(line1, line2, line3, line4,line5, line6)
                 idx = i;
             }
         }
-        console.log(i);
         line11 = line1.slice(0,idx);
         line6 = line5;
         line5 = line4;
