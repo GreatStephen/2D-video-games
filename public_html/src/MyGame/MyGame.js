@@ -138,9 +138,11 @@ function MyGame() {
     this.isIntroOpen = true;
     this.BagOpenInMes = false;
     this.attack = false;
+    this.isInAnimation = 0;
     
     //counter 
     this.mCounter = 0;
+    this.animationCounter = 0;
     
     //event
     this.mEventSet = null;
@@ -541,6 +543,9 @@ MyGame.prototype.draw = function () {
         this.mMes5.draw(this.mCamera);
         this.mMes6.draw(this.mCamera);
     }
+    else{
+        this.bgMsg.getXform().setPosition(1000,1000);
+    }
     
     
 
@@ -573,7 +578,30 @@ MyGame.prototype.update = function () {
     if(this.attack==true){
         this.mKnight.updateAnimation();
     }
-    this.flag=0;
+    if(this.isInAnimation==0)  this.flag=0;
+
+    if(this.isInAnimation==1){
+        this.animationCounter++;
+        console.log(this.animationCounter);
+    }
+
+    if(this.animationCounter==100){
+        this.animationCounter=0;
+        this.isInAnimation = false;
+        this.flag=0;
+        this.mKnight.setTexture(this.kKnight);
+
+        this.isInAnimation=0;
+        console.log(this.mEventSet[this.mEventIndex-1].action[0]);
+        this.hasChosen = true;
+        var res = this.mEventSet[this.mEventIndex-1].action[0].getResult();
+        console.log("res");
+        console.log(res);
+        var msg = res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
+        this.SendMessage(msg,"","","","","");
+    }
+
+
     /*
     var msg = "";   
     
@@ -648,7 +676,7 @@ MyGame.prototype.update = function () {
     }
     var deltaX=10;
     //this.Eagle.updateAnimation();
-    if (gEngine.Input.isKeyPressed(gEngine.Input.keys.D)) {
+    if (this.isInAnimation==false&&gEngine.Input.isKeyPressed(gEngine.Input.keys.D)) {
         if(this.isBagOpened==false && this.isMesOn==false){
             var center = this.mCamera.getWCCenter();
             center[0]+=deltaX;
@@ -672,18 +700,19 @@ MyGame.prototype.update = function () {
             }
             
            // this.mKnight.draw(this.mCamera);
-            this.flag=1;
+            if(this.isInAnimation==false)  this.flag=1;
+
         }
         
     }
 
-    if(this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
+    if(this.isInAnimation==false&&this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
         if(this.BagOpenInMes==true){
             this.BagOpenInMes = false;
             this.isBagOpened = true;
         }
         this.isMesOn=false;
-        this.bgMsg.getXform().setPosition(1000,1000);
+        //this.bgMsg.getXform().setPosition(1000,1000);
         this.mMes1.getXform().setPosition(1000,1000);
         this.mMes2.getXform().setPosition(1000,1000);
         this.mMes3.getXform().setPosition(1000,1000);
@@ -692,16 +721,34 @@ MyGame.prototype.update = function () {
         this.mMes6.getXform().setPosition(1000,1000);
     }
     
-    if(this.isMesOn && !this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.One) && this.mEventSet[this.mEventIndex-1].action[0].content){
-        console.log(this.mEventSet[this.mEventIndex-1].action[0]);
-        this.hasChosen = true;
-        var res = this.mEventSet[this.mEventIndex-1].action[0].getResult();
-        console.log("res");
-        console.log(res);
-        var msg = res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
-        this.SendMessage(msg,"","","","","");
+    if( this.isMesOn&& !this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.One) && this.mEventSet[this.mEventIndex-1].action[0].content){
+        if(this.isInAnimation==0&&  this.mEventSet[this.mEventIndex-1].enemy != null){
+            // play fight animation
+            console.log("fight animation");
+            this.isMesOn = false;
+
+            this.mKnight.setTexture(this.PrinceAttackTexture);
+            this.isInAnimation = 1;
+            this.flag=1;
+            //this.animationCounter++;
+
+            //this.mKnight.setTexture(this.kKnight);
+        }
+
+
+        else{
+            this.isInAnimation=0;
+            console.log(this.mEventSet[this.mEventIndex-1].action[0]);
+            this.hasChosen = true;
+            var res = this.mEventSet[this.mEventIndex-1].action[0].getResult();
+            console.log("res");
+            console.log(res);
+            var msg = res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
+            this.SendMessage(msg,"","","","","");
+        }
+
     }
-    if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Two) && this.mEventSet[this.mEventIndex-1].action[1].content){
+    if(this.isInAnimation==false &&this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Two) && this.mEventSet[this.mEventIndex-1].action[1].content){
         //console.log(this.mEventSet[this.mEventIndex-1].action[1]);
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[1].getResult();
@@ -710,7 +757,7 @@ MyGame.prototype.update = function () {
         var msg = res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
         this.SendMessage(msg,"","","","","");
     }
-    if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Three) && this.mEventSet[this.mEventIndex-1].action[2].content){
+    if(this.isInAnimation==false &&this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Three) && this.mEventSet[this.mEventIndex-1].action[2].content){
         //console.log(this.mEventSet[this.mEventIndex-1].action[1]);
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[2].getResult();
@@ -719,7 +766,7 @@ MyGame.prototype.update = function () {
         res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
         this.SendMessage(res.msg,"","","","","");
     }
-    if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Four) && this.mEventSet[this.mEventIndex-1].action[3].content){
+    if(this.isInAnimation==false &&this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Four) && this.mEventSet[this.mEventIndex-1].action[3].content){
         //console.log(this.mEventSet[this.mEventIndex-1].action[1]);
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[3].getResult();
@@ -729,7 +776,7 @@ MyGame.prototype.update = function () {
         this.SendMessage(res.msg,"","","","","");
     }
     
-    if (gEngine.Input.isKeyClicked(gEngine.Input.keys.U)) {
+    if (this.isInAnimation==false &&gEngine.Input.isKeyClicked(gEngine.Input.keys.U)) {
         if(this.attack==false){
             this.attack = true;
             this.mKnight.setTexture(this.PrinceAttackTexture);
@@ -743,7 +790,7 @@ MyGame.prototype.update = function () {
     if(this.flag==1){
         this.mKnight.updateAnimation();
     }
-    if(gEngine.Input.isKeyClicked(gEngine.Input.keys.B)){
+    if(this.isInAnimation==false &&gEngine.Input.isKeyClicked(gEngine.Input.keys.B)){
         if(this.isMesOn==false&&this.isBagOpened==false){
             //this.bagCamera.setViewport([450,200,300,300],0);
             this.isBagOpened=true;
@@ -753,7 +800,7 @@ MyGame.prototype.update = function () {
             this.isBagOpened=false;
         }
     }
-    if(this.mEventIndex<this.mEventNum && this.mKnight.getXform().mPosition[0]>this.mEventSet[this.mEventIndex].icon.getXform().mPosition[0]-200){
+    if(this.isInAnimation==false &&this.mEventIndex<this.mEventNum && this.mKnight.getXform().mPosition[0]>this.mEventSet[this.mEventIndex].icon.getXform().mPosition[0]-200){
         console.log(this.mEventSet[this.mEventIndex]);
         this.hasChosen = false;
 

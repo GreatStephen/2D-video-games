@@ -20,6 +20,8 @@ function MyTown() {
     this.kKnight = "assets/Prince_new.png";
     this.CursorTexture = "assets/cursor.png";
     this.bgAttributeTexture = "assets/attribute.png";
+    this.PrinceAttackTexture = "assets/prince_attack.png";
+
 
     // event background
     this.EagleTexture = "assets/eagle.png";
@@ -119,15 +121,18 @@ function MyTown() {
     this.isPrincessLocation = false;
     this.isPrincessAmbition = false;
     this.BagOpenInMes = false;
+    this.isInAnimation = 0;
 
     //counter
     this.mCounter = 0;
+    this.animationCounter=0;
 
     //event
     this.mEventSet = null;
     this.mEventNum = 16;
 
     this.hungerRate = 1;
+    this.attack =false;
 }
 gEngine.Core.inheritPrototype(MyTown, Scene);
 
@@ -154,6 +159,7 @@ MyTown.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.AssassinTexture);
     gEngine.Textures.loadTexture(this.DogTexture);
     gEngine.Textures.loadTexture(this.WolfTexture);
+    gEngine.Textures.loadTexture(this.PrinceAttackTexture);
     
     gEngine.Textures.loadTexture(this.IntroTexture);
     // load audio
@@ -202,6 +208,8 @@ MyTown.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.AssassinTexture);
     gEngine.Textures.unloadTexture(this.DogTexture);
     gEngine.Textures.unloadTexture(this.WolfTexture);
+    gEngine.Textures.unloadTexture(this.PrinceAttackTexture);
+
 
     gEngine.Textures.unloadTexture(this.apple);
     gEngine.Textures.unloadTexture(this.meat);
@@ -414,6 +422,9 @@ MyTown.prototype.draw = function () {
         this.mMes5.draw(this.mCamera);
         this.mMes6.draw(this.mCamera);
     }
+    else{
+        this.bgMsg.getXform().setPosition(1000,1000);
+    }
 
 
 
@@ -434,10 +445,33 @@ MyTown.prototype.draw = function () {
 
 MyTown.kBoundDelta = 0.1;
 MyTown.prototype.update = function () {
-    this.flag=0;
     var deltaX=10;
     //this.Eagle.updateAnimation();
-    if (gEngine.Input.isKeyPressed(gEngine.Input.keys.D)) {
+
+    if(this.isInAnimation==0)  this.flag=0;
+
+    if(this.isInAnimation==1){
+        this.animationCounter++;
+        console.log(this.animationCounter);
+    }
+
+    if(this.animationCounter==100){
+        this.animationCounter=0;
+        this.isInAnimation = false;
+        this.flag=0;
+        this.mKnight.setTexture(this.kKnight);
+
+        this.isInAnimation=0;
+        console.log(this.mEventSet[this.mEventIndex-1].action[0]);
+        this.hasChosen = true;
+        var res = this.mEventSet[this.mEventIndex-1].action[0].getResult();
+        console.log("res");
+        console.log(res);
+        var msg = res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
+        this.SendMessage(msg,"","","","","");
+    }
+
+    if (this.isInAnimation==false&&gEngine.Input.isKeyPressed(gEngine.Input.keys.D)) {
         if(this.isBagOpened==false && this.isMesOn==false){
             var center = this.mCamera.getWCCenter();
             center[0]+=deltaX;
@@ -466,7 +500,7 @@ MyTown.prototype.update = function () {
 
     }
     
-    if(this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
+    if(this.isInAnimation==false&&this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
         console.log("now it's here");
         if(this.BagOpenInMes==true){
             this.BagOpenInMes = false;
@@ -483,15 +517,32 @@ MyTown.prototype.update = function () {
     }
 
     if(this.isMesOn && !this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.One) && this.mEventSet[this.mEventIndex-1].action[0].content){
-        console.log(this.mEventSet[this.mEventIndex-1].action[0]);
-        this.hasChosen = true;
-        var res = this.mEventSet[this.mEventIndex-1].action[0].getResult();
-        console.log("res");
-        console.log(res);
-        var msg = res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
-        this.SendMessage(msg,"","","","","");
+        if(this.isInAnimation==0&&  this.mEventSet[this.mEventIndex-1].enemy != null){
+            // play fight animation
+            console.log("fight animation");
+            this.isMesOn = false;
+
+            this.mKnight.setTexture(this.PrinceAttackTexture);
+            this.isInAnimation = 1;
+            this.flag=1;
+            //this.animationCounter++;
+
+            //this.mKnight.setTexture(this.kKnight);
+        }
+
+
+        else{
+            this.isInAnimation=0;
+            console.log(this.mEventSet[this.mEventIndex-1].action[0]);
+            this.hasChosen = true;
+            var res = this.mEventSet[this.mEventIndex-1].action[0].getResult();
+            console.log("res");
+            console.log(res);
+            var msg = res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
+            this.SendMessage(msg,"","","","","");
+        }
     }
-    if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Two) && this.mEventSet[this.mEventIndex-1].action[1].content){
+    if(this.isInAnimation==false &&this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Two) && this.mEventSet[this.mEventIndex-1].action[1].content){
         //console.log(this.mEventSet[this.mEventIndex-1].action[1]);
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[1].getResult();
@@ -500,7 +551,7 @@ MyTown.prototype.update = function () {
         var msg = res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
         this.SendMessage(msg,"","","","","");
     }
-    if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Three) && this.mEventSet[this.mEventIndex-1].action[2].content){
+    if(this.isInAnimation==false &&this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Three) && this.mEventSet[this.mEventIndex-1].action[2].content){
         //console.log(this.mEventSet[this.mEventIndex-1].action[1]);
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[2].getResult();
@@ -509,7 +560,7 @@ MyTown.prototype.update = function () {
         res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
         this.SendMessage(res.msg,"","","","","");
     }
-    if(this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Four) && this.mEventSet[this.mEventIndex-1].action[3].content){
+    if(this.isInAnimation==false &&this.isMesOn &&!this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.Four) && this.mEventSet[this.mEventIndex-1].action[3].content){
         //console.log(this.mEventSet[this.mEventIndex-1].action[1]);
         this.hasChosen = true;
         var res = this.mEventSet[this.mEventIndex-1].action[3].getResult();
@@ -519,7 +570,7 @@ MyTown.prototype.update = function () {
         this.SendMessage(res.msg,"","","","","");
     }
 
-    if (gEngine.Input.isKeyClicked(gEngine.Input.keys.U)) {
+    if (this.isInAnimation==false &&gEngine.Input.isKeyClicked(gEngine.Input.keys.U)) {
         if(this.flag==1){
             this.flag=0;
         }
@@ -528,7 +579,7 @@ MyTown.prototype.update = function () {
     if(this.flag==1){
         this.mKnight.updateAnimation();
     }
-    if(gEngine.Input.isKeyClicked(gEngine.Input.keys.B)){
+    if(this.isInAnimation==false &&gEngine.Input.isKeyClicked(gEngine.Input.keys.B)){
         if(this.isMesOn==false&&this.isBagOpened==false){
             //this.bagCamera.setViewport([450,200,300,300],0);
             this.isBagOpened=true;
@@ -538,7 +589,7 @@ MyTown.prototype.update = function () {
             this.isBagOpened=false;
         }
     }
-    if(this.mEventIndex<this.mEventNum && this.mKnight.getXform().mPosition[0]>this.mEventSet[this.mEventIndex].icon.getXform().mPosition[0]-200){
+    if(this.isInAnimation==false &&this.mEventIndex<this.mEventNum && this.mKnight.getXform().mPosition[0]>this.mEventSet[this.mEventIndex].icon.getXform().mPosition[0]-200){
         console.log(this.mEventSet[this.mEventIndex]);
         this.hasChosen = false;
 
