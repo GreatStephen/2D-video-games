@@ -683,7 +683,7 @@ MyPalace.prototype.update = function () {
     }
 
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Z)){
-        this.ending = 4;
+        this.ending = 12;
         this.EndGame();
     }
 
