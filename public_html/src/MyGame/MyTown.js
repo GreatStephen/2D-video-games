@@ -68,6 +68,7 @@ function MyTown() {
 
     // audio
     this.BGM = "assets/MiddleEarth.mp3";
+    this.attack_audio = "assets/attack_audio.mp3";
 
     // local variables
     this.bgTown = "";
@@ -164,6 +165,7 @@ MyTown.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.IntroTexture);
     // load audio
     gEngine.AudioClips.loadAudio(this.BGM);
+    gEngine.AudioClips.loadAudio(this.attack_audio);
 
     // load items
     gEngine.Textures.loadTexture(this.apple);
@@ -237,6 +239,7 @@ MyTown.prototype.unloadScene = function () {
 
     gEngine.AudioClips.stopBackgroundAudio();
     gEngine.AudioClips.unloadAudio(this.BGM);
+    gEngine.AudioClips.unloadAudio(this.attack_audio);
 
 
     var nextscene = null;
@@ -452,6 +455,9 @@ MyTown.prototype.update = function () {
 
     if(this.isInAnimation==1){
         this.animationCounter++;
+        if(this.animationCounter%25==0){
+            gEngine.AudioClips.playACue(this.attack_audio);
+        }
         console.log(this.animationCounter);
     }
 

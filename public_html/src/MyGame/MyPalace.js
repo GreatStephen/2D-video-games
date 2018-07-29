@@ -34,12 +34,13 @@ function MyPalace(isPrincessLocation, isPrincessAmbition) {
     this.RuinsTexture = "assets/ruins.png";
     this.HunterTexture = "assets/hunter.png";
     this.VillagerTexture = "assets/villager.png";
-    this.WizardTexture = "assets/wizard.png";
+    this.WizardTexture = "assets/wizard_1.png";
     this.BusinessmanTexture = "assets/businessman.png";
     this.BeggarTexture = "assets/beggar.png";
     this.PrincessTexture = "assets/princess.png";
     this.KingTexture = "assets/king.png";
     this.DukeTexture = "assets/duke.png";
+    
 
     // item texture
     this.apple = "assets/item/0_apple.png";
@@ -70,7 +71,7 @@ function MyPalace(isPrincessLocation, isPrincessAmbition) {
 
     // audio
     this.BGM = "assets/MiddleEarth.mp3";
-
+    this.attack_audio = "assets/attack_audio.mp3";
     // local variables
 
     this.bgPalace = "";
@@ -170,6 +171,7 @@ MyPalace.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.IntroTexture);
     // load audio
     gEngine.AudioClips.loadAudio(this.BGM);
+    gEngine.AudioClips.loadAudio(this.attack_audio);
 
     // load items
     gEngine.Textures.loadTexture(this.apple);
@@ -246,6 +248,7 @@ MyPalace.prototype.unloadScene = function () {
 
     gEngine.AudioClips.stopBackgroundAudio();
     gEngine.AudioClips.unloadAudio(this.BGM);
+    gEngine.AudioClips.unloadAudio(this.attack_audio);
 
 
     var nextscene = null;
@@ -456,6 +459,9 @@ MyPalace.prototype.update = function () {
 
     if(this.isInAnimation==1){
         this.animationCounter++;
+        if(this.animationCounter%25==0){
+            gEngine.AudioClips.playACue(this.attack_audio);
+        }
         console.log(this.animationCounter);
     }
 

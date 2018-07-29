@@ -7,9 +7,9 @@
 
 function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess, hasRing, hasLetter, isFightPrincess){
     console.log(num);
-    var AllEventTypePalace = [0,0,0,1,1,0,0,0,0,0];
-    var AllEventSize_xPalace = [150, 180, 250, 350, 350, 340, 200,300,200,200];//todo
-    var AllEventSize_yPalace = [150, 180, 250, 700, 700, 350,200,300,350,200];//todo
+    var AllEventTypePalace = [0,0,0,1,1,0,0,0,0,0,0];
+    var AllEventSize_xPalace = [150, 180, 250, 350, 350, 340, 200,300,200,500,200];//todo
+    var AllEventSize_yPalace = [150, 180, 250, 700, 700, 350,200,300,350,300,200];//todo
     var AllEventSpriteSequencePalace = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
         {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
         {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
@@ -17,13 +17,13 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},{"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
         {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
         {"topPixel":64, "leftPixel":0, "elmWidthInPixel":64, "elmHeightInPixel":64, "numElements":8, "wPaddingInPixel":0},
-        {}
+        {},{}
 
     ];
     var AllEventSpeedPalace = [0,15,7,7,7,7,15,0,0,0];
 
     var AllEventMove_xPalace = [0,0,0,0,0,0,0,0,0,0];
-    var AllEventMove_yPalace = [-20,-25,-10,-10,-10,50,-15,-10,-10,0];
+    var AllEventMove_yPalace = [-20,-25,-10,-10,-10,50,-15,-10,-10,-20];
 
     var AllEventIconPalace = ["assets/mushroom.png",
         "assets/princess.png",
@@ -34,6 +34,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         "assets/villager.png",
         "assets/duke.png",
         "assets/princess.png",
+        "assets/wizard_1.png"
     ];
     var AllEventInfPalace = ["Would you like to meet with the princess?",
         "You prove that you are the prince by the ring, then you'd like to:",
@@ -43,7 +44,8 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         "Merchant: Would you like to buy something",
         "Servant: I ...",
         "You meet the duke, he wants to kill you and the king",
-        "You decide to catch the princess to stop the war"
+        "You decide to catch the princess to stop the war",
+        " "
     ];
 
     var AllEnemyIdPalace=[
@@ -131,6 +133,12 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         new Action(),
         new Action(),
         new Action(),
+        
+        //wizard
+        new Action(),
+        new Action(),
+        new Action(),
+        new Action(),
     ];
     AllResultPalace[4].isMeetPrincess = true;
     AllResultPalace[11].isFightPrincess = true;
@@ -163,7 +171,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         else
             t=2;  //boss is king
     }
-   // t=7;
+    //t=9;
     this.type = AllEventTypePalace[t];
     this.position = [1000*num+AllEventMove_xPalace[t], 200+AllEventMove_yPalace[t]];
     this.picture = AllEventIconPalace[t];
