@@ -5,9 +5,7 @@
  */
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
-var AllEndings1 = [{name:"Ending 1: you are killed", pic:"assets/Endings/Ending_0.png", flag:true},{name:"Ending 2: starvation",pic:"assets/Endings/Ending_1.png", flag:true},
-    {name:"Ending 3: apple",pic:"assets/Endings/Ending_2.png", flag:true},{name:"Ending 4: pass",pic:"assets/Endings/Ending_3.png", flag:true},
-    {name:"Ending 5: giveup",pic:"assets/Endings/Ending_4.png", flag:false},{name:"Ending 6: prison",pic:"assets/Endings/Ending_5.png", flag:false}];
+
 
 
 function MyEnding(){
@@ -26,6 +24,18 @@ function MyEnding(){
     this.isShow = false;
 
     this.BGM = "assets/StartScene/PilotsOfStone.mp3";
+    
+    var AllEndings = [{name:"Ending 1: you are killed", pic:"assets/Endings/Ending_0.png", flag:true},{name:"Ending 2: starvation",pic:"assets/Endings/Ending_1.png", flag:true},
+    {name:"Ending 3: apple",pic:"assets/Endings/Ending_2.png", flag:true},{name:"Ending 4: pass",pic:"assets/Endings/Ending_3.png", flag:true},
+    {name:"Ending 5: giveup",pic:"assets/Endings/Ending_4.png", flag:false},{name:"Ending 6: prison",pic:"assets/Endings/Ending_5.png", flag:false},
+    {name:"Ending 7: apple",pic:"assets/Endings/Ending_6.png", flag:true},{name:"Ending 8: pass",pic:"assets/Endings/Ending_7.png", flag:true},
+    {name:"Ending 9: apple",pic:"assets/Endings/Ending_8.png", flag:true},{name:"Ending 10: pass",pic:"assets/Endings/Ending_9.png", flag:true},
+    {name:"Ending 11: apple",pic:"assets/Endings/Ending_10.png", flag:true},{name:"Ending 12: pass",pic:"assets/Endings/Ending_11.png", flag:true},
+    {name:"Ending 13: apple",pic:"assets/Endings/Ending_12.png", flag:true},{name:"Ending 14: pass",pic:"assets/Endings/Ending_13.png", flag:true},];
+
+    var endings = gEngine.ResourceMap.retrieveAsset("endings");
+    for(var i=0;i<13;i++)
+        AllEndings[i].flag = endings[i];
     
     
 
@@ -143,7 +153,7 @@ MyEnding.prototype.update = function () {
     if(!this.isShow&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Up)){
         this.choice = (this.choice+6-1)%6;
         //var temp = this.Cursor.getXform().mPosition;
-        
+        this.Cursor.getXform().setPosition(150,500-69*this.choice);
     }
     if(!this.isShow&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Down)){
         this.choice = (this.choice+1)%6;
