@@ -12,30 +12,6 @@
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
 function MyGame() {
-/*
-    this.kMinionSprite = "assets/minion_sprite.png";
-
-    this.kPlatformTexture = "assets/platform.png";
-    this.kWallTexture = "assets/wall.png";
-    this.kTargetTexture = "assets/target.png";
-    this.kParticleTexture = "assets/particle.png";
-    
-    // The camera to view the scene
-    this.mCamera = null;
-
-    this.mMsg = null;
-    this.mShapeMsg = null;
-
-    this.mAllObjs = null;
-    this.mAllParticles = null;
-    this.mBounds = null;
-    this.mCollisionInfos = [];
-    this.mHero = null;
-    
-    this.mCurrentObj = 0;
-    this.mTarget = null;
-    */
-
     // scene background
     this.bgForestTexture1 = "assets/forest_x5.png";
     this.bgForestTexture2 = "assets/forest_x6.png";
@@ -156,13 +132,7 @@ gEngine.Core.inheritPrototype(MyGame, Scene);
 
 
 MyGame.prototype.loadScene = function () {
-    /*
-    gEngine.Textures.loadTexture(this.kMinionSprite);
-    gEngine.Textures.loadTexture(this.kPlatformTexture);
-    gEngine.Textures.loadTexture(this.kWallTexture);
-    gEngine.Textures.loadTexture(this.kTargetTexture);
-    gEngine.Textures.loadTexture(this.kParticleTexture);
-    */
+    
     gEngine.Textures.loadTexture(this.bgForestTexture1);
     gEngine.Textures.loadTexture(this.bgForestTexture2);
     gEngine.Textures.loadTexture(this.kKnight);
@@ -308,34 +278,6 @@ MyGame.prototype.initialize = function () {
 
     gEngine.AudioClips.playBackgroundAudio(this.BGM);
 
-    /*
-    this.mHero = new Hero(this.kMinionSprite);
-    this.mAllObjs = new GameObjectSet();
-    this.mAllParticles = new ParticleGameObjectSet();
-
-    this.createBounds();
-    this.mFirstObject = this.mAllObjs.size();
-    this.mCurrentObj = this.mFirstObject;
-    
-    this.mAllObjs.addToSet(this.mHero);
-    var y = 70;
-    var x = 10;
-    for (var i = 1; i<=5; i++) {
-        var m = new Minion(this.kMinionSprite, x, y, ((i%2)!==0));
-        x += 20;
-        this.mAllObjs.addToSet(m);
-    }
-
-    this.mMsg = new FontRenderable("Status Message");
-    this.mMsg.setColor([0, 0, 0, 1]);
-    this.mMsg.getXform().setPosition(5, 7);
-    this.mMsg.setTextHeight(3);
-    
-    this.mShapeMsg = new FontRenderable("Shape");
-    this.mShapeMsg.setColor([0, 0, 0, 1]);
-    this.mShapeMsg.getXform().setPosition(5, 73);
-    this.mShapeMsg.setTextHeight(2.5);
-    */
     this.bgForest = new TextureRenderable(this.bgForestTexture1);
     this.bgForest.setColor([0,0,0,0]);
     this.bgForest.getXform().setSize(2000,600);
@@ -466,31 +408,6 @@ MyGame.prototype.initialize = function () {
     //event, action and result
     this.mEventSet = new EventSet(this.mEventNum);
     console.log(this.mEventSet);
-    /*
-     var e = new Enemy();
-    e.atk=15;
-    e.def=0;
-    e.mHealth = 50;
-    var r1 = new Result("health +10", 10,0,0,0,0,0,0,0.4);
-    var r2 = new Result("max health +10", 0,+10,0,0,0,0,0,0.6);
-    var r3 = new Result("hunger +10", 0,0,10,0,0,0,0,0.2);
-    var r4 = new Result("get item * 1", 0,0,0,0,0,0,1,0.8);
-    var r5 = new Result("attack +1", 0,0,0,0,1,0,0,0.5);
-    var r6 = new Result("hunger -10", 0,0,0,-10,0,0,0,0.5);
-    var r7 = new Result("fight", 0,0,0,0,0,0,0,1);
-    r7.escape = false;
-    var r8 = new Result("defense -1", 0,0,0,0,0,-1,0,0.5);
-    var a1 = new Action("1. action1",[r1, r2]);
-    var a2 = new Action("2. action2", [r3, r4]);
-    var a3 = new Action("1. action3",[r5, r6]);
-    var a4 = new Action("2. action4", [r7]);
-    var a5 = new Action("1. action5",[r5, r8]);
-    var a6 = new Action("2. action6", [r6, r8]);    
-    this.mEventSet[0].action = [a1, a2];
-    this.mEventSet[1].action = [a3, a4];
-    this.mEventSet[2].action = [a5, a6];
-    this.mEventSet[1].enemy = e;
-    */
 };
 
 // This is the draw function, make sure to setup proper drawing environment, and more
@@ -501,19 +418,6 @@ MyGame.prototype.draw = function () {
 
     this.mCamera.setupViewProjection();
     
-    /*
-    this.mAllObjs.draw(this.mCamera);
-    
-    // for now draw these ...
-    //for (var i = 0; i<this.mCollisionInfos.length; i++)
-    //    this.mCollisionInfos[i].draw(this.mCamera);
-    this.mCollisionInfos = []; 
-    
-    this.mTarget.draw(this.mCamera);
-    this.mMsg.draw(this.mCamera);   // only draw status in the main camera
-    this.mShapeMsg.draw(this.mCamera);
-    this.mAllParticles.draw(this.mCamera);
-    */
     this.bgForest.draw(this.mCamera);
     this.bgForest2.draw(this.mCamera);
     this.bgForest3.draw(this.mCamera);
@@ -563,12 +467,6 @@ MyGame.prototype.draw = function () {
     }
 };
 
-/*
-MyGame.prototype.increasShapeSize = function(obj, delta) {
-    var s = obj.getRigidBody();
-    var r = s.incShapeSizeBy(delta);
-};
-*/
 
 // The Update function, updates the application state. Make sure to _NOT_ draw
 // anything from this function!
@@ -606,71 +504,6 @@ MyGame.prototype.update = function () {
         this.SendMessage(msg,"","","","","");
     }
 
-
-    /*
-    var msg = "";   
-    
-    if (gEngine.Input.isKeyPressed(gEngine.Input.keys.C)) {
-        if (this.mCamera.isMouseInViewport()) {
-            var p = this.createParticle(this.mCamera.mouseWCX(), this.mCamera.mouseWCY());
-            this.mAllParticles.addToSet(p);
-        }
-    }
-    gEngine.ParticleSystem.update(this.mAllParticles);
-    if (gEngine.Input.isKeyClicked(gEngine.Input.keys.P)) {
-        gEngine.Physics.togglePositionalCorrection();
-    }
-    if (gEngine.Input.isKeyClicked(gEngine.Input.keys.V)) {
-        gEngine.Physics.toggleHasMotion();
-    }
-    if (gEngine.Input.isKeyClicked(gEngine.Input.keys.H)) {
-        this.radomizeVelocity();
-    }
-    
-    if (gEngine.Input.isKeyClicked(gEngine.Input.keys.Left)) {
-        this.mCurrentObj -= 1;
-        if (this.mCurrentObj < this.mFirstObject)
-            this.mCurrentObj = this.mAllObjs.size() - 1;
-    }            
-    if (gEngine.Input.isKeyClicked(gEngine.Input.keys.Right)) {
-        this.mCurrentObj += 1;
-        if (this.mCurrentObj >= this.mAllObjs.size())
-            this.mCurrentObj = this.mFirstObject;
-    }
-
-    var obj = this.mAllObjs.getObjectAt(this.mCurrentObj);
-    if (gEngine.Input.isKeyPressed(gEngine.Input.keys.Y)) {
-        this.increasShapeSize(obj, MyGame.kBoundDelta);
-    }
-    if (gEngine.Input.isKeyPressed(gEngine.Input.keys.U)) {
-        this.increasShapeSize(obj, -MyGame.kBoundDelta);
-    }
-    
-    if (gEngine.Input.isKeyClicked(gEngine.Input.keys.G)) {
-        var x = 20 + Math.random() * 60;
-        var y = 75;
-        var t = Math.random() > 0.5;
-        var m = new Minion(this.kMinionSprite, x, y, t);
-        this.mAllObjs.addToSet(m);
-    }
-        
-    obj.keyControl();
-    obj.getRigidBody().userSetsState();
-    
-    this.mAllObjs.update(this.mCamera);
-    
-    gEngine.Physics.processCollision(this.mAllObjs, this.mCollisionInfos);
-    gEngine.ParticleSystem.collideWithRigidSet(this.mAllObjs, this.mAllParticles);
-
-    var p = obj.getXform().getPosition();
-    this.mTarget.getXform().setPosition(p[0], p[1]);
-    msg += "  P(" + gEngine.Physics.getPositionalCorrection() + 
-           " " + gEngine.Physics.getRelaxationCount() + ")" +
-           " V(" + gEngine.Physics.getHasMotion() + ")";
-    this.mMsg.setText(msg);
-    
-    this.mShapeMsg.setText(obj.getRigidBody().getCurrentState());
-    */
 
     if(this.isIntroOpen==true){
         if (gEngine.Input.isKeyClicked(gEngine.Input.keys.Space)){
@@ -928,30 +761,3 @@ MyGame.prototype.SendMessage = function(line1, line2, line3, line4,line5, line6)
     this.isMesOn=true;
 }
 
-/*
-MyGame.prototype.createParticle = function(atX, atY) {
-    var life = 30 + Math.random() * 200;
-    var p = new ParticleGameObject("assets/particle.png", atX, atY, life);
-    p.getRenderable().setColor([1, 0, 0, 1]);
-    
-    // size of the particle
-    var r = 3.5 + Math.random() * 2.5;
-    p.getXform().setSize(r, r);
-    
-    // final color
-    var fr = 3.5 + Math.random();
-    var fg = 0.4 + 0.1 * Math.random();
-    var fb = 0.3 + 0.1 * Math.random();
-    p.setFinalColor([fr, fg, fb, 0.6]);
-    
-    // velocity on the particle
-    var fx = 10 * Math.random() - 20 * Math.random();
-    var fy = 10 * Math.random();
-    p.getParticle().setVelocity([fx, fy]);
-    
-    // size delta
-    p.setSizeDelta(0.98);
-    
-    return p;
-};
-*/
