@@ -159,14 +159,11 @@ MyPalace.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.BusinessmanTexture);
     gEngine.Textures.loadTexture(this.BeggarTexture);
     gEngine.Textures.loadTexture(this.PrincessTexture);
-<<<<<<< HEAD
     gEngine.Textures.loadTexture(this.PrinceAttackTexture);
 
 
-=======
     gEngine.Textures.loadTexture(this.KingTexture);
     gEngine.Textures.loadTexture(this.DukeTexture);
->>>>>>> 230df07dcf5f56f206f15c6dc6ab4c21a21cd27f
 
     gEngine.Textures.loadTexture(this.IntroTexture);
     // load audio
@@ -216,14 +213,11 @@ MyPalace.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.BusinessmanTexture);
     gEngine.Textures.unloadTexture(this.BeggarTexture);
     gEngine.Textures.unloadTexture(this.PrincessTexture);
-<<<<<<< HEAD
     gEngine.Textures.unloadTexture(this.PrinceAttackTexture);
 
 
-=======
     gEngine.Textures.unloadTexture(this.KingTexture);
     gEngine.Textures.unloadTexture(this.DukeTexture);
->>>>>>> 230df07dcf5f56f206f15c6dc6ab4c21a21cd27f
 
     gEngine.Textures.unloadTexture(this.apple);
     gEngine.Textures.unloadTexture(this.meat);
