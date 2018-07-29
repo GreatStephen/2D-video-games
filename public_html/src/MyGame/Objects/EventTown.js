@@ -8,7 +8,7 @@
 function EventTown(num) {
     var AllEventTypeTown = [0,0,1,0,0,0,0,0,0,0,0]; // 11 pics
     var AllEventSize_xTown = [200, 230, 350, 250, 200, 340, 200,200,200,200,200];//todo
-    var AllEventSize_yTown = [200, 150, 700, 250, 100, 350,200,350,350,200,200];//todo
+    var AllEventSize_yTown = [200, 150, 700, 250, 300, 350,200,350,350,200,200];//todo
     var AllEventSpriteSequenceTown = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
         {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
         {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
@@ -20,13 +20,13 @@ function EventTown(num) {
     var AllEventSpeedTown = [0,0,7,0,0,0,15,0,0,0,0];
 
     var AllEventMove_xTown = [0,0,0,0,0,0,0,0,0,0,0];
-    var AllEventMove_yTown = [-30,-25,-10,20,-100,50,-15,10,-15,-15,-15];
+    var AllEventMove_yTown = [-30,-25,-10,20,0,50,-15,10,-15,-15,-15];
 
     var AllEventIconTown = ["assets/dog2.png",
         "assets/wolf.png",
         "assets/Knight_New.png",
         "assets/appletree.png",
-        "assets/pond.png",
+        "assets/fountain.png",
         "assets/house.png",
         "assets/assassin.png",
         "assets/villager.png",
@@ -38,7 +38,7 @@ function EventTown(num) {
         "This is a fierce wolf",
         "This is a guard in the forest!",
         "I see an apple tree.",
-        "This is a serene pond.",
+        "This is a fountain.",
         "This is a house with no man in it.",
         "Assassin: I was ordered to kill you today",
         "Villager: I think you are the prince!",
@@ -231,7 +231,7 @@ function EventTown(num) {
         t = 8;
         console.log("there should be vilagger");
     }
-
+    //t=4;
 
     //if(num==1)  t=0;
     // type = 1 -> animation

@@ -188,7 +188,7 @@ var AllEventSpriteSequence = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":
 var AllEventSpeed = [0,15,7,0,0,0,15,0,0,0];//todo
 
 var AllEventMove_x = [0,0,0,0,0,0,0,0,0,0];//todo
-var AllEventMove_y = [-20,-25,-10,20,-100,50,-15,10,-15,-15];//todo
+var AllEventMove_y = [-20,-25,-10,70,-100,50,-15,10,-15,-15];//todo
 function Event(num) {
     var t = Math.floor(Math.random()*10);
     while((t>=6 && t<=9) || t==2){
