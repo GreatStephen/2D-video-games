@@ -155,7 +155,7 @@ var AllEventAct = [
     
 
     // villager1
-    new Action("1. Ask about the king.", [AllResult[26]]),
+    new Action("1. Ask for some information.", [AllResult[26]]),
     new Action("2. Beg for something.(60% succeed)", [AllResult[27], AllResult[28]]),
     new Action("3. Thanks, but I have to go.",[AllResult[29]]),
     new Action(),

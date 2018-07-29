@@ -49,11 +49,13 @@ function Bag(myTexture,cursorTexture,myGame){
     
     this.weapon = -1;
     this.armor = -1;
+
+    /*
     for(var i=0;i<19;i++){
         this.AddItem(i, 1);
-       // this.AddItem(1);
-       // this.AddItem(2);
+
     }
+    */
     this.AddItem(0,2);
     this.AddItem(3,2);
     //this.AddItem(19,1);

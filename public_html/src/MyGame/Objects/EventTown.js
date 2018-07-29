@@ -64,11 +64,11 @@ function EventTown(num) {
 // possible results
     var AllResultTown=[
         // dog 0 1
-        new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 1),
+        new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0,0, 0, 1, 2, 0, 0, 1),
         new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0.7),
 
         // wolf 2 3
-        new Result("Fight result: ", 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0, 0, 1),
+        new Result("Fight result: ", 0, 0, 0, 0, 0, 0,0,0, 0, 1, 2, 0, 0, 1),
         new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0, 0, 0.7),
 
         // knignt 4 5
@@ -107,7 +107,7 @@ function EventTown(num) {
 
 
         // villager 26 27 28 29 30
-        new Result("The princess moved to a secret castle. If you have the ring to prove you are the prince, then go and find her.", 0,0,0,0,0,0,0,1,0,0,0,0,0,1),
+        new Result("The princess moved to a secret castle. If you have the ring, then go and find her.", 0,0,0,0,0,0,0,1,0,0,0,0,0,1),
         new Result("Get herb *1", 0,0,0,0,0,0,0,0,0,0,3,0,0,0.6),
         new Result("The villager doesn't give you anything.", 0,0,0,0,0,0,0,0,0,0,0,0,0,0.4),
         new Result("You kill him, lose 10HP.", -10,0,0,0,0,0,0,0,0,0,0,0,0,1),
