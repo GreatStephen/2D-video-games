@@ -70,9 +70,6 @@ function MyMenu(){
     }else{
         AllEndings = gEngine.ResourceMap.retrieveAsset("endings");
     }
-//    var endings = gEngine.ResourceMap.retrieveAsset("endings");
-//    for(var i=0;i<13;i++)
-//        AllEndings[i].flag = endings[i];
 }
 
 //gEngine.Core.inheritPrototype(MyMenu, Scene);
