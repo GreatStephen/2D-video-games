@@ -5,7 +5,7 @@
  */
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
-var AllEndings = [{name:"Ending 1: you are killed", pic:"assets/Endings/Ending_0.png", flag:true},{name:"Ending 2: starvation",pic:"assets/Endings/Ending_1.png", flag:true},
+var AllEndings1 = [{name:"Ending 1: you are killed", pic:"assets/Endings/Ending_0.png", flag:true},{name:"Ending 2: starvation",pic:"assets/Endings/Ending_1.png", flag:true},
     {name:"Ending 3: apple",pic:"assets/Endings/Ending_2.png", flag:true},{name:"Ending 4: pass",pic:"assets/Endings/Ending_3.png", flag:true},
     {name:"Ending 5: giveup",pic:"assets/Endings/Ending_4.png", flag:false},{name:"Ending 6: prison",pic:"assets/Endings/Ending_5.png", flag:false}];
 
@@ -143,7 +143,7 @@ MyEnding.prototype.update = function () {
     if(!this.isShow&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Up)){
         this.choice = (this.choice+6-1)%6;
         //var temp = this.Cursor.getXform().mPosition;
-        this.Cursor.getXform().setPosition(150,500-69*this.choice);
+        
     }
     if(!this.isShow&&gEngine.Input.isKeyClicked(gEngine.Input.keys.Down)){
         this.choice = (this.choice+1)%6;
