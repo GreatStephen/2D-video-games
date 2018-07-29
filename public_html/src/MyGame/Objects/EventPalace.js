@@ -18,7 +18,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
     var AllEventSpeedPalace = [0,0,0,7,7,0,0,0,0,0];
 
     var AllEventMove_xPalace = [0,0,0,0,0,0,0,0,0,0];
-    var AllEventMove_yPalace = [-20,-25,-10,-10,-10,50,-15,-10,-10,0];
+    var AllEventMove_yPalace = [-20,-25,-10,-10,-10,-15,-15,-10,-10,0];
 
     var AllEventIconPalace = ["assets/mushroom.png",
         "assets/princess.png",

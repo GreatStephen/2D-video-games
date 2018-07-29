@@ -6,7 +6,7 @@
 */
 
 "use strict";
-var AllEndings = [{name:"Ending 1: you are killed", pic:"assets/Endings/Ending_0.png", flag:true},
+var AllEndings = [{name:"Ending 1: you are killed", pic:"assets/Endings/Ending_0.png", flag:false},
                   {name:"Ending 2: die because of starvation",pic:"assets/Endings/Ending_1.png", flag:false},
                   {name:"Ending 3: defeated and arrested",pic:"assets/Endings/Ending_2.png", flag:false},
                   {name:"Ending 4: go for the princess and arrested",pic:"assets/Endings/Ending_3.png", flag:false},
