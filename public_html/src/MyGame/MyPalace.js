@@ -29,6 +29,8 @@ function MyPalace(isPrincessLocation, isPrincessAmbition) {
     this.EagleTexture = "assets/eagle.png";
     this.Mushroom = "assets/mushroom.png";
     this.Knight = "assets/Knight_New.png";
+    this.Knight1 = "assets/Knight_New_Red.png";
+    this.Knight2 = "assets/Knight_New_Yellow.png";
     this.TreeTexture = "assets/appletree.png";
     this.PondTexture = "assets/pond.png";
     this.RuinsTexture = "assets/ruins.png";
@@ -154,6 +156,8 @@ MyPalace.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.EagleTexture);
     gEngine.Textures.loadTexture(this.Mushroom);
     gEngine.Textures.loadTexture(this.Knight);
+    gEngine.Textures.loadTexture(this.Knight1);
+    gEngine.Textures.loadTexture(this.Knight2);
     gEngine.Textures.loadTexture(this.TreeTexture);
     gEngine.Textures.loadTexture(this.PondTexture);
     gEngine.Textures.loadTexture(this.RuinsTexture);
@@ -222,7 +226,9 @@ MyPalace.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.PrincessTexture);
     gEngine.Textures.unloadTexture(this.PrinceAttackTexture);
 
-
+    gEngine.Textures.unloadTexture(this.Knight);
+    gEngine.Textures.unloadTexture(this.Knight1);
+    gEngine.Textures.unloadTexture(this.Knight2);
     gEngine.Textures.unloadTexture(this.KingTexture);
     gEngine.Textures.unloadTexture(this.DukeTexture);
     gEngine.Textures.unloadTexture(this.ServantTexture);
