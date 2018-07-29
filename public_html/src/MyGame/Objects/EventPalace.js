@@ -41,7 +41,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         "assets/Knight_New.png",
         "assets/Knight_New.png",
         "assets/businessman.png",
-        "assets/villager.png",
+        "assets/servant.png",
         "assets/duke.png",
         "assets/princess.png",
         "assets/wizard_1.png"
@@ -108,7 +108,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         new Action(),
         // king
         new Action("1. Fight with him",[AllResultPalace[0]]),
-        new Action("2. Try to persuade him", [AllResultPalace[3]]),
+        new Action(),
         new Action(),
         //new Action("3. Force him to give your crown by the country's power of princess", [AllResultPalace[3]]), 
         new Action(),
@@ -160,7 +160,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         AllEventActPalace[5] = new Action("2. Reveal her plot", [AllResultPalace[11]]);
     }
     if(isMeetPrincess){
-        AllEventActPalace[10] = new Action("3. Force him to give your crown by the country's power of princess", [AllResultPalace[10]]);
+        AllEventActPalace[9] = new Action("2. Force him to give your crown by the country's power of princess", [AllResultPalace[10]]);
     }
     if(!hasRing){
        AllEventActPalace[4] = new Action("1. Ask for her help",[AllResultPalace[8]]);
@@ -177,6 +177,8 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         t=5;
     if(num==9&&isMeetPrincess)
         t=1;
+    if(num==10)
+        t = 9; //potion
     if(num==11){
         if(hasLetter && !isMeetPrincess)
             t = 7;  //boss is duke
