@@ -63,6 +63,7 @@ function MyPalace(isPrincessLocation, isPrincessAmbition) {
     this.letter2 = "assets/item/17_letter2.png";
     this.ring = "assets/item/18_ring.png";
     this.bread = "assets/item/19_bread.png";
+    this.potion3 = "assets/item/20_potion3.jpg";
 
 
     this.IntroTexture = "assets/Intro.png";
@@ -191,6 +192,7 @@ MyPalace.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.letter1);
     gEngine.Textures.loadTexture(this.potion1);
     gEngine.Textures.loadTexture(this.potion2);
+    gEngine.Textures.loadTexture(this.potion3);
     gEngine.Textures.loadTexture(this.letter2);
     gEngine.Textures.loadTexture(this.ring);
     gEngine.Textures.loadTexture(this.bread);
@@ -239,6 +241,7 @@ MyPalace.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.treasurechest);
     gEngine.Textures.unloadTexture(this.potion1);
     gEngine.Textures.unloadTexture(this.potion2);
+    gEngine.Textures.unloadTexture(this.potion3);
     gEngine.Textures.unloadTexture(this.letter1);
     gEngine.Textures.unloadTexture(this.letter2);
     gEngine.Textures.unloadTexture(this.ring);

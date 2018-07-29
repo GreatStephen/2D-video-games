@@ -5,21 +5,22 @@
  */
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
-var NameList = ["Apple","Meat","Fish","Herb","Timber","Axe","Spear","Sword","Shield1","Shield2","secretbag","cape","key","treasurechest","Letter","Potion","Mysterious potion","Letter","Ring","Bread"];
+var NameList = ["Apple","Meat","Fish","Herb","Timber","Axe","Spear","Sword","Shield1","Shield2","secretbag","cape","key","treasurechest","Letter","Potion","Mysterious potion","Letter","Ring","Bread","Antidote"];
 var InfoList = ["Apple:","Meat:","Fish:","Herb:","Timber:",
                 "Axe:","Spear:","Sword: ","Shield: ","Shield:",
                 "Secret bag: ","Cape: ","Key:",
-                "Treasure Chest: ", "Letter: ","Potion:","Mysterious potion:","Letter:","Ring:","Bread:"
+                "Treasure Chest: ", "Letter: ","Potion:","Mysterious potion:","Letter:","Ring:","Bread:","Antidote:"
                 ];
 var InfoList_1 = ["Hunger+10","Hunger+20","Hunger+10","Health+10","strange timber",
                 "Attack+5","Attack+10","Attack+10","Defense+5","Defense+10",
                 "What's in it?","Disguise yourself","May open something?",
-                "It is locked", "Empty letter","Health+10","What can it do?","Enter to check","Princess's ring","Hunger+5 Health+5"
+                "It is locked", "Empty letter","Health+10","What can it do?","Enter to check","Princess's ring","Hunger+5 Health+5",
+                "Help to detoxify"
                 ];               
-var HealthList = [0,0,0,10,0,0,0,0,0,0,0,0,0,0,0,10,0,0,0,5];
-var mHealthList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-var HungerList = [10,20,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5];
-var mHungerList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var HealthList = [0,0,0,10,0,0,0,0,0,0,0,0,0,0,0,10,0,0,0,5,0];
+var mHealthList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var HungerList = [10,20,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0];
+var mHungerList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var PictureList = ["assets/item/0_apple.png",
     "assets/item/1_meat.png",
     "assets/item/2_fish.png",
@@ -39,11 +40,12 @@ var PictureList = ["assets/item/0_apple.png",
     "assets/item/16_potion2.jpg",
     "assets/item/17_letter2.png",
     "assets/item/18_ring.png",
-    "assets/item/19_bread.png"
+    "assets/item/19_bread.png",
+    "assets/item/20_potion3.png",
 ];
-var AtkList = [0,0,0,0,0,5,10,10,0,0,0,0,0,0,0,0,0,0,0,0];
-var DefList = [0,0,0,0,0,0,0,0,5,10,0,5,0,0,0,0,0,0,0,0];
-var TypeList = [0,0,0,0,1,2,2,2,3,3,1,3,1,1,1,0,1,4,1,0];  // 0: consume  1: cannot use   2: weapon  3:armor  4:可重复使用
+var AtkList = [0,0,0,0,0,5,10,10,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var DefList = [0,0,0,0,0,0,0,0,5,10,0,5,0,0,0,0,0,0,0,0,0];
+var TypeList = [0,0,0,0,1,2,2,2,3,3,1,3,1,1,1,0,1,4,1,0,1];  // 0: consume  1: cannot use   2: weapon  3:armor  4:可重复使用
 
 function Item(id) {
     this.Id = id;
