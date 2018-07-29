@@ -63,7 +63,7 @@ function MyPalace(isPrincessLocation, isPrincessAmbition) {
     this.letter2 = "assets/item/17_letter2.png";
     this.ring = "assets/item/18_ring.png";
     this.bread = "assets/item/19_bread.png";
-    this.potion3 = "assets/item/20_potion3.jpg";
+    this.potion3 = "assets/item/20_potion3.png";
 
 
     this.IntroTexture = "assets/Intro.png";
