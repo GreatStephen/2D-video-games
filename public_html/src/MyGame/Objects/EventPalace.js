@@ -6,7 +6,6 @@
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
 function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess, hasRing, hasLetter, isFightPrincess){
-    console.log(num);
 
     var AllEventTypePalace = [0,0,0,1,1,0,0,0,0,0];
     var AllEventSize_xPalace = [150, 200, 250, 350, 350, 200, 200,300,200,500];
@@ -38,7 +37,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         "This is a soldier",
         "This is a captain",
         "Merchant: Would you like to buy something",
-        "Servant: I ...",
+        "Maid: I ...",
         "You meet the duke, he wants to kill you and the king",
         "You decide to catch the princess to stop the war",
         "I have some potions that may be useful to your fight "
@@ -148,7 +147,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
     if(isMeetPrincess){
         AllEventActPalace[9] = new Action("2. Force him to give your crown by the country's power of princess", [AllResultPalace[10]]);
     }
-    if(!hasRing){
+    if(isMeetPrincess&&!hasRing){
        AllEventActPalace[4] = new Action("1. Ask for her help",[AllResultPalace[8]]);
     }
     AllResultPalace[8].ending = 3;
