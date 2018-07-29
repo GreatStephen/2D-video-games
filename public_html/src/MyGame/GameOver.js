@@ -88,7 +88,7 @@ GameOver.prototype.initialize = function () {
         0
     );
     this.mCamera.setBackgroundColor([1, 1, 1, 1.0]);
-    gEngine.AudioClips.playBackgroundAudio(this.BGM[0]);
+    gEngine.AudioClips.playBackgroundAudio(this.BGM[this.id]);
     
     this.Ending = new TextureRenderable(this.EndingTexture[this.id]);
     this.Ending.getXform().setSize(1300, 600);
