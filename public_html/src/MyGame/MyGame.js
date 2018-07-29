@@ -455,7 +455,7 @@ MyGame.prototype.initialize = function () {
                                     6,              // number of elements in this sequence
                                     0);             // horizontal padding in between
     this.mKnight.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
-    this.mKnight.setAnimationSpeed(10);
+    this.mKnight.setAnimationSpeed(5);
     
     // message background
     this.bgMsg = new Renderable();
@@ -598,6 +598,11 @@ MyGame.prototype.update = function () {
         console.log("res");
         console.log(res);
         var msg = res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
+
+
+        var enemy = this.mEventSet[this.mEventIndex-1].icon;
+        enemy.getXform().setPosition(2000,2000);
+
         this.SendMessage(msg,"","","","","");
     }
 

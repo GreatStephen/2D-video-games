@@ -468,6 +468,11 @@ MyTown.prototype.update = function () {
         console.log("res");
         console.log(res);
         var msg = res.apply(this, this.mEventSet[this.mEventIndex-1].enemy);
+
+        var enemy = this.mEventSet[this.mEventIndex-1].icon;
+        enemy.getXform().setPosition(2000,2000);
+
+
         this.SendMessage(msg,"","","","","");
     }
 
