@@ -12,9 +12,9 @@ var InfoList = ["Apple:","Meat:","Fish:","Herb:","Timber:",
                 "Treasure Chest: ", "Letter: ","Potion:","Mysterious potion:","Letter:","Ring:","Bread:","Antidote:"
                 ];
 var InfoList_1 = ["Hunger+10","Hunger+20","Hunger+10","Health+10","strange timber",
-                "Attack+5","Attack+10","Attack+10","Defense+5","Defense+10",
+                "Attack+5","Attack+10","Attack+15","Defense+5","Defense+10",
                 "What's in it?","Disguise yourself","May open something?",
-                "It is locked", "Empty letter","Health+10","What can it do?","Enter to check","Princess's ring","Hunger+5 Health+5",
+                "It is locked", "It is empty","Health+10","What can it do?","Enter to check","Princess's ring","Hunger+5 Health+5",
                 "Help to detoxify"
                 ];               
 var HealthList = [0,0,0,10,0,0,0,0,0,0,0,0,0,0,0,10,0,0,0,5,0];
