@@ -38,6 +38,8 @@ function MyPalace(isPrincessLocation, isPrincessAmbition) {
     this.BusinessmanTexture = "assets/businessman.png";
     this.BeggarTexture = "assets/beggar.png";
     this.PrincessTexture = "assets/princess.png";
+    this.KingTexture = "assets/king.png";
+    this.DukeTexture = "assets/duke.png";
 
     // item texture
     this.apple = "assets/item/0_apple.png";
@@ -117,9 +119,8 @@ function MyPalace(isPrincessLocation, isPrincessAmbition) {
     this.hasChosen = true;
     this.mEventIndex = 0;
     this.isIntroOpen = true;
-    this.isPrincessLocation = false;
-    this.isPrincessAmbition = false;
     this.isMeetPrincess = false;
+    this.isFightPrincess = false;
     this.isPrincessLocation = isPrincessLocation;
     this.isPrincessAmbition = isPrincessAmbition;
     this.BagOpenInMes = false;
@@ -129,7 +130,7 @@ function MyPalace(isPrincessLocation, isPrincessAmbition) {
 
     //event
     this.mEventSet = null;
-    this.mEventNum = 11;
+    this.mEventNum = 12;
 
     this.hungerRate = 1;
 }
@@ -158,9 +159,14 @@ MyPalace.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.BusinessmanTexture);
     gEngine.Textures.loadTexture(this.BeggarTexture);
     gEngine.Textures.loadTexture(this.PrincessTexture);
+<<<<<<< HEAD
     gEngine.Textures.loadTexture(this.PrinceAttackTexture);
 
 
+=======
+    gEngine.Textures.loadTexture(this.KingTexture);
+    gEngine.Textures.loadTexture(this.DukeTexture);
+>>>>>>> 230df07dcf5f56f206f15c6dc6ab4c21a21cd27f
 
     gEngine.Textures.loadTexture(this.IntroTexture);
     // load audio
@@ -210,9 +216,14 @@ MyPalace.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.BusinessmanTexture);
     gEngine.Textures.unloadTexture(this.BeggarTexture);
     gEngine.Textures.unloadTexture(this.PrincessTexture);
+<<<<<<< HEAD
     gEngine.Textures.unloadTexture(this.PrinceAttackTexture);
 
 
+=======
+    gEngine.Textures.unloadTexture(this.KingTexture);
+    gEngine.Textures.unloadTexture(this.DukeTexture);
+>>>>>>> 230df07dcf5f56f206f15c6dc6ab4c21a21cd27f
 
     gEngine.Textures.unloadTexture(this.apple);
     gEngine.Textures.unloadTexture(this.meat);
@@ -609,7 +620,7 @@ MyPalace.prototype.update = function () {
         var hasRing = this.mBag.GetItemIdx(18) < 0 ? false:true;
         var hasLetter = this.mBag.GetItemIdx(17) < 0 ? false:true;
         if(this.mEventIndex<this.mEventNum)
-            this.mEventSet.push(new EventPalace(this.mEventIndex,this.isPrincessLocation, this.isPrincessAmbition, this.isMeetPrincess, hasRing, hasLetter));
+            this.mEventSet.push(new EventPalace(this.mEventIndex,this.isPrincessLocation, this.isPrincessAmbition, this.isMeetPrincess, hasRing, hasLetter, this.isFightPrincess));
         console.log(this.mEventSet);
     }
 

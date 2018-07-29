@@ -7,22 +7,22 @@
 
 "use strict";
 var AllEndings = [{name:"Ending 1: you are killed", pic:"assets/Endings/Ending_0.png", flag:true},
-                  {name:"Ending 2: die because of starvation",pic:"assets/Endings/Ending_1.png", flag:true},
-                  {name:"Ending 3: defeated and arrested",pic:"assets/Endings/Ending_2.png", flag:true},
-                  {name:"Ending 4: go for the princess and arrested",pic:"assets/Endings/Ending_3.png", flag:true},
-                  {name:"Ending 5: beat the king with the princess",pic:"assets/Endings/Ending_4.png", flag:true},
-                  {name:"Ending 6: killed by the king",pic:"assets/Endings/Ending_5.png", flag:true},
-                  {name:"Ending 7: killed by the princess",pic:"assets/Endings/Ending_6.png", flag:true},
-                  {name:"Ending 8: defeat the king",pic:"assets/Endings/Ending_7.png", flag:true},
-                  {name:"Ending 9: defeat the duke and save the king",pic:"assets/Endings/Ending_8.png", flag:true},
-                  {name:"Ending 10: defeat the duke but the king die",pic:"assets/Endings/Ending_9.png", flag:true},
-                  {name:"Ending 11: killed by the duke",pic:"assets/Endings/Ending_10.png", flag:true},
-                  {name:"Ending 12: defeat the princess",pic:"assets/Endings/Ending_11.png", flag:true},
-                  {name:"Ending 13: normal life",pic:"assets/Endings/Ending_12.png", flag:true}];
+                  {name:"Ending 2: die because of starvation",pic:"assets/Endings/Ending_1.png", flag:false},
+                  {name:"Ending 3: defeated and arrested",pic:"assets/Endings/Ending_2.png", flag:false},
+                  {name:"Ending 4: go for the princess and arrested",pic:"assets/Endings/Ending_3.png", flag:false},
+                  {name:"Ending 5: beat the king with the princess",pic:"assets/Endings/Ending_4.png", flag:false},
+                  {name:"Ending 6: killed by the king",pic:"assets/Endings/Ending_5.png", flag:false},
+                  {name:"Ending 7: killed by the princess",pic:"assets/Endings/Ending_6.png", flag:false},
+                  {name:"Ending 8: defeat the king",pic:"assets/Endings/Ending_7.png", flag:false},
+                  {name:"Ending 9: defeat the duke and save the king",pic:"assets/Endings/Ending_8.png", flag:false},
+                  {name:"Ending 10: defeat the duke but the king die",pic:"assets/Endings/Ending_9.png", flag:false},
+                  {name:"Ending 11: killed by the duke",pic:"assets/Endings/Ending_10.png", flag:false},
+                  {name:"Ending 12: defeat the princess",pic:"assets/Endings/Ending_11.png", flag:false},
+                  {name:"Ending 13: normal life",pic:"assets/Endings/Ending_12.png", flag:false}];
 
 var center_0 = [650,300];
 function MyMenu(){
-    console.log(AllEndings);
+    //console.log(AllEndings);
     this.bgBackground = "assets/StartScene/background.png";
     this.CursorTexture = "assets/StartScene/CrownIcons_007.png";
     this.NameTexture = "assets/StartScene/Name.png";
@@ -62,6 +62,17 @@ function MyMenu(){
 
     this.hint1 = null;
     this.hint2 = null;
+    
+    
+    if(!gEngine.ResourceMap.isAssetLoaded("endings")){
+        gEngine.ResourceMap.asyncLoadRequested("endings");
+        gEngine.ResourceMap.asyncLoadCompleted("endings",AllEndings);
+    }else{
+        AllEndings = gEngine.ResourceMap.retrieveAsset("endings");
+    }
+//    var endings = gEngine.ResourceMap.retrieveAsset("endings");
+//    for(var i=0;i<13;i++)
+//        AllEndings[i].flag = endings[i];
 }
 
 //gEngine.Core.inheritPrototype(MyMenu, Scene);
@@ -75,7 +86,6 @@ MyMenu.prototype.loadScene = function () {
     gEngine.AudioClips.loadAudio(this.BGM);
     
     for(var i=0;i<13;i++){
-        console.log(i);
         gEngine.Textures.loadTexture(AllEndings[i].pic);
     }
 
@@ -175,11 +185,11 @@ MyMenu.prototype.initialize = function () {
 
     for(var i=0;i<13;i++){
         var fr;
-        console.log(i);
+        //console.log(i);
         if(AllEndings[i].flag)
             fr = new FontRenderable(AllEndings[i].name);
         else
-            fr = new FontRenderable("     ???      ");
+            fr = new FontRenderable("Ending "+(i+1)+":     ???      ");
         fr.setColor([1,1,1,1]);
         fr.getXform().setPosition(200,500-i*70);
         fr.setTextHeight(35);
@@ -291,7 +301,7 @@ MyMenu.prototype.update = function () {
                 if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Esc)){   //按空格返回
                    this.isEndingOpen = false;
                 }
-                if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Enter)){   
+                if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Enter) && AllEndings[this.endingChoice].flag){   
                    this.isShow=true;
                    this.endingView = new TextureRenderable(AllEndings[this.endingChoice].pic);
                    this.endingView.getXform().setSize(1100,500);

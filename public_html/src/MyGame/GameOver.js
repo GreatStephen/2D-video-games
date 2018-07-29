@@ -69,6 +69,12 @@ GameOver.prototype.unloadScene = function () {
     //开始游戏
     gEngine.AudioClips.stopBackgroundAudio();
     gEngine.AudioClips.unloadAudio(this.BGM[0]);
+    //save the endings
+    var endings = gEngine.ResourceMap.retrieveAsset("endings");
+    endings[this.id].flag = true;
+    gEngine.ResourceMap.asyncLoadRequested("endings");
+    gEngine.ResourceMap.asyncLoadCompleted("endings",endings);
+    //back to menu
     var mygame = new MyMenu();
     gEngine.Core.startScene(mygame);
 }

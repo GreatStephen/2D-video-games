@@ -14,6 +14,7 @@ var AllEnemy = [{Id:0, msg:"", mHealth:"40", atk:13, def:0, numItem:1, dropItemI
     {Id:6, msg:"", mHealth:"50", atk:19, def:0, numItem:0, dropItemId:0, money:20}, // assassin
     {Id:7, msg:"", mHealth:"100", atk:20, def:5, numItem:0, dropItemId:0, money:0}, // king
     {Id:8, msg:"", mHealth:"150", atk:25, def:5, numItem:0, dropItemId:0, money:0}, // duke
+    {Id:9, msg:"", mHealth:"100", atk:20, def:8, numItem:0, dropItemId:0, money:0}, // princess
     ]
 
 function Enemy(id) {
@@ -58,6 +59,8 @@ Enemy.prototype.fight = function (game){
             game.ending = 5;
         else if(this.Id == 8)
             game.ending = 10;
+        else if(this.Id == 9)
+            game.ending = 6;
         else
             game.ending = 0;
         msg = "you lose";
@@ -73,6 +76,9 @@ Enemy.prototype.fight = function (game){
         game.EndGame();
     }else if(this.Id == 8){
         game.ending = game.mBag.GetItemIdx(16)<0?9:8;
+        game.EndGame();
+    }else if(this.Id == 9){
+        game.ending = 11;
         game.EndGame();
     }
         

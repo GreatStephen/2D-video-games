@@ -75,9 +75,9 @@ Bag.prototype.GetItemIdx = function(id){
 }
 
 Bag.prototype.GetItemNum = function(id){
-    console.log(id);
-    console.log(this.itemSet);
-    console.log(this.itemNum);
+//    console.log(id);
+//    console.log(this.itemSet);
+//    console.log(this.itemNum);
     for(var i=0; i<this.itemSet.length;i++)
     {
         if(id == this.itemSet[i].Id)

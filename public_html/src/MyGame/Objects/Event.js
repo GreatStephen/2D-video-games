@@ -174,9 +174,9 @@ var AllEventAct = [
 
 ];
 
-var AllEventType = [0,1,1,0,0,0,1,0,0,0];
-var AllEventSize_x = [150, 180, 350, 250, 200, 340, 200,200,200,200];//todo
-var AllEventSize_y = [150, 180, 700, 250, 100, 350,200,350,200,200];//todo
+var AllEventType = [0,1,1,0,0,0,0,0,0,0];
+var AllEventSize_x = [150, 180, 350, 250, 200, 340, 220,200,200,200];//todo
+var AllEventSize_y = [150, 180, 700, 250, 100, 350,250,350,200,200];//todo
 var AllEventSpriteSequence = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
                               {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
                               {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
@@ -228,7 +228,7 @@ function Event(num) {
     else if(num==16){
         t=2;
     }
-    
+    //t=6;
     //t=(num-1)%10;
 
     //if(num==1)  t=0;
