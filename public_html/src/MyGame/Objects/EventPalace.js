@@ -5,7 +5,7 @@
  */
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
-function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess){
+function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess, hasRing, hasLetter){
     console.log(num);
     var AllEventTypePalace = [0,0,1,1,1,0,0,0,0,0];
     var AllEventSize_xPalace = [150, 180, 350, 350, 350, 340, 200,200,200,200];//todo
@@ -20,10 +20,10 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         {}
 
     ];
-    var AllEventSpeedPalace = [0,15,7,7,7,7,15,0,0,0];
+    var AllEventSpeedPalace = [0,15,7,7,7,7,15,7,0,0];
 
     var AllEventMove_xPalace = [0,0,0,0,0,0,0,0,0,0];
-    var AllEventMove_yPalace = [-20,-25,-10,-10,-10,50,-15,10,-15,-15];
+    var AllEventMove_yPalace = [-20,-25,-10,-10,-10,50,-15,-10,0,0];
 
     var AllEventIconPalace = ["assets/mushroom.png",
         "assets/princess.png",
@@ -33,8 +33,6 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         "assets/businessman.png",
         "assets/villager.png",
         "assets/villager.png",
-        "assets/villager.png",
-        "assets/businessman.png"
     ];
     var AllEventInfPalace = ["Would you like to meet with the princess?",
         "You prove that you are the prince by the ring, then you'd like to:",
@@ -42,11 +40,12 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         "This is a soldier",
         "This is a captain",
         "Merchant: Would you like to buy something",
-        "Servant: I ..."
+        "Servant: I ...",
+        "Yoou meet the duke, he wants to kill you and the king"
     ];
 
     var AllEnemyIdPalace=[
-        -1,-1,7,1,1,-1,-1
+        -1,-1,7,1,1,-1,-1,8
     ];
 
 // possible results
@@ -63,13 +62,14 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         new Result("Lose timber*2, get a herb.",0,0,0,0,0,0,0,0,0,3,1,4,2,1),
         new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
         
-        //8-13
+        //8-14
         new Result("The princess don't believe you are the princess, you are arrested", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
         new Result("You defeat the king", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
         new Result("The king give in and give you the crown", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
         new Result("You defeat the princess", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
         new Result("You defeat the duke and save the king", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
         new Result("You defeat the duke but the king died", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
+        new Result("ok", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
 
     ];
     AllResultPalace[0].escape = false;
@@ -83,7 +83,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         new Action(),
         new Action(),
         // princess
-        new Action("1. Ask for her help",[AllResultPalace[3]]),
+        new Action("1. Ask for her help",[AllResultPalace[4]]),
         new Action(),
         //new Action("2. Reveal her plot", [AllResultPalace[3]]),
         new Action(),
@@ -116,7 +116,13 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         new Action("1. do something", [AllResultPalace[3]]),
         new Action("2. do something", [AllResultPalace[3]]),
         new Action(),
-        new Action()
+        new Action(),
+        
+        // duke
+        new Action("1. Fight",[AllResultPalace[0]]),
+        new Action(),
+        new Action(),
+        new Action(),
     ];
     AllResultPalace[4].isMeetPrincess = true;
     if(isPrincessAmbition){
@@ -124,6 +130,9 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
     }
     if(isMeetPrincess){
         AllEventActPalace[10] = new Action("3. Force him to give your crown by the country's power of princess", [AllResultPalace[10]]);
+    }
+    if(!hasRing){
+       AllEventActPalace[4] = new Action("1. Ask for her help",[AllResultPalace[8]]);
     }
     AllResultPalace[8].ending = 3;
     AllResultPalace[10].ending = 4;
@@ -138,8 +147,12 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         t=5;
     if(num==9&&isMeetPrincess)
         t=1;
-    if(num==10)
-        t=2;
+    if(num==10){
+        if(hasLetter && !isMeetPrincess)
+            t = 7;  //boss is duke
+        else
+            t=2;  //boss is king
+    }
 
     this.type = AllEventTypePalace[t];
     this.position = [1000*num+AllEventMove_xPalace[t], 200+AllEventMove_yPalace[t]];
