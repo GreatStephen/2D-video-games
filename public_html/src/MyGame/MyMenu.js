@@ -21,7 +21,6 @@ var AllEndings = [{name:"Ending 1: you are killed", pic:"assets/Endings/Ending_0
                   {name:"Ending 13: normal life",pic:"assets/Endings/Ending_12.png", flag:true}];
 
 var center_0 = [650,300];
-
 function MyMenu(){
     console.log(AllEndings);
     this.bgBackground = "assets/StartScene/background.png";
@@ -38,6 +37,8 @@ function MyMenu(){
     this.mText = [];
     this.bgMsg = null;
     this.endingView = null;
+    
+    this.current = [0,6];
     
     this.choice = 0;
     this.isShow = false;
@@ -301,28 +302,33 @@ MyMenu.prototype.update = function () {
                 if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Up)){
                     if(this.endingChoice > 0){
                         this.endingChoice -= 1;
-                    }
-                    this.EndingCursor.getXform().setPosition(150,500-70*this.endingChoice);
-                    if((this.endingChoice>2)&&(this.endingChoice<9)){
-                        var temp = this.EndingCamera.getWCCenter();
-                        temp[1] += 70;
-                        this.EndingCamera.setWCCenter(temp[0],temp[1]);
-                        this.bgMsg.getXform().setPosition(temp[0],temp[1]);
-                        console.log(this.endingChoice+"  pos  "+this.EndingCamera.getWCCenter());
+                        this.EndingCursor.getXform().setPosition(150,500-70*this.endingChoice);
+                        if(this.endingChoice<this.current[0]){
+                            var temp = this.EndingCamera.getWCCenter();
+                            temp[1] += 70;
+                            this.EndingCamera.setWCCenter(temp[0],temp[1]);
+                            this.bgMsg.getXform().setPosition(temp[0],temp[1]);
+                            console.log(this.endingChoice+"  pos  "+this.EndingCamera.getWCCenter());
+                            this.current[0] = this.current[0]-1;
+                            this.current[1] = this.current[1]-1;
+                        }
                     }
                 } 
                 if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Down)){
                     if(this.endingChoice < 12){
                         this.endingChoice += 1;
+                        this.EndingCursor.getXform().setPosition(150,500-70*this.endingChoice);
+                        if(this.endingChoice>this.current[1]){
+                            var temp = this.EndingCamera.getWCCenter();
+                            temp[1] -= 70;
+                            this.EndingCamera.setWCCenter(temp[0],temp[1]);
+                            this.bgMsg.getXform().setPosition(temp[0],temp[1]);
+                            console.log(this.endingChoice+"  pos  "+this.EndingCamera.getWCCenter());
+                            this.current[0] = this.current[0]+1;
+                            this.current[1] = this.current[1]+1;
+                        }
                     }
-                    this.EndingCursor.getXform().setPosition(150,500-70*this.endingChoice);
-                    if((this.endingChoice>3)&&(this.endingChoice<10)){
-                        var temp = this.EndingCamera.getWCCenter();
-                        temp[1] -= 70;
-                        this.EndingCamera.setWCCenter(temp[0],temp[1]);
-                        this.bgMsg.getXform().setPosition(temp[0],temp[1]);
-                        console.log(this.endingChoice+"  pos  "+this.EndingCamera.getWCCenter());
-                    }
+                    
                 } 
             }
             else{    //打开结局
