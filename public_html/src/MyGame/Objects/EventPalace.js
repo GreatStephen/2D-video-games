@@ -55,7 +55,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         "Servant: I ...",
         "You meet the duke, he wants to kill you and the king",
         "You decide to catch the princess to stop the war",
-        " "
+        "I have some potions that may be useful to your fight "
     ];
 
     var AllEnemyIdPalace=[
@@ -84,7 +84,11 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         new Result("You defeat the duke and save the king", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
         new Result("You defeat the duke but the king died", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
         new Result("ok", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
-
+        
+        //15-17
+        new Result("Lose 50 Gold, get a small healing potion.", 0,0,0,0,0,0,-50,0,0,15,1,0,0,1),
+        new Result("Lose 100 Gold, get an antidote potion.",0,0,0,0,0,0,-100,0,0,20,1,0,0,1),
+        new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
     ];
     AllResultPalace[0].escape = false;
     AllResultPalace[2].escape = false;
@@ -145,9 +149,9 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         new Action(),
         
         //wizard
-        new Action(),
-        new Action(),
-        new Action(),
+        new Action("1. 50 gold for an small healing potion", [AllResultPalace[15]]),
+        new Action("2. 100 gold for a antidote potion", [AllResultPalace[16]]),
+        new Action("3. No, thanks",[AllResultPalace[17]]),
         new Action(),
     ];
     AllResultPalace[4].isMeetPrincess = true;
