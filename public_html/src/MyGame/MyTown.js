@@ -643,7 +643,7 @@ MyTown.prototype.update = function () {
         this.mHealth.setText("Health: " + this.mHealthValue + "/"+this.mHealthValueMax);
     }
     if(this.mHealthValue<=0){
-
+        this.ending = 1;
         // if(this.mBag.GetItemIdx(0)==-1)  this.ending = 0;
         this.EndGame();
     }

@@ -82,6 +82,9 @@ Enemy.prototype.fight = function (game){
     }else if(this.Id == 9){
         game.ending = 11;
         game.EndGame();
+    }else{
+        game.ending = 0;
+        game.EndGame();
     }
         
     msg = "You win, lose " + total + " HP, get " + NameList[this.dropItemId] + " * "+this.numItem+", "+this.money+" gold.";
