@@ -7,8 +7,8 @@
 
 function EventTown(num) {
     var AllEventTypeTown = [0,0,1,0,0,0,0,0,0,0,0]; // 11 pics
-    var AllEventSize_xTown = [200, 180, 350, 250, 140, 340, 200,200,200,200,200];//todo
-    var AllEventSize_yTown = [200, 150, 700, 250, 90, 350,200,350,350,200,200];//todo
+    var AllEventSize_xTown = [200, 180, 350, 250, 200, 340, 200,200,200,200,200];//todo
+    var AllEventSize_yTown = [200, 150, 700, 250, 100, 350,200,350,350,200,200];//todo
     var AllEventSpriteSequenceTown = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
         {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
         {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
@@ -27,7 +27,7 @@ function EventTown(num) {
         "assets/Knight_New.png",
         "assets/appletree.png",
         "assets/pond.png",
-        "assets/ruins.png",
+        "assets/house.png",
         "assets/assassin.png",
         "assets/villager.png",
         "assets/villager.png",
@@ -39,7 +39,7 @@ function EventTown(num) {
         "This is a guard in the forest!",
         "I see an apple tree.",
         "This is a serene pond.",
-        "This is an ancient ruins.",
+        "This is a house with no man in it.",
         "Assassin: I was ordered to kill you today",
         "Villager: I think you are the prince!",
         "Villager: Life is getting harder",
@@ -93,7 +93,7 @@ function EventTown(num) {
         new Result("Money(Apple) *2", 0,0,0,0,0,0,0,0,0,0,2,0,0,0.6),
         new Result("Get nothing", 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0, 0, 1),
 
-        // ruins 18 19 20 21
+        // house 18 19 20 21
         new Result("Money *10", 0,0,0,0,0,0,10,0,0,0,0,0,0,0.3),
         new Result("Get timber *2", 0,0,0,0,0,0,0,0,0,4,2,0,0,0.3),
         new Result("Get herb *2", 0,0,0,0,0,0,0,0,0,3,2,0,0,0.4),
@@ -164,7 +164,7 @@ function EventTown(num) {
         new Action("3. Go away", [AllResultTown[14]]),
         new Action(),
 
-        // ruins
+        // house
         new Action("1. Search it", [AllResultTown[18], AllResultTown[19], AllResultTown[20]]),
         new Action("2. Go away", [AllResultTown[21]]),
         new Action(),

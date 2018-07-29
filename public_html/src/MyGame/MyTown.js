@@ -27,7 +27,7 @@ function MyTown() {
     this.Knight = "assets/Knight_New.png";
     this.TreeTexture = "assets/appletree.png";
     this.PondTexture = "assets/pond.png";
-    this.RuinsTexture = "assets/ruins.png";
+    this.HouseTexture = "assets/house.png";
     this.HunterTexture = "assets/hunter.png";
     this.VillagerTexture = "assets/villager.png";
     this.WizardTexture = "assets/wizard.png";
@@ -145,7 +145,7 @@ MyTown.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.Knight);
     gEngine.Textures.loadTexture(this.TreeTexture);
     gEngine.Textures.loadTexture(this.PondTexture);
-    gEngine.Textures.loadTexture(this.RuinsTexture);
+    gEngine.Textures.loadTexture(this.HouseTexture);
     gEngine.Textures.loadTexture(this.HunterTexture);
     gEngine.Textures.loadTexture(this.VillagerTexture);
     gEngine.Textures.loadTexture(this.WizardTexture);

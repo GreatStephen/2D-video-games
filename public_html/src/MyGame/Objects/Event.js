@@ -9,7 +9,7 @@ var AllEventIcon = ["assets/mushroom.png",
     "assets/Knight_New_Yellow.png",
     "assets/appletree.png",
     "assets/pond.png",
-    "assets/ruins.png",
+    "assets/cabin.png",
     "assets/hunter.png",
     "assets/villager.png",
     "assets/wizard.png",
@@ -20,7 +20,7 @@ var AllEventInf = ["This is a monster mushroom!",
     "This is a guard in the forest!",
     "I see an apple tree.",
     "This is a serene pond.",
-    "This is an ancient ruins.",
+    "This is an old cabin.",
     "Hunter:Would you like to give me a hand?",
     "Villager: Hey, young man!",
     "Wizard: Poor prince! I can give you something.",
@@ -175,8 +175,8 @@ var AllEventAct = [
 ];
 
 var AllEventType = [0,1,1,0,0,0,1,0,0,0];
-var AllEventSize_x = [150, 180, 350, 250, 140, 340, 200,200,200,200];//todo
-var AllEventSize_y = [150, 180, 700, 250, 90, 350,200,350,200,200];//todo
+var AllEventSize_x = [150, 180, 350, 250, 200, 340, 200,200,200,200];//todo
+var AllEventSize_y = [150, 180, 700, 250, 100, 350,200,350,200,200];//todo
 var AllEventSpriteSequence = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
                               {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
                               {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
