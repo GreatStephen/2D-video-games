@@ -228,6 +228,7 @@ function Event(num) {
     else if(num==16){
         t=2;
     }
+    
     //t=(num-1)%10;
 
     //if(num==1)  t=0;

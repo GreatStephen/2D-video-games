@@ -42,7 +42,11 @@ function GameOver() {
     
     this.BGM = ["assets/Endings/Kan R. Gao - Too Bad So Sad.mp3","assets/Endings/Kan R. Gao - Too Bad So Sad.mp3",
                 "assets/Endings/Kan R. Gao - Too Bad So Sad.mp3","assets/Endings/HappyUkulele.mp3",
-                "assets/Endings/Kan R. Gao - Too Bad So Sad.mp3","assets/Endings/Kan R. Gao - Too Bad So Sad.mp3"];
+                "assets/Endings/Kan R. Gao - Too Bad So Sad.mp3","assets/Endings/Kan R. Gao - Too Bad So Sad.mp3",
+                "assets/Endings/Kan R. Gao - Too Bad So Sad.mp3","assets/Endings/Kan R. Gao - Too Bad So Sad.mp3",
+                "assets/Endings/Kan R. Gao - Too Bad So Sad.mp3","assets/Endings/Kan R. Gao - Too Bad So Sad.mp3",
+                "assets/Endings/Kan R. Gao - Too Bad So Sad.mp3","assets/Endings/Kan R. Gao - Too Bad So Sad.mp3",
+                "assets/Endings/Kan R. Gao - Too Bad So Sad.mp3"];
 }
 
 gEngine.Core.inheritPrototype(GameOver, Scene);
@@ -51,7 +55,7 @@ GameOver.prototype.loadScene = function () {
     //暂时没有图片
     //gEngine.Textures.loadTexture(this.bgBackground);
     gEngine.Textures.loadTexture(this.EndingTexture[this.id]);
-    gEngine.AudioClips.loadAudio(this.BGM[this.id]);
+    gEngine.AudioClips.loadAudio(this.BGM[0]);
 
 }
 GameOver.prototype.setId = function(Id){
@@ -64,7 +68,7 @@ GameOver.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.EndingTexture[this.id]);
     //开始游戏
     gEngine.AudioClips.stopBackgroundAudio();
-    gEngine.AudioClips.unloadAudio(this.BGM[this.id]);
+    gEngine.AudioClips.unloadAudio(this.BGM[0]);
     var mygame = new MyMenu();
     gEngine.Core.startScene(mygame);
 }
@@ -77,7 +81,7 @@ GameOver.prototype.initialize = function () {
         0
     );
     this.mCamera.setBackgroundColor([1, 1, 1, 1.0]);
-    gEngine.AudioClips.playBackgroundAudio(this.BGM[this.id]);
+    gEngine.AudioClips.playBackgroundAudio(this.BGM[0]);
     
     this.Ending = new TextureRenderable(this.EndingTexture[this.id]);
     this.Ending.getXform().setSize(1300, 600);
