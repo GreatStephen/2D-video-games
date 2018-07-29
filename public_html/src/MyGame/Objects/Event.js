@@ -97,7 +97,7 @@ var AllResult=[
     // businessman 33 34 35 36
     new Result("lose money*30, get a new sword.", 0,0,0,0,0,0,-30,0,0,7,1,0,0,1),
     new Result("lose money*30, get a new shield.",0,0,0,0,0,0,-30,0,0,8,1,0,0,1),
-    new Result("lose money*20, get an apple.",0,0,0,0,0,0,-20,0,0,0,1,0,0,1),
+    new Result("lose timber*2, get an apple.",0,0,0,0,0,0,0,0,0,0,1,4,2,1),
     new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
 
     // pass last knight 37

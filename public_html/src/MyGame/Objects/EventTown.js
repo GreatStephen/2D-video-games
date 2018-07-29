@@ -187,7 +187,7 @@ function EventTown(num) {
 
         // businessman
         new Action("1. 80 gold for an axe", [AllResultTown[31]]),
-        new Action("2. timber*2 for an recovery potion", [AllResultTown[32]]),
+        new Action("2. 80 gold for an iron shield", [AllResultTown[32]]),
         new Action("3. leave",[AllResultTown[33]]),
         new Action(),
 
