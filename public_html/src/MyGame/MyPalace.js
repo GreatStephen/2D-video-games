@@ -473,7 +473,7 @@ MyPalace.prototype.update = function () {
         if(this.animationCounter%25==0){
             gEngine.AudioClips.playACue(this.attack_audio);
         }
-        console.log(this.animationCounter);
+        //console.log(this.animationCounter);
     }
 
     if(this.animationCounter==100){
@@ -542,9 +542,11 @@ MyPalace.prototype.update = function () {
         this.mMes5.getXform().setPosition(1000,1000);
         this.mMes6.getXform().setPosition(1000,1000);
         //enemy disappear
+        console.log(this.mEventIndex-1);
         if(this.mEventSet[this.mEventIndex-1].enemy){
             this.mEventSet[this.mEventIndex-1].icon.getXform().setPosition(1000,1000);
         }
+        //console.log(this.mEventSet[this.mEventIndex-1].icon);
     }
 
     if(this.isMesOn && !this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.One) && this.mEventSet[this.mEventIndex-1].action[0].content){
@@ -638,10 +640,11 @@ MyPalace.prototype.update = function () {
         var act = this.mEventSet[this.mEventIndex].action;
         this.SendMessage(info, act[0].content, act[1].content,act[2].content,"","");
         this.mEventIndex++;
+        console.log(this.mEventIndex);
         var hasRing = this.mBag.GetItemIdx(18) < 0 ? false:true;
         var hasLetter = this.mBag.GetItemIdx(17) < 0 ? false:true;
         if(this.mEventIndex<this.mEventNum)
-            this.mEventSet.push(new EventPalace(this.mEventIndex,this.isPrincessLocation, this.isPrincessAmbition, this.isMeetPrincess, hasRing, hasLetter, this.isFightPrincess));
+            this.mEventSet.push(new EventPalace(this.mEventIndex+1,this.isPrincessLocation, this.isPrincessAmbition, this.isMeetPrincess, hasRing, hasLetter, this.isFightPrincess));
         console.log(this.mEventSet);
     }
 
@@ -674,7 +677,7 @@ MyPalace.prototype.update = function () {
         this.mHealth.setText("Health: " + this.mHealthValue + "/"+this.mHealthValueMax);
     }
     if(this.mHealthValue<=0){
-
+        this.ending = 1;
         // if(this.mBag.GetItemIdx(0)==-1)  this.ending = 0;
         this.EndGame();
     }

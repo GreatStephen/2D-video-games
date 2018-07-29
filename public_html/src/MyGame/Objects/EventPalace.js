@@ -44,7 +44,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
     ];
 
     var AllEnemyIdPalace=[
-        -1,-1,7,1,1,-1,-1,8,9,-1
+        -1,-1,7,10,11,-1,-1,8,9,-1
     ];
 
 // possible results
@@ -57,8 +57,8 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         new Result("ok", 0, 0, 0, 0, 0, 0, 0,0, 0,  0, 0, 0, 0, 1),
 
         // businessman 567
-        new Result("Lose money*80, get a new axe.", 0,0,0,0,0,0,-80,0,0,5,1,0,0,1),
-        new Result("Lose timber*2, get a herb.",0,0,0,0,0,0,0,0,0,3,1,4,2,1),
+        new Result("Lose money*120, get a new spear.", 0,0,0,0,0,0,-120,0,0,6,1,0,0,1),
+        new Result("Lose timber*3, get a small healing potion.",0,0,0,0,0,0,0,0,0,3,1,4,2,1),
         new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
         
         //8-14
@@ -74,6 +74,8 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         new Result("Lose 50 Gold, get a small healing potion.", 0,0,0,0,0,0,-50,0,0,15,1,0,0,1),
         new Result("Lose 100 Gold, get an antidote potion.",0,0,0,0,0,0,-100,0,0,20,1,0,0,1),
         new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+        //18
+        new Result("Lose 20 Gold, hunger+30.", 30,0,0,0,0,0,-20,0,0,0,0,0,0,1),
     ];
     AllResultPalace[0].escape = false;
     AllResultPalace[2].escape = false;
@@ -116,8 +118,8 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         new Action(),
 
         // servant
-        new Action("1. do something", [AllResultPalace[3]]),
-        new Action("2. do something", [AllResultPalace[3]]),
+        new Action("1. Yes (20G for 30 hunger)", [AllResultPalace[18]]),
+        new Action("2. No, thanks", [AllResultPalace[7]]),
         new Action(),
         new Action(),
         
@@ -141,7 +143,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
     ];
     AllResultPalace[4].isMeetPrincess = true;
     AllResultPalace[11].isFightPrincess = true;
-    if(isPrincessAmbition){
+    if(isMeetPrincess&&isPrincessAmbition){
         AllEventActPalace[5] = new Action("2. Reveal her plot", [AllResultPalace[11]]);
     }
     if(isMeetPrincess){

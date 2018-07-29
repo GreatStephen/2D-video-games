@@ -15,8 +15,8 @@ var AllEnemy = [{Id:0, msg:"", mHealth:"30", atk:13, def:2, numItem:1, dropItemI
     {Id:7, msg:"", mHealth:"100", atk:20, def:5, numItem:0, dropItemId:0, money:0}, // king
     {Id:8, msg:"", mHealth:"100", atk:25, def:5, numItem:0, dropItemId:0, money:0}, // duke
     {Id:9, msg:"", mHealth:"100", atk:20, def:8, numItem:0, dropItemId:0, money:0}, // princess
-    {Id:9, msg:"", mHealth:"100", atk:20, def:8, numItem:0, dropItemId:0, money:0}, // soldier
-    {Id:9, msg:"", mHealth:"100", atk:20, def:8, numItem:0, dropItemId:0, money:0}, // captain
+    {Id:10, msg:"", mHealth:"100", atk:17, def:5, numItem:1, dropItemId:3, money:30}, // soldier
+    {Id:11, msg:"", mHealth:"100", atk:17, def:5, numItem:2, dropItemId:3, money:30}, // captain
     ]
 
 function Enemy(id) {
