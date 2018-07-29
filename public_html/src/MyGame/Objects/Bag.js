@@ -49,11 +49,11 @@ function Bag(myTexture,cursorTexture,myGame){
     
     this.weapon = -1;
     this.armor = -1;
-    // for(var i=0;i<14;i++){
-    //     this.AddItem(i, 1);
-    //    // this.AddItem(1);
-    //    // this.AddItem(2);
-    // }
+    for(var i=0;i<19;i++){
+        this.AddItem(i, 1);
+       // this.AddItem(1);
+       // this.AddItem(2);
+    }
     this.AddItem(0,2);
     this.AddItem(3,2);
     //this.AddItem(19,1);
@@ -297,9 +297,10 @@ Bag.prototype.update = function(){
         else if(this.itemSet[this.current].type==4){
             this.myGame.isBagOpened = false;
             this.myGame.BagOpenInMes = true;
+            this.myGame.isMesOn = true;
            // this.myGame.SendMessage("The duke said he had poisoned the elder king...");
             console.log("item type="+this.itemSet[this.current.type]);
-            this.myGame.SendMessage("The prince has been exiled.","As soon as I kill the king, I will be the new king.","                                            From Duke","             [press SPACE to close]","","");
+            this.myGame.SendMessage("The prince has been exiled.","As soon as I kill the king, I will be the new king.","                                   From Duke","             [press SPACE to close]","","");
            // this.myGame.SendMessage("The duke said he had poisoned the elder king...","","","","","");
         }
     }  
