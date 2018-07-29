@@ -6,7 +6,7 @@
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 var AllEventIcon = ["assets/mushroom.png", 
     "assets/eagle.png", 
-    "assets/Knight_New_Yellow.png",
+    "assets/Knight_New.png",
     "assets/appletree.png",
     "assets/pond.png",
     "assets/cabin.png",
