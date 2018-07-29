@@ -539,7 +539,7 @@ MyPalace.prototype.update = function () {
         this.SendMessage(info, act[0].content, act[1].content,act[2].content,"","");
         this.mEventIndex++;
         var hasRing = this.mBag.GetItemIdx(18) < 0 ? false:true;
-        var hasLetter = this.mBag.GetItemIdx(17) < 0 ? true:false;
+        var hasLetter = this.mBag.GetItemIdx(17) < 0 ? false:true;
         if(this.mEventIndex<this.mEventNum)
             this.mEventSet.push(new EventPalace(this.mEventIndex,this.isPrincessLocation, this.isPrincessAmbition, this.isMeetPrincess, hasRing, hasLetter));
         console.log(this.mEventSet);
