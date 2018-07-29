@@ -453,7 +453,7 @@ MyGame.prototype.initialize = function () {
                                     6,              // number of elements in this sequence
                                     0);             // horizontal padding in between
     this.mKnight.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
-    this.mKnight.setAnimationSpeed(5);
+    this.mKnight.setAnimationSpeed(10);
     
     // message background
     this.bgMsg = new Renderable();

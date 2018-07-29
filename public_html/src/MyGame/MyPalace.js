@@ -36,6 +36,7 @@ function MyPalace(isPrincessLocation, isPrincessAmbition) {
     this.BusinessmanTexture = "assets/businessman.png";
     this.BeggarTexture = "assets/beggar.png";
     this.PrincessTexture = "assets/princess.png";
+    this.KingTexture = "assets/king.png";
 
     // item texture
     this.apple = "assets/item/0_apple.png";
@@ -156,6 +157,7 @@ MyPalace.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.BusinessmanTexture);
     gEngine.Textures.loadTexture(this.BeggarTexture);
     gEngine.Textures.loadTexture(this.PrincessTexture);
+    gEngine.Textures.loadTexture(this.KingTexture);
 
 
     gEngine.Textures.loadTexture(this.IntroTexture);
@@ -206,7 +208,7 @@ MyPalace.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.BusinessmanTexture);
     gEngine.Textures.unloadTexture(this.BeggarTexture);
     gEngine.Textures.unloadTexture(this.PrincessTexture);
-
+    gEngine.Textures.unloadTexture(this.KingTexture);
 
     gEngine.Textures.unloadTexture(this.apple);
     gEngine.Textures.unloadTexture(this.meat);
