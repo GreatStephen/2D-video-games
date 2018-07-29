@@ -40,7 +40,7 @@ function MyPalace(isPrincessLocation, isPrincessAmbition) {
     this.PrincessTexture = "assets/princess.png";
     this.KingTexture = "assets/king.png";
     this.DukeTexture = "assets/duke.png";
-    
+    this.ServantTexture = "assets/servant.png";
 
     // item texture
     this.apple = "assets/item/0_apple.png";
@@ -168,6 +168,7 @@ MyPalace.prototype.loadScene = function () {
 
     gEngine.Textures.loadTexture(this.KingTexture);
     gEngine.Textures.loadTexture(this.DukeTexture);
+    gEngine.Textures.loadTexture(this.ServantTexture);
 
     gEngine.Textures.loadTexture(this.IntroTexture);
     // load audio
@@ -224,7 +225,8 @@ MyPalace.prototype.unloadScene = function () {
 
     gEngine.Textures.unloadTexture(this.KingTexture);
     gEngine.Textures.unloadTexture(this.DukeTexture);
-
+    gEngine.Textures.unloadTexture(this.ServantTexture);
+    
     gEngine.Textures.unloadTexture(this.apple);
     gEngine.Textures.unloadTexture(this.meat);
     gEngine.Textures.unloadTexture(this.fish);

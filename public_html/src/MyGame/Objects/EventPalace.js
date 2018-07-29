@@ -41,7 +41,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         "assets/Knight_New.png",
         "assets/Knight_New.png",
         "assets/businessman.png",
-        "assets/villager.png",
+        "assets/servant.png",
         "assets/duke.png",
         "assets/princess.png",
         "assets/wizard_1.png"
