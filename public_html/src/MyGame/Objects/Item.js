@@ -12,7 +12,7 @@ var InfoList = ["Apple:","Meat:","Fish:","Herb:","Timber:",
                 "Treasure Chest: ", "Letter: ","Potion:","Mysterious potion:","Letter:","Ring:","Bread:","Antidote:"
                 ];
 var InfoList_1 = ["Hunger+10","Hunger+20","Hunger+10","Health+10","strange timber",
-                "Attack+5","Attack+10","Attack+15","Defense+5","Defense+10",
+                "Attack+10","Attack+15","Attack+5","Defense+5","Defense+10",
                 "What's in it?","Disguise yourself","May open something?",
                 "It is locked", "It is empty","Health+10","What can it do?","Enter to check","Princess's ring","Hunger+5 Health+5",
                 "Help to detoxify"
@@ -43,7 +43,7 @@ var PictureList = ["assets/item/0_apple.png",
     "assets/item/19_bread.png",
     "assets/item/20_potion3.png",
 ];
-var AtkList = [0,0,0,0,0,5,10,10,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var AtkList = [0,0,0,0,0,10,15,5,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var DefList = [0,0,0,0,0,0,0,0,5,10,0,5,0,0,0,0,0,0,0,0,0];
 var TypeList = [0,0,0,0,1,2,2,2,3,3,1,3,1,1,1,0,1,4,1,0,1];  // 0: consume  1: cannot use   2: weapon  3:armor  4:可重复使用
 
