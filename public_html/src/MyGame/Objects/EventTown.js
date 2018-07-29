@@ -12,7 +12,7 @@ function EventTown(num) {
     var AllEventSpriteSequenceTown = [{},
         {},
         {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},{},{},{},{},
-        {"topPixel":64, "leftPixel":0, "elmWidthInPixel":64, "elmHeightInPixel":64, "numElements":8, "wPaddingInPixel":0},
+        {},
         {}
     ];
     var AllEventSpeedTown = [0,0,7,0,0,0,15,0,0,0,0];
@@ -110,7 +110,7 @@ function EventTown(num) {
 
         // businessman 31 32 33 34
         new Result("Lose money*80, get a new axe.", 0,0,0,0,0,0,-80,0,0,5,1,0,0,1),
-        new Result("Lose timber*2, get a recovery potion.",0,0,0,0,0,0,0,0,0,15,1,4,2,1),
+        new Result("Lose money*80, get a iron shield.",0,0,0,0,0,0,-80,0,0,9,1,0,0,1),
         new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
         new Result("error34",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
 
