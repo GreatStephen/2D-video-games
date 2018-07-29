@@ -109,8 +109,8 @@ function EventTown(num) {
         new Result("The princess seemed to be chasing the crown!",0,0,0,0,0,0,0,0,1,0,0,0,0,1),
 
         // businessman 31 32 33 34
-        new Result("Lose money*80, get a new axe.", 0,0,0,0,0,0,-80,0,0,5,1,0,0,1),
-        new Result("Lose money*80, get a iron shield.",0,0,0,0,0,0,-80,0,0,9,1,0,0,1),
+        new Result("Lose money*50, get a new axe.", 0,0,0,0,0,0,-50,0,0,5,1,0,0,1),
+        new Result("Lose money*50, get a iron shield.",0,0,0,0,0,0,-50,0,0,9,1,0,0,1),
         new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
         new Result("error34",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
 
@@ -186,8 +186,8 @@ function EventTown(num) {
 
 
         // businessman
-        new Action("1. 80 gold for an axe", [AllResultTown[31]]),
-        new Action("2. 80 gold for an iron shield", [AllResultTown[32]]),
+        new Action("1. 50 gold for an axe", [AllResultTown[31]]),
+        new Action("2. 50 gold for an iron shield", [AllResultTown[32]]),
         new Action("3. leave",[AllResultTown[33]]),
         new Action(),
 
