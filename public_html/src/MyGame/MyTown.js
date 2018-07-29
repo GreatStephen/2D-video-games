@@ -519,6 +519,10 @@ MyTown.prototype.update = function () {
         this.mMes4.getXform().setPosition(1000,1000);
         this.mMes5.getXform().setPosition(1000,1000);
         this.mMes6.getXform().setPosition(1000,1000);
+        //enemy disappear
+        if(this.mEventSet[this.mEventIndex-1].enemy){
+            this.mEventSet[this.mEventIndex-1].icon.getXform().setPosition(1000,1000);
+        }
     }
 
     if(this.isMesOn && !this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.One) && this.mEventSet[this.mEventIndex-1].action[0].content){

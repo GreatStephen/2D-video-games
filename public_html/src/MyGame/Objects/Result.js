@@ -76,7 +76,7 @@ Result.prototype.apply = function(mygame, enemy){
     }
     if(this.isFightPrincess){
         mygame.isFightPrincess = true;
-        console.log("fight princess");
+        //console.log("fight princess");
     }
     
     //update items
