@@ -11,14 +11,14 @@ var InfoList = ["Apple:","Meat:","Fish:","Herb:","Timber:",
                 "Secret bag: ","Cape: ","Key:",
                 "Treasure Chest: ", "Letter: ","Potion:","Mysterious potion:","Letter:","Ring:","Bread:"
                 ];
-var InfoList_1 = ["Hunger+10","Hunger+5","Hunger+5","Health+10","strange timber",
+var InfoList_1 = ["Hunger+10","Hunger+20","Hunger+10","Health+10","strange timber",
                 "Attack+5","Attack+10","Attack+10","Defense+5","Defense+10",
                 "What's in it?","Disguise yourself","May open something?",
-                "It is locked", "Empty letter","Health+10","What can it do?","Enter to check","Prince's ring","Hunger+5 Health+5"
+                "It is locked", "Empty letter","Health+10","What can it do?","Enter to check","Princess's ring","Hunger+5 Health+5"
                 ];               
 var HealthList = [0,0,0,10,0,0,0,0,0,0,0,0,0,0,0,10,0,0,0,5];
 var mHealthList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-var HungerList = [10,5,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5];
+var HungerList = [10,20,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5];
 var mHungerList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var PictureList = ["assets/item/0_apple.png",
     "assets/item/1_meat.png",
@@ -43,7 +43,7 @@ var PictureList = ["assets/item/0_apple.png",
 ];
 var AtkList = [0,0,0,0,0,5,10,10,0,0,0,0,0,0,0,0,0,0,0,0];
 var DefList = [0,0,0,0,0,0,0,0,5,10,0,5,0,0,0,0,0,0,0,0];
-var TypeList = [0,0,0,0,1,2,2,2,3,3,1,3,1,1,1,0,1,4,0,0];  // 0: consume  1: cannot use   2: weapon  3:armor  4:可重复使用
+var TypeList = [0,0,0,0,1,2,2,2,3,3,1,3,1,1,1,0,1,4,1,0];  // 0: consume  1: cannot use   2: weapon  3:armor  4:可重复使用
 
 function Item(id) {
     this.Id = id;
