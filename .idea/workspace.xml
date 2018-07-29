@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d3602db3-c356-4238-8c90-350eabf4f048" name="Default" comment="" />
+    <list default="true" id="d3602db3-c356-4238-8c90-350eabf4f048" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/src/MyGame/MyPalace.js" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/src/MyGame/MyPalace.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -30,13 +33,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="135" />
-          <entry key="js" value="8418" />
+          <entry key="js" value="8444" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="135" />
-          <entry key="JavaScript" value="8418" />
+          <entry key="JavaScript" value="8444" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -82,10 +85,26 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/MyPalace.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3458">
-              <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+            <state relative-caret-position="228">
+              <caret line="130" column="28" selection-start-line="130" selection-start-column="28" selection-end-line="130" selection-end-column="28" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
+                <element signature="e#18122#18658#0" />
+                <element signature="e#18895#19238#0" />
+                <element signature="e#19253#19677#0" />
+                <element signature="e#19861#20221#0" />
+                <element signature="e#20400#20754#0" />
+                <element signature="e#20932#21286#0" />
+                <element signature="e#21374#21469#0" />
+                <element signature="e#21490#21537#0" />
+                <element signature="e#21622#21920#0" />
+                <element signature="e#22094#23158#0" />
+                <element signature="e#21075#21110#0" />
+                <element signature="e#21151#21309#0" />
+                <element signature="e#21360#21887#0" />
+                <element signature="e#21916#22009#0" />
+                <element signature="e#22067#22123#0" />
+                <element signature="e#22181#22305#0" />
               </folding>
             </state>
           </provider>
@@ -251,18 +270,18 @@
       <workItem from="1532661603981" duration="23000" />
       <workItem from="1532696769438" duration="2622000" />
       <workItem from="1532740249973" duration="876000" />
-      <workItem from="1532757526658" duration="39252000" />
+      <workItem from="1532757526658" duration="39605000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122080000" />
+    <option name="totallyTimeSpent" value="122433000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.12065332" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12065332" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -315,6 +334,18 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/public_html/src/MyGame/MyPalace.js</url>
+          <line>480</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/public_html/src/Engine/Core/Resources/Engine_ResourceMap.js">
@@ -518,10 +549,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/MyPalace.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3458">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        <state relative-caret-position="228">
+          <caret line="130" column="28" selection-start-line="130" selection-start-column="28" selection-end-line="130" selection-end-column="28" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="e#18122#18658#0" />
+            <element signature="e#18895#19238#0" />
+            <element signature="e#19253#19677#0" />
+            <element signature="e#19861#20221#0" />
+            <element signature="e#20400#20754#0" />
+            <element signature="e#20932#21286#0" />
+            <element signature="e#21374#21469#0" />
+            <element signature="e#21490#21537#0" />
+            <element signature="e#21622#21920#0" />
+            <element signature="e#22094#23158#0" />
+            <element signature="e#21075#21110#0" />
+            <element signature="e#21151#21309#0" />
+            <element signature="e#21360#21887#0" />
+            <element signature="e#21916#22009#0" />
+            <element signature="e#22067#22123#0" />
+            <element signature="e#22181#22305#0" />
           </folding>
         </state>
       </provider>

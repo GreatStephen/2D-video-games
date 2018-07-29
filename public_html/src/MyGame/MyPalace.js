@@ -118,15 +118,17 @@ function MyPalace(isPrincessLocation, isPrincessAmbition) {
     this.isMesOn = false;
     this.hasChosen = true;
     this.mEventIndex = 0;
-    this.isIntroOpen = true;
+    //this.isIntroOpen = true;
     this.isMeetPrincess = false;
     this.isFightPrincess = false;
     this.isPrincessLocation = isPrincessLocation;
     this.isPrincessAmbition = isPrincessAmbition;
     this.BagOpenInMes = false;
+    this.isInAnimation=0;
 
     //counter
     this.mCounter = 0;
+    this.animationCounter=0;
 
     //event
     this.mEventSet = null;
@@ -520,7 +522,7 @@ MyPalace.prototype.update = function () {
         this.mMes6.getXform().setPosition(1000,1000);
     }
 
-    if(this.isMesOn && !this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.One) && this.mEventSet[this.mEventIndex-1].action[0].content)
+    if(this.isMesOn && !this.hasChosen && gEngine.Input.isKeyClicked(gEngine.Input.keys.One) && this.mEventSet[this.mEventIndex-1].action[0].content){
         if(this.isInAnimation==0&&  this.mEventSet[this.mEventIndex-1].enemy != null){
             // play fight animation
             console.log("fight animation");
@@ -674,7 +676,7 @@ MyPalace.prototype.EndGame = function(){
    // gEngine.ResourceMap.asyncLoadRequested("status");   
   //  gEngine.ResourceMap.asyncLoadCompleted("status",this);
     gEngine.GameLoop.stop();
-}
+};
 
 MyPalace.prototype.SendMessage = function(line1, line2, line3, line4,line5, line6){
     var cameraCenter = this.mCamera.getWCCenter();
@@ -717,5 +719,5 @@ MyPalace.prototype.SendMessage = function(line1, line2, line3, line4,line5, line
 
 
     this.isMesOn=true;
-}
+};
 
