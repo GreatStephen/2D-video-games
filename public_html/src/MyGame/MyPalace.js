@@ -52,6 +52,12 @@ function MyPalace(isPrincessLocation, isPrincessAmbition) {
     this.cape = "assets/item/11_cape.png";
     this.key = "assets/item/12_key.png";
     this.treasurechest = "assets/item/13_treasurechest.png";
+    this.letter1 = "assets/item/14_letter1.png";
+    this.potion1 = "assets/item/15_potion1.jpg";
+    this.potion2 = "assets/item/16_potion2.jpg";
+    this.letter2 = "assets/item/17_letter2.png";
+    this.ring = "assets/item/18_ring.png";
+    this.bread = "assets/item/19_bread.png";
 
 
     this.IntroTexture = "assets/Intro.png";
@@ -532,8 +538,10 @@ MyPalace.prototype.update = function () {
         var act = this.mEventSet[this.mEventIndex].action;
         this.SendMessage(info, act[0].content, act[1].content,act[2].content,"","");
         this.mEventIndex++;
+        var hasRing = this.mBag.GetItemIdx(18) < 0 ? false:true;
+        var hasLetter = this.mBag.GetItemIdx(17) < 0 ? true:false;
         if(this.mEventIndex<this.mEventNum)
-            this.mEventSet.push(new EventPalace(this.mEventIndex,this.isPrincessLocation, this.isPrincessAmbition, this.isMeetPrincess));
+            this.mEventSet.push(new EventPalace(this.mEventIndex,this.isPrincessLocation, this.isPrincessAmbition, this.isMeetPrincess, hasRing, hasLetter));
         console.log(this.mEventSet);
     }
 
