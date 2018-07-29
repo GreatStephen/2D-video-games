@@ -47,7 +47,7 @@ function MyGame() {
     // event background
     this.EagleTexture = "assets/eagle.png";
     this.Mushroom = "assets/mushroom.png";
-    this.Knight = "assets/Knight_New.png";
+    this.Knight = "assets/Knight_New_Yellow.png";
     this.TreeTexture = "assets/appletree.png";
     this.PondTexture = "assets/pond.png";
     this.RuinsTexture = "assets/ruins.png";
