@@ -75,7 +75,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         new Result("Lose 100 Gold, get an antidote potion.",0,0,0,0,0,0,-100,0,0,20,1,0,0,1),
         new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
         //18
-        new Result("Lose 20 Gold, hunger+30.", 30,0,0,0,0,0,-20,0,0,0,0,0,0,1),
+        new Result("Lose 50 Gold, hunger+30, health+30.", 30,0,30,0,0,0,-50,0,0,0,0,0,0,1),
     ];
     AllResultPalace[0].escape = false;
     AllResultPalace[2].escape = false;
@@ -118,7 +118,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         new Action(),
 
         // servant
-        new Action("1. Yes (20G for 30 hunger)", [AllResultPalace[18]]),
+        new Action("1. Yes (50G for 30 hunger and 30 health)", [AllResultPalace[18]]),
         new Action("2. No, thanks", [AllResultPalace[7]]),
         new Action(),
         new Action(),
