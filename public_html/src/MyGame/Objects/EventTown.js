@@ -7,15 +7,12 @@
 
 function EventTown(num) {
     var AllEventTypeTown = [0,0,1,0,0,0,0,0,0,0,0]; // 11 pics
-    var AllEventSize_xTown = [200, 230, 350, 250, 200, 340, 200,200,200,200,200];//todo
-    var AllEventSize_yTown = [200, 150, 700, 250, 100, 350,200,350,350,200,200];//todo
+    var AllEventSize_xTown = [200, 230, 350, 250, 200, 340, 200,200,200,200,200];
+    var AllEventSize_yTown = [200, 150, 700, 250, 100, 350,200,350,350,200,200];
     var AllEventSpriteSequenceTown = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
-        {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
-        {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
-        {},{},{},
+        {},{},{},{},{},
         {"topPixel":64, "leftPixel":0, "elmWidthInPixel":64, "elmHeightInPixel":64, "numElements":8, "wPaddingInPixel":0},
         {}
-
     ];
     var AllEventSpeedTown = [0,0,7,0,0,0,15,0,0,0,0];
 
@@ -50,13 +47,10 @@ function EventTown(num) {
     var AllEnemyIdTown=[
         // dog
         4,
-
         // wolf
         5,
-
         // knignt
         2,
-
         // assassin
         -1,-1,-1,6
     ];
@@ -231,10 +225,7 @@ function EventTown(num) {
         t = 8;
         console.log("there should be vilagger");
     }
-
-
-    //if(num==1)  t=0;
-    // type = 1 -> animation
+    
     console.log("t="+t);
     this.type = AllEventTypeTown[t];
     this.position = [1000*num+AllEventMove_xTown[t], 200+AllEventMove_yTown[t]];

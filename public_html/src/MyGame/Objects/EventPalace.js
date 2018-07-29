@@ -8,19 +8,14 @@
 function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess, hasRing, hasLetter, isFightPrincess){
     console.log(num);
     var AllEventTypePalace = [0,0,0,1,1,0,0,0,0,0];
-    var AllEventSize_xPalace = [150, 180, 250, 350, 350, 340, 200,300,200,200];//todo
-    var AllEventSize_yPalace = [150, 180, 250, 700, 700, 350,200,300,350,200];//todo
-    var AllEventSpriteSequencePalace = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
-        {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
+    var AllEventSize_xPalace = [150, 200, 250, 350, 350, 200, 200,300,200];
+    var AllEventSize_yPalace = [150, 300, 250, 700, 700, 200, 200,300,300];
+    var AllEventSpriteSequencePalace = [{},{},{},
         {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
         {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
-        {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},{"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
-        {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
-        {"topPixel":64, "leftPixel":0, "elmWidthInPixel":64, "elmHeightInPixel":64, "numElements":8, "wPaddingInPixel":0},
-        {}
-
+        {},{},{},{}
     ];
-    var AllEventSpeedPalace = [0,15,7,7,7,7,15,0,0,0];
+    var AllEventSpeedPalace = [0,0,0,7,7,0,0,0,0,0];
 
     var AllEventMove_xPalace = [0,0,0,0,0,0,0,0,0,0];
     var AllEventMove_yPalace = [-20,-25,-10,-10,-10,50,-15,-10,-10,0];
@@ -77,7 +72,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
     AllResultPalace[0].escape = false;
     AllResultPalace[2].escape = false;
 
-// 4 actions
+    // 4 actions
     var AllEventActPalace = [
         // meet princess
         new Action("1. Yes",[AllResultPalace[4]]),
@@ -190,8 +185,6 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         this.icon.getXform().setSize(this.size_x,this.size_y);
         this.icon.getXform().setPosition(this.position[0],this.position[1]);
     }
-
-
 
     this.information = AllEventInfPalace[t];
     this.action = [];
