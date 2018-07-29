@@ -95,8 +95,8 @@ var AllResult=[
     new Result("Max HP-30, get a new weapon.",0,-30,0,0,0,0,0,0,0,7,1,0,0,1),
 
     // businessman 33 34 35 36
-    new Result("lose money*30, get a new spear.", 0,0,0,0,0,0,-30,0,0,6,1,0,0,1),
-    new Result("lose money*30, get a new shield.",0,0,0,0,0,0,-30,0,0,9,1,0,0,1),
+    new Result("lose money*30, get a new sword.", 0,0,0,0,0,0,-30,0,0,7,1,0,0,1),
+    new Result("lose money*30, get a new shield.",0,0,0,0,0,0,-30,0,0,8,1,0,0,1),
     new Result("lose money*20, get an apple.",0,0,0,0,0,0,-20,0,0,0,1,0,0,1),
     new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
 
@@ -167,7 +167,7 @@ var AllEventAct = [
     new Action(),
 
     // businessman
-    new Action("1. 30 gold for a spear.", [AllResult[33]]),
+    new Action("1. 30 gold for a sword.", [AllResult[33]]),
     new Action("2. 30 gold for a shield.", [AllResult[34]]),
     new Action("3. 20 gold for an apple.",[AllResult[35]]),
     new Action("4. Leave.",[AllResult[36]])
@@ -191,7 +191,7 @@ var AllEventMove_x = [0,0,0,0,0,0,0,0,0,0];//todo
 var AllEventMove_y = [-20,-25,-10,70,-100,50,-15,10,-15,-15];//todo
 function Event(num) {
     var t = Math.floor(Math.random()*10);
-    while((t>=6 && t<=9) || t==2){
+    while((t>=6 && t<=8) || t==2){
         t = Math.floor(Math.random()*10);
     }
 
