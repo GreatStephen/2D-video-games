@@ -84,7 +84,7 @@ var AllResult=[
 
     
     // villager 26 27 28 29
-    new Result("The king fall seriously ill.", 0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+    new Result("If you talk to villagers, they will tell you something.", 0,0,0,0,0,0,0,0,0,0,0,0,0,1),
     new Result("Get apple *1", 0,0,0,0,0,0,0,0,0,0,1,0,0,0.6),
     new Result("The villager doesn't give you anything.", 0,0,0,0,0,0,0,0,0,0,0,0,0,0.4),
     new Result("You leave.", 0,0,0,0,0,0,0,0,0,0,0,0,0,1),
@@ -95,9 +95,9 @@ var AllResult=[
     new Result("Max HP-30, get a new weapon.",0,-30,0,0,0,0,0,0,0,7,1,0,0,1),
 
     // businessman 33 34 35 36
-    new Result("lose money*30, get a new spear.", 0,0,0,0,0,0,0,0,-30,6,1,0,0,1),
-    new Result("lose money*30, get a new shield.",0,0,0,0,0,0,0,0,-30,9,1,0,0,1),
-    new Result("lose money*20, get an apple.",0,0,0,0,0,0,0,0,-20,0,1,0,0,1),
+    new Result("lose money*30, get a new spear.", 0,0,0,0,0,0,-30,0,0,6,1,0,0,1),
+    new Result("lose money*30, get a new shield.",0,0,0,0,0,0,-30,0,0,9,1,0,0,1),
+    new Result("lose money*20, get an apple.",0,0,0,0,0,0,-20,0,0,0,1,0,0,1),
     new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
 
     // pass last knight 37
@@ -163,7 +163,7 @@ var AllEventAct = [
     // wizard
     new Action("1. I want a useful tool.", [AllResult[30]]),
     new Action("2. I want a valuable gift from you.", [AllResult[31]]),
-    new Action("3. I want to exchange my max health for a weapon.",[AllResult[32]]),
+    new Action(),
     new Action(),
 
     // businessman

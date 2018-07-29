@@ -7,8 +7,8 @@
 
 function EventTown(num) {
     var AllEventTypeTown = [0,0,1,0,0,0,0,0,0,0,0]; // 11 pics
-    var AllEventSize_xTown = [150, 180, 350, 250, 140, 340, 200,200,200,200,200];//todo
-    var AllEventSize_yTown = [150, 180, 700, 250, 90, 350,200,350,350,200,200];//todo
+    var AllEventSize_xTown = [200, 180, 350, 250, 140, 340, 200,200,200,200,200];//todo
+    var AllEventSize_yTown = [200, 150, 700, 250, 90, 350,200,350,350,200,200];//todo
     var AllEventSpriteSequenceTown = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
         {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
         {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
@@ -20,7 +20,7 @@ function EventTown(num) {
     var AllEventSpeedTown = [0,0,7,0,0,0,15,0,0,0,0];
 
     var AllEventMove_xTown = [0,0,0,0,0,0,0,0,0,0,0];
-    var AllEventMove_yTown = [-20,-25,-10,20,-100,50,-15,10,-15,-15,-15];
+    var AllEventMove_yTown = [-30,-25,-10,20,-100,50,-15,10,-15,-15,-15];
 
     var AllEventIconTown = ["assets/dog2.png",
         "assets/wolf.png",
@@ -44,7 +44,7 @@ function EventTown(num) {
         "Villager: I think you are the prince!",
         "Villager: Life is getting harder",
         "Do you have anything to trade?",
-        "Can you give me some coins?"
+        "Beggar: Can you give me some coins?"
     ];
 
     var AllEnemyIdTown=[
@@ -107,7 +107,7 @@ function EventTown(num) {
 
 
         // villager 26 27 28 29 30
-        new Result("The princess moved to a secret castle.", 0,0,0,0,0,0,0,1,0,0,0,0,0,1),
+        new Result("The princess moved to a secret castle. If you have the ring to prove you are the prince, then go and find her.", 0,0,0,0,0,0,0,1,0,0,0,0,0,1),
         new Result("Get herb *1", 0,0,0,0,0,0,0,0,0,0,3,0,0,0.6),
         new Result("The villager doesn't give you anything.", 0,0,0,0,0,0,0,0,0,0,0,0,0,0.4),
         new Result("You kill him, lose 10HP.", -10,0,0,0,0,0,0,0,0,0,0,0,0,1),
@@ -115,7 +115,7 @@ function EventTown(num) {
 
         // businessman 31 32 33 34
         new Result("Lose money*80, get a new axe.", 0,0,0,0,0,0,-80,0,0,5,1,0,0,1),
-        new Result("Lose timber*2, get a potion.",0,0,0,0,0,0,0,0,0,15,1,4,2,1),
+        new Result("Lose timber*2, get a recovery potion.",0,0,0,0,0,0,0,0,0,15,1,4,2,1),
         new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
         new Result("error34",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
 
@@ -192,7 +192,7 @@ function EventTown(num) {
 
         // businessman
         new Action("1. 80 gold for an axe", [AllResultTown[31]]),
-        new Action("2. timber*2 for an herb", [AllResultTown[32]]),
+        new Action("2. timber*2 for an recovery potion", [AllResultTown[32]]),
         new Action("3. leave",[AllResultTown[33]]),
         new Action(),
 
