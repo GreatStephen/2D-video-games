@@ -8,9 +8,10 @@
 function EventTown(num) {
     var AllEventTypeTown = [0,0,1,0,0,0,0,0,0,0,0]; // 11 pics
     var AllEventSize_xTown = [200, 230, 350, 250, 200, 340, 200,200,200,200,200];
-    var AllEventSize_yTown = [200, 150, 700, 250, 100, 350,200,350,350,200,200];
-    var AllEventSpriteSequenceTown = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
-        {},{},{},{},{},
+    var AllEventSize_yTown = [200, 150, 700, 250, 300, 350,200,350,350,200,200];
+    var AllEventSpriteSequenceTown = [{},
+        {},
+        {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},{},{},{},{},
         {"topPixel":64, "leftPixel":0, "elmWidthInPixel":64, "elmHeightInPixel":64, "numElements":8, "wPaddingInPixel":0},
         {}
     ];
@@ -223,15 +224,15 @@ function EventTown(num) {
     else if(num==12){
         //NO.10 is villager2
         t = 8;
-        console.log("there should be vilagger");
+        //console.log("there should be vilagger");
     }
     
-    console.log("t="+t);
+    //console.log("t="+t);
     this.type = AllEventTypeTown[t];
     this.position = [1000*num+AllEventMove_xTown[t], 200+AllEventMove_yTown[t]];
     this.picture = AllEventIconTown[t];
 
-    console.log(this.picture);
+    //console.log(this.picture);
     this.size_x = AllEventSize_xTown[t];
     this.size_y = AllEventSize_yTown[t];
     this.sequence = AllEventSpriteSequenceTown[t];

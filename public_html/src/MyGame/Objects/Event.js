@@ -84,7 +84,7 @@ var AllResult=[
 
     
     // villager 26 27 28 29
-    new Result("If you talk to villagers, they will tell you something.", 0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+    new Result("I heard that the king exiled his son with an unknown reason.", 0,0,0,0,0,0,0,0,0,0,0,0,0,1),
     new Result("Get apple *1", 0,0,0,0,0,0,0,0,0,0,1,0,0,0.6),
     new Result("The villager doesn't give you anything.", 0,0,0,0,0,0,0,0,0,0,0,0,0,0.4),
     new Result("You leave.", 0,0,0,0,0,0,0,0,0,0,0,0,0,1),
@@ -175,8 +175,8 @@ var AllEventAct = [
 ];
 
 var AllEventType = [0,1,1,0,0,0,0,0,0,0];
-var AllEventSize_x = [150, 180, 350, 250, 200, 340, 220,200,200,200];//todo
-var AllEventSize_y = [150, 180, 700, 250, 100, 350,250,350,200,200];//todo
+var AllEventSize_x = [150, 180, 350, 250, 400, 340, 220,200,200,200];//todo
+var AllEventSize_y = [150, 180, 700, 250, 200, 350,250,350,200,200];//todo
 var AllEventSpriteSequence = [{"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
                               {"topPixel":128, "leftPixel":0, "elmWidthInPixel":80, "elmHeightInPixel":120, "numElements":9, "wPaddingInPixel":0},
                               {"topPixel":256, "leftPixel":55, "elmWidthInPixel":152, "elmHeightInPixel":256, "numElements":13, "wPaddingInPixel":0},
