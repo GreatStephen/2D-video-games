@@ -83,8 +83,8 @@ function MyGame() {
     this.bgAttribute = null;
     this.mHero = null;
     this.mHealth = null;
-    this.mHealthValue = 1000;
-    this.mHealthValueMax = 1000;
+    this.mHealthValue = 100;
+    this.mHealthValueMax = 100;
     this.mHunger = null;
     this.mHungerValue = 100;
     this.mHungerValueMax = 100;
@@ -234,7 +234,7 @@ MyGame.prototype.unloadScene = function () {
     gEngine.AudioClips.unloadAudio(this.attack_audio);
 
     var nextscene = null;
-    if(this.ending>1){
+    if(this.ending<0){
         nextscene = new MyTown();
     }
     else{
@@ -489,7 +489,7 @@ MyGame.prototype.update = function () {
         if(this.animationCounter%25==0){
             gEngine.AudioClips.playACue(this.attack_audio);
         }
-        console.log(this.animationCounter);
+        //console.log(this.animationCounter);
     }
 
     if(this.animationCounter==100){
@@ -700,8 +700,7 @@ MyGame.prototype.update = function () {
         this.mHealth.setText("Health: " + this.mHealthValue + "/"+this.mHealthValueMax);
     }
     if(this.mHealthValue<=0){
-        
-       // if(this.mBag.GetItemIdx(0)==-1)  this.ending = 0;
+        this.ending = 1;
         this.EndGame();
     }
     
@@ -721,10 +720,8 @@ MyGame.prototype.update = function () {
 
 //遇到事件后弹窗消息，只能按空格继续
 MyGame.prototype.EndGame = function(){
-    if(this.ending==-1){
-        this.ending = 1;
-    }
-   
+    console.log("end: "+this.ending);
+
     gEngine.ResourceMap.asyncLoadRequested("status");
     
     gEngine.ResourceMap.asyncLoadCompleted("status",this);
