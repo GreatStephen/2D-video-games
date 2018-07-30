@@ -49,7 +49,7 @@ Result.prototype.apply = function(mygame, enemy){
         else
             return this.msg;
     }
-    if(mygame.mBag.GetItemNum(this.dropItemId)>-1 && mygame.mBag.GetItemNum(this.dropItemId)<this.dropItemNum){
+    if(mygame.mBag.GetItemNum(this.dropItemId)<this.dropItemNum){
         this.msg = "not enough "+ NameList[this.dropItemId];
         console.log(this.msg);
         return this.msg;

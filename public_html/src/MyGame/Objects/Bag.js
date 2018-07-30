@@ -84,7 +84,7 @@ Bag.prototype.GetItemNum = function(id){
         if(id == this.itemSet[i].Id)
             return this.itemNum[i];
     }
-    return -1;
+    return 0;
 }
 
 Bag.prototype.AddItem = function(id, num){

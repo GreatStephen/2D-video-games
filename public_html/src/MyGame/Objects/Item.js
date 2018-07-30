@@ -43,8 +43,8 @@ var PictureList = ["assets/item/0_apple.png",
     "assets/item/19_bread.png",
     "assets/item/20_potion3.png",
 ];
-var AtkList = [0,0,0,0,0,10,15,5,0,0,0,0,0,0,0,0,0,0,0,0,0];
-var DefList = [0,0,0,0,0,0,0,0,0,8,0,4,0,0,0,0,0,0,0,0,0];
+var AtkList = [0,0,0,0,0,13,20,6,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var DefList = [0,0,0,0,0,0,0,0,4,8,0,0,0,0,0,0,0,0,0,0,0];
 var TypeList = [0,0,0,0,1,2,2,2,3,3,1,1,1,1,1,0,1,4,1,0,1];  // 0: consume  1: cannot use   2: weapon  3:armor  4:可重复使用
 
 function Item(id) {
