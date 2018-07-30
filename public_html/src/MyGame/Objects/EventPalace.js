@@ -58,7 +58,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
 
         // businessman 567
         new Result("Lose money*120, get a new spear.", 0,0,0,0,0,0,-120,0,0,6,1,0,0,1),
-        new Result("Lose timber*3, get a small healing potion.",0,0,0,0,0,0,0,0,0,3,1,4,2,1),
+        new Result("Lose timber*2, get a small healing potion.",0,0,0,0,0,0,0,0,0,15,1,4,2,1),
         new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
         
         //8-14
