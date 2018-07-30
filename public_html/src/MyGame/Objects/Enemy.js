@@ -8,7 +8,7 @@
 var AllEnemy = [{Id:0, msg:"", mHealth:"30", atk:15, def:0, numItem:1, dropItemId:0, money:20},//mushroom
     {Id:1, msg:"", mHealth:"40", atk:15, def:0, numItem:1, dropItemId:1, money:30},//eagle
     {Id:2, msg:"", mHealth:"50", atk:18, def:2, numItem:2, dropItemId:3, money:50},//knight
-  /*  {Id:3, msg:"", mHealth:"50", atk:15, def:0, numItem:0, dropItemId:0, money:10},*/
+    {Id:3, msg:"", mHealth:"50", atk:15, def:0, numItem:0, dropItemId:0, money:10},
     {Id:4, msg:"", mHealth:"50", atk:17, def:0, numItem:0, dropItemId:0, money:30}, //dog
     {Id:5, msg:"", mHealth:"50", atk:17, def:0, numItem:0, dropItemId:0, money:30},// wolf
     {Id:6, msg:"", mHealth:"60", atk:23, def:0, numItem:0, dropItemId:0, money:30}, // assassin

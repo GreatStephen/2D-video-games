@@ -92,9 +92,13 @@ function MyPalace(isPrincessLocation, isPrincessAmbition) {
     this.bgAttribute = null;
     this.mHero = null;
     this.mHealth = null;
+    this.healthBar1 = null;
+    this.healthBar2 = null;
     this.mHealthValue = 100;
     this.mHealthValueMax = 100;
     this.mHunger = null;
+    this.hungerBar1 = null;
+    this.hungerBar2 = null;
     this.mHungerValue = 100;
     this.mHungerValueMax = 100;
     this.mAttack = null;
@@ -345,8 +349,12 @@ MyPalace.prototype.initialize = function () {
     
     this.mHealthValue = temp.mHealthValue;
     this.mHealthValueMax = temp.mHealthValueMax;
+    this.healthBar1 = temp.healthBar1;
+    this.healthBar2 = temp.healthBar2;
     this.mHungerValue = temp.mHungerValue;
     this.mHungerValueMax = temp.mHungerValueMax;
+    this.hungerBar1 = temp.hungerBar1;
+    this.hungerBar2 = temp.hungerBar2;
     this.mAttackValue = temp.mAttackValue;
     this.mDefenseValue = temp.mDefenseValue;
     this.mMoneyValue = temp.mMoneyValue;
@@ -448,11 +456,14 @@ MyPalace.prototype.draw = function () {
         this.bgMsg.getXform().setPosition(1000,1000);
     }
 
-
     this.attributeCamera.setupViewProjection();
     this.bgAttribute.draw(this.attributeCamera);
     this.mHealth.draw(this.attributeCamera);
+    this.healthBar1.draw(this.attributeCamera);
+    this.healthBar2.draw(this.attributeCamera);
     this.mHunger.draw(this.attributeCamera);
+    this.hungerBar1.draw(this.attributeCamera);
+    this.hungerBar2.draw(this.attributeCamera);
     this.mAttack.draw(this.attributeCamera);
     this.mDefense.draw(this.attributeCamera);
     this.mMoneyTexture.draw(this.attributeCamera);
@@ -673,8 +684,6 @@ MyPalace.prototype.update = function () {
             this.mHungerValue = 0;
             this.mHealthValue--;
         }
-        this.mHunger.setText("Hunger: " + this.mHungerValue + "/"+this.mHungerValueMax);
-        this.mHealth.setText("Health: " + this.mHealthValue + "/"+this.mHealthValueMax);
     }
     if(this.mHealthValue<=0&&this.ending<0){
         this.ending = 1;
@@ -691,8 +700,20 @@ MyPalace.prototype.update = function () {
         var nextscene = new MyPalace();
         gEngine.Core.startScene(nextscene);
     }
-    this.mMoneyTexture.setText("Money: " + this.mMoneyValue);
-
+    
+    // update attribute renderable
+    this.mHunger.setText("Hunger: " + this.mHungerValue + "/"+this.mHungerValueMax);
+    this.mHealth.setText("Health: " + this.mHealthValue + "/"+this.mHealthValueMax);
+    this.mAttack.setText("Attack:  " + this.mAttackValue);
+    this.mDefense.setText("Defense: " + this.mDefenseValue);
+    this.mMoneyTexture.setText("Money:   " + this.mMoneyValue+"  G");
+    
+    var rate = this.mHungerValue/this.mHungerValueMax;
+    this.hungerBar2.getXform().setPosition(8+rate*42,140);
+    this.hungerBar2.getXform().setSize(84*rate, 8);
+    rate = this.mHealthValue/this.mHealthValueMax;
+    this.healthBar2.getXform().setPosition(8+rate*42,163);
+    this.healthBar2.getXform().setSize(84*rate, 8);
 };
 
 //遇到事件后弹窗消息，只能按空格继续

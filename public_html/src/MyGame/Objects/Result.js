@@ -93,12 +93,7 @@ Result.prototype.apply = function(mygame, enemy){
     if(!this.escape){
         return this.msg + enemy.fight(mygame);
     }
-    // update attribute renderable
-    mygame.mHealth.setText("Health: "+ mygame.mHealthValue+"/"+ mygame.mHealthValueMax);
-    mygame.mHunger.setText("Hunger: " + mygame.mHungerValue + "/"+ mygame.mHungerValueMax);
-    mygame.mAttack.setText("Attack: " + mygame.mAttackValue);
-    mygame.mDefense.setText("Defense: " + mygame.mDefenseValue);
-    mygame.mMoneyTexture.setText("Money: " + mygame.mMoneyValue);
+   
     //console.log(this.flag);
     
     return this.msg;
