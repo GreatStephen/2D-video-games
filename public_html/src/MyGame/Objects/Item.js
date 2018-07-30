@@ -95,6 +95,6 @@ Item.prototype.Use = function(mygame){
     // update attribute renderable
     mygame.mHealth.setText("Health: "+ mygame.mHealthValue+"/"+ mygame.mHealthValueMax);
     mygame.mHunger.setText("Hunger: " + mygame.mHungerValue + "/"+ mygame.mHungerValueMax);
-    mygame.mAttack.setText("Attack: " + mygame.mAttackValue);
+    mygame.mAttack.setText("Attack:  " + mygame.mAttackValue);
     mygame.mDefense.setText("Defense: " + mygame.mDefenseValue);
 }

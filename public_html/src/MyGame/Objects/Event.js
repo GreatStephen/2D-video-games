@@ -169,7 +169,7 @@ var AllEventAct = [
     // businessman
     new Action("1. 30 gold for a sword.", [AllResult[33]]),
     new Action("2. 30 gold for a shield.", [AllResult[34]]),
-    new Action("3. 20 gold for an apple.",[AllResult[35]]),
+    new Action("3. 2*timber for an apple.",[AllResult[35]]),
     new Action("4. Leave.",[AllResult[36]])
 
 ];
