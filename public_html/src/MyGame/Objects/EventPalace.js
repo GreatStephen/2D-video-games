@@ -112,8 +112,8 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         new Action(),
 
         // merchant
-        new Action("1. 80 gold for an axe", [AllResultPalace[5]]),
-        new Action("2. timber*2 for an herb", [AllResultPalace[6]]),
+        new Action("1. 80 gold for a spear", [AllResultPalace[5]]),
+        new Action("2. timber*2 for a herb", [AllResultPalace[6]]),
         new Action("3. leave",[AllResultPalace[7]]),
         new Action(),
 
