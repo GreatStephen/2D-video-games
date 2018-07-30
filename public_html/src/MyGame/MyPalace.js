@@ -698,7 +698,6 @@ MyPalace.prototype.update = function () {
 
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Z)){
         this.ending = 12;
-        //save cookie
         this.cookiemanager.setCookie("Ending12","true");
 
         this.EndGame();
