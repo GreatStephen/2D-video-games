@@ -185,9 +185,9 @@ var AllEventSpriteSequence = [{},
                               {}
                               
                              ];//todo
-var AllEventSpeed = [0,15,7,0,0,0,15,0,0,0];//todo
+var AllEventSpeed = [0,15,7,0,0,0,0,0,0,0];//todo
 
-var AllEventMove_x = [0,0,0,0,0,0,0,0,0,0];//todo
+var AllEventMove_x = [0,  0,   0,  0,  0,  0,  0, 0, 0,  0];//todo
 var AllEventMove_y = [-20,-25,-10,70,-100,50,-15,10,-15,-15];//todo
 function Event(num) {
     var t = Math.floor(Math.random()*10);
@@ -226,6 +226,7 @@ function Event(num) {
 
     }
     else if(num==16){
+        console.log("num==16, here should be a knight");
         t=2;
     }
     //t=6;
@@ -268,7 +269,7 @@ function Event(num) {
     this.action.push(AllEventAct[4*t+1]);
     this.action.push(AllEventAct[4*t+2]);
     this.action.push(AllEventAct[4*t+3]);
-    this.isBattle = false;
+    //this.isBattle = false;
     if(AllEnemyId[t]>-1)
         this.enemy = new Enemy(AllEnemyId[t]);
     else
