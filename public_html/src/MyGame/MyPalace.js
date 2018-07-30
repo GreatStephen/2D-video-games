@@ -678,7 +678,6 @@ MyPalace.prototype.update = function () {
     }
     if(this.mHealthValue<=0&&this.ending<0){
         this.ending = 1;
-        // if(this.mBag.GetItemIdx(0)==-1)  this.ending = 0;
         this.EndGame();
     }
 
@@ -699,7 +698,7 @@ MyPalace.prototype.update = function () {
 //遇到事件后弹窗消息，只能按空格继续
 MyPalace.prototype.EndGame = function(){
     if(this.ending==-1){
-        this.ending = 1;
+        this.ending = 12;
     }
     console.log(this.ending);
    // gEngine.ResourceMap.asyncLoadRequested("status");   

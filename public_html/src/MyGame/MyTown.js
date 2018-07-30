@@ -243,7 +243,7 @@ MyTown.prototype.unloadScene = function () {
 
 
     var nextscene = null;
-    if(this.ending>1){
+    if(this.ending<0){
         nextscene = new MyPalace(this.isPrincessLocation, this.isPrincessAmbition);
     }
     else{
@@ -644,7 +644,6 @@ MyTown.prototype.update = function () {
     }
     if(this.mHealthValue<=0&&this.ending<0){
         this.ending = 1;
-        // if(this.mBag.GetItemIdx(0)==-1)  this.ending = 0;
         this.EndGame();
     }
 
@@ -666,9 +665,7 @@ MyTown.prototype.update = function () {
 
 //遇到事件后弹窗消息，只能按空格继续
 MyTown.prototype.EndGame = function(){
-    if(this.ending==-1){
-        this.ending = 1;
-    }
+
     gEngine.ResourceMap.asyncLoadRequested("status");   
     gEngine.ResourceMap.asyncLoadCompleted("status",this);
     gEngine.GameLoop.stop();
