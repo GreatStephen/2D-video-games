@@ -9,14 +9,14 @@ var AllEnemy = [{Id:0, msg:"", mHealth:"30", atk:15, def:0, numItem:1, dropItemI
     {Id:1, msg:"", mHealth:"40", atk:15, def:0, numItem:1, dropItemId:1, money:30},//eagle
     {Id:2, msg:"", mHealth:"50", atk:18, def:2, numItem:2, dropItemId:3, money:30},//knight
     {Id:3, msg:"", mHealth:"50", atk:15, def:0, numItem:0, dropItemId:0, money:10},
-    {Id:4, msg:"", mHealth:"50", atk:18, def:2, numItem:0, dropItemId:0, money:30}, //dog
-    {Id:5, msg:"", mHealth:"50", atk:19, def:0, numItem:0, dropItemId:0, money:30},// wolf
-    {Id:6, msg:"", mHealth:"60", atk:23, def:0, numItem:0, dropItemId:0, money:40}, // assassin
+    {Id:4, msg:"", mHealth:"50", atk:18, def:2, numItem:1, dropItemId:1, money:30}, //dog
+    {Id:5, msg:"", mHealth:"50", atk:19, def:0, numItem:1, dropItemId:1, money:30},// wolf
+    {Id:6, msg:"", mHealth:"60", atk:23, def:0, numItem:1, dropItemId:15, money:40}, // assassin
     {Id:7, msg:"", mHealth:"100", atk:25, def:5, numItem:0, dropItemId:0, money:0}, // king
     {Id:8, msg:"", mHealth:"100", atk:27, def:5, numItem:0, dropItemId:0, money:0}, // duke
-    {Id:9, msg:"", mHealth:"120", atk:25, def:8, numItem:0, dropItemId:0, money:0}, // princess
-    {Id:10, msg:"", mHealth:"70", atk:22, def:5, numItem:1, dropItemId:3, money:40}, // soldier
-    {Id:11, msg:"", mHealth:"80", atk:23, def:7, numItem:2, dropItemId:3, money:40}, // captain
+    {Id:9, msg:"", mHealth:"80", atk:25, def:7, numItem:0, dropItemId:0, money:0}, // princess
+    {Id:10, msg:"", mHealth:"60", atk:21, def:3, numItem:1, dropItemId:3, money:40}, // soldier
+    {Id:11, msg:"", mHealth:"70", atk:22, def:5, numItem:2, dropItemId:3, money:40}, // captain
     ]
 
 function Enemy(id) {

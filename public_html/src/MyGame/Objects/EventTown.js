@@ -128,6 +128,7 @@ function EventTown(num) {
     AllResultTown[0].escape = false;
     AllResultTown[2].escape = false;
     AllResultTown[4].escape = false;
+    AllResultTown[22].escape = false;
     AllResultTown[36].escape = false;
 
 // 4 actions

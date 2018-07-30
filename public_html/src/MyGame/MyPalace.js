@@ -682,6 +682,8 @@ MyPalace.prototype.update = function () {
             this.hungerRate = 1;
         }          
         this.mHungerValue-=this.hungerRate;
+        if(this.mHungerValue>0&&this.mHealthValue<this.mHealthValueMax)
+            this.mHealthValue++;
         if(this.mHungerValue<=0){
             //gEngine.GameLoop.stop();
             this.mHungerValue = 0;

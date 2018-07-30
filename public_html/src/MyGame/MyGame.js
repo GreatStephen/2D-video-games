@@ -85,8 +85,8 @@ function MyGame() {
     this.mHealth = null;
     this.healthBar1 = null;
     this.healthBar2 = null;
-    this.mHealthValue = 100;
-    this.mHealthValueMax = 100;
+    this.mHealthValue = 1100;
+    this.mHealthValueMax = 1100;
     this.mHunger = null;
     this.hungerBar1 = null;
     this.hungerBar2 = null;
@@ -97,7 +97,7 @@ function MyGame() {
     this.mDefense = null;
     this.mDefenseValue = 10;
     this.mMoneyTexture = null;
-    this.mMoneyValue = 0;
+    this.mMoneyValue = 110;
     this.mMes1 = null;
     this.mMes2 = null;
     this.mMes3 = null;
@@ -702,6 +702,12 @@ MyGame.prototype.update = function () {
         else
             this.hungerRate = 1;
         this.mHungerValue-=this.hungerRate;
+        if(this.mHungerValue>0&&this.mHealthValue<this.mHealthValueMax)
+        {
+//            console.log(this.mHealthValue);
+//            console.log(this.mHealthValueMax);
+            this.mHealthValue++;
+        }
         if(this.mHungerValue<=0){
             //gEngine.GameLoop.stop();
             this.mHungerValue = 0;
