@@ -158,9 +158,9 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
     var t = Math.floor(Math.random()*2)+3;
     if(num==1&&isPrincessLocation)
         t=0;
-    if(num==7)
+    if(num==4)
         t=6;
-    if(num==8)
+    if(num==6)
         t=5;
     if(num==9&&isMeetPrincess)
         t=1;
