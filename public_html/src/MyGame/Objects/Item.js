@@ -11,15 +11,15 @@ var InfoList = ["Apple:","Meat:","Fish:","Herb:","Timber:",
                 "Secret bag: ","Cape: ","Key:",
                 "Treasure Chest: ", "Letter: ","Potion:","Mysterious potion:","Letter:","Ring:","Bread:","Antidote:"
                 ];
-var InfoList_1 = ["Hunger+10","Hunger+20","Hunger+10","Health+10","strange timber",
+var InfoList_1 = ["Hunger+10","Hunger+20","Hunger+30","Health+10","strange timber",
                 "Attack+10","Attack+15","Attack+5","Defense+5","Defense+10",
                 "What's in it?","Disguise yourself","May open something?",
-                "It is locked", "It is empty","Health+10","Use it on empty letter","Enter to check","Princess's ring","Hunger+5 Health+5",
+                "It is locked", "It is empty","Health+30","Use it on empty letter","Enter to check","Princess's ring","Hunger+25 Health+25",
                 "Help to detoxify"
                 ];               
-var HealthList = [0,0,0,10,0,0,0,0,0,0,0,0,0,0,0,10,0,0,0,5,0];
+var HealthList = [0,0,0,10,0,0,0,0,0,0,0,0,0,0,0,30,0,0,0,25,0];
 var mHealthList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-var HungerList = [10,20,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0];
+var HungerList = [10,20,30,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,25,0];
 var mHungerList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var PictureList = ["assets/item/0_apple.png",
     "assets/item/1_meat.png",

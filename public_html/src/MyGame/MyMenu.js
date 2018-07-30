@@ -59,6 +59,7 @@ function MyMenu(){
     this.BGM = "assets/StartScene/PilotsOfStone.mp3";
     
     this.endingChoice = 0;
+    this.endingFlag = [];
 
     this.hint1 = null;
     this.hint2 = null;
@@ -68,10 +69,13 @@ function MyMenu(){
     
     
     if(!gEngine.ResourceMap.isAssetLoaded("endings")){
+        console.log("request");
         gEngine.ResourceMap.asyncLoadRequested("endings");
         gEngine.ResourceMap.asyncLoadCompleted("endings",AllEndings);
     }else{
+        console.log("load");
         AllEndings = gEngine.ResourceMap.retrieveAsset("endings");
+        console.log(AllEndings);
     }
 }
 
@@ -187,14 +191,14 @@ MyMenu.prototype.initialize = function () {
         var fr;
         //console.log(i);
 
-        var flag = this.cookiemanager.getCookie("Ending"+i);
-        if(flag=="true"){
-            AllEndings[i].flag = true;
-        }
-        else if(flag=="false"){
-            AllEndings[i].flag = false;
-        }
-        console.log("cookie test:"+flag);
+//        var flag = this.cookiemanager.getCookie("Ending"+i);
+//        if(flag=="true"){
+//            AllEndings[i].flag = true;
+//        }
+//        else if(flag=="false"){
+//            AllEndings[i].flag = false;
+//        }
+//        console.log("cookie test:"+flag);
 
         if(AllEndings[i].flag)
             fr = new FontRenderable(AllEndings[i].name);

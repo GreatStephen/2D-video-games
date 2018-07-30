@@ -41,6 +41,14 @@ Result.prototype.apply = function(mygame, enemy){
         console.log(this.msg);
         return this.msg;
     }
+    if(mygame.mHungerValue + this.Hunger <0){
+        this.msg = "Not enough hunger. ";
+        console.log(this.msg);
+        if(enemy)
+            return this.msg + "Fail to escape. " +enemy.fight(mygame);
+        else
+            return this.msg;
+    }
     if(mygame.mBag.GetItemNum(this.dropItemId)>-1 && mygame.mBag.GetItemNum(this.dropItemId)<this.dropItemNum){
         this.msg = "not enough "+ NameList[this.dropItemId];
         console.log(this.msg);

@@ -42,15 +42,15 @@ var AllEnemyId=[
 var AllResult=[
     // mushroom 0 1
     new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0, 0, 0, 1),
-    new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0.7),
+    new Result("Escape successfully. ", 0, 0, -10, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0.7),
 
     // eagle 2 3
     new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-    new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0.7),
+    new Result("Escape successfully. ", 0, 0, -10, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0.7),
 
     // knignt 4 5
     new Result("Fight result: ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-    new Result("Escape successfully. ", 0, 0, 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0.7),
+    new Result("Escape successfully. ", 0, 0, -10, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0.7),
 
     // appletree 6 7 8 9 10
     new Result("Get apple *1",0,0,0,0,0,0,0,0,0,0,1,0,0,0.8),
@@ -71,15 +71,15 @@ var AllResult=[
     new Result("Get nothing", 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0, 0, 1),
 
     // ruins 18 19 20 21
-    new Result("Money *10", 0,0,0,0,0,0,10,0,0,0,0,0,0,0.3),
+    new Result("Get 20G", 0,0,0,0,0,0,20,0,0,0,0,0,0,0.3),
     new Result("Get timber *2", 0,0,0,0,0,0,0,0,0,4,2,0,0,0.3),
     new Result("Get herb *2", 0,0,0,0,0,0,0,0,0,3,2,0,0,0.4),
     new Result("Get nothing", 0, 0, 0, 0, 0, 0, 0,0,0, 0, 0, 0, 0, 1),
     
     // hunter 22 23 24 25
-    new Result("receive the hunter's cape", 0,0,0,0,0,0,0,0,0,11,1,0,0,1),
+    new Result("-30 hunger, receive the hunter's cape", 0,0,-30,0,0,0,0,0,0,11,1,0,0,1),
     new Result("Defeated, you lose 30HP", -30,0,0,0,0,0,0,0,0,0,0,0,0,0.5),
-    new Result("Knock him down, get meat *2", 0,0,0,0,0,0,0,0,0,1,2,0,0,0.5),
+    new Result("You knock him down, get meat *2", 0,0,0,0,0,0,0,0,0,1,2,0,0,0.5),
     new Result("You leave.", 0,0,0,0,0,0,0,0,0,0,0,0,0,1),
 
     
@@ -95,8 +95,8 @@ var AllResult=[
     new Result("Max HP-30, get a new weapon.",0,-30,0,0,0,0,0,0,0,7,1,0,0,1),
 
     // businessman 33 34 35 36
-    new Result("lose money*30, get a new sword.", 0,0,0,0,0,0,-30,0,0,7,1,0,0,1),
-    new Result("lose money*30, get a new shield.",0,0,0,0,0,0,-30,0,0,8,1,0,0,1),
+    new Result("-30G, get a new sword.", 0,0,0,0,0,0,-30,0,0,7,1,0,0,1),
+    new Result("-30G, get a new shield.",0,0,0,0,0,0,-30,0,0,8,1,0,0,1),
     new Result("lose timber*2, get an apple.",0,0,0,0,0,0,0,0,0,0,1,4,2,1),
     new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
 
@@ -116,12 +116,12 @@ AllResult[38].escape = false;
 var AllEventAct = [
     // mushroom
     new Action("1. Fight",[AllResult[0]]),
-    new Action("2. Escape (70% succeed)", [AllResult[1], AllResult[38]]),
+    new Action("2. Escape (-10 Hunger, 70% succeed)", [AllResult[1], AllResult[38]]),
     new Action(),
     new Action(),
     // eagle
     new Action("1. Fight",[AllResult[2]]),
-    new Action("2. Escape (70% succeed)", [AllResult[3], AllResult[38]]),
+    new Action("2. Escape (-10 Hunger, 70% succeed)", [AllResult[3], AllResult[38]]),
     new Action(),
     new Action(),
     // knight
@@ -148,7 +148,7 @@ var AllEventAct = [
     new Action(),
     
     // hunter
-    new Action("1. Ok", [AllResult[22]]),
+    new Action("1. Ok (-30 hunger)", [AllResult[22]]),
     new Action("2. Rob him.", [AllResult[23], AllResult[24]]),
     new Action("3. Sorry, I' m busy.",[AllResult[25]]),
     new Action(),
