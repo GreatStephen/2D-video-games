@@ -775,19 +775,29 @@ MyGame.prototype.SendMessage = function(line1, line2, line3, line4,line5, line6)
 
     this.mMes1.setText(line11);
     this.mMes1.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]+70-150);
-    this.mMes2.setText(line2);
+    //line2
+    if(typeof(line2)!="undefined")  this.mMes2.setText(line2);
+    else this.mMes2.setText("");
     this.mMes2.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]+35-150);
-    if(typeof (line3)!= "undefined")
-        this.mMes3.setText(line3);
+
+    //line3
+    if(typeof(line3)!="undefined") this.mMes3.setText(line3);
+    else this.mMes3.setText("");
     this.mMes3.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]-0-150);
-    if(typeof(line4) != "undefined")
-        this.mMes4.setText(line4);
+
+    //line4
+    if(typeof(line4) != "undefined") this.mMes4.setText(line4);
+    else this.mMes4.setText("");
     this.mMes4.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]-35-150);
-    if(typeof(line5) != "undefined")
-        this.mMes5.setText(line5);
+
+    //line5
+    if(typeof(line5) != "undefined") this.mMes5.setText(line5);
+    else this.mMes5.setText("");
     this.mMes5.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]-70-150);
-    if(typeof(line6) != "undefined")
-        this.mMes6.setText(line6);
+
+    //line6
+    if(typeof(line6) != "undefined") this.mMes6.setText(line6);
+    else this.mMes6.setText("");
     this.mMes6.getXform().setPosition(cameraCenter[0]-450,cameraCenter[1]-105-150);
 
     this.isMesOn=true;

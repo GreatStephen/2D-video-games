@@ -58,7 +58,7 @@ function Bag(myTexture,cursorTexture,myGame){
     */
     this.AddItem(0,2);
     this.AddItem(3,2);
-    //this.AddItem(19,1);
+    this.AddItem(17,1);
     //this.AddItem(11,1);
    // this.AddItem(17,1);
     
@@ -233,8 +233,8 @@ Bag.prototype.update = function(){
     }  
     
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Enter)){
-        console.log("type");
-        console.log(this.itemSet[this.current].type);
+        //console.log("type");
+        //console.log(this.itemSet[this.current].type);
         if(this.itemSet[this.current].type==0){
             this.itemSet[this.current].Use(this.myGame);
             this.RemoveItem();
