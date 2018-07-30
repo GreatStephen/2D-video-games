@@ -191,14 +191,14 @@ MyMenu.prototype.initialize = function () {
         var fr;
         //console.log(i);
 
-//        var flag = this.cookiemanager.getCookie("Ending"+i);
-//        if(flag=="true"){
-//            AllEndings[i].flag = true;
-//        }
-//        else if(flag=="false"){
-//            AllEndings[i].flag = false;
-//        }
-//        console.log("cookie test:"+flag);
+        var flag = this.cookiemanager.getCookie("Ending"+i);
+        if(flag=="true"){
+            AllEndings[i].flag = true;
+        }
+        else if(flag=="false"){
+            AllEndings[i].flag = false;
+        }
+        console.log("cookie test:"+flag);
 
         if(AllEndings[i].flag)
             fr = new FontRenderable(AllEndings[i].name);
