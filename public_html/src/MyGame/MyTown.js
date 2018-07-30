@@ -134,6 +134,9 @@ function MyTown() {
 
     this.hungerRate = 1;
     this.attack =false;
+
+    //cookie manager
+    this.cookiemanager = new cookieManager();
 }
 gEngine.Core.inheritPrototype(MyTown, Scene);
 
@@ -644,11 +647,17 @@ MyTown.prototype.update = function () {
     }
     if(this.mHealthValue<=0&&this.ending<0){
         this.ending = 1;
+        //save cookie
+        this.cookiemanager.setCookie("Ending1","true");
+
         this.EndGame();
     }
 
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Z)){
         this.ending = 4;
+        //save cookie
+        this.cookiemanager.setCookie("Ending4","true");
+
         this.isPrincessAmbition = true;
         this.isPrincessLocation = true;
         this.EndGame();
