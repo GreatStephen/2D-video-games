@@ -105,11 +105,14 @@ Enemy.prototype.fight = function (game){
     }else if(this.Id == 8){
         game.ending = game.mBag.GetItemIdx(16)<0?9:8;
         //save cookie
-        this.cookiemanager.setCookie("Ending"+ending,"true");
+        this.cookiemanager.setCookie("Ending"+game.ending,"true");
 
         game.EndGame();
     }else if(this.Id == 9){
         game.ending = 11;
+        //save cookie
+        this.cookiemanager.setCookie("Ending11","true");
+
         game.EndGame();
     }
         

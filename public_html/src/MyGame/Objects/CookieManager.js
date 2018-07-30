@@ -15,10 +15,10 @@ function cookieManager(){
 
 // format: Ending1=true
 cookieManager.prototype.setCookie = function (ending, flag) {
-    if(flag==true){
+    if(flag=="true"){
         document.cookie = ending + "=true";
     }
-    else{
+    else if(flag=="false"){
         document.cookie = ending + "=false";
     }
 }
