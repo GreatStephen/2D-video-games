@@ -33,7 +33,9 @@ function Enemy(id) {
     //item
     this.numItem = AllEnemy[id].numItem;    //the number of item you can get
     this.dropItemId = AllEnemy[id].dropItemId;  //the item id 
-    
+
+    // cookiemanager
+    this.cookiemanager = new cookieManager();
 }
 
 Enemy.prototype.fight = function (game){
@@ -58,15 +60,34 @@ Enemy.prototype.fight = function (game){
         console.log("die");
         if(this.Id == 2){
             game.ending = 2;
+            //save cookie
+            this.cookiemanager.setCookie("Ending2","true");
+
         }
-        else if(this.Id == 7)
+        else if(this.Id == 7){
+            //save cookie
+            this.cookiemanager.setCookie("Ending5","true");
             game.ending = 5;
-        else if(this.Id == 8)
+
+        }
+        else if(this.Id == 8){
             game.ending = 10;
-        else if(this.Id == 9)
+            //save cookie
+            this.cookiemanager.setCookie("Ending10","true");
+
+        }
+        else if(this.Id == 9){
             game.ending = 6;
-        else
+            //save cookie
+            this.cookiemanager.setCookie("Ending9","true");
+
+        }
+        else{
             game.ending = 0;
+            //save cookie
+            this.cookiemanager.setCookie("Ending0","true");
+
+        }
         msg = "you lose";
         game.EndGame();
         return msg;
@@ -77,9 +98,15 @@ Enemy.prototype.fight = function (game){
     game.mMoneyValue += this.money;
     if(this.Id == 7){
         game.ending = 7;
+        //save cookie
+        this.cookiemanager.setCookie("Ending7","true");
+
         game.EndGame();
     }else if(this.Id == 8){
         game.ending = game.mBag.GetItemIdx(16)<0?9:8;
+        //save cookie
+        this.cookiemanager.setCookie("Ending"+ending,"true");
+
         game.EndGame();
     }else if(this.Id == 9){
         game.ending = 11;

@@ -139,6 +139,9 @@ function MyPalace(isPrincessLocation, isPrincessAmbition) {
     this.mEventNum = 12;
 
     this.hungerRate = 1;
+
+    // cookie manager
+    this.cookiemanager = new cookieManager();
 }
 gEngine.Core.inheritPrototype(MyPalace, Scene);
 
@@ -678,11 +681,17 @@ MyPalace.prototype.update = function () {
     }
     if(this.mHealthValue<=0&&this.ending<0){
         this.ending = 1;
+        //save cookie
+        this.cookiemanager.setCookie("Ending1","true");
+
         this.EndGame();
     }
 
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Z)){
         this.ending = 12;
+        //save cookie
+        this.cookiemanager.setCookie("Ending12","true");
+
         this.EndGame();
     }
 
