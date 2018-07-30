@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3602db3-c356-4238-8c90-350eabf4f048" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/src/MyGame/MyGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/src/MyGame/MyGame.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public_html/src/MyGame/MyPalace.js" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/src/MyGame/MyPalace.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public_html/src/MyGame/Objects/CookieManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/src/MyGame/Objects/CookieManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/src/MyGame/MyTown.js" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/src/MyGame/MyTown.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/src/MyGame/Objects/Bag.js" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/src/MyGame/Objects/Bag.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/src/MyGame/Objects/Result.js" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/src/MyGame/Objects/Result.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,25 +41,25 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="154" />
-          <entry key="js" value="10271" />
+          <entry key="js" value="10496" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="154" />
-          <entry key="JavaScript" value="10271" />
+          <entry key="JavaScript" value="10496" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="2" />
-          <entry key="js" value="106" />
+          <entry key="js" value="115" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="2" />
-          <entry key="JavaScript" value="106" />
+          <entry key="JavaScript" value="115" />
         </counts>
       </usages-collector>
     </session>
@@ -65,8 +69,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/MyGame.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="719" column="8" selection-start-line="719" selection-start-column="8" selection-end-line="719" selection-end-column="8" />
+            <state relative-caret-position="152">
+              <caret line="777" column="4" selection-start-line="777" selection-start-column="4" selection-end-line="801" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -75,10 +79,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/MyTown.js">
+        <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Event.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="655" column="8" lean-forward="true" selection-start-line="655" selection-start-column="8" selection-end-line="655" selection-end-column="8" />
+            <state relative-caret-position="412">
+              <caret line="99" column="68" selection-start-line="99" selection-start-column="68" selection-end-line="99" selection-end-column="68" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Result.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="589">
+              <caret line="55" column="30" lean-forward="true" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Bag.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-414">
+              <caret line="60" column="19" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -89,8 +117,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/MyPalace.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="701" lean-forward="true" selection-start-line="701" selection-end-line="701" />
+            <state relative-caret-position="512">
+              <caret line="785" lean-forward="true" selection-start-line="785" selection-end-line="785" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -99,15 +127,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="http://localhost:63342/2D-video-games/public_html/src/MyGame/MyPalace.js">
-          <provider selected="true" editor-type-id="httpFileEditor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/CookieManager.js">
+        <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/EventTown.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-200">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="-1425">
+              <caret line="100" column="22" lean-forward="true" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="22" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -116,19 +139,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/src/Engine/Core/Engine_Input.js">
+        <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Action.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="213" column="8" selection-start-line="213" selection-start-column="8" selection-end-line="213" selection-end-column="8" />
+            <state relative-caret-position="322">
+              <caret line="23" column="9" lean-forward="true" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Enemy.js">
+        <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/MyTown.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="86" column="24" lean-forward="true" selection-start-line="86" selection-start-column="24" selection-end-line="86" selection-end-column="24" />
+            <state relative-caret-position="228">
+              <caret line="722" column="4" selection-start-line="722" selection-start-column="4" selection-end-line="746" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -137,10 +160,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/GameOver.js">
+        <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Item.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1463">
-              <caret line="100" column="39" selection-start-line="100" selection-start-column="39" selection-end-line="100" selection-end-column="39" />
+            <state relative-caret-position="170">
+              <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -148,8 +174,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/MyMenu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2223">
-              <caret line="164" column="20" lean-forward="true" selection-start-line="164" selection-start-column="20" selection-end-line="164" selection-end-column="20" />
+            <state relative-caret-position="304">
+              <caret line="202" column="24" lean-forward="true" selection-start-line="202" selection-start-column="24" selection-end-line="202" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -205,19 +231,19 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/public_html/src/MyGame/GameOver.js" />
-        <option value="$PROJECT_DIR$/public_html/src/MyGame/Objects/Result.js" />
         <option value="$PROJECT_DIR$/public_html/src/MyGame/Objects/Action.js" />
         <option value="$PROJECT_DIR$/public_html/src/MyGame/Objects/EventTown.js" />
         <option value="$PROJECT_DIR$/public_html/src/MyGame/Objects/EventPalace.js" />
-        <option value="$PROJECT_DIR$/public_html/src/MyGame/Objects/Bag.js" />
         <option value="$PROJECT_DIR$/public_html/src/MyGame/Objects/Event.js" />
         <option value="$PROJECT_DIR$/public_html/src/MyGame/Objects/Item.js" />
         <option value="$PROJECT_DIR$/public_html/src/MyGame/MyMenu.js" />
         <option value="$PROJECT_DIR$/public_html/index.html" />
-        <option value="$PROJECT_DIR$/public_html/src/MyGame/MyGame.js" />
-        <option value="$PROJECT_DIR$/public_html/src/MyGame/MyTown.js" />
         <option value="$PROJECT_DIR$/public_html/src/MyGame/Objects/Enemy.js" />
         <option value="$PROJECT_DIR$/public_html/src/MyGame/Objects/CookieManager.js" />
+        <option value="$PROJECT_DIR$/public_html/src/MyGame/Objects/Result.js" />
+        <option value="$PROJECT_DIR$/public_html/src/MyGame/Objects/Bag.js" />
+        <option value="$PROJECT_DIR$/public_html/src/MyGame/MyTown.js" />
+        <option value="$PROJECT_DIR$/public_html/src/MyGame/MyGame.js" />
         <option value="$PROJECT_DIR$/public_html/src/MyGame/MyPalace.js" />
       </list>
     </option>
@@ -228,7 +254,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -321,18 +347,18 @@
       <workItem from="1532696769438" duration="2622000" />
       <workItem from="1532740249973" duration="876000" />
       <workItem from="1532757526658" duration="52957000" />
-      <workItem from="1532911476903" duration="18971000" />
+      <workItem from="1532911476903" duration="24749000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156535000" />
+    <option name="totallyTimeSpent" value="162313000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="953" y="0" width="974" height="1047" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24465811" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12065332" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -343,7 +369,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.33820224" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.33481646" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.1796276" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -458,37 +484,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Action.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="23" column="23" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/EventPalaceSet.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Result.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="14" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="14" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/EventTown.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-361">
-          <caret line="86" column="32" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -505,40 +504,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Item.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="45" column="29" lean-forward="true" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/EventSet.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Event.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1635">
-          <caret line="222" column="21" lean-forward="true" selection-start-line="222" selection-start-column="21" selection-end-line="222" selection-end-column="21" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Bag.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-380">
-          <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -555,37 +524,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/MyGame.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="719" column="8" selection-start-line="719" selection-start-column="8" selection-end-line="719" selection-end-column="8" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/MyTown.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="655" column="8" lean-forward="true" selection-start-line="655" selection-start-column="8" selection-end-line="655" selection-end-column="8" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/GameOver.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1463">
-          <caret line="100" column="39" selection-start-line="100" selection-start-column="39" selection-end-line="100" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/MyMenu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2223">
-          <caret line="164" column="20" lean-forward="true" selection-start-line="164" selection-start-column="20" selection-end-line="164" selection-end-column="20" />
+          <caret line="98" column="39" selection-start-line="98" selection-start-column="39" selection-end-line="98" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -606,9 +548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="http://localhost:63342/2D-video-games/public_html/src/MyGame/MyPalace.js">
-      <provider selected="true" editor-type-id="httpFileEditor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/CookieManager.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-200">
@@ -619,10 +558,97 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/MyMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="202" column="24" lean-forward="true" selection-start-line="202" selection-start-column="24" selection-end-line="202" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Event.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="99" column="68" selection-start-line="99" selection-start-column="68" selection-end-line="99" selection-end-column="68" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="http://localhost:63342/2D-video-games/public_html/src/MyGame/MyPalace.js">
+      <provider selected="true" editor-type-id="httpFileEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/EventTown.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1425">
+          <caret line="100" column="22" lean-forward="true" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="22" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Action.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="23" column="9" lean-forward="true" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Result.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="55" column="30" lean-forward="true" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Item.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/Objects/Bag.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-414">
+          <caret line="60" column="19" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/MyTown.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="722" column="4" selection-start-line="722" selection-start-column="4" selection-end-line="746" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/MyGame.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="777" column="4" selection-start-line="777" selection-start-column="4" selection-end-line="801" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/src/MyGame/MyPalace.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="701" lean-forward="true" selection-start-line="701" selection-end-line="701" />
+        <state relative-caret-position="512">
+          <caret line="785" lean-forward="true" selection-start-line="785" selection-end-line="785" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
