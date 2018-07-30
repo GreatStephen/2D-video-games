@@ -542,7 +542,6 @@ MyGame.prototype.update = function () {
                 this.mKnight.getXform().setPosition(x[0]+deltaX,x[1]);
             }
             else{
-                this.ending = 3;
                 this.EndGame();
             }
             
@@ -699,7 +698,7 @@ MyGame.prototype.update = function () {
         this.mHunger.setText("Hunger: " + this.mHungerValue + "/"+this.mHungerValueMax);
         this.mHealth.setText("Health: " + this.mHealthValue + "/"+this.mHealthValueMax);
     }
-    if(this.mHealthValue<=0){
+    if(this.mHealthValue<=0&&this.ending<0){
         this.ending = 1;
         this.EndGame();
     }

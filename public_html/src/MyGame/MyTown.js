@@ -501,7 +501,6 @@ MyTown.prototype.update = function () {
                 this.mKnight.getXform().setPosition(x[0]+deltaX,x[1]);
             }
             else{
-                this.ending = 3;
                 this.EndGame();
             }
 
