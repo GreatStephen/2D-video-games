@@ -132,6 +132,9 @@ function MyGame() {
     this.hungerRate = 20;
     
     this.princess = null;
+
+    // cookie manager
+    this.cookiemanager = new cookieManager();
 }
 gEngine.Core.inheritPrototype(MyGame, Scene);
 
@@ -423,6 +426,10 @@ MyGame.prototype.initialize = function () {
     //event, action and result
     this.mEventSet = new EventSet(this.mEventNum);
     console.log(this.mEventSet);
+
+    //cookie manager test
+    //this.cookiemanager.setCookie("Ending1",true);
+
 };
 
 // This is the draw function, make sure to setup proper drawing environment, and more
@@ -703,6 +710,8 @@ MyGame.prototype.update = function () {
     }
     if(this.mHealthValue<=0&&this.ending<0){
         this.ending = 1;
+        //save cookie
+        this.cookiemanager.setCookie("Ending1","true");
         this.EndGame();
     }
     

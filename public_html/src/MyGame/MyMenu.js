@@ -62,6 +62,9 @@ function MyMenu(){
 
     this.hint1 = null;
     this.hint2 = null;
+
+    // cookie
+    this.cookiemanager = new cookieManager();
     
     
     if(!gEngine.ResourceMap.isAssetLoaded("endings")){
@@ -183,6 +186,16 @@ MyMenu.prototype.initialize = function () {
     for(var i=0;i<13;i++){
         var fr;
         //console.log(i);
+
+        var flag = this.cookiemanager.getCookie("Ending"+i);
+        if(flag=="true"){
+            AllEndings[i].flag = true;
+        }
+        else if(flag=="false"){
+            AllEndings[i].flag = false;
+        }
+        console.log("cookie test:"+flag);
+
         if(AllEndings[i].flag)
             fr = new FontRenderable(AllEndings[i].name);
         else
@@ -203,7 +216,9 @@ MyMenu.prototype.initialize = function () {
     
     gEngine.AudioClips.playBackgroundAudio(this.BGM);   
     
-    
+
+
+
 }
 
 MyMenu.prototype.draw = function () {

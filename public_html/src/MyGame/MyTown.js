@@ -138,6 +138,9 @@ function MyTown() {
 
     this.hungerRate = 1;
     this.attack =false;
+
+    //cookie manager
+    this.cookiemanager = new cookieManager();
 }
 gEngine.Core.inheritPrototype(MyTown, Scene);
 
@@ -650,6 +653,9 @@ MyTown.prototype.update = function () {
     }
     if(this.mHealthValue<=0&&this.ending<0){
         this.ending = 1;
+        //save cookie
+        this.cookiemanager.setCookie("Ending1","true");
+
         this.EndGame();
     }
 
