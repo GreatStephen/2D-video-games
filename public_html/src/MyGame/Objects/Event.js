@@ -101,7 +101,7 @@ var AllResult=[
     new Result("You leave.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
 
     // pass last knight 37
-    new Result("The town guard thinks you are a hunter, let you in.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
+    new Result("The town guard didn't notice you.",0,0,0,0,0,0,0,0,0,0,0,0,0,1),
 
     // escape fail 38
     new Result("Fail to escape. ",0,0,0,0,0,0,0,0,0,0,0,0,0,0.3)
@@ -149,7 +149,7 @@ var AllEventAct = [
     
     // hunter
     new Action("1. Ok (-30 hunger)", [AllResult[22]]),
-    new Action("2. Rob him.", [AllResult[23], AllResult[24]]),
+    new Action("2. Rob him.(50% succeed)", [AllResult[23], AllResult[24]]),
     new Action("3. Sorry, I' m busy.",[AllResult[25]]),
     new Action(),
     

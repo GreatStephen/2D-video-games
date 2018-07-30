@@ -670,7 +670,7 @@ MyGame.prototype.update = function () {
         if(this.mBag.GetItemIdx(11)!=-1){
             if(this.mEventIndex==15){
                 var action = this.mEventSet[this.mEventIndex].action[1];
-                action.setContent("2. I am a hunter, I have this cape!");
+                action.setContent("2. Mingle in the crowd by the cape");
                 action.setResult([AllResult[37]]);
             }
         }

@@ -94,7 +94,7 @@ Result.prototype.apply = function(mygame, enemy){
     }
     if(this.dropItemNum>0){
         console.log("drop "+this.getItemId);
-        mygame.mBag.AddItem(this.getItemId, this.getItemNum);
+        mygame.mBag.RemoveItemById(this.getItemId, this.getItemNum);
     }
     
     //fight
