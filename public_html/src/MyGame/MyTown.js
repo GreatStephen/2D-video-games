@@ -669,12 +669,6 @@ MyTown.prototype.update = function () {
         this.isPrincessLocation = true;
         this.EndGame();
     }
-
-    if(gEngine.Input.isKeyClicked(gEngine.Input.keys.R)){
-        gEngine.GameLoop.stop();
-        var nextscene = new MyTown();
-        gEngine.Core.startScene(nextscene);
-    }
     
     // update attribute renderable
     this.mHunger.setText("Hunger: " + this.mHungerValue + "/"+this.mHungerValueMax);

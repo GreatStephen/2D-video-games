@@ -705,12 +705,6 @@ MyPalace.prototype.update = function () {
         this.EndGame();
     }
 
-    if(gEngine.Input.isKeyClicked(gEngine.Input.keys.R)){
-        gEngine.GameLoop.stop();
-        var nextscene = new MyPalace();
-        gEngine.Core.startScene(nextscene);
-    }
-    
     // update attribute renderable
     this.mHunger.setText("Hunger: " + this.mHungerValue + "/"+this.mHungerValueMax);
     this.mHealth.setText("Health: " + this.mHealthValue + "/"+this.mHealthValueMax);
