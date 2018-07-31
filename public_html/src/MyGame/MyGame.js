@@ -722,14 +722,9 @@ MyGame.prototype.update = function () {
     }
     
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Z)){
-        //this.ending = 4;
+        this.ending = 12;
+        this.cookiemanager.setCookie("Ending12","true");
         this.EndGame();
-    }
-    
-    if(gEngine.Input.isKeyClicked(gEngine.Input.keys.R)){
-        gEngine.GameLoop.stop();
-        var nextscene = new MyGame();
-        gEngine.Core.startScene(nextscene);
     }
     
     // update attribute renderable

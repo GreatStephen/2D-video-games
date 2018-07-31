@@ -147,7 +147,7 @@ function EventPalace(num, isPrincessLocation, isPrincessAmbition, isMeetPrincess
         AllEventActPalace[5] = new Action("2. Reveal her plot", [AllResultPalace[11]]);
     }
     if(isMeetPrincess){
-        AllEventActPalace[9] = new Action("2. Force him to give your crown by the country's power of princess", [AllResultPalace[10]]);
+        AllEventActPalace[9] = new Action("2. Force him to abdicate by help of princess", [AllResultPalace[10]]);
     }
     if(isMeetPrincess&&!hasRing){
        AllEventActPalace[4] = new Action("1. Ask for her help",[AllResultPalace[8]]);

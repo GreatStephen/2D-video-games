@@ -663,6 +663,8 @@ MyTown.prototype.update = function () {
 
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Z)){
         //this.ending = 4;
+        this.ending = 12;
+        this.cookiemanager.setCookie("Ending12","true");
         this.isPrincessAmbition = true;
         this.isPrincessLocation = true;
         this.EndGame();
